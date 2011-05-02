@@ -8,6 +8,6 @@ package biblioteca.database2.controladores;
  *
  * @author alejandro
  */
-public class ControladorPalabraClave {
+public class ControladorDocumento {
     
 }

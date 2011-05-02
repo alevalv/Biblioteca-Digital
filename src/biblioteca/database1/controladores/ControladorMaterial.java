@@ -2,12 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package biblioteca.database2.controladores;
+package biblioteca.database1.controladores;
 
 /**
  *
  * @author alejandro
  */
-public class ControladorPalabraClave {
+public class ControladorMaterial {
     
 }
