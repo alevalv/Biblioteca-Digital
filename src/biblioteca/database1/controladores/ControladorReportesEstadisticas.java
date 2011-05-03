@@ -9,5 +9,7 @@ package biblioteca.database1.controladores;
  * @author alejandro
  */
 public class ControladorReportesEstadisticas {
-    
+    void generarReporte(){
+        
+    }
 }
