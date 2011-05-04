@@ -9,5 +9,7 @@ package biblioteca.database2.accesoDatos;
  * @author alejandro
  */
 public class DaoDocumento {
-    
+    void agregarDocumento(){
+
+    }
 }
