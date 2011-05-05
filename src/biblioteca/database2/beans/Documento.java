@@ -19,10 +19,9 @@ public class Documento {
     String fechaCreacion;
     String fechaPublicacion;
     String fechaCatalogacion;
-    String softwareAdecuado;
     String tipoDocumento;
 
-    public Documento(){ }
+    public void Documento(){ }
 
      public void setID_documento(String id_documento) {
         this.id_documento = id_documento;
@@ -68,10 +67,6 @@ public class Documento {
         this.fechaCatalogacion = fechaCatalogacion;
     }
      
-     public void setSoftwareAdecuado(String softwareAdecuado) {
-        this.softwareAdecuado = softwareAdecuado;
-    }
-     
      public void setTipoMaterial(String tipoMaterial) {
         this.tipoDocumento = tipoMaterial;
     }
@@ -114,10 +109,6 @@ public class Documento {
 
      public String getFechaCatalogacion() {
         return fechaCatalogacion;
-     }
-
-     public String getSoftwareAdecuado() {
-        return softwareAdecuado;
      }
 
      public String getTipoMaterial() {
