@@ -3,9 +3,6 @@
  * and open the template in the editor.
  */
 package biblioteca.database2.beans;
-
-package beans;
-
 /**
  *
  * @author Eduardo
