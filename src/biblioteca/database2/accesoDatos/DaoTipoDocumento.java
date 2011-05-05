@@ -40,10 +40,12 @@ public class DaoTipoDocumento {
        return -1;
     }
 
-    public void modificarTipoDocumento(String tipoDocumento, String descripcion)
+    public void modificarTipoDocumento(TipoDocumento tipoDocumento)
     {
         String sql_modificar;
-        sql_modificar="UPDATE programas SET tipo_documento = '"+ tipoDocumento + "' WHERE descripcion = '"+ descripcion + "';";
+        sql_modificar="UPDATE programas SET tipo_documento = '"+ 
+                tipoDocumento.getTipoDocumento() + "' WHERE descripcion = '"
+                + tipoDocumento.getDescripcion() + "';";
         try{
             Connection conn= fachada.conectar();
             Statement sentencia = conn.createStatement();
