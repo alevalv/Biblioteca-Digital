@@ -9,7 +9,7 @@ import biblioteca.database2.beans.TipoDocumento;
 
 /**
  *
- * @author alejandro
+ * @author Alejandro Valdés
  */
 public class ControladorTipoDocumento {
     public void agregarTipoDocumento(String nombre, String descripcion){
