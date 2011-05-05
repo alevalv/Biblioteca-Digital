@@ -21,11 +21,11 @@ public class DaoTipoDocumento {
         fachada = new fachada();
     }
 
-    public int agregarTipo(TipoDocumento tipoMaterial)
+    public int agregarTipo(TipoDocumento tipoDocumento)
     {
        String sql_agregar;
        sql_agregar = "INSERT INTO tipo_material(tipo_documento, descripcion) VALUES ('" +
-               tipoMaterial.getTipoDocumento() + "','" + tipoMaterial.getDescripcion() + "')";
+               tipoDocumento.getTipoDocumento() + "','" + tipoDocumento.getDescripcion() + "')";
 
        try{
             Connection conn= fachada.conectar();
