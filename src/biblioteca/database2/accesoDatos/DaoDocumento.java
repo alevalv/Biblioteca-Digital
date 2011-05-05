@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 /**
  *
- * @author alejandro
+ * @author Alejandro Valdés
  */
 public class DaoDocumento {
     fachada Fachada;
