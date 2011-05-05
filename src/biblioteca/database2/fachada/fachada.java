@@ -24,7 +24,7 @@ public class fachada {
         Connection conexion;
         Statement instruccion;
         ResultSet tabla;
-        fachada(){
+        public void fachada(){
             url="jdbc:postgresql://localhost/alevalvi";
             usuario="postgres";
             password="root";
