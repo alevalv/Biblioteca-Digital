@@ -21,7 +21,7 @@ public class DaoDocumento {
     public void insertarDocumento(Documento documento, String usuario){
         //TODO insertarDocumento
     }
-    public void deshabilitarDocumento(Documento documento){
+    public void deshabilitarDocumento(String id_documento){
         //TODO deshabilitarDocumento
     }
     public int modificarDocumento(Documento documento){
