@@ -40,7 +40,7 @@ public class DaoTipoDocumento {
        return -1;
     }
 
-    public void modificarTipoCodumento(String tipoDocumento, String descripcion)
+    public void modificarTipoDocumento(String tipoDocumento, String descripcion)
     {
         String sql_modificar;
         sql_modificar="UPDATE programas SET tipo_documento = '"+ tipoDocumento + "' WHERE descripcion = '"+ descripcion + "';";
