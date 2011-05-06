@@ -9,7 +9,8 @@ package biblioteca.database2.beans;
  * @author Eduardo
  */
 public class Documento {
-    String id_documento;    
+    String id_documento;
+    boolean activo;
     String editorial;
     String derechosAutor;
     String idioma;
@@ -25,6 +26,10 @@ public class Documento {
 
      public void setID_documento(String id_documento) {
         this.id_documento = id_documento;
+    }
+     
+     public void setActivo(boolean activo){
+         this.activo=activo;
     }
 
       public void setdescripcion(String descripcion) {
@@ -73,6 +78,10 @@ public class Documento {
 
      public String getID_documento() {
         return id_documento;
+     }
+     
+     public boolean getActivo() {
+         return activo;
      }
 
      public String getDescripcion() {
