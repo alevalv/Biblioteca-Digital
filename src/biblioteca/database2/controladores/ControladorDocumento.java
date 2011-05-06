@@ -22,6 +22,7 @@ public class ControladorDocumento {
             String catalogador){
         Documento documento = new Documento();
         documento.setID_documento(id_documento);
+        documento.setActivo(true);
         documento.setDerechosAutor(derechosAutor);
         documento.setDescripcion(descripcion);
         documento.setEditorial(editorial);
@@ -45,13 +46,14 @@ public class ControladorDocumento {
         daoDocumento.deshabilitarDocumento(id_documento);
     }
     
-    public void modificarDocumento(String id_documento, String editorial,
+    public void modificarDocumento(String id_documento, boolean activo, String editorial,
             String derechosAutor, String idioma, String descripcion, String tipoMaterial,
             String tituloPrincipal, String tituloSecundario, String fechaCreacion,
             String fechaPublicacion, String tipoDocumento){
         Documento documento = new Documento();
         documento.setID_documento(id_documento);
         documento.setDerechosAutor(derechosAutor);
+        documento.setActivo(activo);
         documento.setDescripcion(descripcion);
         documento.setEditorial(editorial);
         documento.setFechaCreacion(fechaCreacion);
