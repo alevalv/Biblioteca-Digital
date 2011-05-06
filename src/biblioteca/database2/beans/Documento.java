@@ -21,6 +21,7 @@ public class Documento {
     String fechaPublicacion;
     String fechaCatalogacion;
     String tipoDocumento;
+    String ubicacion;
 
     public void Documento(){ }
 
@@ -75,6 +76,10 @@ public class Documento {
      public void setTipoMaterial(String tipoMaterial) {
         this.tipoDocumento = tipoMaterial;
     }
+     
+     public void setUbicacion(String ubicacion) {
+         this.ubicacion=ubicacion;
+     }
 
      public String getID_documento() {
         return id_documento;
@@ -123,8 +128,8 @@ public class Documento {
      public String getTipoMaterial() {
         return tipoDocumento;
      }
-
-
-
-
+     
+     public String getUbicacion() {
+         return ubicacion;
+     }
 }
