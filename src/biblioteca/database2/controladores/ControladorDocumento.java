@@ -79,31 +79,39 @@ public class ControladorDocumento {
         else return false;
     }
     
-    public ResultSet verDatos(String id_documento, String usuario){
+    public Documento verDatos(String id_documento, String usuario){
+        DaoDocumento daoDocumento = new DaoDocumento();
+        return daoDocumento.verDatosDocumento(id_documento, usuario);
         //TODO
     }
     
     public void insertarPalabrasClave(String id_documento, ArrayList<String> PC){
-        
+        DaoDocumento daoDocumento = new DaoDocumento();
+        daoDocumento.insertarPalabrasClave(PC, id_documento);
     }
     
     public void insertarAreas(String id_documento, ArrayList<String> Areas){
-        
+        DaoDocumento daoDocumento = new DaoDocumento();
+        daoDocumento.insertarAreas(Areas, id_documento);
     }
     
     public void insertarAutor(String id_documento, String email){
-        
+        DaoDocumento daoDocumento = new DaoDocumento();
+        daoDocumento.insertarAutor(email, id_documento);
     }
     
     public void eliminarPalabrasClave(String id_documento, ArrayList<String> PC){
-        
+        DaoDocumento daoDocumento = new DaoDocumento();
+        daoDocumento.eliminarPalabrasClave(PC, id_documento);
     }
     public void eliminarAreas(String id_documento, ArrayList<String> Areas){
-        
+        DaoDocumento daoDocumento = new DaoDocumento();
+        daoDocumento.eliminarAreas(Areas, id_documento);
     }
     
     public void eliminarAutor(String id_documento, String email){
-        
+        DaoDocumento daoDocumento = new DaoDocumento();
+        daoDocumento.eliminarAutor(email, id_documento);
     }
     
     public ResultSet consultaDocumentoGeneral(String metadatos){
