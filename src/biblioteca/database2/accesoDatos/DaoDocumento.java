@@ -31,7 +31,7 @@ public class DaoDocumento {
                 + documento.getIdioma() + "','" + documento.getEditorial() + "','" 
                 + documento.getFechaPublicacion() + "','" + documento.getDerechosAutor() + "','"
                 + documento.getUbicacion() + "','" + documento.getTipoMaterial() + "','"
-                + usuario + "')";
+                + usuario + "');";
 
        try{
             Connection conn= Fachada.conectar();
@@ -48,7 +48,7 @@ public class DaoDocumento {
     
     public int deshabilitarDocumento(String id_documento){
         String sql_modificar;
-        sql_modificar="UPDATE documento SET activo = 'false' WHERE doc_id = '"
+        sql_modificar="UPDATE documentos SET activo = 'false' WHERE doc_id = '"
                 + id_documento + "';";
         try{
             Connection conn= Fachada.conectar();
@@ -64,8 +64,28 @@ public class DaoDocumento {
     }
     
     public int modificarDocumento(Documento documento){
-        //TODO modificarDocumento
-        return -1;
+        //TODO modificarDocumento sin terminar
+        String sql_modificar;
+        sql_modificar = "UPDATE documentos(activo, titulo_principal, "+
+                "titulo_secundario, descripcion, idioma, editorial, fecha_publicacion, " +
+                "derechos_autor, ubicacion, tipo_documento, catalogador)"+
+                "VALUES ('" + "true" + "','" + documento.getTituloPrincipal() + "','" 
+                + documento.getTituloSecundario() + "','"+ documento.getDescripcion() + "','"
+                + documento.getIdioma() + "','" + documento.getEditorial() + "','" 
+                + documento.getFechaPublicacion() + "','" + documento.getDerechosAutor() + "','"
+                + documento.getUbicacion() + "','" + documento.getTipoMaterial() + "');";
+
+       try{
+            Connection conn= Fachada.conectar();
+            java.sql.Statement sentencia = conn.createStatement();
+            int num_filas=sentencia.executeUpdate(sql_modificar);
+            conn.close();
+            return num_filas;
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+
+       return -1;
     }
     public int verificarExistencia(String id_documento){
         //TODO verificarDocumento
