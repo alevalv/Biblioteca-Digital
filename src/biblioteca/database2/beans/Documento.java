@@ -17,7 +17,6 @@ public class Documento {
     String descripcion;
     String tituloPrincipal;
     String tituloSecundario;
-    String fechaCreacion;
     String fechaPublicacion;
     String fechaCatalogacion;
     String tipoDocumento;
@@ -59,10 +58,6 @@ public class Documento {
 
      public void setTituloSecundario(String tituloSecundario) {
         this.tituloSecundario = tituloSecundario;
-    }
-
-     public void setFechaCreacion(String fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
     }
 
      public void setFechaPublicacion(String fechaPublicacion) {
@@ -111,10 +106,6 @@ public class Documento {
 
      public String getTituloSecundario() {
         return tituloSecundario;
-     }
-
-     public String getFechaCreacion() {
-        return fechaCreacion;
      }
 
      public String getFechaPublicacion() {
