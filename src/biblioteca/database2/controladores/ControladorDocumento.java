@@ -19,9 +19,8 @@ public class ControladorDocumento {
     
     public void insertarDocumento(String id_documento, String editorial,
             String derechosAutor, String idioma, String descripcion, String tipoMaterial,
-            String tituloPrincipal, String tituloSecundario, String fechaCreacion,
-            String fechaPublicacion, String fechaCatalogacion, String tipoDocumento,
-            String catalogador){
+            String tituloPrincipal, String tituloSecundario, String fechaPublicacion,
+            String fechaCatalogacion, String tipoDocumento, String catalogador){
         Documento documento = new Documento();
         documento.setID_documento(id_documento);
         documento.setActivo(true);
@@ -29,7 +28,6 @@ public class ControladorDocumento {
         documento.setDescripcion(descripcion);
         documento.setEditorial(editorial);
         documento.setFechaCatalogacion(fechaCatalogacion);
-        documento.setFechaCreacion(fechaCreacion);
         documento.setFechaPublicacion(fechaPublicacion);
         documento.setIdioma(idioma);
         documento.setTipoMaterial(tipoMaterial);
@@ -48,17 +46,16 @@ public class ControladorDocumento {
         daoDocumento.deshabilitarDocumento(id_documento);
     }
     
-    public void modificarDocumento(String id_documento, boolean activo, String editorial,
-            String derechosAutor, String idioma, String descripcion, String tipoMaterial,
-            String tituloPrincipal, String tituloSecundario, String fechaCreacion,
-            String fechaPublicacion, String tipoDocumento){
+    public void modificarDocumento(String id_documento, boolean activo,
+            String editorial, String derechosAutor, String idioma, 
+            String descripcion, String tipoMaterial, String tituloPrincipal,
+            String tituloSecundario, String fechaPublicacion, String tipoDocumento){
         Documento documento = new Documento();
         documento.setID_documento(id_documento);
         documento.setDerechosAutor(derechosAutor);
         documento.setActivo(activo);
         documento.setDescripcion(descripcion);
         documento.setEditorial(editorial);
-        documento.setFechaCreacion(fechaCreacion);
         documento.setFechaPublicacion(fechaPublicacion);
         documento.setIdioma(idioma);
         documento.setTipoMaterial(tipoMaterial);
@@ -72,13 +69,10 @@ public class ControladorDocumento {
         documento= null;
     }
     
+    @Deprecated
     public boolean verificarExistencia(String id_documento){
         DaoDocumento daoDocumento = new DaoDocumento();
-        int numero=daoDocumento.verificarExistencia(id_documento);
-        if(numero!=-1){
-            return true;
-        }
-        else return false;
+        return daoDocumento.verificarExistencia(id_documento);
     }
     
     public Documento verDatos(String id_documento, String usuario){
