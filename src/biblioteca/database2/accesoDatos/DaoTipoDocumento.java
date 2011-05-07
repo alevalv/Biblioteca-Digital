@@ -68,7 +68,7 @@ public class DaoTipoDocumento {
             ResultSet tabla = sentencia.executeQuery(sql_consultar);
             
             TipoDocumento tipoDocumento=null;
-            if(!tabla.wasNull()){
+            if(tabla.next()){
                 tipoDocumento.setTipoDocumento(tabla.getString(1));
                 tipoDocumento.setDescripcion(tabla.getString(2));
             }
