@@ -64,16 +64,18 @@ public class DaoDocumento {
     }
     
     public int modificarDocumento(Documento documento){
-        //TODO modificarDocumento sin terminar
         String sql_modificar;
-        sql_modificar = "UPDATE documentos(activo, titulo_principal, "+
-                "titulo_secundario, descripcion, idioma, editorial, fecha_publicacion, " +
-                "derechos_autor, ubicacion, tipo_documento, catalogador)"+
-                "VALUES ('" + "true" + "','" + documento.getTituloPrincipal() + "','" 
-                + documento.getTituloSecundario() + "','"+ documento.getDescripcion() + "','"
-                + documento.getIdioma() + "','" + documento.getEditorial() + "','" 
-                + documento.getFechaPublicacion() + "','" + documento.getDerechosAutor() + "','"
-                + documento.getUbicacion() + "','" + documento.getTipoMaterial() + "');";
+        sql_modificar = "UPDATE documentos SET activo ='" +documento.getActivo() +"',"+
+                "titulo_principal='"+documento.getTituloPrincipal()+"',"+
+                "titulo_secundario='"+ documento.getTituloSecundario() +"',"+
+                "descripcion='" + documento.getDescripcion() +"',"+
+                "idioma='" + documento.getIdioma() + "'," +
+                "editorial='"+ documento.getEditorial() +"'," +
+                "fecha_publicacion='" + documento.getFechaPublicacion() + "'," +
+                "derechos_autor='"+ documento.getDerechosAutor() + "'," +
+                "ubicacion='"+ documento.getUbicacion() + "'," +
+                "tipo_documento='"+ documento.getTipoMaterial() + "'"+
+                "WHERE doc_id='"+documento.getID_documento()+"'";
 
        try{
             Connection conn= Fachada.conectar();
@@ -139,41 +141,136 @@ public class DaoDocumento {
         catch(Exception e){ System.out.println(e); }
         return null;
     }
-    
+    //identica a modificar documento
+    @Deprecated
     public int actualizarDocumento(Documento documento){
-        //TODO actualizarDocumento
-        return -1;
+        String sql_modificar;
+        sql_modificar = "UPDATE documentos SET activo ='" +documento.getActivo() +"',"+
+                "titulo_principal='"+documento.getTituloPrincipal()+"',"+
+                "titulo_secundario='"+ documento.getTituloSecundario() +"',"+
+                "descripcion='" + documento.getDescripcion() +"',"+
+                "idioma='" + documento.getIdioma() + "'," +
+                "editorial='"+ documento.getEditorial() +"'," +
+                "fecha_publicacion='" + documento.getFechaPublicacion() + "'," +
+                "derechos_autor='"+ documento.getDerechosAutor() + "'," +
+                "ubicacion='"+ documento.getUbicacion() + "'," +
+                "tipo_documento='"+ documento.getTipoMaterial() + "'"+
+                "WHERE doc_id='"+documento.getID_documento()+"'";
+
+       try{
+            Connection conn= Fachada.conectar();
+            java.sql.Statement sentencia = conn.createStatement();
+            int num_filas=sentencia.executeUpdate(sql_modificar);
+            conn.close();
+            return num_filas;
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+
+       return -1;
     }
-    public int insertarAreas(ArrayList<String> areas, String documento){
-        //TODO insertarAreas
-        return -1;
+    
+    public void insertarAreas(ArrayList<String> areas, String id_documento){
+        try{
+            Connection conn= Fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            String sql_insertar;
+            for(int i=0;i<areas.size();i++){
+                sql_insertar="INSERT INTO documento_areas_computacion VALUES ('"+
+                    areas.get(i)+"','"+id_documento+"');";
+                sentencia.addBatch(sql_insertar);
+            }
+            sentencia.executeBatch();
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
     }
-    public int insertarPalabrasClave(ArrayList<String> PC, String documento){
-        //TODO insertarPalabrasClave
-        return -1;
+    
+    public void insertarPalabrasClave(ArrayList<String> PC, String id_documento){
+        try{
+            Connection conn= Fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            String sql_insertar;
+            for(int i=0;i<PC.size();i++){
+                sql_insertar="INSERT INTO documento_palabras_clave VALUES ('"+
+                    id_documento+"','"+PC.get(i) +"');";
+                sentencia.addBatch(sql_insertar);
+            }
+            sentencia.executeBatch();
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
     }
-    public int insertarAutor(String email, String id_documento){
-        //TODO insertarAutor
-        return -1;
+    
+    public void insertarAutores(ArrayList<String> emails, String id_documento){
+        try{
+            Connection conn= Fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            String sql_insertar;
+            for(int i=0;i<emails.size();i++){
+                sql_insertar="INSERT INTO documento_autor VALUES ('"+
+                    id_documento+"','"+emails.get(i) +"');";
+                sentencia.addBatch(sql_insertar);
+            }
+            sentencia.executeBatch();
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
     }
-    public int eliminarAreas(ArrayList<String> areas, String documento){
-        //TODO eliminarAreas
-        return -1;
+    
+    public void eliminarAreas(ArrayList<String> areas, String id_documento){
+        try{
+            Connection conn= Fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            String sql_eliminar;
+            for(int i=0;i<areas.size();i++){
+                sql_eliminar="DELETE FROM documento_areas_computacion WHERE"+
+                        "area_id='"+ areas.get(i)+"' AND doc_id='"+id_documento+"';";
+                sentencia.addBatch(sql_eliminar);
+            }
+            sentencia.executeBatch();
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
     }
-    public int eliminarPalabrasClave(ArrayList<String> PC, String documento){
-        //TODO eliminarPalabrasClave
-        return -1;
+    
+    public void eliminarPalabrasClave(ArrayList<String> PC, String id_documento){
+        try{
+            Connection conn= Fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            String sql_eliminar;
+            for(int i=0;i<PC.size();i++){
+                sql_eliminar="DELETE FROM documento_palabras_clave WHERE doc_id='"+
+                    id_documento+"'AND nombre='"+PC.get(i) +"';";
+                sentencia.addBatch(sql_eliminar);
+            }
+            sentencia.executeBatch();
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
     }
-    public int eliminarAutor(String email, String id_documento){
-        //TODO eliminarAutor
-        return -1;
+    
+    public void eliminarAutores(ArrayList<String> emails, String id_documento){
+        try{
+            Connection conn= Fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            String sql_eliminar;
+            for(int i=0;i<emails.size();i++){
+                sql_eliminar="DELETE FROM documento_autor WHERE doc_id='"+
+                    id_documento+"AND autor_correo='"+emails.get(i) +"';";
+                sentencia.addBatch(sql_eliminar);
+            }
+            sentencia.executeBatch();
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
     }
-    public ResultSet consultarDocumento(String datos){
-        return 1;
-    }
+    
     public ResultSet consultarDocumento(ArrayList<String> datos){
-        return 1;
+        //TODO programar consultarDocumento
     }
+    
+    //TODO programar consultaAvanzadaDocumento
     
     private void UsuarioConsultaDocumento(String id_documento, String usuario){
         String sql_insertar;
