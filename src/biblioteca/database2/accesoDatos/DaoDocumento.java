@@ -87,14 +87,59 @@ public class DaoDocumento {
 
        return -1;
     }
-    public int verificarExistencia(String id_documento){
-        //TODO verificarDocumento
-        return -1;
+    //no le veo sentido a esta función.
+    @Deprecated
+    public boolean verificarExistencia(String id_documento){
+        String sql_verificar;
+        sql_verificar="SELECT * FROM documentos WHERE doc_id='"+id_documento+"';";
+        try{
+            Connection conn= Fachada.conectar();
+            java.sql.Statement sentencia = conn.createStatement();
+            ResultSet salida=sentencia.executeQuery(sql_verificar);
+            conn.close();
+            if(salida.next()){
+                if(salida.wasNull()){
+                    return false;
+                }
+                else return true;
+            }
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+        return false;
     }
+    //Esta función supone que el documento EXISTE y está ACTIVO
     public Documento verDatosDocumento(String id_documento, String usuario){
-        //TODO verDatosDocumento
-        return new Documento();
+        String sql_consultar;
+        sql_consultar="SELECT * FROM documentos WHERE doc_id='"+id_documento+"';";
+        try{
+            Connection conn= Fachada.conectar();
+            java.sql.Statement sentencia = conn.createStatement();
+            ResultSet salida=sentencia.executeQuery(sql_consultar);
+            Documento documento = new Documento();
+            while(salida.next()){
+                documento.setActivo(true);
+                documento.setID_documento(id_documento);
+                documento.setTituloPrincipal(salida.getString("titulo_principal"));
+                documento.setTituloSecundario(salida.getString("titulo_secundario"));
+                documento.setDescripcion(salida.getString("descripcion"));
+                documento.setTipoMaterial(salida.getString("tipo_documento"));
+                documento.setIdioma(salida.getString("idioma"));
+                documento.setEditorial(salida.getString("editorial"));
+                documento.setFechaPublicacion(salida.getString("fecha_publicacion"));
+                documento.setDerechosAutor(salida.getString("derechos_autor"));
+                documento.setUbicacion(salida.getString("ubicacion"));
+                documento.setFechaCatalogacion(salida.getString("fecha_catalogacion"));
+            }
+            conn.close();
+            return documento;
+            
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+        return null;
     }
+    
     public int actualizarDocumento(Documento documento){
         //TODO actualizarDocumento
         return -1;
@@ -129,8 +174,33 @@ public class DaoDocumento {
     public ResultSet consultarDocumento(ArrayList<String> datos){
         return 1;
     }
-    public int descargarDocumento(String id_documento, String usuario){
-        return -1;
+    
+    private void UsuarioConsultaDocumento(String id_documento, String usuario){
+        String sql_insertar;
+        sql_insertar="INSERT INTO usuario_consulta_documento (doc_id, username)"+
+                "VALUES ('"+id_documento+"','"+usuario+"');";
+        try{
+            Connection conn= Fachada.conectar();
+            java.sql.Statement sentencia = conn.createStatement();
+            sentencia.executeUpdate(sql_insertar);
+            conn.close();
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+    }
+    
+    private void UsuarioDescargaDocumento(String id_documento, String usuario){
+        String sql_insertar;
+        sql_insertar="INSERT INTO usuario_descarga_documento (doc_id, username)"+
+                "VALUES ('"+id_documento+"','"+usuario+"');";
+        try{
+            Connection conn= Fachada.conectar();
+            java.sql.Statement sentencia = conn.createStatement();
+            sentencia.executeUpdate(sql_insertar);
+            conn.close();
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
     }
     
     
