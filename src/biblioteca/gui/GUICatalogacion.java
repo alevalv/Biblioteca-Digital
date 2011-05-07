@@ -10,6 +10,11 @@
  */
 package biblioteca.gui;
 
+import biblioteca.gui.catalogacion.Informacion_Basica;
+import biblioteca.gui.catalogacion.Autores;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
 /**
  *
  * @author alejandro
@@ -36,8 +41,8 @@ public class GUICatalogacion extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridLayout());
 
-        GUICAT_Informacion_Basica informacionBasica = new GUICAT_Informacion_Basica();
-        GUICAT_Autores autores = new GUICAT_Autores();
+        Informacion_Basica informacionBasica = new Informacion_Basica();
+        Autores autores = new Autores();
         jTabbedPane1.add("Información Basica", informacionBasica);
         jTabbedPane1.add("Autores", autores);
         getContentPane().add(jTabbedPane1);
@@ -52,6 +57,23 @@ public class GUICatalogacion extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
+                try {
+	    // Set System L&F
+        UIManager.setLookAndFeel(
+            UIManager.getSystemLookAndFeelClassName());
+    } 
+    catch (UnsupportedLookAndFeelException e) {
+       // handle exception
+    }
+    catch (ClassNotFoundException e) {
+       // handle exception
+    }
+    catch (InstantiationException e) {
+       // handle exception
+    }
+    catch (IllegalAccessException e) {
+       // handle exception
+    }
                 new GUICatalogacion().setVisible(true);
             }
         });
