@@ -91,9 +91,9 @@ public class ControladorDocumento {
         daoDocumento.insertarAreas(Areas, id_documento);
     }
     
-    public void insertarAutor(String id_documento, String email){
+    public void insertarAutores(String id_documento, ArrayList<String> emails){
         DaoDocumento daoDocumento = new DaoDocumento();
-        daoDocumento.insertarAutor(email, id_documento);
+        daoDocumento.insertarAutores(emails, id_documento);
     }
     
     public void eliminarPalabrasClave(String id_documento, ArrayList<String> PC){
@@ -105,9 +105,9 @@ public class ControladorDocumento {
         daoDocumento.eliminarAreas(Areas, id_documento);
     }
     
-    public void eliminarAutor(String id_documento, String email){
+    public void eliminarAutores(String id_documento, ArrayList<String> emails){
         DaoDocumento daoDocumento = new DaoDocumento();
-        daoDocumento.eliminarAutor(email, id_documento);
+        daoDocumento.eliminarAutores(emails, id_documento);
     }
     /*
      * 
