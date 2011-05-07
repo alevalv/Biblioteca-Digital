@@ -99,6 +99,7 @@ public class GUICAT_Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 10);
         add(jLabel4, gridBagConstraints);
 
