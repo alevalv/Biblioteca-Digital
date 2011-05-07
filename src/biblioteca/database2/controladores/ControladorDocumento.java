@@ -7,11 +7,13 @@ package biblioteca.database2.controladores;
 import biblioteca.database2.accesoDatos.DaoDocumento;
 import biblioteca.database2.beans.Documento;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 /**
  *
- * @author alejandro
+ * @author Alejandro Valdés Villada
  */
 public class ControladorDocumento {
     
@@ -113,12 +115,34 @@ public class ControladorDocumento {
         DaoDocumento daoDocumento = new DaoDocumento();
         daoDocumento.eliminarAutor(email, id_documento);
     }
-    
-    public ResultSet consultaDocumentoGeneral(String metadatos){
-        
+    /*
+     * 
+     * La Salida es un ArrayList, donde se metera primero el id del documento, 
+     * luego el titulo principal, titulo secundario y autor
+     */
+    public ArrayList<String> consultaDocumentoGeneral(String metadatos){
+        StringTokenizer Stk = new StringTokenizer(metadatos, " ");
+        ArrayList<String> ListMetadatos = new ArrayList<String>();
+        while(Stk.hasMoreTokens()){
+            ListMetadatos.add(Stk.nextToken());
+        }
+        DaoDocumento daoDocumento = new DaoDocumento();
+        ResultSet salida=daoDocumento.consultarDocumento(ListMetadatos);
+        ArrayList<String> ResultadoConsulta = new ArrayList<String>();
+        try{
+            while(salida.next()){
+                ResultadoConsulta.add(salida.getString(1));
+                ResultadoConsulta.add(salida.getString(2));
+                ResultadoConsulta.add(salida.getString(3));
+                ResultadoConsulta.add(salida.getString(4));
+            }
+        }catch(SQLException se){
+            System.err.println(se);
+        }
+        return ResultadoConsulta;
     }
     
-    public ResultSet consultaDocumentoAvanzada(String titulo, String autor, 
+    public ArrayList<String> consultaDocumentoAvanzada(String titulo, String autor, 
             String pc, int opcion1, int opcion2, int opcion3, String area, 
             String idioma, int fecha, String formato){
         
