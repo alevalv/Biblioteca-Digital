@@ -48,7 +48,7 @@ public class GUICAT_Informacion_Basica extends javax.swing.JPanel {
         Fecha_Publicacion = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         Derechos_Autor = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
+        Estado = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
         setLayout(new java.awt.GridBagLayout());
@@ -176,16 +176,16 @@ public class GUICAT_Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 10);
         add(Derechos_Autor, gridBagConstraints);
 
-        jLabel10.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel10.setText("[Sin Guardar]");
+        Estado.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        Estado.setForeground(new java.awt.Color(255, 0, 0));
+        Estado.setText("[Sin Guardar]");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 11;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 0);
-        add(jLabel10, gridBagConstraints);
+        add(Estado, gridBagConstraints);
 
         jButton1.setText("Siguiente Paso");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -209,13 +209,13 @@ public class GUICAT_Informacion_Basica extends javax.swing.JPanel {
     private javax.swing.JTextField Derechos_Autor;
     private javax.swing.JTextArea Descripcion;
     private javax.swing.JTextField Editorial;
+    private javax.swing.JLabel Estado;
     private javax.swing.JTextField Fecha_Publicacion;
     private javax.swing.JTextField Titulo_Principal;
     private javax.swing.JTextField Titulo_Secundario;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
