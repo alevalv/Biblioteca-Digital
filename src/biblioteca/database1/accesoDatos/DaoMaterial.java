@@ -4,21 +4,20 @@
  */
 package biblioteca.database1.accesoDatos;
 
-package accesoDatos;
-
-import beans.*;
+import biblioteca.database1.beans.*;
+import biblioteca.database1.fachada.Fachada;
 import java.sql.*;
-import java.util.Vector;
+import java.util.ArrayList;
 
 /**
  *
  * @author Eduardo
  */
-public class DaoDocumento {
+public class DaoMaterial {
 
      Fachada fachada;
 
-   public DaoDocumento(){
+   public DaoMaterial(){
         fachada= new Fachada();
     }
 
@@ -149,13 +148,13 @@ public class DaoDocumento {
 //        return -1;
 //    }
 
-      public int insertarAreas(Vector<String> areas, String id_documento)
+      public int insertarAreas(ArrayList<String> areas, String id_documento)
     {
         String sql_insertarAreas;
         for(int i=0;i<areas.size();i++)
         {
             sql_insertarAreas="INSERT INTO mat_pertenece_area(id_material, id_area) VALUES ('" +
-                    id_documento + "', '" + areas.elementAt(i)+"')";
+                    id_documento + "', '" + areas.get(i)+"')";
             try{
                 Connection conn= fachada.conectar();
                 Statement sentencia = conn.createStatement();
@@ -171,13 +170,13 @@ public class DaoDocumento {
         return 1;
     }
 
-    public int insertarPalabrasClaves(Vector<String> PC, String id_documento)
+    public int insertarPalabrasClaves(ArrayList<String> PC, String id_documento)
     {
         String sql_insertarPalabrasClaves;
         for(int i=0;i<PC.size();i++)
         {
             sql_insertarPalabrasClaves="INSERT INTO mat_posee_palclave(id_material, nombre_palclave) VALUES ('" +
-                    id_documento + "', '" + PC.elementAt(i)+"');";
+                    id_documento + "', '" + PC.get(i)+"');";
             try{
                 Connection conn= fachada.conectar();
                 Statement sentencia = conn.createStatement();
@@ -214,12 +213,12 @@ public class DaoDocumento {
 
     }
 
-    public int eliminarAreas(Vector<String> areas, String id_documento)
+    public int eliminarAreas(ArrayList<String> areas, String id_documento)
     {
         String sql_eliminarAreas;
         for(int i=0; i< areas.size();i++)
         {
-            sql_eliminarAreas="DELETE FROM mat_pertenece_area  WHERE id_material = '"+id_documento+"' AND id_area = '"+areas.elementAt(i)+"';";//rebisar no se si esta malo o bno
+            sql_eliminarAreas="DELETE FROM mat_pertenece_area  WHERE id_material = '"+id_documento+"' AND id_area = '"+areas.get(i)+"';";//rebisar no se si esta malo o bno
 
             try{
                 Connection conn= fachada.conectar();
@@ -235,12 +234,12 @@ public class DaoDocumento {
         return -1;
     }
 
-    public int eliminarPalabrasClaves(Vector<String> PC, String id_documento)
+    public int eliminarPalabrasClaves(ArrayList<String> PC, String id_documento)
     {
         String sql_eliminarPalabrasClaves;
         for(int i=0; i< PC.size();i++)
         {
-            sql_eliminarPalabrasClaves="DELETE FROM mat_posee_palclave WHERE id_material = '"+id_documento+"' AND nombre_palclave = '"+PC.elementAt(i)+"';";//rebisar no se si esta malo o bno
+            sql_eliminarPalabrasClaves="DELETE FROM mat_posee_palclave WHERE id_material = '"+id_documento+"' AND nombre_palclave = '"+PC.get(i)+"';";//rebisar no se si esta malo o bno
 
             try{
                 Connection conn= fachada.conectar();
