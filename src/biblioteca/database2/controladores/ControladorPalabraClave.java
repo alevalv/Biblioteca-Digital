@@ -7,6 +7,7 @@ package biblioteca.database2.controladores;
 
 import biblioteca.database2.accesoDatos.DaoPalabraClave;
 import biblioteca.database2.beans.PalabraClave;
+import java.util.ArrayList;
 
 /**
  *
@@ -40,6 +41,10 @@ public class ControladorPalabraClave {
         PalabraClave palabra= new PalabraClave();
         palabra = daoPalabraClave.consultarPalabraClave(nombre);
         return palabra;
+    }
+    
+    public ArrayList<PalabraClave> consultarTodasLasPalabrasClaves(){
+        return new DaoPalabraClave().consultarTodasLasPalabraClave();
     }
 
     public void eliminarPalabraClave(String nombre)

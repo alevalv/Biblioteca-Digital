@@ -7,6 +7,7 @@ package biblioteca.database2.accesoDatos;
 import biblioteca.database2.beans.*;
 import biblioteca.database2.fachada.Fachada;
 import java.sql.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -44,7 +45,7 @@ public class DaoPalabraClave {
             Connection conn= fachada.conectar();
             Statement sentencia = conn.createStatement();
             ResultSet tabla = sentencia.executeQuery(sql_consultar);
-            while(tabla.next()){
+            if(tabla.next()){
                 palabra.setNombre(tabla.getString(1));
                 palabra.setDescripcion(tabla.getString(2));
             }
@@ -55,6 +56,28 @@ public class DaoPalabraClave {
         return palabra;
     }
 
+    public ArrayList<PalabraClave> consultarTodasLasPalabraClave(){
+        ArrayList<PalabraClave> Palabras = null;
+        String sql_consultar;
+        sql_consultar="SELECT * FROM palabras_clave ORDER BY nombre ASC;";
+         try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_consultar);
+            Palabras = new ArrayList<PalabraClave>();
+            while(tabla.next()){
+                PalabraClave palabra= new PalabraClave();
+                palabra.setNombre(tabla.getString(1));
+                palabra.setDescripcion(tabla.getString(2));
+                Palabras.add(palabra);
+            }
+            conn.close();
+         }
+         catch(SQLException e){ System.out.println(e); }
+         catch(Exception e){ System.out.println(e); }
+        return Palabras;
+    }
+    
 
     public int modificarPalabraClave(PalabraClave palabra)
     {
