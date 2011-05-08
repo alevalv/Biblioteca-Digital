@@ -8,10 +8,7 @@ import biblioteca.database2.beans.*;
 import biblioteca.database2.fachada.Fachada;
 import java.sql.*;
 
-/**
- *
- * @author Eduardo
- */
+
 public class DaoUsuario {
 
     Fachada fachada;
@@ -21,21 +18,24 @@ public class DaoUsuario {
     }
 
      public int guardarUsuario(Usuario usuario){
+        
         String sql_guardar;
-        sql_guardar="INSERT INTO usuarios(username, password, pregunta_secreta, respuesta_secreta, nombres, apellidos, genero, fecha_nacimiento, nivel_escolaridad, vinculo_univalle, "
-                + "tipo_usuario,correo_electronico) VALUES ('" +
+        sql_guardar="INSERT INTO usuarios(username, nombres,  apellidos, password, pregunta_secreta, respuesta_secreta, vinculo_con_univalle, tipo_usuario, correo_electronico, nivel_escolaridad, genero, "
+                + "fecha_nacimiento, fecha_registro) VALUES ('" +
                 usuario.getLogin() + "', '" +
+                usuario.getNombre()+ "', '" +
+                usuario.getApellido() + "', '"  +
                 usuario.getContraseña() +  "', '" +
                 usuario.getPreguntaSecreta() + "', '"  +
                 usuario.getRespuestaSecreta() +"', '"  +
-                usuario.getNombre()+ "', '" +
-                usuario.getApellido() + "', '"  +
-                usuario.getGenero()+ "', '"  +
-                usuario.getFechaNacimiento()+ "', '"  +
-                usuario.getEscolaridad()+ "', '"  +
                 usuario.getVinculoUnivalle()+ "', '"  +
                 usuario.getPerfil()+ "', '"  +
-                usuario.getCorreoElectronico()+"');";
+                usuario.getCorreoElectronico()+"', '" +
+                usuario.getEscolaridad()+ "', '"  +
+                usuario.getGenero()+ "', '"  +
+                usuario.getFechaNacimiento()+ "', '"  +
+                usuario.getFechaRegistro()+"');";
+
         try{
             Connection conect= fachada.conectar();
             Statement sentencia = conect.createStatement();
@@ -43,11 +43,11 @@ public class DaoUsuario {
             conect.close();
             return numFilas;
         }
-        catch(SQLException e){ System.out.println(e); }
+        catch(SQLException e){ System.out.println("SQL EXception"); }
         catch(Exception e){ System.out.println(e); }
         return -1;
     }
-
+/*
     public Usuario consultarUsuario(String login){
         Usuario usuario= new Usuario();
         
@@ -81,7 +81,7 @@ public class DaoUsuario {
          catch(Exception e){ System.out.println(e); }
         return usuario;
     }
-
+*/
 
     public int modificarUsuario(Usuario usuario)
     {

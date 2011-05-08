@@ -3,6 +3,8 @@
  * and open the template in the editor.
  */
 package biblioteca.database2.beans;
+import java.sql.Timestamp;
+import java.sql.Date;
 /**
  *
  * @author Eduardo
@@ -17,12 +19,13 @@ public class Usuario {
     String preguntaSecreta;
     String respuestaSecreta;
     String genero;
-    String fechaNacimiento;
+    Date fechaNacimiento;
     String escolaridad;
     String vinculoUnivalle;
-    String fechaRegistro;
+    Timestamp fechaRegistro;
     String perfil;
     String correo_electronico;
+
 
     public Usuario(){}
 
@@ -58,7 +61,7 @@ public class Usuario {
         this.genero = genero;
     }
 
-     public void setFechaNacimiento(String fechaNacimiento) {
+     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
@@ -66,7 +69,7 @@ public class Usuario {
         this.escolaridad = escolaridad;
     }
 
-     public void setFechaRegistro(String fechaRegistro) {
+     public void setFechaRegistro(Timestamp fechaRegistro) {
         this.fechaRegistro = fechaRegistro;
     }
 
@@ -111,7 +114,7 @@ public class Usuario {
         return respuestaSecreta;
      }
 
-     public String getFechaNacimiento() {
+     public Date getFechaNacimiento() {
         return fechaNacimiento;
      }
 
@@ -127,7 +130,7 @@ public class Usuario {
         return vinculoUnivalle;
      }
 
-     public String getFechaRegistro() {
+     public Timestamp getFechaRegistro() {
         return fechaRegistro;
      }
 
