@@ -40,11 +40,14 @@ public class Tipo_Documento extends javax.swing.JPanel {
         Tipos_Documento.removeAllItems();
         TiposExistentes.clear();
         TiposExistentes=new DaoTipoDocumento().consultarTodosLosTipoDocumento();
+        if(!(TiposExistentes==null)){
         for(int i=0;i<TiposExistentes.size();i++){
             Tipos_Documento.insertItemAt(TiposExistentes.get(i).getTipoDocumento(), i);
         }
         Tipos_Documento.setSelectedIndex(-1);
+        }
         biblioteca.gui.GUICatalogacion.Tipo_Documento_Guardado=false;
+        
     }
     
     
@@ -232,7 +235,7 @@ public class Tipo_Documento extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Obtener_DescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Obtener_DescripcionActionPerformed
-        
+        Descripcion.setText(new DaoTipoDocumento().consultarDocumento((String)Tipos_Documento.getItemAt(Tipos_Documento.getSelectedIndex())).getDescripcion());
     }//GEN-LAST:event_Obtener_DescripcionActionPerformed
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
