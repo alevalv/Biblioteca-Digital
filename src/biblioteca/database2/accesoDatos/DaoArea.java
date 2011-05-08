@@ -7,6 +7,7 @@ package biblioteca.database2.accesoDatos;
 import biblioteca.database2.beans.*;
 import biblioteca.database2.fachada.Fachada;
 import java.sql.*;
+import java.util.ArrayList;
 /**
  *
  * @author Alejandro Valdés Villada
@@ -58,6 +59,32 @@ public class DaoArea {
          catch(SQLException e){ System.out.println(e); }
          catch(Exception e){ System.out.println(e); }
         return a;
+    }
+    
+     public ArrayList<Area> consultarTodasLasAreas(){
+         String sql_consultar;
+         sql_consultar="SELECT * FROM areas_computacion ORDER BY area_id ASC;";
+         ArrayList<Area> Areas=null;
+         try{
+             Areas= new ArrayList<Area>();
+             Connection conn= fachada.conectar();
+             Statement sentencia = conn.createStatement();
+             ResultSet tabla = sentencia.executeQuery(sql_consultar);
+             while(tabla.next()){
+                 Area a= new Area();
+                 a.setID(tabla.getString(1));
+                 a.setNombre(tabla.getString(2));
+                 a.setDescripcion(tabla.getString(3));
+                 a.setAreaPadre(tabla.getString(4));
+                 Areas.add(a);
+                 return Areas;
+             }
+            conn.close();
+
+         }
+         catch(SQLException e){ System.out.println(e); }
+         catch(Exception e){ System.out.println(e); }
+        return Areas;
     }
 
 
