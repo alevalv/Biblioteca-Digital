@@ -11,6 +11,7 @@
 package biblioteca.gui.catalogacion;
 
 import biblioteca.database2.beans.Documento;
+import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 
 /**
@@ -205,10 +206,45 @@ public class Informacion_Basica extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteActionPerformed
-        JTabbedPane parent =(JTabbedPane) this.getParent();
-        parent.setSelectedIndex(1);
+        if(checkEmptyFields()){
+            JTabbedPane parent =(JTabbedPane) this.getParent();
+            parent.setSelectedIndex(1);
+        }
     }//GEN-LAST:event_SiguienteActionPerformed
 
+    private boolean checkEmptyFields(){
+        if(Titulo_Principal.getText()==null || Titulo_Principal.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "El campo Titulo Principal no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        else if(Titulo_Secundario.getText()==null || Titulo_Secundario.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "El campo Titulo Secundario no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        else if(Descripcion.getText()==null || Descripcion.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "El campo Descripcion no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        else if(Editorial.getText()==null || Editorial.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "El campo Editorial no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        else if(Fecha_Publicacion.getText()==null || Fecha_Publicacion.getText().equals("") || Fecha_Publicacion.getText().equals("YYYYMMDD")){
+            JOptionPane.showMessageDialog(this, "El campo Fecha Publicacion no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        else if(Derechos_Autor.getText()==null || Derechos_Autor.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "El campo Derechos de Autor no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        else return true;
+    }
+    
+    
+    
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Derechos_Autor;
     private javax.swing.JTextArea Descripcion;
