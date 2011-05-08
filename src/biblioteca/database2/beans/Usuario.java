@@ -11,6 +11,7 @@ public class Usuario {
 
     String login;
     String nombre;
+    String activo;
     String apellido;
     String contraseña;
     String preguntaSecreta;
@@ -32,6 +33,10 @@ public class Usuario {
      public void setLogin(String login) {
         this.login = login;
     }
+     
+     public void setActivo(String activo) {
+         this.activo=activo;
+     }
 
       public void setApellido(String apellido) {
         this.apellido = apellido;
@@ -84,6 +89,10 @@ public class Usuario {
 
      public String getLogin() {
         return login;
+     }
+     
+     public String getActivo() {
+         return activo;
      }
 
      public String getApellido() {
