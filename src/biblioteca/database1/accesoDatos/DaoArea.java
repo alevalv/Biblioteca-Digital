@@ -3,8 +3,9 @@
  * and open the template in the editor.
  */
 package biblioteca.database1.accesoDatos;
+import biblioteca.database1.beans.Area;
 
-package accesoDatos;
+ 
 import beans.*;
 import java.sql.*;
 /**
