@@ -61,7 +61,7 @@ public class DaoTipoDocumento {
     
     public TipoDocumento consultarDocumento(String nombre){
         String sql_consultar;
-        sql_consultar="SELECT FROM  tipo_material WHERE tipo_documento = '" +
+        sql_consultar="SELECT * FROM  tipo_material WHERE tipo_documento = '" +
                 nombre + "';";
         try{
             Connection conn= fachada.conectar();
@@ -84,7 +84,7 @@ public class DaoTipoDocumento {
     
     public ArrayList<TipoDocumento> consultarTodosLosTipoDocumento(){
         String sql_consultar;
-        sql_consultar="SELECT FROM  tipo_material ORDER BY tipo_documento ASC;";
+        sql_consultar="SELECT * FROM  tipo_material ORDER BY tipo_documento ASC;";
         ArrayList<TipoDocumento> Tipos = null;
         try{
             Connection conn= fachada.conectar();
