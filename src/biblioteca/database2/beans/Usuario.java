@@ -21,6 +21,7 @@ public class Usuario {
     String vinculoUnivalle;
     String fechaRegistro;
     String perfil;
+    String correo_electronico;
 
     public Usuario(){}
 
@@ -72,7 +73,9 @@ public class Usuario {
         this.perfil = perfil;
     }
 
-     
+     public void setCorreoElectronico(String correo_electronico){
+         this.correo_electronico=correo_electronico;
+     }
 
 
      public String getNombre() {
@@ -123,6 +126,8 @@ public class Usuario {
         return perfil;
      }
 
-     
+     public String getCorreoElectronico(){
+         return correo_electronico;
+     }
 }
 
