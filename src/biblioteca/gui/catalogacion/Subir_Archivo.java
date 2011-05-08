@@ -10,15 +10,18 @@
  */
 package biblioteca.gui.catalogacion;
 
+import biblioteca.database2.beans.Documento;
+
 /**
  *
  * @author alejandro
  */
 public class Subir_Archivo extends javax.swing.JPanel {
-
+    Documento documento;
     /** Creates new form Subir_Archivo */
-    public Subir_Archivo() {
+    public Subir_Archivo(Documento documento) {
         initComponents();
+        this.documento=documento;
     }
 
     /** This method is called from within the constructor to

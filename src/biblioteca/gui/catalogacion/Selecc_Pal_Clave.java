@@ -10,15 +10,19 @@
  */
 package biblioteca.gui.catalogacion;
 
+import biblioteca.database2.beans.Documento;
+import javax.swing.JTabbedPane;
+
 /**
  *
  * @author alejandro
  */
 public class Selecc_Pal_Clave extends javax.swing.JPanel {
-
+    Documento documento;
     /** Creates new form Selecc_Pal_Clave */
-    public Selecc_Pal_Clave() {
+    public Selecc_Pal_Clave(Documento documento) {
         initComponents();
+        this.documento=documento;
     }
 
     /** This method is called from within the constructor to
@@ -43,7 +47,7 @@ public class Selecc_Pal_Clave extends javax.swing.JPanel {
         Area_Nombre = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         Area_Descripcion = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        Siguiente = new javax.swing.JButton();
         Estado = new javax.swing.JLabel();
         Agregar_Palabra_Clave = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
@@ -156,11 +160,11 @@ public class Selecc_Pal_Clave extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 10);
         add(Area_Descripcion, gridBagConstraints);
 
-        jButton2.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        jButton2.setText("Siguiente Paso");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Siguiente.setFont(new java.awt.Font("Ubuntu", 1, 15));
+        Siguiente.setText("Siguiente Paso");
+        Siguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                SiguienteActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -168,7 +172,7 @@ public class Selecc_Pal_Clave extends javax.swing.JPanel {
         gridBagConstraints.gridy = 13;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 10);
-        add(jButton2, gridBagConstraints);
+        add(Siguiente, gridBagConstraints);
 
         Estado.setFont(new java.awt.Font("Ubuntu", 0, 24));
         Estado.setForeground(new java.awt.Color(255, 0, 0));
@@ -198,7 +202,7 @@ public class Selecc_Pal_Clave extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         add(jSeparator2, gridBagConstraints);
 
-        jLabel7.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Ubuntu", 0, 18));
         jLabel7.setText("Palabras Clave Agregadas: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
@@ -227,9 +231,10 @@ public class Selecc_Pal_Clave extends javax.swing.JPanel {
         // TODO add your handling code here:
 }//GEN-LAST:event_AgregarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_jButton2ActionPerformed
+    private void SiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteActionPerformed
+        JTabbedPane parent =(JTabbedPane) this.getParent();
+        parent.setSelectedIndex(4);
+}//GEN-LAST:event_SiguienteActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Agregar;
@@ -240,7 +245,7 @@ public class Selecc_Pal_Clave extends javax.swing.JPanel {
     private javax.swing.JLabel Estado;
     private javax.swing.JTextArea PC_Agregadas;
     private javax.swing.JComboBox Palabras_Clave;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton Siguiente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

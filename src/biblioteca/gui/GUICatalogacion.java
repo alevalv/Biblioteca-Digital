@@ -10,8 +10,7 @@
  */
 package biblioteca.gui;
 
-import biblioteca.gui.catalogacion.Informacion_Basica;
-import biblioteca.gui.catalogacion.Autores;
+import biblioteca.database2.beans.Documento;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -20,10 +19,11 @@ import javax.swing.UnsupportedLookAndFeelException;
  * @author alejandro
  */
 public class GUICatalogacion extends javax.swing.JFrame {
-
+    Documento documento;
     /** Creates new form GUICatalogacion */
     public GUICatalogacion() {
         initComponents();
+        documento= new Documento();
     }
 
     /** This method is called from within the constructor to
@@ -40,11 +40,11 @@ public class GUICatalogacion extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
-        biblioteca.gui.catalogacion.Informacion_Basica informacionBasica = new biblioteca.gui.catalogacion.Informacion_Basica();
-        biblioteca.gui.catalogacion.Autores autores = new biblioteca.gui.catalogacion.Autores();
-        biblioteca.gui.catalogacion.Selecc_Areas areas = new biblioteca.gui.catalogacion.Selecc_Areas();
-        biblioteca.gui.catalogacion.Selecc_Pal_Clave pc = new biblioteca.gui.catalogacion.Selecc_Pal_Clave();
-        biblioteca.gui.catalogacion.Subir_Archivo sa = new biblioteca.gui.catalogacion.Subir_Archivo();
+        biblioteca.gui.catalogacion.Informacion_Basica informacionBasica = new biblioteca.gui.catalogacion.Informacion_Basica(documento);
+        biblioteca.gui.catalogacion.Autores autores = new biblioteca.gui.catalogacion.Autores(documento);
+        biblioteca.gui.catalogacion.Selecc_Areas areas = new biblioteca.gui.catalogacion.Selecc_Areas(documento);
+        biblioteca.gui.catalogacion.Selecc_Pal_Clave pc = new biblioteca.gui.catalogacion.Selecc_Pal_Clave(documento);
+        biblioteca.gui.catalogacion.Subir_Archivo sa = new biblioteca.gui.catalogacion.Subir_Archivo(documento);
         jTabbedPane1.add("Información Basica", informacionBasica);
         jTabbedPane1.add("Autores", autores);
         jTabbedPane1.add("Areas de la Computación", areas);

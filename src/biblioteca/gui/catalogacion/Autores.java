@@ -10,17 +10,21 @@
  */
 package biblioteca.gui.catalogacion;
 
+import biblioteca.database2.beans.Documento;
+import javax.swing.JTabbedPane;
+
 /**
  *
  * @author alejandro
  */
 public class Autores extends javax.swing.JPanel {
-
+    Documento documento;
     /** Creates new form GUICAT_Autores */
-    public Autores() {
+    public Autores(Documento documento) {
         initComponents();
+        this.documento=documento;
     }
-
+    
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -49,7 +53,7 @@ public class Autores extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         Estado = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        Siguiente = new javax.swing.JButton();
         Agregar_Autor = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel10 = new javax.swing.JLabel();
@@ -120,7 +124,7 @@ public class Autores extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
         add(jLabel2, gridBagConstraints);
 
-        jLabel5.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Ubuntu", 0, 18));
         jLabel5.setText("Autores Agregados: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
@@ -201,11 +205,11 @@ public class Autores extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 0);
         add(Estado, gridBagConstraints);
 
-        jButton2.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        jButton2.setText("Siguiente Paso");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Siguiente.setFont(new java.awt.Font("Ubuntu", 1, 15));
+        Siguiente.setText("Siguiente Paso");
+        Siguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                SiguienteActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -213,7 +217,7 @@ public class Autores extends javax.swing.JPanel {
         gridBagConstraints.gridy = 15;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 10);
-        add(jButton2, gridBagConstraints);
+        add(Siguiente, gridBagConstraints);
 
         Agregar_Autor.setText("Agregar Autor");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -232,7 +236,7 @@ public class Autores extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         add(jSeparator2, gridBagConstraints);
 
-        jLabel10.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Ubuntu", 0, 18));
         jLabel10.setText("Autores Existentes: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
@@ -261,9 +265,10 @@ public class Autores extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_AgregarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_jButton2ActionPerformed
+    private void SiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteActionPerformed
+        JTabbedPane parent =(JTabbedPane) this.getParent();
+        parent.setSelectedIndex(2);
+}//GEN-LAST:event_SiguienteActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Agregar;
@@ -275,7 +280,7 @@ public class Autores extends javax.swing.JPanel {
     private javax.swing.JTextArea Autores_Agregados;
     private javax.swing.JButton Cancelar;
     private javax.swing.JLabel Estado;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton Siguiente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

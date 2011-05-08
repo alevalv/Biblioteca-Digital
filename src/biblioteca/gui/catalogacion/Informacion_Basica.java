@@ -10,15 +10,19 @@
  */
 package biblioteca.gui.catalogacion;
 
+import biblioteca.database2.beans.Documento;
+import javax.swing.JTabbedPane;
+
 /**
  *
  * @author alejandro
  */
 public class Informacion_Basica extends javax.swing.JPanel {
-
+    Documento documento;
     /** Creates new form GUICAT_Informacion_Basica */
-    public Informacion_Basica() {
+    public Informacion_Basica(Documento documento) {
         initComponents();
+        this.documento=documento;
     }
 
     /** This method is called from within the constructor to
@@ -49,7 +53,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         Derechos_Autor = new javax.swing.JTextField();
         Estado = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        Siguiente = new javax.swing.JButton();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -187,11 +191,11 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 0);
         add(Estado, gridBagConstraints);
 
-        jButton1.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        jButton1.setText("Siguiente Paso");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Siguiente.setFont(new java.awt.Font("Ubuntu", 1, 15));
+        Siguiente.setText("Siguiente Paso");
+        Siguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                SiguienteActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -199,12 +203,13 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.gridy = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 10);
-        add(jButton1, gridBagConstraints);
+        add(Siguiente, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void SiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteActionPerformed
+        JTabbedPane parent =(JTabbedPane) this.getParent();
+        parent.setSelectedIndex(1);
+    }//GEN-LAST:event_SiguienteActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Derechos_Autor;
@@ -212,9 +217,9 @@ public class Informacion_Basica extends javax.swing.JPanel {
     private javax.swing.JTextField Editorial;
     private javax.swing.JLabel Estado;
     private javax.swing.JTextField Fecha_Publicacion;
+    private javax.swing.JButton Siguiente;
     private javax.swing.JTextField Titulo_Principal;
     private javax.swing.JTextField Titulo_Secundario;
-    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
