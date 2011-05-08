@@ -10,15 +10,19 @@
  */
 package biblioteca.gui.catalogacion;
 
+import biblioteca.database2.beans.Documento;
+import javax.swing.JTabbedPane;
+
 /**
  *
  * @author alejandro
  */
 public class Tipo_Documento extends javax.swing.JPanel {
-
+    Documento documento;
     /** Creates new form Tipo_Documento */
-    public Tipo_Documento() {
+    public Tipo_Documento(Documento documento) {
         initComponents();
+        this.documento=documento;
     }
 
     /** This method is called from within the constructor to
@@ -217,7 +221,7 @@ public class Tipo_Documento extends javax.swing.JPanel {
     private void SiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteActionPerformed
         biblioteca.gui.GUICatalogacion.Autores_Guardado=true;
         JTabbedPane parent =(JTabbedPane) this.getParent();
-        parent.setSelectedIndex(2);
+        parent.setSelectedIndex(5);
 }//GEN-LAST:event_SiguienteActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
