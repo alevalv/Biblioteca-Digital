@@ -10,7 +10,11 @@
  */
 package biblioteca.gui.catalogacion;
 
+import biblioteca.database2.beans.PalabraClave;
 import biblioteca.database2.beans.Documento;
+import biblioteca.database2.controladores.ControladorPalabraClave;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 
 /**
@@ -19,12 +23,40 @@ import javax.swing.JTabbedPane;
  */
 public class Selecc_Pal_Clave extends javax.swing.JPanel {
     Documento documento;
+    ArrayList<PalabraClave> palabrasClaveExistentes;
+    static public ArrayList<PalabraClave> palabrasClaveSeleccionadas;
     /** Creates new form Selecc_Pal_Clave */
     public Selecc_Pal_Clave(Documento documento) {
         initComponents();
         this.documento=documento;
+        palabrasClaveSeleccionadas = new ArrayList<PalabraClave>();
+        initComboBox();
     }
 
+    
+    private void initComboBox() {
+     Palabras_Clave.removeAllItems();
+     palabrasClaveExistentes=null;
+     palabrasClaveExistentes=new ControladorPalabraClave().consultarTodasLasPalabrasClaves();
+     if(palabrasClaveExistentes!=null){
+         for(int i=0;i<palabrasClaveExistentes.size();i++){
+             Palabras_Clave.insertItemAt(palabrasClaveExistentes.get(i).getNombre(), i);
+         }
+         Palabras_Clave.setSelectedIndex(-1);
+     }
+     
+    }
+    
+    private void refreshPalabrasClave(){
+        String texto="";
+        for(int i=0;i<palabrasClaveSeleccionadas.size();i++){
+            texto+=palabrasClaveSeleccionadas.get(i).getNombre();
+            if(i!=(palabrasClaveSeleccionadas.size()-1)){
+                texto+=", ";
+            }
+        }
+        PC_Agregadas.setText(texto);
+    }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -43,9 +75,9 @@ public class Selecc_Pal_Clave extends javax.swing.JPanel {
         jSeparator1 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        Area_Nombre = new javax.swing.JTextField();
+        PC_Nombre = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        Area_Descripcion = new javax.swing.JTextField();
+        PC_Descripcion = new javax.swing.JTextField();
         Siguiente = new javax.swing.JButton();
         Estado = new javax.swing.JLabel();
         Agregar_Palabra_Clave = new javax.swing.JButton();
@@ -59,10 +91,15 @@ public class Selecc_Pal_Clave extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 24));
         jLabel4.setText("Palabras Clave");
 
-        jLabel5.setFont(new java.awt.Font("Ubuntu", 0, 18));
+        jLabel5.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel5.setText("Palabras Clave Existentes: ");
 
         Cancelar.setText("Cancelar Operación");
+        Cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarActionPerformed(evt);
+            }
+        });
 
         Agregar.setText("Agregar Palabra Clave al Documento");
         Agregar.addActionListener(new java.awt.event.ActionListener() {
@@ -94,6 +131,11 @@ public class Selecc_Pal_Clave extends javax.swing.JPanel {
         Estado.setText("[Sin Guardar]");
 
         Agregar_Palabra_Clave.setText("Agregar Palabra Clave");
+        Agregar_Palabra_Clave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Agregar_Palabra_ClaveActionPerformed(evt);
+            }
+        });
 
         jSeparator2.setMinimumSize(new java.awt.Dimension(150, 6));
         jSeparator2.setPreferredSize(new java.awt.Dimension(200, 10));
@@ -131,12 +173,12 @@ public class Selecc_Pal_Clave extends javax.swing.JPanel {
                         .addGap(17, 17, 17)
                         .addComponent(jLabel1)
                         .addGap(32, 32, 32)
-                        .addComponent(Area_Descripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE))
+                        .addComponent(PC_Descripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(jLabel6)
                         .addGap(45, 45, 45)
-                        .addComponent(Area_Nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE))
+                        .addComponent(PC_Nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE))
                     .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -170,9 +212,7 @@ public class Selecc_Pal_Clave extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addComponent(jLabel7))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Agregar)))
+                    .addComponent(Agregar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11)
@@ -185,14 +225,14 @@ public class Selecc_Pal_Clave extends javax.swing.JPanel {
                         .addComponent(jLabel6))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(5, 5, 5)
-                        .addComponent(Area_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(PC_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(Area_Descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(PC_Descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Agregar_Palabra_Clave)
                 .addGap(10, 10, 10)
@@ -209,22 +249,63 @@ public class Selecc_Pal_Clave extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
-        // TODO add your handling code here:
+        if(Palabras_Clave.getSelectedIndex()!=-1){
+            if(!palabrasClaveSeleccionadas.contains(palabrasClaveExistentes.get(Palabras_Clave.getSelectedIndex()))){
+                palabrasClaveSeleccionadas.add(palabrasClaveExistentes.get(Palabras_Clave.getSelectedIndex()));
+                refreshPalabrasClave();
+            }
+        }
 }//GEN-LAST:event_AgregarActionPerformed
 
     private void SiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteActionPerformed
-        JTabbedPane parent =(JTabbedPane) this.getParent();
-        parent.setSelectedIndex(4);
+        if(!palabrasClaveSeleccionadas.isEmpty()){
+            Palabras_Clave.setEnabled(false);
+            Palabras_Clave.setSelectedIndex(-1);
+            Agregar.setEnabled(false);
+            JTabbedPane parent =(JTabbedPane) this.getParent();
+            parent.setSelectedIndex(4);
+        }else JOptionPane.showMessageDialog(this, "Debe seleccionar almenos una palabra clave", "Error", JOptionPane.ERROR_MESSAGE);
 }//GEN-LAST:event_SiguienteActionPerformed
 
+    private void Agregar_Palabra_ClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_Palabra_ClaveActionPerformed
+        if(checkEmptyFieldsPC()){
+            new ControladorPalabraClave().InsertarPalabraClave(PC_Nombre.getText(), PC_Descripcion.getText());
+            JOptionPane.showMessageDialog(this, "La Palabra Clave con nombre "+PC_Nombre.getText()+ " ha sido agregada", "Notificaición", JOptionPane.INFORMATION_MESSAGE);
+            PC_Nombre.setText("");
+            PC_Descripcion.setText("");
+            initComboBox();
+        }
+    }//GEN-LAST:event_Agregar_Palabra_ClaveActionPerformed
+
+    private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
+        palabrasClaveSeleccionadas.clear();
+        refreshPalabrasClave();
+        biblioteca.gui.GUICatalogacion.Palabras_Clave_Guardadas=false;
+        Palabras_Clave.setEnabled(true);
+        Agregar.setEnabled(true);
+    }//GEN-LAST:event_CancelarActionPerformed
+
+    private boolean checkEmptyFieldsPC(){
+        if(PC_Nombre.getText()==null || PC_Nombre.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "El campo Nombre no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        else if(PC_Descripcion.getText()==null || PC_Descripcion.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "El campo Descripcion no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        else return true;
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Agregar;
     private javax.swing.JButton Agregar_Palabra_Clave;
-    private javax.swing.JTextField Area_Descripcion;
-    private javax.swing.JTextField Area_Nombre;
     private javax.swing.JButton Cancelar;
     private javax.swing.JLabel Estado;
     private javax.swing.JTextArea PC_Agregadas;
+    private javax.swing.JTextField PC_Descripcion;
+    private javax.swing.JTextField PC_Nombre;
     private javax.swing.JComboBox Palabras_Clave;
     private javax.swing.JButton Siguiente;
     private javax.swing.JLabel jLabel1;
@@ -238,4 +319,6 @@ public class Selecc_Pal_Clave extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     // End of variables declaration//GEN-END:variables
+
+    
 }
