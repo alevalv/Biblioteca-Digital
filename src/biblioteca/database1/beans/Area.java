@@ -4,8 +4,6 @@
  */
 package biblioteca.database1.beans;
 
-package beans;
-
 /**
  *
  * @author Eduardo

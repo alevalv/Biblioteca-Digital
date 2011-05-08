@@ -4,15 +4,11 @@
  */
 package biblioteca.database1.beans;
 
-package beans;
-
-import java.sql.Date;
-
 /**
  *
  * @author Eduardo
  */
-public class Documento {
+public class Material {
 
     String id_documento;
     String login;
@@ -33,7 +29,7 @@ public class Documento {
     String descripcion_tipo;
 
 
-    public Documento(){ }
+    public Material(){ }
 
 
      public void setID_documento(String id_documento) {

@@ -4,10 +4,6 @@
  */
 package biblioteca.database1.beans;
 
-package beans;
-
-import java.sql.Date;
-
 /**
  *
  * @author Eduardo
