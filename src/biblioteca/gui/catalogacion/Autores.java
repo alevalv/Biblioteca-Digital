@@ -40,8 +40,8 @@ public class Autores extends javax.swing.JPanel {
         System.out.println("Obtenida.");
         for(int i=0;i<autoresAgregados.size();i++){
             String temp = "";
-            temp+=autoresAgregados.get(i).getAcronimo()+" - "+autoresAgregados.get(i).getNombre()
-                    +" "+autoresAgregados.get(i).getApellido()+" - "+autoresAgregados.get(i).getCorreo();
+            temp+=autoresAgregados.get(i).getCorreo()+" - "+autoresAgregados.get(i).getNombre()
+                    +" "+autoresAgregados.get(i).getApellido()+" - "+autoresAgregados.get(i).getAcronimo();
             Autores.addItem(temp);
         }        
     }
