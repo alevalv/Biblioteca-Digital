@@ -4,8 +4,8 @@
  */
 package biblioteca.database2.accesoDatos;
 
-import biblioteca.database1.beans.*;
-import biblioteca.database1.fachada.Fachada;
+import biblioteca.database2.beans.*;
+import biblioteca.database2.fachada.Fachada;
 import java.sql.*;
 
 /**
