@@ -92,7 +92,7 @@ public class DaoTipoDocumento {
             ResultSet tabla = sentencia.executeQuery(sql_consultar);
             
             Tipos = new ArrayList<TipoDocumento>();
-            if(tabla.next()){
+            while(tabla.next()){
                 TipoDocumento tipoDocumento=new TipoDocumento();
                 tipoDocumento.setTipoDocumento(tabla.getString(1));
                 tipoDocumento.setDescripcion(tabla.getString(2));
