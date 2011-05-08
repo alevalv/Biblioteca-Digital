@@ -258,6 +258,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancelar Operaci&#xf3;n"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CancelarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="Autor_Correo">
     </Component>

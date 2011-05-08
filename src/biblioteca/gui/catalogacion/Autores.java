@@ -45,6 +45,7 @@ public class Autores extends javax.swing.JPanel {
         for(int i=0;i<autoresExistentes.size();i++){
             Autores.addItem(autoresExistentes.get(i));
         }        
+        Autores.setSelectedIndex(-1);
     }
     /** This method is called from within the constructor to
      * initialize the form.
@@ -111,6 +112,11 @@ public class Autores extends javax.swing.JPanel {
         jLabel8.setText("Apellido(s): ");
 
         Cancelar.setText("Cancelar Operación");
+        Cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarActionPerformed(evt);
+            }
+        });
 
         jLabel9.setText("Acronimo: ");
 
@@ -273,8 +279,8 @@ public class Autores extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
-        if(!autoresSeleccionados.contains(autoresExistentes.get(Autores.getSelectedIndex())))
-            autoresSeleccionados.add(autoresExistentes.get(Autores.getSelectedIndex()));
+        if(!autoresSeleccionados.contains((Autor)Autores.getItemAt(Autores.getSelectedIndex())))
+            autoresSeleccionados.add((Autor)Autores.getItemAt(Autores.getSelectedIndex()));
         refreshAutoresSeleccionados();
         biblioteca.gui.GUICatalogacion.Autores_Guardado=false;
     }//GEN-LAST:event_AgregarActionPerformed
@@ -297,6 +303,12 @@ public class Autores extends javax.swing.JPanel {
             initAuthorComboBox();
         }
     }//GEN-LAST:event_Agregar_AutorActionPerformed
+
+    private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
+        autoresSeleccionados.clear();
+        refreshAutoresSeleccionados();
+        biblioteca.gui.GUICatalogacion.Autores_Guardado=false;
+    }//GEN-LAST:event_CancelarActionPerformed
 
     private boolean checkEmptyFieldsAuthor(){
         if(Autor_Correo.getText()==null || Autor_Correo.getText().equals("")){
