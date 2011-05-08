@@ -21,10 +21,9 @@ public class DaoArea {
 
      public int guardarArea(Area are){
         String sql_guardar;
-        sql_guardar="INSERT INTO area(descripcion, nombre, id_area, area_padre) VALUES ('" +
-                are.getDescripcion() + "', '" + are.getNombre() +  "', '" +
-                  are.getID() + "', '"  +
-                 are.getAreaPadre()+ "');";
+        sql_guardar="INSERT INTO areas_computacion(descripcion, nombre, area_padre) VALUES ('" +
+                are.getDescripcion() + "', '" + are.getNombre() 
+                + "', '"  + are.getAreaPadre()+ "');";
         try{
             Connection conect= fachada.conectar();
             Statement sentencia = conect.createStatement();
@@ -40,7 +39,7 @@ public class DaoArea {
     public Area consultarArea(String id){
         Area a= new Area();
         String sql_consultar;
-        sql_consultar="SELECT * FROM area WHERE id_area= '" +id+ "';";
+        sql_consultar="SELECT * FROM areas_computacion WHERE area_id= '" +id+ "';";
          try{
             Connection conn= fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -65,7 +64,7 @@ public class DaoArea {
     public int modificarArea(Area area)
     {
         String sql_modificar;
-        sql_modificar="UPDATE area  SET descripcion = '"+area.getDescripcion()+"', nombre = '"+area.getNombre()+
+        sql_modificar="UPDATE areas_computacion SET descripcion = '"+area.getDescripcion()+"', nombre = '"+area.getNombre()+
                  "', area_padre='"+area.getAreaPadre()+ "' WHERE area_id = '"+area.getID()+"';";
         try{
             Connection conn= fachada.conectar();
@@ -102,7 +101,7 @@ public class DaoArea {
     {
         String id_areaRecibido= new String();
         String sql_comprobar;
-        sql_comprobar="SELECT area_id FROM area WHERE area_id= '"+id_area+"';";
+        sql_comprobar="SELECT area_id FROM areas_computacion WHERE area_id= '"+id_area+"';";
          try{
             Connection conn= fachada.conectar();
             Statement sentencia = conn.createStatement();
