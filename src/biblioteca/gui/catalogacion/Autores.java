@@ -43,7 +43,7 @@ public class Autores extends javax.swing.JPanel {
         autoresExistentes = new ControladorAutor().obtenerTodosLosAutores();
         System.out.println("Obtenida.");
         for(int i=0;i<autoresExistentes.size();i++){
-            Autores.addItem(autoresExistentes.get(i));
+            Autores.insertItemAt(autoresExistentes.get(i), i);
         }        
         Autores.setSelectedIndex(-1);
     }
