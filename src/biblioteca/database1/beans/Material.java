@@ -32,7 +32,7 @@ public class Material {
     public Material(){ }
 
 
-     public void setID_documento(String id_documento) {
+     public void setID_material(String id_documento) {
         this.id_documento = id_documento;
     }
 
@@ -102,7 +102,7 @@ public class Material {
 
 
 
-     public String getID_documento() {
+     public String getID_material() {
         return id_documento;
      }
 
