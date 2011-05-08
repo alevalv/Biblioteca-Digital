@@ -24,13 +24,13 @@ import javax.swing.JTabbedPane;
  */
 public class Tipo_Documento extends javax.swing.JPanel {
     Documento documento;
-    ArrayList<TipoDocumento> TiposExistentes;
+    ArrayList<TipoDocumento> tiposExistentes;
     static public TipoDocumento tipoSeleccionado;
     /** Creates new form Tipo_Documento */
     public Tipo_Documento(Documento documento) {
         initComponents();
         this.documento=documento;
-        TiposExistentes = new ArrayList<TipoDocumento>();
+        tiposExistentes = new ArrayList<TipoDocumento>();
         tipoSeleccionado=null;
         initComboBox();
         biblioteca.gui.GUICatalogacion.Tipo_Documento_Guardado=false;
@@ -38,11 +38,11 @@ public class Tipo_Documento extends javax.swing.JPanel {
 
     private void initComboBox(){
         Tipos_Documento.removeAllItems();
-        TiposExistentes.clear();
-        TiposExistentes=new DaoTipoDocumento().consultarTodosLosTipoDocumento();
-        if(!(TiposExistentes==null)){
-        for(int i=0;i<TiposExistentes.size();i++){
-            Tipos_Documento.insertItemAt(TiposExistentes.get(i).getTipoDocumento(), i);
+        tiposExistentes=null;
+        tiposExistentes=new DaoTipoDocumento().consultarTodosLosTipoDocumento();
+        if(!(tiposExistentes==null)){
+        for(int i=0;i<tiposExistentes.size();i++){
+            Tipos_Documento.insertItemAt(tiposExistentes.get(i).getTipoDocumento(),i);
         }
         Tipos_Documento.setSelectedIndex(-1);
         }
@@ -235,7 +235,7 @@ public class Tipo_Documento extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Obtener_DescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Obtener_DescripcionActionPerformed
-        Descripcion.setText(new DaoTipoDocumento().consultarDocumento((String)Tipos_Documento.getItemAt(Tipos_Documento.getSelectedIndex())).getDescripcion());
+        Descripcion.setText(tiposExistentes.get(Tipos_Documento.getSelectedIndex()).getDescripcion());
     }//GEN-LAST:event_Obtener_DescripcionActionPerformed
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
