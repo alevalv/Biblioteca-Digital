@@ -14,6 +14,7 @@ package biblioteca.gui.catalogacion;
 import biblioteca.database2.beans.Autor;
 import biblioteca.database2.beans.Documento;
 import biblioteca.database2.controladores.ControladorAutor;
+import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
@@ -287,9 +288,16 @@ public class Autores extends javax.swing.JPanel {
     }//GEN-LAST:event_AgregarActionPerformed
 
     private void SiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteActionPerformed
-        biblioteca.gui.GUICatalogacion.Autores_Guardado=true;
-        JTabbedPane parent =(JTabbedPane) this.getParent();
-        parent.setSelectedIndex(2);
+        if(!autoresSeleccionados.isEmpty()){
+            biblioteca.gui.GUICatalogacion.Autores_Guardado=true;
+            Estado.setForeground(Color.green);
+            Estado.setText("[Guardado]");
+            JTabbedPane parent =(JTabbedPane) this.getParent();
+            parent.setSelectedIndex(2);
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Debe seleccionar almenos un autor", "Error", JOptionPane.ERROR_MESSAGE);
+        }
 }//GEN-LAST:event_SiguienteActionPerformed
 
     private void Agregar_AutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_AutorActionPerformed
