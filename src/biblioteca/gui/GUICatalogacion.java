@@ -25,12 +25,14 @@ public class GUICatalogacion extends javax.swing.JFrame {
     static public boolean Autores_Guardado;
     static public boolean Areas_Guardadas;
     static public boolean Palabras_Clave_Guardadas;
+    static public boolean Tipo_Documento_Guardado;
     /** Creates new form GUICatalogacion */
     public GUICatalogacion() {
         Informacion_Basica_Guardada=false;
         Autores_Guardado=false;
         Areas_Guardadas=false;
         Palabras_Clave_Guardadas=false;
+        Tipo_Documento_Guardado=false;
         documento= new Documento();
         initComponents();
     }
