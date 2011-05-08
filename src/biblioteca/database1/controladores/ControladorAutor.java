@@ -4,10 +4,8 @@
  */
 package biblioteca.database1.controladores;
 
-package controlador;
-
-import accesoDatos.*;
-import beans.*;
+import biblioteca.database1.accesoDatos.*;
+import biblioteca.database1.beans.*;
 
 /**
  *

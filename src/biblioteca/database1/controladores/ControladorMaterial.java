@@ -4,147 +4,145 @@
  */
 package biblioteca.database1.controladores;
 
-package controlador;
-
-import accesoDatos.DaoDocumento;
-import beans.Documento;
-import java.util.Vector;
+import biblioteca.database1.accesoDatos.DaoMaterial;
+import biblioteca.database1.beans.Material;
+import java.util.ArrayList;
 
 /**
  *
  * @author Eduardo
  */
-public class ControladorDocumento {
+public class ControladorMaterial {
 
-//     public void insertarDocumento(String ID_Documento, String editorial, String idioma, String derechosAutor, String resumen, String tituloPrincipal, String tituloSecundario, String fechaCreacion, String fechaPublicacion, String fechaCatalogacion, String tamaño, String resolucion, String formato, String softwareAdecuado, String tipo_Documento, String descripcion_tipo)
+//     public void insertarMaterial(String ID_Material, String editorial, String idioma, String derechosAutor, String resumen, String tituloPrincipal, String tituloSecundario, String fechaCreacion, String fechaPublicacion, String fechaCatalogacion, String tamaño, String resolucion, String formato, String softwareAdecuado, String tipo_Material, String descripcion_tipo)
 //    {
-//        DaoDocumento daoDocumento= new DaoDocumento();
+//        DaoMaterial daoMaterial= new DaoMaterial();
 //
-//        Documento documento = new Documento();
+//        Material Material = new Material();
 //
-//        documento.setID_documento(ID_Documento);
+//        Material.setID_Material(ID_Material);
 //
-//        documento.setEditorial(editorial);
-//        documento.setIdioma(idioma);
-//        documento.setDerechosAutor(derechosAutor);
-//        documento.setResumen(resumen);
-//        documento.setTituloPrincipal(tituloPrincipal);
-//        documento.setTituloSecundario(tituloSecundario);
-//        documento.setFechaCreacion(fechaCreacion);
-//        documento.setFechaPublicacion(fechaPublicacion);
-//        documento.setFechaCatalogacion(fechaCatalogacion);
-//        documento.setTamaño(tamaño);
-//        documento.setResolucion(resolucion);
-//        documento.setFormato(formato);
-//        documento.setSoftwareAdecuado(softwareAdecuado);
-//        documento.setTipoMaterial(tipo_Documento);
-//        documento.setDescripcionTipo(descripcion_tipo);
+//        Material.setEditorial(editorial);
+//        Material.setIdioma(idioma);
+//        Material.setDerechosAutor(derechosAutor);
+//        Material.setResumen(resumen);
+//        Material.setTituloPrincipal(tituloPrincipal);
+//        Material.setTituloSecundario(tituloSecundario);
+//        Material.setFechaCreacion(fechaCreacion);
+//        Material.setFechaPublicacion(fechaPublicacion);
+//        Material.setFechaCatalogacion(fechaCatalogacion);
+//        Material.setTamaño(tamaño);
+//        Material.setResolucion(resolucion);
+//        Material.setFormato(formato);
+//        Material.setSoftwareAdecuado(softwareAdecuado);
+//        Material.setTipoMaterial(tipo_Material);
+//        Material.setDescripcionTipo(descripcion_tipo);
 //
-//        daoDocumento.guardarDocumento(documento);
+//        daoMaterial.guardarMaterial(Material);
 //    }
 
-     public void modificarDocumento( String ID_Documento, String editorial, String idioma, String derechosAutor, String resumen, String tituloPrincipal, String tituloSecundario, String fechaCreacion, String fechaPublicacion, String fechaCatalogacion, String tamaño, String resolucion, String formato, String softwareAdecuado, String tipo_Documento, String descripcion_tipo)
+     public void modificarMaterial( String ID_Material, String editorial, String idioma, String derechosAutor, String resumen, String tituloPrincipal, String tituloSecundario, String fechaCreacion, String fechaPublicacion, String fechaCatalogacion, String tamaño, String resolucion, String formato, String softwareAdecuado, String tipo_Material, String descripcion_tipo)
     {
-        DaoDocumento daoDocumento= new DaoDocumento();
+        DaoMaterial daoMaterial= new DaoMaterial();
 
-        Documento documento = new Documento();
+        Material Material = new Material();
       
-        documento.setID_documento(ID_Documento);
+        Material.setID_material(ID_Material);
         
-        documento.setEditorial(editorial);
-        documento.setIdioma(idioma);
-        documento.setDerechosAutor(derechosAutor);
-        documento.setResumen(resumen);
-        documento.setTituloPrincipal(tituloPrincipal);
-        documento.setTituloSecundario(tituloSecundario);
-        documento.setFechaCreacion(fechaCreacion);
-        documento.setFechaPublicacion(fechaPublicacion);
-        documento.setFechaCatalogacion(fechaCatalogacion);
-        documento.setTamaño(tamaño);
-        documento.setResolucion(resolucion);
-        documento.setFormato(formato);
-        documento.setSoftwareAdecuado(softwareAdecuado);
-        documento.setTipoMaterial(tipo_Documento);
-        documento.setDescripcionTipo(descripcion_tipo);
+        Material.setEditorial(editorial);
+        Material.setIdioma(idioma);
+        Material.setDerechosAutor(derechosAutor);
+        Material.setResumen(resumen);
+        Material.setTituloPrincipal(tituloPrincipal);
+        Material.setTituloSecundario(tituloSecundario);
+        Material.setFechaCreacion(fechaCreacion);
+        Material.setFechaPublicacion(fechaPublicacion);
+        Material.setFechaCatalogacion(fechaCatalogacion);
+        Material.setTamaño(tamaño);
+        Material.setResolucion(resolucion);
+        Material.setFormato(formato);
+        Material.setSoftwareAdecuado(softwareAdecuado);
+        Material.setTipoMaterial(tipo_Material);
+        Material.setDescripcionTipo(descripcion_tipo);
 
-        daoDocumento.modificarDocumento(documento);
+        daoMaterial.modificarMaterial(Material);
     }
 
-     public boolean verificarExistencia(String ID_Documento)
+     public boolean verificarExistencia(String ID_Material)
     {
         return true;
     }
 
-     public Documento verdatosDocumento(String ID_Documento)
+     public Material verdatosMaterial(String ID_Material)
     {
-        Documento documento= new Documento();
-        DaoDocumento daoDocumento= new DaoDocumento();
+        Material Material= new Material();
+        DaoMaterial daoMaterial= new DaoMaterial();
 
-        documento=daoDocumento.consultarDocumento(ID_Documento);
+        Material=daoMaterial.consultarMaterial(ID_Material);
 
-        return documento;
+        return Material;
     }
 
-     public void insertarPalabrasClavesDocumento(String ID_Documento, Vector<String> PC)
+     public void insertarPalabrasClavesMaterial(String ID_Material, ArrayList<String> PC)
     {
-        DaoDocumento daoDocumento= new DaoDocumento();
-        daoDocumento.insertarPalabrasClaves(PC, ID_Documento);
+        DaoMaterial daoMaterial= new DaoMaterial();
+        daoMaterial.insertarPalabrasClaves(PC, ID_Material);
     }
 
-    public void insertarAreasDocumento(String ID_Documento, Vector<String> areas)
+    public void insertarAreasMaterial(String ID_Material, ArrayList<String> areas)
     {
-        DaoDocumento daoDocumento= new DaoDocumento();
-        daoDocumento.insertarAreas(areas, ID_Documento);
+        DaoMaterial daoMaterial= new DaoMaterial();
+        daoMaterial.insertarAreas(areas, ID_Material);
     }
 
-    public void insertarAutorDocumento(String ID_Documento, String email)
+    public void insertarAutorMaterial(String ID_Material, String email)
     {
-        DaoDocumento daoDocumento= new DaoDocumento();
-        daoDocumento.insertarAutor(email, ID_Documento);
+        DaoMaterial daoMaterial= new DaoMaterial();
+        daoMaterial.insertarAutor(email, ID_Material);
     }
 
-    public void eliminarPalabrasClavesDocumento(String ID_Documento, Vector<String> PC)
+    public void eliminarPalabrasClavesMaterial(String ID_Material, ArrayList<String> PC)
     {
-        DaoDocumento daoDocumento= new DaoDocumento();
-        daoDocumento.eliminarPalabrasClaves(PC, ID_Documento);
+        DaoMaterial daoMaterial= new DaoMaterial();
+        daoMaterial.eliminarPalabrasClaves(PC, ID_Material);
     }
 
-    public void eliminarAreasDocumento(String ID_Documento, Vector<String> areas)
+    public void eliminarAreasMaterial(String ID_Material, ArrayList<String> areas)
     {
-        DaoDocumento daoDocumento= new DaoDocumento();
-        daoDocumento.eliminarAreas(areas, ID_Documento);
+        DaoMaterial daoMaterial= new DaoMaterial();
+        daoMaterial.eliminarAreas(areas, ID_Material);
     }
 
-    public void eliminarAutor(String ID_Documento, String correo)
+    public void eliminarAutor(String ID_Material, String correo)
     {
-        DaoDocumento daoDocumento= new DaoDocumento();
-        daoDocumento.eliminarAutor(correo, ID_Documento);
+        DaoMaterial daoMaterial= new DaoMaterial();
+        daoMaterial.eliminarAutor(correo, ID_Material);
     }
 
-    public void catalogaDocumento(String username, String ID_Documento, String editorial, String idioma, String derechosAutor, String resumen, String tituloPrincipal, String tituloSecundario, String fechaCreacion, String fechaPublicacion, String fechaCatalogacion, String tamaño, String resolucion, String formato, String softwareAdecuado, String tipo_Documento, String descripcion_tipo)
+    public void catalogaMaterial(String username, String ID_Material, String editorial, String idioma, String derechosAutor, String resumen, String tituloPrincipal, String tituloSecundario, String fechaCreacion, String fechaPublicacion, String fechaCatalogacion, String tamaño, String resolucion, String formato, String softwareAdecuado, String tipo_Material, String descripcion_tipo)
     {
-        DaoDocumento daoDocumento= new DaoDocumento();
-        Documento documento = new Documento();
+        DaoMaterial daoMaterial= new DaoMaterial();
+        Material Material = new Material();
         
-        documento.setID_documento(ID_Documento);
+        Material.setID_material(ID_Material);
        
-        documento.setEditorial(editorial);
-        documento.setIdioma(idioma);
-        documento.setDerechosAutor(derechosAutor);
-        documento.setResumen(resumen);
-        documento.setTituloPrincipal(tituloPrincipal);
-        documento.setTituloSecundario(tituloSecundario);
-        documento.setFechaCreacion(fechaCreacion);
-        documento.setFechaPublicacion(fechaPublicacion);
-        documento.setFechaCatalogacion(fechaCatalogacion);
-        documento.setTamaño(tamaño);
-        documento.setResolucion(resolucion);
-        documento.setFormato(formato);
-        documento.setSoftwareAdecuado(softwareAdecuado);
-        documento.setTipoMaterial(tipo_Documento);
-        documento.setDescripcionTipo(descripcion_tipo);
+        Material.setEditorial(editorial);
+        Material.setIdioma(idioma);
+        Material.setDerechosAutor(derechosAutor);
+        Material.setResumen(resumen);
+        Material.setTituloPrincipal(tituloPrincipal);
+        Material.setTituloSecundario(tituloSecundario);
+        Material.setFechaCreacion(fechaCreacion);
+        Material.setFechaPublicacion(fechaPublicacion);
+        Material.setFechaCatalogacion(fechaCatalogacion);
+        Material.setTamaño(tamaño);
+        Material.setResolucion(resolucion);
+        Material.setFormato(formato);
+        Material.setSoftwareAdecuado(softwareAdecuado);
+        Material.setTipoMaterial(tipo_Material);
+        Material.setDescripcionTipo(descripcion_tipo);
 
-        daoDocumento.catalogaDocumento(username,documento);
+        daoMaterial.catalogaMaterial(username,Material);
     }
 
 

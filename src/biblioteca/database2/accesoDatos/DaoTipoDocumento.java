@@ -11,14 +11,14 @@ package biblioteca.database2.accesoDatos;
 
 import java.sql.*;
 import biblioteca.database2.beans.TipoDocumento;
-import biblioteca.database2.fachada.fachada;
+import biblioteca.database2.fachada.Fachada;
 
 public class DaoTipoDocumento {
-    fachada fachada;
+    Fachada fachada;
 
     public DaoTipoDocumento()
     {
-        fachada = new fachada();
+        fachada = new Fachada();
     }
 
     public int agregarTipoDocumento(TipoDocumento tipoDocumento)

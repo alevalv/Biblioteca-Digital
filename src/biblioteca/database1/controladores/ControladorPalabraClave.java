@@ -4,11 +4,9 @@
  */
 package biblioteca.database1.controladores;
 
-package controlador;
 
-
-import accesoDatos.DaoPalabraClave;
-import beans.PalabraClave;
+import biblioteca.database1.accesoDatos.DaoPalabraClave;
+import biblioteca.database1.beans.PalabraClave;
 
 /**
  *

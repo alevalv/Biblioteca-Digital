@@ -4,10 +4,8 @@
  */
 package biblioteca.database1.controladores;
 
-package controlador;
-
-import accesoDatos.DaoUsuario;
-import beans.Usuario;
+import biblioteca.database1.accesoDatos.DaoUsuario;
+import biblioteca.database1.beans.Usuario;
 
 /**
  *

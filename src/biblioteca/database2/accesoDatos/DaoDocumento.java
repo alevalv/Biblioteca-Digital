@@ -4,7 +4,7 @@
  */
 package biblioteca.database2.accesoDatos;
 
-import biblioteca.database2.fachada.fachada;
+import biblioteca.database2.fachada.Fachada;
 import biblioteca.database2.beans.Documento;
 import java.sql.Statement;
 import java.sql.Connection;
@@ -16,9 +16,9 @@ import java.util.ArrayList;
  * @author Alejandro Valdés
  */
 public class DaoDocumento {
-    fachada Fachada;
+    Fachada Fachada;
     public DaoDocumento(){
-    Fachada = new fachada();
+    Fachada = new Fachada();
     }
     
     public int insertarDocumento(Documento documento, String usuario){
@@ -266,9 +266,9 @@ public class DaoDocumento {
         catch(Exception e){ System.out.println(e); }
     }
     
-    public ResultSet consultarDocumento(ArrayList<String> datos){
+    //public ResultSet consultarDocumento(ArrayList<String> datos){
         //TODO programar consultarDocumento
-    }
+    //}
     
     //TODO programar consultaAvanzadaDocumento
     

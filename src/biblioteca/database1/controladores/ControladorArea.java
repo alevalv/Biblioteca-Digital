@@ -4,10 +4,8 @@
  */
 package biblioteca.database1.controladores;
 
-package controlador;
-
-import accesoDatos.DaoArea;
-import beans.Area;
+import biblioteca.database1.accesoDatos.DaoArea;
+import biblioteca.database1.beans.Area;
 
 /**
  *

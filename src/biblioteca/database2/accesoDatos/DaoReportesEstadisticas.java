@@ -9,15 +9,16 @@ package biblioteca.database2.accesoDatos;
  * @author alejandro
  */
 
-import biblioteca.database2.fachada.fachada;
+import biblioteca.database2.fachada.Fachada;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class DaoReportesEstadisticas {
-    fachada Fachada;
+    Fachada Fachada;
     public void DaoReportesEstadisticas(){
-        Fachada = new fachada();
+        Fachada = new Fachada();
     }
+    /*
     public ResultSet consultarDocumentosPorArea(String area){
         return 1;
     }
@@ -64,4 +65,5 @@ public class DaoReportesEstadisticas {
     public ResultSet consultarFranjasHorariasMasUsuarios(int franja){
         return 1;
     }
+    */
 }
