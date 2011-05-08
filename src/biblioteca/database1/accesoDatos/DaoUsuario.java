@@ -4,8 +4,8 @@
  */
 package biblioteca.database1.accesoDatos;
 
-package accesoDatos;
-import beans.*;
+import biblioteca.database1.beans.*;
+import biblioteca.database1.fachada.Fachada;
 import java.sql.*;
 
 /**

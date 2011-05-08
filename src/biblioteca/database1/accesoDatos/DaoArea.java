@@ -3,10 +3,10 @@
  * and open the template in the editor.
  */
 package biblioteca.database1.accesoDatos;
-import biblioteca.database1.beans.Area;
 
  
-import beans.*;
+import biblioteca.database1.beans.*;
+import biblioteca.database1.fachada.Fachada;
 import java.sql.*;
 /**
  *
