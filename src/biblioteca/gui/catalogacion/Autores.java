@@ -30,7 +30,6 @@ public class Autores extends javax.swing.JPanel {
     public Autores(Documento documento) {
         initComponents();
         this.documento=documento;
-        autoresExistentes= new ArrayList<Autor>();
         autoresSeleccionados = new ArrayList<Autor>();
         biblioteca.gui.GUICatalogacion.Autores_Guardado=false;
         initAuthorComboBox();
@@ -39,13 +38,15 @@ public class Autores extends javax.swing.JPanel {
     private void initAuthorComboBox(){
         Autores.removeAllItems();
         System.out.println("Obteniendo lista de autores..");
-        autoresExistentes.clear();
+        autoresExistentes=null;
         autoresExistentes = new ControladorAutor().obtenerTodosLosAutores();
         System.out.println("Obtenida.");
-        for(int i=0;i<autoresExistentes.size();i++){
-            Autores.insertItemAt(autoresExistentes.get(i), i);
-        }        
-        Autores.setSelectedIndex(-1);
+        if(!(autoresExistentes==null)){
+            for(int i=0;i<autoresExistentes.size();i++){
+                Autores.insertItemAt(autoresExistentes.get(i), i);
+            }        
+            Autores.setSelectedIndex(-1);
+        }
     }
     /** This method is called from within the constructor to
      * initialize the form.
@@ -279,8 +280,8 @@ public class Autores extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
-        if(!autoresSeleccionados.contains((Autor)Autores.getItemAt(Autores.getSelectedIndex())))
-            autoresSeleccionados.add((Autor)Autores.getItemAt(Autores.getSelectedIndex()));
+        if(!autoresSeleccionados.contains(autoresExistentes.get(Autores.getSelectedIndex())))
+            autoresSeleccionados.add(autoresExistentes.get(Autores.getSelectedIndex()));
         refreshAutoresSeleccionados();
         biblioteca.gui.GUICatalogacion.Autores_Guardado=false;
     }//GEN-LAST:event_AgregarActionPerformed
