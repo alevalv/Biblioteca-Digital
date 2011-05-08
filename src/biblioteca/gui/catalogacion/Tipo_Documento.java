@@ -78,6 +78,7 @@ public class Tipo_Documento extends javax.swing.JPanel {
         Agregar = new javax.swing.JButton();
         Estado = new javax.swing.JLabel();
         Siguiente = new javax.swing.JButton();
+        Editar = new javax.swing.JButton();
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biblioteca/gui/resources/logo.png"))); // NOI18N
 
@@ -134,6 +135,14 @@ public class Tipo_Documento extends javax.swing.JPanel {
             }
         });
 
+        Editar.setText("Editar");
+        Editar.setEnabled(false);
+        Editar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -182,6 +191,10 @@ public class Tipo_Documento extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 327, Short.MAX_VALUE)
                 .addComponent(Siguiente)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(536, Short.MAX_VALUE)
+                .addComponent(Editar)
+                .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(32, 32, 32)
@@ -194,7 +207,9 @@ public class Tipo_Documento extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4))
-                .addGap(50, 50, 50)
+                .addGap(14, 14, 14)
+                .addComponent(Editar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Tipos_Documento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -249,12 +264,24 @@ public class Tipo_Documento extends javax.swing.JPanel {
     }//GEN-LAST:event_AgregarActionPerformed
 
     private void SiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteActionPerformed
-        tipoSeleccionado = new DaoTipoDocumento().consultarDocumento((String)Tipos_Documento.getItemAt(Tipos_Documento.getSelectedIndex()));
-        biblioteca.gui.GUICatalogacion.Tipo_Documento_Guardado=true;
-        Tipos_Documento.setEnabled(false);
-        JTabbedPane parent =(JTabbedPane) this.getParent();
-        parent.setSelectedIndex(5);
+        if(Tipos_Documento.getSelectedIndex()!=-1){
+            tipoSeleccionado = new DaoTipoDocumento().consultarDocumento((String)Tipos_Documento.getItemAt(Tipos_Documento.getSelectedIndex()));
+            biblioteca.gui.GUICatalogacion.Tipo_Documento_Guardado=true;
+            Tipos_Documento.setEnabled(false);
+            JTabbedPane parent =(JTabbedPane) this.getParent();
+            parent.setSelectedIndex(5);
+            Editar.setEnabled(true);
+        }
+        else JOptionPane.showMessageDialog(this, "Debe seleccionar un tipo de documento", "Error", JOptionPane.ERROR_MESSAGE);
+        
 }//GEN-LAST:event_SiguienteActionPerformed
+
+    private void EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarActionPerformed
+        Tipos_Documento.setEnabled(true);
+        tipoSeleccionado=null;
+        biblioteca.gui.GUICatalogacion.Tipo_Documento_Guardado=false;
+        Editar.setEnabled(false);
+    }//GEN-LAST:event_EditarActionPerformed
 
     private boolean checkEmptyFieldsTipo(){
         if(Tipo_Nombre.getText()==null || Tipo_Nombre.getText().equals("")){
@@ -272,6 +299,7 @@ public class Tipo_Documento extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Agregar;
     private javax.swing.JTextArea Descripcion;
+    private javax.swing.JButton Editar;
     private javax.swing.JLabel Estado;
     private javax.swing.JButton Obtener_Descripcion;
     private javax.swing.JButton Siguiente;
