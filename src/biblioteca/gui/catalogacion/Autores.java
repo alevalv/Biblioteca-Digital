@@ -24,25 +24,26 @@ import javax.swing.JTabbedPane;
  */
 public class Autores extends javax.swing.JPanel {
     Documento documento;
-    public static ArrayList<Autor> autoresAgregados;
+    private ArrayList<Autor> autoresExistentes;
+    public static ArrayList<Autor> autoresSeleccionados;
     /** Creates new form GUICAT_Autores */
     public Autores(Documento documento) {
         initComponents();
         this.documento=documento;
-        autoresAgregados= new ArrayList<Autor>();
+        autoresExistentes= new ArrayList<Autor>();
+        autoresSeleccionados = new ArrayList<Autor>();
+        biblioteca.gui.GUICatalogacion.Autores_Guardado=false;
         initAuthorComboBox();
     }
     
     private void initAuthorComboBox(){
         Autores.removeAllItems();
         System.out.println("Obteniendo lista de autores..");
-        autoresAgregados = new ControladorAutor().obtenerTodosLosAutores();
+        autoresExistentes.clear();
+        autoresExistentes = new ControladorAutor().obtenerTodosLosAutores();
         System.out.println("Obtenida.");
-        for(int i=0;i<autoresAgregados.size();i++){
-            String temp = "";
-            temp+=autoresAgregados.get(i).getCorreo()+" - "+autoresAgregados.get(i).getNombre()
-                    +" "+autoresAgregados.get(i).getApellido()+" - "+autoresAgregados.get(i).getAcronimo();
-            Autores.addItem(temp);
+        for(int i=0;i<autoresExistentes.size();i++){
+            Autores.addItem(autoresExistentes.get(i));
         }        
     }
     /** This method is called from within the constructor to
@@ -272,16 +273,29 @@ public class Autores extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
-        
+        if(!autoresSeleccionados.contains(autoresExistentes.get(Autores.getSelectedIndex())))
+            autoresSeleccionados.add(autoresExistentes.get(Autores.getSelectedIndex()));
+        refreshAutoresSeleccionados();
+        biblioteca.gui.GUICatalogacion.Autores_Guardado=false;
     }//GEN-LAST:event_AgregarActionPerformed
 
     private void SiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteActionPerformed
+        biblioteca.gui.GUICatalogacion.Autores_Guardado=true;
         JTabbedPane parent =(JTabbedPane) this.getParent();
         parent.setSelectedIndex(2);
 }//GEN-LAST:event_SiguienteActionPerformed
 
     private void Agregar_AutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_AutorActionPerformed
-        // TODO add your handling code here:
+        if(checkEmptyFieldsAuthor()){
+            ControladorAutor CA = new ControladorAutor();
+            CA.insertarAutor(Autor_Nombre.getText(), Autor_Apellido.getText(), Autor_Correo.getText(), Autor_Acronimo.getText());
+            JOptionPane.showMessageDialog(this, "El autor con correo "+Autor_Correo.getText()+ " ha sido agregado", "Notificaición", JOptionPane.INFORMATION_MESSAGE);
+            Autor_Correo.setText("");
+            Autor_Apellido.setText("");
+            Autor_Acronimo.setText("");
+            Autor_Nombre.setText("");
+            initAuthorComboBox();
+        }
     }//GEN-LAST:event_Agregar_AutorActionPerformed
 
     private boolean checkEmptyFieldsAuthor(){
@@ -302,14 +316,18 @@ public class Autores extends javax.swing.JPanel {
             return false;
         }
         else return true;
+    }    
+    
+    private void refreshAutoresSeleccionados(){
+        String nuevoTexto="";
+        for(int i=0;i<autoresSeleccionados.size();i++){
+            nuevoTexto+=autoresExistentes.get(i).getCorreo()+" - "+autoresExistentes.get(i).getNombre()
+                    +" "+autoresExistentes.get(i).getApellido()+" - "+autoresExistentes.get(i).getAcronimo();
+            if(i!=(autoresSeleccionados.size()-1))
+                nuevoTexto+="\n";
+        }
+        Autores_Agregados.setText(nuevoTexto);
     }
-    
-    private void guardarDatos(){
-        //TODO guardarDatos autores
-    }
-    
-    
-    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Agregar;
