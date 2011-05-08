@@ -25,12 +25,14 @@ public class GUICatalogacion extends javax.swing.JFrame {
     static public boolean Autores_Guardado;
     static public boolean Areas_Guardadas;
     static public boolean Palabras_Clave_Guardadas;
+    static public boolean Tipo_Documento_Guardado;
     /** Creates new form GUICatalogacion */
     public GUICatalogacion() {
         Informacion_Basica_Guardada=false;
         Autores_Guardado=false;
         Areas_Guardadas=false;
         Palabras_Clave_Guardadas=false;
+        Tipo_Documento_Guardado=false;
         documento= new Documento();
         initComponents();
     }
@@ -54,10 +56,12 @@ public class GUICatalogacion extends javax.swing.JFrame {
         biblioteca.gui.catalogacion.Selecc_Areas areas = new biblioteca.gui.catalogacion.Selecc_Areas(documento);
         biblioteca.gui.catalogacion.Selecc_Pal_Clave pc = new biblioteca.gui.catalogacion.Selecc_Pal_Clave(documento);
         biblioteca.gui.catalogacion.Subir_Archivo sa = new biblioteca.gui.catalogacion.Subir_Archivo(documento);
+        biblioteca.gui.catalogacion.Tipo_Documento td = new biblioteca.gui.catalogacion.Tipo_Documento(documento);
         jTabbedPane1.add("Información Basica", informacionBasica);
         jTabbedPane1.add("Autores", autores);
         jTabbedPane1.add("Areas de la Computación", areas);
         jTabbedPane1.add("Palabras Clave", pc);
+        jTabbedPane1.add("Tipo de Documento", td);
         jTabbedPane1.add("Subir Archivo", sa);
         getContentPane().add(jTabbedPane1);
 

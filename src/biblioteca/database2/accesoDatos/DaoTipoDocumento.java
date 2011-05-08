@@ -12,6 +12,7 @@ package biblioteca.database2.accesoDatos;
 import java.sql.*;
 import biblioteca.database2.beans.TipoDocumento;
 import biblioteca.database2.fachada.Fachada;
+import java.util.ArrayList;
 
 public class DaoTipoDocumento {
     Fachada fachada;
@@ -60,7 +61,7 @@ public class DaoTipoDocumento {
     
     public TipoDocumento consultarDocumento(String nombre){
         String sql_consultar;
-        sql_consultar="SELECT FROM  tipo_material WHERE tipo_documento = '" +
+        sql_consultar="SELECT * FROM  tipo_material WHERE tipo_documento = '" +
                 nombre + "';";
         try{
             Connection conn= fachada.conectar();
@@ -74,6 +75,31 @@ public class DaoTipoDocumento {
             }
             conn.close();
             return tipoDocumento;
+
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+        return null;
+    }
+    
+    public ArrayList<TipoDocumento> consultarTodosLosTipoDocumento(){
+        String sql_consultar;
+        sql_consultar="SELECT * FROM  tipo_material ORDER BY tipo_documento ASC;";
+        ArrayList<TipoDocumento> Tipos = null;
+        try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_consultar);
+            
+            Tipos = new ArrayList<TipoDocumento>();
+            while(tabla.next()){
+                TipoDocumento tipoDocumento=new TipoDocumento();
+                tipoDocumento.setTipoDocumento(tabla.getString(1));
+                tipoDocumento.setDescripcion(tabla.getString(2));
+                Tipos.add(tipoDocumento);
+            }
+            conn.close();
+            return Tipos;
 
         }
         catch(SQLException e){ System.out.println(e); }

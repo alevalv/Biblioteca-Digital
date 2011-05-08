@@ -14,6 +14,7 @@ package biblioteca.gui.catalogacion;
 import biblioteca.database2.beans.Autor;
 import biblioteca.database2.beans.Documento;
 import biblioteca.database2.controladores.ControladorAutor;
+import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
@@ -30,7 +31,6 @@ public class Autores extends javax.swing.JPanel {
     public Autores(Documento documento) {
         initComponents();
         this.documento=documento;
-        autoresExistentes= new ArrayList<Autor>();
         autoresSeleccionados = new ArrayList<Autor>();
         biblioteca.gui.GUICatalogacion.Autores_Guardado=false;
         initAuthorComboBox();
@@ -39,13 +39,15 @@ public class Autores extends javax.swing.JPanel {
     private void initAuthorComboBox(){
         Autores.removeAllItems();
         System.out.println("Obteniendo lista de autores..");
-        autoresExistentes.clear();
+        autoresExistentes=null;
         autoresExistentes = new ControladorAutor().obtenerTodosLosAutores();
         System.out.println("Obtenida.");
-        for(int i=0;i<autoresExistentes.size();i++){
-            Autores.addItem(autoresExistentes.get(i));
-        }        
-        Autores.setSelectedIndex(-1);
+        if(!(autoresExistentes==null)){
+            for(int i=0;i<autoresExistentes.size();i++){
+                Autores.insertItemAt(autoresExistentes.get(i).toString(), i);
+            }        
+            Autores.setSelectedIndex(-1);
+        }
     }
     /** This method is called from within the constructor to
      * initialize the form.
@@ -86,7 +88,7 @@ public class Autores extends javax.swing.JPanel {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biblioteca/gui/resources/logo.png"))); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 24));
+        jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
         jLabel4.setText("Autores");
 
         Agregar.setText("Agregar Autor al Documento");
@@ -120,7 +122,7 @@ public class Autores extends javax.swing.JPanel {
 
         jLabel9.setText("Acronimo: ");
 
-        Estado.setFont(new java.awt.Font("Ubuntu", 0, 24));
+        Estado.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
         Estado.setForeground(new java.awt.Color(255, 0, 0));
         Estado.setText("[Sin Guardar]");
 
@@ -142,7 +144,7 @@ public class Autores extends javax.swing.JPanel {
         jSeparator2.setMinimumSize(new java.awt.Dimension(150, 6));
         jSeparator2.setPreferredSize(new java.awt.Dimension(200, 10));
 
-        jLabel10.setFont(new java.awt.Font("Ubuntu", 0, 18));
+        jLabel10.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel10.setText("Autores Existentes: ");
 
         Autores_Agregados.setColumns(20);
@@ -279,16 +281,24 @@ public class Autores extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
-        if(!autoresSeleccionados.contains((Autor)Autores.getItemAt(Autores.getSelectedIndex())))
-            autoresSeleccionados.add((Autor)Autores.getItemAt(Autores.getSelectedIndex()));
+       
+        if(!autoresSeleccionados.contains(autoresExistentes.get(Autores.getSelectedIndex())))
+            autoresSeleccionados.add(autoresExistentes.get(Autores.getSelectedIndex()));
         refreshAutoresSeleccionados();
         biblioteca.gui.GUICatalogacion.Autores_Guardado=false;
     }//GEN-LAST:event_AgregarActionPerformed
 
     private void SiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteActionPerformed
-        biblioteca.gui.GUICatalogacion.Autores_Guardado=true;
-        JTabbedPane parent =(JTabbedPane) this.getParent();
-        parent.setSelectedIndex(2);
+        if(!autoresSeleccionados.isEmpty()){
+            biblioteca.gui.GUICatalogacion.Autores_Guardado=true;
+            Estado.setForeground(Color.green);
+            Estado.setText("[Guardado]");
+            JTabbedPane parent =(JTabbedPane) this.getParent();
+            parent.setSelectedIndex(2);
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Debe seleccionar almenos un autor", "Error", JOptionPane.ERROR_MESSAGE);
+        }
 }//GEN-LAST:event_SiguienteActionPerformed
 
     private void Agregar_AutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_AutorActionPerformed

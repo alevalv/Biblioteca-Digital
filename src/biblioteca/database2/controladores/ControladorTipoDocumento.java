@@ -6,6 +6,7 @@ package biblioteca.database2.controladores;
 
 import biblioteca.database2.accesoDatos.DaoTipoDocumento;
 import biblioteca.database2.beans.TipoDocumento;
+import java.util.ArrayList;
 
 /**
  *
@@ -39,5 +40,9 @@ public class ControladorTipoDocumento {
         DaoTipoDocumento daoTipoDocumento = new DaoTipoDocumento();
         TipoDocumento salida=daoTipoDocumento.consultarDocumento(nombre);
         return salida;
+    }
+    
+    public ArrayList<TipoDocumento> consultarTodosLosTipoDocumento(){
+        return new DaoTipoDocumento().consultarTodosLosTipoDocumento();
     }
 }
