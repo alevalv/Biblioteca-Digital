@@ -42,7 +42,7 @@ public class Autores extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        Cancelar = new javax.swing.JButton();
         Autor_Correo = new javax.swing.JTextField();
         Autor_Nombre = new javax.swing.JTextField();
         Autor_Apellido = new javax.swing.JTextField();
@@ -143,13 +143,13 @@ public class Autores extends javax.swing.JPanel {
         gridBagConstraints.gridy = 9;
         add(jLabel8, gridBagConstraints);
 
-        jButton1.setText("Cancelar Operación");
+        Cancelar.setText("Cancelar Operación");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 10);
-        add(jButton1, gridBagConstraints);
+        add(Cancelar, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 7;
@@ -224,8 +224,8 @@ public class Autores extends javax.swing.JPanel {
     private javax.swing.JTextField Autor_Correo;
     private javax.swing.JTextField Autor_Nombre;
     private javax.swing.JComboBox Autores;
+    private javax.swing.JButton Cancelar;
     private javax.swing.JLabel Estado;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

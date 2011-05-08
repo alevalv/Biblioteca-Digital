@@ -34,17 +34,18 @@ public class GUICatalogacion extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new java.awt.GridLayout());
+        getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
-        Informacion_Basica informacionBasica = new Informacion_Basica();
-        Autores autores = new Autores();
+        biblioteca.gui.catalogacion.Informacion_Basica informacionBasica = new biblioteca.gui.catalogacion.Informacion_Basica();
+        biblioteca.gui.catalogacion.Autores autores = new biblioteca.gui.catalogacion.Autores();
+        biblioteca.gui.catalogacion.Selecc_Areas areas = new biblioteca.gui.catalogacion.Selecc_Areas();
         jTabbedPane1.add("Información Basica", informacionBasica);
         jTabbedPane1.add("Autores", autores);
+        jTabbedPane1.add("Areas de la Computación", areas);
         getContentPane().add(jTabbedPane1);
 
         pack();
