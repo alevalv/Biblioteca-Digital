@@ -167,21 +167,19 @@ public class DaoUsuario {
   
     
 
-    public boolean AutenticarUsuario(String login, String contraseña,String perfil)
+    public boolean AutenticarUsuario(String login, String contrasena)
     {
         String passwordRecibido="";
-        String estadoRecibido="";
-        String perfilRecibido="";
+        String LoginRecibido="";
         String sql_autenticar;
-        sql_autenticar="SELECT password,activo,tipo_usuario FROM usuarios WHERE username= '"+login+"';";
+        sql_autenticar="SELECT  password FROM usuarios WHERE username= '"+login+"';";
+        
          try{
             Connection conn= fachada.conectar();
             Statement sentencia = conn.createStatement();
             ResultSet tabla = sentencia.executeQuery(sql_autenticar);
             while(tabla.next()){
                 passwordRecibido=tabla.getString(1);
-                estadoRecibido=tabla.getString(2);
-                perfilRecibido=tabla.getString(3);
 
             }
              conn.close();
@@ -189,7 +187,7 @@ public class DaoUsuario {
          catch(SQLException e){ System.out.println(e); }
          catch(Exception e){ System.out.println(e); }
 
-        if(contraseña.equals(passwordRecibido) && estadoRecibido.equals("activo") && perfil.equals(perfilRecibido))
+        if(contrasena.equals(passwordRecibido))
         {
             return true;
 

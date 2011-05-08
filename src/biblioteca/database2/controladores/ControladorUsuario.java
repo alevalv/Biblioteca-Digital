@@ -68,11 +68,11 @@ public class ControladorUsuario {
          return respuesta;
     }
 
-    public boolean autenticarUsuario(String Username, String Password,String perfil)
+    public boolean autenticarUsuario(String Username, String Password)
     {
          boolean respuesta;
          DaoUsuario daoUsuario= new DaoUsuario();
-         respuesta= daoUsuario.AutenticarUsuario(Username, Password,perfil);
+         respuesta= daoUsuario.AutenticarUsuario(Username, Password);
          return respuesta;
     }
 /*
