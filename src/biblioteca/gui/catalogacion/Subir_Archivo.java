@@ -40,6 +40,7 @@ public class Subir_Archivo extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         Estado = new javax.swing.JLabel();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
 
         jTextField1.setText("jTextField1");
 
@@ -65,7 +66,7 @@ public class Subir_Archivo extends javax.swing.JPanel {
         add(jLabel3, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
@@ -74,7 +75,7 @@ public class Subir_Archivo extends javax.swing.JPanel {
         Seleccionar_Archivo.setText("Seleccionar Archivo");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 10);
         add(Seleccionar_Archivo, gridBagConstraints);
 
@@ -82,7 +83,7 @@ public class Subir_Archivo extends javax.swing.JPanel {
         jLabel5.setText("Por favor, seleccione el archivo o digite su path:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
@@ -97,7 +98,7 @@ public class Subir_Archivo extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 10);
         add(jButton2, gridBagConstraints);
@@ -106,7 +107,7 @@ public class Subir_Archivo extends javax.swing.JPanel {
         jSeparator1.setPreferredSize(new java.awt.Dimension(200, 10));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
@@ -117,11 +118,15 @@ public class Subir_Archivo extends javax.swing.JPanel {
         Estado.setText("[Sin Guardar]");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 0);
         add(Estado, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 6;
+        add(filler1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -132,6 +137,7 @@ public class Subir_Archivo extends javax.swing.JPanel {
     private javax.swing.JLabel Estado;
     private javax.swing.JTextField Path;
     private javax.swing.JButton Seleccionar_Archivo;
+    private javax.swing.Box.Filler filler1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
