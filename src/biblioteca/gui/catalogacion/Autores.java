@@ -44,7 +44,7 @@ public class Autores extends javax.swing.JPanel {
         System.out.println("Obtenida.");
         if(!(autoresExistentes==null)){
             for(int i=0;i<autoresExistentes.size();i++){
-                Autores.insertItemAt(autoresExistentes.get(i), i);
+                Autores.insertItemAt(autoresExistentes.get(i).toString(), i);
             }        
             Autores.setSelectedIndex(-1);
         }
@@ -281,6 +281,7 @@ public class Autores extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
+       
         if(!autoresSeleccionados.contains(autoresExistentes.get(Autores.getSelectedIndex())))
             autoresSeleccionados.add(autoresExistentes.get(Autores.getSelectedIndex()));
         refreshAutoresSeleccionados();
