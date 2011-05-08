@@ -11,6 +11,7 @@
 package biblioteca.gui.catalogacion;
 
 import biblioteca.database2.beans.Documento;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 
@@ -19,7 +20,7 @@ import javax.swing.JTabbedPane;
  * @author alejandro
  */
 public class Informacion_Basica extends javax.swing.JPanel {
-    Documento documento;
+    Documento documento;    
     /** Creates new form GUICAT_Informacion_Basica */
     public Informacion_Basica(Documento documento) {
         initComponents();
@@ -45,7 +46,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         Descripcion = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        Idioma = new javax.swing.JComboBox();
         jLabel7 = new javax.swing.JLabel();
         Editorial = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -54,6 +55,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         Derechos_Autor = new javax.swing.JTextField();
         Estado = new javax.swing.JLabel();
         Siguiente = new javax.swing.JButton();
+        Editar = new javax.swing.JButton();
 
         jLabel1.setText("Titulo Principal: ");
 
@@ -77,7 +79,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
 
         jLabel6.setText("Idioma:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Inglés", "Español", "Portuges", "Otro" }));
+        Idioma.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Inglés", "Español", "Portuges", "Otro" }));
 
         jLabel7.setText("Editorial: ");
 
@@ -87,7 +89,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
 
         jLabel9.setText("Derechos de Autor: ");
 
-        Estado.setFont(new java.awt.Font("Ubuntu", 0, 24));
+        Estado.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
         Estado.setForeground(new java.awt.Color(255, 0, 0));
         Estado.setText("[Sin Guardar]");
 
@@ -96,6 +98,14 @@ public class Informacion_Basica extends javax.swing.JPanel {
         Siguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SiguienteActionPerformed(evt);
+            }
+        });
+
+        Editar.setText("Editar");
+        Editar.setEnabled(false);
+        Editar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditarActionPerformed(evt);
             }
         });
 
@@ -132,7 +142,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
                 .addGap(52, 52, 52)
                 .addComponent(jLabel6)
                 .addGap(102, 102, 102)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(Idioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(7, 7, 7)
                 .addComponent(jLabel9)
@@ -148,6 +158,10 @@ public class Informacion_Basica extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 317, Short.MAX_VALUE)
                 .addComponent(Siguiente)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(538, Short.MAX_VALUE)
+                .addComponent(Editar)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,7 +169,9 @@ public class Informacion_Basica extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4))
-                .addGap(68, 68, 68)
+                .addGap(32, 32, 32)
+                .addComponent(Editar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(5, 5, 5)
@@ -196,7 +212,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(5, 5, 5)
                         .addComponent(jLabel6))
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Idioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Siguiente)
@@ -207,10 +223,16 @@ public class Informacion_Basica extends javax.swing.JPanel {
 
     private void SiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteActionPerformed
         if(checkEmptyFields()){
+            guardarDatos();
             JTabbedPane parent =(JTabbedPane) this.getParent();
             parent.setSelectedIndex(1);
         }
     }//GEN-LAST:event_SiguienteActionPerformed
+
+    private void EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarActionPerformed
+        biblioteca.gui.GUICatalogacion.Informacion_Basica_Guardada=false;
+        enableFields(true);
+    }//GEN-LAST:event_EditarActionPerformed
 
     private boolean checkEmptyFields(){
         if(Titulo_Principal.getText()==null || Titulo_Principal.getText().equals("")){
@@ -240,6 +262,37 @@ public class Informacion_Basica extends javax.swing.JPanel {
         else return true;
     }
     
+    private void guardarDatos(){
+        documento.setTituloPrincipal(Titulo_Principal.getText());
+        documento.setTituloSecundario(Titulo_Secundario.getText());
+        documento.setDescripcion(Descripcion.getText());
+        documento.setEditorial(Editorial.getText());
+        documento.setFechaPublicacion(Fecha_Publicacion.getText());
+        documento.setDerechosAutor(Derechos_Autor.getText());
+        System.out.println(Idioma.getItemAt(Idioma.getSelectedIndex()));
+        documento.setIdioma((String)Idioma.getItemAt(Idioma.getSelectedIndex()));
+        Estado.setForeground(Color.green);
+        Estado.setText("[Guardado]");
+        enableFields(false);
+        biblioteca.gui.GUICatalogacion.Informacion_Basica_Guardada=true;
+    }
+    
+    private void enableFields(boolean b){
+        Titulo_Principal.setEditable(b);
+        Titulo_Principal.setEnabled(b);
+        Titulo_Secundario.setEditable(b);
+        Titulo_Secundario.setEnabled(b);
+        Descripcion.setEditable(b);
+        Descripcion.setEnabled(b);
+        Editorial.setEditable(b);
+        Editorial.setEnabled(b);
+        Fecha_Publicacion.setEditable(b);
+        Fecha_Publicacion.setEnabled(b);
+        Derechos_Autor.setEditable(b);
+        Derechos_Autor.setEnabled(b);
+        Idioma.setEnabled(b);
+        Editar.setEnabled(!b);
+    }
     
     
     
@@ -248,13 +301,14 @@ public class Informacion_Basica extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Derechos_Autor;
     private javax.swing.JTextArea Descripcion;
+    private javax.swing.JButton Editar;
     private javax.swing.JTextField Editorial;
     private javax.swing.JLabel Estado;
     private javax.swing.JTextField Fecha_Publicacion;
+    private javax.swing.JComboBox Idioma;
     private javax.swing.JButton Siguiente;
     private javax.swing.JTextField Titulo_Principal;
     private javax.swing.JTextField Titulo_Secundario;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

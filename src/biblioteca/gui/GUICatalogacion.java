@@ -20,10 +20,18 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 public class GUICatalogacion extends javax.swing.JFrame {
     Documento documento;
+    static public boolean Informacion_Basica_Guardada;
+    static public boolean Autores_Guardado;
+    static public boolean Areas_Guardadas;
+    static public boolean Palabras_Clave_Guardadas;
     /** Creates new form GUICatalogacion */
     public GUICatalogacion() {
-        initComponents();
+        Informacion_Basica_Guardada=false;
+        Autores_Guardado=false;
+        Areas_Guardadas=false;
+        Palabras_Clave_Guardadas=false;
         documento= new Documento();
+        initComponents();
     }
 
     /** This method is called from within the constructor to
