@@ -7,6 +7,7 @@ package biblioteca.database2.accesoDatos;
 import biblioteca.database2.beans.*;
 import biblioteca.database2.fachada.Fachada;
 import java.sql.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -59,7 +60,30 @@ public class DaoAutor {
          catch(Exception e){ System.out.println(e); }
         return autor;
     }
+    
+    public ArrayList<Autor> consultarTodos(){
+        ArrayList<Autor> autores = new ArrayList<Autor>();
+        String sql_consultar;
+        sql_consultar="SELECT * FROM autor;";
+         try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_consultar);
+            while(tabla.next()){
+              Autor autor = new Autor();
+              autor.setCorreo(tabla.getString(1));
+              autor.setAcronimo(tabla.getString(2));
+              autor.setApellido(tabla.getString(3));
+              autor.setNombre(tabla.getString(4));
+              autores.add(autor);
+            }
+            conn.close();
 
+         }
+         catch(SQLException e){ System.out.println(e); }
+         catch(Exception e){ System.out.println(e); }
+        return autores;
+    }
 
     public int modificarAutor(Autor autor)
     {
