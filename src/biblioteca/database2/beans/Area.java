@@ -10,10 +10,10 @@ package biblioteca.database2.beans;
  */
 public class Area {
 
-    String idArea;
+    String area_id;
     String nombre;
     String descripcion;
-    String idSubarea;
+    String Area_Padre;
 
     public Area(){}
 
@@ -22,11 +22,11 @@ public class Area {
     }
 
     public void setID(String id) {
-        this.idArea = id;
+        this.area_id = id;
     }
 
-    public void setIDSubarea(String idSubarea) {
-        this.idSubarea = idSubarea;
+    public void setAreaPadre(String Area_Padre) {
+        this.Area_Padre = Area_Padre;
     }
 
    public void setDescripcion(String descripcion) {
@@ -38,11 +38,11 @@ public class Area {
     }
 
     public String getID() {
-        return idArea;
+        return area_id;
     }
 
-    public String getIDSubarea() {
-        return idSubarea;
+    public String getAreaPadre() {
+        return Area_Padre;
     }
 
       public String getDescripcion() {
