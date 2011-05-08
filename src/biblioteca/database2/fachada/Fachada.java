@@ -41,7 +41,6 @@ public class Fachada {
 
             try{
                      //Crear el objeto de conexion a la base de datos
-                     System.out.println(url+usuario+password);
                      conexion = DriverManager.getConnection(url, usuario, password);
                      System.out.println( "Conexion Abierta" );
                      return conexion;
