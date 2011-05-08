@@ -47,6 +47,11 @@ public class Selecc_Areas extends javax.swing.JPanel {
         Area_Padre = new javax.swing.JComboBox();
         jButton2 = new javax.swing.JButton();
         Estado = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        Agregar_Area = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Areas_Agregadas = new javax.swing.JTextArea();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -111,7 +116,7 @@ public class Selecc_Areas extends javax.swing.JPanel {
         jSeparator1.setPreferredSize(new java.awt.Dimension(200, 10));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
@@ -121,7 +126,7 @@ public class Selecc_Areas extends javax.swing.JPanel {
         jLabel2.setText("Agregar una Nueva Área: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
@@ -130,11 +135,11 @@ public class Selecc_Areas extends javax.swing.JPanel {
         jLabel6.setText("Nombre: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 9;
         add(jLabel6, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 10);
@@ -143,11 +148,11 @@ public class Selecc_Areas extends javax.swing.JPanel {
         jLabel1.setText("Descripción: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 10;
         add(jLabel1, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 10);
@@ -156,17 +161,18 @@ public class Selecc_Areas extends javax.swing.JPanel {
         jLabel7.setText("Área Padre: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 11;
         add(jLabel7, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 10);
         add(Area_Padre, gridBagConstraints);
 
+        jButton2.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jButton2.setText("Siguiente Paso");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,7 +181,7 @@ public class Selecc_Areas extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 10);
         add(jButton2, gridBagConstraints);
@@ -185,11 +191,57 @@ public class Selecc_Areas extends javax.swing.JPanel {
         Estado.setText("[Sin Guardar]");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 0);
         add(Estado, gridBagConstraints);
+
+        jSeparator2.setMinimumSize(new java.awt.Dimension(150, 6));
+        jSeparator2.setPreferredSize(new java.awt.Dimension(200, 10));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
+        add(jSeparator2, gridBagConstraints);
+
+        Agregar_Area.setText("Agregar Área de Interes");
+        Agregar_Area.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Agregar_AreaActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 4;
+        add(Agregar_Area, gridBagConstraints);
+
+        jLabel8.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        jLabel8.setText("Áreas Agregadas: ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
+        add(jLabel8, gridBagConstraints);
+
+        Areas_Agregadas.setColumns(20);
+        Areas_Agregadas.setRows(5);
+        Areas_Agregadas.setMinimumSize(new java.awt.Dimension(200, 200));
+        Areas_Agregadas.setPreferredSize(new java.awt.Dimension(300, 500));
+        jScrollPane1.setViewportView(Areas_Agregadas);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
+        add(jScrollPane1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
@@ -200,12 +252,18 @@ public class Selecc_Areas extends javax.swing.JPanel {
         // TODO add your handling code here:
 }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void Agregar_AreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_AreaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Agregar_AreaActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Agregar;
+    private javax.swing.JButton Agregar_Area;
     private javax.swing.JTextField Area_Descripcion;
     private javax.swing.JTextField Area_Nombre;
     private javax.swing.JComboBox Area_Padre;
     private javax.swing.JComboBox Areas;
+    private javax.swing.JTextArea Areas_Agregadas;
     private javax.swing.JButton Cancelar;
     private javax.swing.JLabel Estado;
     private javax.swing.JButton jButton2;
@@ -216,6 +274,9 @@ public class Selecc_Areas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     // End of variables declaration//GEN-END:variables
 }

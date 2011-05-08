@@ -187,6 +187,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 0);
         add(Estado, gridBagConstraints);
 
+        jButton1.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jButton1.setText("Siguiente Paso");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

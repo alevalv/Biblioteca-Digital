@@ -43,9 +43,11 @@ public class GUICatalogacion extends javax.swing.JFrame {
         biblioteca.gui.catalogacion.Informacion_Basica informacionBasica = new biblioteca.gui.catalogacion.Informacion_Basica();
         biblioteca.gui.catalogacion.Autores autores = new biblioteca.gui.catalogacion.Autores();
         biblioteca.gui.catalogacion.Selecc_Areas areas = new biblioteca.gui.catalogacion.Selecc_Areas();
+        biblioteca.gui.catalogacion.Selecc_Pal_Clave pc = new biblioteca.gui.catalogacion.Selecc_Pal_Clave();
         jTabbedPane1.add("Información Basica", informacionBasica);
         jTabbedPane1.add("Autores", autores);
         jTabbedPane1.add("Areas de la Computación", areas);
+        jTabbedPane1.add("Palabras Clave", pc);
         getContentPane().add(jTabbedPane1);
 
         pack();
