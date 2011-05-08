@@ -66,7 +66,7 @@ public class Subir_Archivo extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
         add(Path, gridBagConstraints);
@@ -88,7 +88,7 @@ public class Subir_Archivo extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
         add(jLabel5, gridBagConstraints);
 
-        jButton2.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Ubuntu", 1, 15));
         jButton2.setText("Finalizar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
