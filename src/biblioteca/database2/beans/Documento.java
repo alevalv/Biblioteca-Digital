@@ -32,10 +32,6 @@ public class Documento {
          this.activo=activo;
     }
 
-      public void setdescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
       public void setEditorial(String editorial) {
         this.editorial = editorial;
     }
