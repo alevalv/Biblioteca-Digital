@@ -24,7 +24,7 @@ public class Fachada {
         Connection conexion;
         Statement instruccion;
         ResultSet tabla;
-        public void fachada(){
+        public Fachada(){
             url="jdbc:postgresql://localhost/alevalvi";
             usuario="postgres";
             password="root";
@@ -41,6 +41,7 @@ public class Fachada {
 
             try{
                      //Crear el objeto de conexion a la base de datos
+                     System.out.println(url+usuario+password);
                      conexion = DriverManager.getConnection(url, usuario, password);
                      System.out.println( "Conexion Abierta" );
                      return conexion;
