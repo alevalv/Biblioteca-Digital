@@ -10,7 +10,12 @@
  */
 package biblioteca.gui.catalogacion;
 
+
+import biblioteca.database2.beans.Autor;
 import biblioteca.database2.beans.Documento;
+import biblioteca.database2.controladores.ControladorAutor;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 
 /**
@@ -19,12 +24,27 @@ import javax.swing.JTabbedPane;
  */
 public class Autores extends javax.swing.JPanel {
     Documento documento;
+    public static ArrayList<Autor> autoresAgregados;
     /** Creates new form GUICAT_Autores */
     public Autores(Documento documento) {
         initComponents();
         this.documento=documento;
+        autoresAgregados= new ArrayList<Autor>();
+        initAuthorComboBox();
     }
     
+    private void initAuthorComboBox(){
+        Autores.removeAllItems();
+        System.out.println("Obteniendo lista de autores..");
+        autoresAgregados = new ControladorAutor().obtenerTodosLosAutores();
+        System.out.println("Obtenida.");
+        for(int i=0;i<autoresAgregados.size();i++){
+            String temp = "";
+            temp+=autoresAgregados.get(i).getAcronimo()+" - "+autoresAgregados.get(i).getNombre()
+                    +" "+autoresAgregados.get(i).getApellido()+" - "+autoresAgregados.get(i).getCorreo();
+            Autores.addItem(temp);
+        }        
+    }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -50,7 +70,7 @@ public class Autores extends javax.swing.JPanel {
         Autor_Nombre = new javax.swing.JTextField();
         Autor_Apellido = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        Autor_Acronimo = new javax.swing.JTextField();
         Estado = new javax.swing.JLabel();
         Siguiente = new javax.swing.JButton();
         Agregar_Autor = new javax.swing.JButton();
@@ -157,7 +177,7 @@ public class Autores extends javax.swing.JPanel {
                 .addGap(52, 52, 52)
                 .addComponent(jLabel9)
                 .addGap(40, 40, 40)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(Autor_Acronimo, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(245, 245, 245)
                 .addComponent(Agregar_Autor))
@@ -238,7 +258,7 @@ public class Autores extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(5, 5, 5)
                         .addComponent(jLabel9))
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Autor_Acronimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5)
                 .addComponent(Agregar_Autor)
                 .addGap(10, 10, 10)
@@ -252,7 +272,7 @@ public class Autores extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_AgregarActionPerformed
 
     private void SiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteActionPerformed
@@ -264,7 +284,29 @@ public class Autores extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_Agregar_AutorActionPerformed
 
+    private boolean checkEmptyFieldsAuthor(){
+        if(Autor_Correo.getText()==null || Autor_Correo.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "El campo Autor Correo no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        else if(Autor_Nombre.getText()==null || Autor_Nombre.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "El campo Autor_Nombre no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        else if(Autor_Apellido.getText()==null || Autor_Apellido.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "El campo Autor_Apellido no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        else if(Autor_Acronimo.getText()==null || Autor_Acronimo.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "El campo Autor_Acronimo no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        else return true;
+    }
     
+    private void guardarDatos(){
+        //TODO guardarDatos autores
+    }
     
     
     
@@ -272,6 +314,7 @@ public class Autores extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Agregar;
     private javax.swing.JButton Agregar_Autor;
+    private javax.swing.JTextField Autor_Acronimo;
     private javax.swing.JTextField Autor_Apellido;
     private javax.swing.JTextField Autor_Correo;
     private javax.swing.JTextField Autor_Nombre;
@@ -293,6 +336,5 @@ public class Autores extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

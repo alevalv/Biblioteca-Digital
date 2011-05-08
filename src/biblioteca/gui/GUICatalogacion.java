@@ -11,6 +11,7 @@
 package biblioteca.gui;
 
 import biblioteca.database2.beans.Documento;
+import java.util.ArrayList;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -24,6 +25,9 @@ public class GUICatalogacion extends javax.swing.JFrame {
     static public boolean Autores_Guardado;
     static public boolean Areas_Guardadas;
     static public boolean Palabras_Clave_Guardadas;
+    static public ArrayList<ArrayList<String>> AutoresExistentes;
+    static public ArrayList<ArrayList<String>> AreasExistentes;
+    static public ArrayList<String> PalabrasClaveExistentes;
     /** Creates new form GUICatalogacion */
     public GUICatalogacion() {
         Informacion_Basica_Guardada=false;

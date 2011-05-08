@@ -61,7 +61,7 @@
               <EmptySpace min="52" pref="52" max="52" attributes="0"/>
               <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="40" pref="40" max="40" attributes="0"/>
-              <Component id="jTextField1" min="-2" pref="413" max="-2" attributes="0"/>
+              <Component id="Autor_Acronimo" min="-2" pref="413" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace min="245" pref="245" max="245" attributes="0"/>
@@ -166,7 +166,7 @@
                       <EmptySpace min="5" pref="5" max="5" attributes="0"/>
                       <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
+                  <Component id="Autor_Acronimo" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="5" pref="5" max="5" attributes="0"/>
               <Component id="Agregar_Autor" min="-2" max="-2" attributes="0"/>
@@ -270,7 +270,7 @@
         <Property name="text" type="java.lang.String" value="Acronimo: "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="Autor_Acronimo">
     </Component>
     <Component class="javax.swing.JLabel" name="Estado">
       <Properties>
