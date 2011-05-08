@@ -6,10 +6,10 @@ package biblioteca.database2.controladores;
 
 import biblioteca.database2.accesoDatos.DaoDocumento;
 import biblioteca.database2.beans.Documento;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+//import java.sql.ResultSet;
+//import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.StringTokenizer;
+//import java.util.StringTokenizer;
 
 /**
  *
