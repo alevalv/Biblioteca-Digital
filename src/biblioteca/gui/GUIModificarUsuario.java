@@ -11,6 +11,10 @@
 
 package biblioteca.gui;
 
+import biblioteca.database2.beans.Usuario;
+import biblioteca.database2.controladores.ControladorUsuario;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Cris
@@ -20,6 +24,9 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
     /** Creates new form GUIModificarUsuario */
     public GUIModificarUsuario() {
         initComponents();
+        jTextField1.setEditable(false);
+        jTextField1.setText("cris");
+        ConsultarDatosUsuario(jTextField1.getText());
     }
 
     /** This method is called from within the constructor to
@@ -125,7 +132,7 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
 
         jTextField3.setFont(new java.awt.Font("Arial", 0, 11));
 
-        jTextField2.setFont(new java.awt.Font("Arial", 0, 11));
+        jTextField2.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -138,7 +145,7 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel2.setText("Nombre de Usuario: ");
 
-        jTextField1.setFont(new java.awt.Font("Arial", 0, 11));
+        jTextField1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
 
         jLabel15.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel15.setText("Respuesta Secreta: ");
@@ -197,6 +204,11 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
 
         jComboBox10.setMaximumRowCount(60);
         jComboBox10.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970", "1969", "1968", "1967", "1966", "1965", "1964", "1963", "1962", "1961", "1960", "1959", "1958", "1957", "1956", "1955", "1954", "1953", "1952", "1951", "1950", "1949", "1948", "1947", "1946", "1945", "1944", "1943", "1942", "1941", "1940" }));
+        jComboBox10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox10ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Cancelar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -211,7 +223,7 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(95, 95, 95)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel15)
@@ -227,30 +239,29 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
                                 .addComponent(jLabel3)
                                 .addComponent(jLabel14))
                             .addComponent(jLabel2))
-                        .addGap(8, 8, 8))
+                        .addGap(8, 8, 8)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
+                            .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
+                            .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
+                            .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
+                            .addComponent(jPasswordField2, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
+                            .addComponent(jComboBox8, javax.swing.GroupLayout.Alignment.TRAILING, 0, 229, Short.MAX_VALUE)
+                            .addComponent(jComboBox7, javax.swing.GroupLayout.Alignment.TRAILING, 0, 229, Short.MAX_VALUE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBox9, 0, 81, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jComboBox5, javax.swing.GroupLayout.Alignment.TRAILING, 0, 229, Short.MAX_VALUE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
-                    .addComponent(jPasswordField2, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
-                    .addComponent(jComboBox8, javax.swing.GroupLayout.Alignment.TRAILING, 0, 229, Short.MAX_VALUE)
-                    .addComponent(jComboBox7, javax.swing.GroupLayout.Alignment.TRAILING, 0, 229, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox9, 0, 81, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.Alignment.TRAILING, 0, 229, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(200, 200, 200))
@@ -394,12 +405,74 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
 
         java.util.Date actual=new java.util.Date();
         java.sql.Timestamp fechaderegistro=new java.sql.Timestamp(actual.getTime());
-        //ControladorUsuario controlador=new ControladorUsuario();
+        ControladorUsuario controlador=new ControladorUsuario();
 
-     //   if(checkEmptyFields() && verificarDisponibilidad()){
-            //controlador.guardarUsuario(username, nombre, apellido, genero, correo, contrasenaS, fecha_nac, pregunta, respuesta, vinculo,tipo_usuario, nivel, fechaderegistro);
+        if(checkEmptyFields()){
+           controlador.modificarUsuario(username, nombre, apellido, genero, correo, contrasenaS, fecha_nacimiento, pregunta, respuesta, vinculo,tipo_usuario, nivel, fechaderegistro+"");
 
+        }
 }//GEN-LAST:event_jButton4ActionPerformed
+
+
+    private void ConsultarDatosUsuario(String username){
+        ControladorUsuario controlador=new ControladorUsuario();
+        Usuario usuario=controlador.consultarUsuario(username);
+        String fecha_nac=usuario.getFechaNacimiento();
+        jTextField1.setText(usuario.getLogin());
+        jTextField2.setText(usuario.getNombre());
+        jTextField3.setText(usuario.getApellido());
+        jPasswordField1.setText(usuario.getContraseña());
+        jPasswordField2.setText(usuario.getContraseña());
+        jTextField6.setText(usuario.getPreguntaSecreta());
+        jTextField7.setText(usuario.getRespuestaSecreta());
+        jTextField4.setText(usuario.getCorreoElectronico());
+        jComboBox6.setSelectedItem(fecha_nac.substring(8, 10));
+        jComboBox9.setSelectedItem(fecha_nac.substring(5, 7));
+        jComboBox10.setSelectedItem(fecha_nac.substring(0, 4));
+        jComboBox5.setSelectedItem(usuario.getGenero());
+        jComboBox7.setSelectedItem(usuario.getEscolaridad());
+        jComboBox8.setSelectedItem(usuario.getVinculoUnivalle());
+
+    }
+     private boolean checkEmptyFields(){
+        String contrasena=new String(jPasswordField1.getPassword());
+        String vericontrasena=new String(jPasswordField2.getPassword());
+        if(jTextField1.getText()==null || jTextField1.getText().equals("")){
+             JOptionPane.showMessageDialog(null, "Por favor ingrese un Username", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        else if(jTextField2.getText() == null || jTextField2.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese sus Nombres", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        else if(jTextField3.getText() == null || jTextField3.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese sus Apellidos", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        else if(contrasena == null || contrasena.equals("")){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese su contraseña", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        else if(vericontrasena == null || vericontrasena.equals("")){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese nuevamente su contraseña en el campo de Verificar Contraseña", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        else if(jTextField6.getText() == null || jTextField6.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese una Pregunta Secreta", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        else if(jTextField7.getText() == null || jTextField7.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese una Respuesta Secreta", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        else if(!contrasena.equals(vericontrasena)){
+            jPasswordField2.setText("");
+            JOptionPane.showMessageDialog(null, "Por favor vuelva a verificar su contraseña", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+
+        return true;
+    }
 
     private void jPasswordField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField2ActionPerformed
         // TODO add your handling code here:
@@ -410,14 +483,16 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
 }//GEN-LAST:event_jComboBox9ActionPerformed
 
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
-        boolean esDisponible=verificarDisponibilidad();
-        if(esDisponible)
-            JOptionPane.showMessageDialog(null, "El Nombre de Usuario si se encuentra Disponible", "", JOptionPane.INFORMATION_MESSAGE);
+       
     }//GEN-LAST:event_jLabel17MouseClicked
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jComboBox10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox10ActionPerformed
 
     /**
     * @param args the command line arguments

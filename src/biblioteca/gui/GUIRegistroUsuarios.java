@@ -409,7 +409,6 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
         vinculo=(String)jComboBox8.getSelectedItem();
 
         fecha_nacimiento=ano+"-"+mes+"-"+dia;
-        java.sql.Date fecha_nac=java.sql.Date.valueOf(fecha_nacimiento);
         
         /// Falta verificar Contraseñaaa !! :/
         String contrasenaS=new String(contrasena);
@@ -419,7 +418,7 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
         ControladorUsuario controlador=new ControladorUsuario();
         
         if(checkEmptyFields() && verificarDisponibilidad()){
-        controlador.guardarUsuario(username, nombre, apellido, genero, correo, contrasenaS, fecha_nac, pregunta, respuesta, vinculo,tipo_usuario, nivel, fechaderegistro);
+        controlador.guardarUsuario(username, nombre, apellido, genero, correo, contrasenaS, fecha_nacimiento, pregunta, respuesta, vinculo,tipo_usuario, nivel, fechaderegistro+"");
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 

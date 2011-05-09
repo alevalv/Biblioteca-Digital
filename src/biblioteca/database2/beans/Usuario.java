@@ -19,10 +19,10 @@ public class Usuario {
     String preguntaSecreta;
     String respuestaSecreta;
     String genero;
-    Date fechaNacimiento;
+    String fechaNacimiento;
     String escolaridad;
     String vinculoUnivalle;
-    Timestamp fechaRegistro;
+    String fechaRegistro;
     String perfil;
     String correo_electronico;
 
@@ -61,7 +61,7 @@ public class Usuario {
         this.genero = genero;
     }
 
-     public void setFechaNacimiento(Date fechaNacimiento) {
+     public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
@@ -69,7 +69,7 @@ public class Usuario {
         this.escolaridad = escolaridad;
     }
 
-     public void setFechaRegistro(Timestamp fechaRegistro) {
+     public void setFechaRegistro(String fechaRegistro) {
         this.fechaRegistro = fechaRegistro;
     }
 
@@ -114,7 +114,7 @@ public class Usuario {
         return respuestaSecreta;
      }
 
-     public Date getFechaNacimiento() {
+     public String getFechaNacimiento() {
         return fechaNacimiento;
      }
 
@@ -130,7 +130,7 @@ public class Usuario {
         return vinculoUnivalle;
      }
 
-     public Timestamp getFechaRegistro() {
+     public String getFechaRegistro() {
         return fechaRegistro;
      }
 
