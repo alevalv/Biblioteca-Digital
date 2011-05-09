@@ -10,6 +10,7 @@ package biblioteca.Main;
  */
 public class BibliotecaDigital {
 
+    static public String LOGGED_USER;
     /**
      * @param args the command line arguments
      */
