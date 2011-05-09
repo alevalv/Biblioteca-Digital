@@ -25,14 +25,12 @@ import javax.swing.JTabbedPane;
  */
 public class Tipo_Documento extends javax.swing.JPanel {
     Documento documento;
-    ArrayList<TipoDocumento> tiposExistentes;
-    static public TipoDocumento tipoSeleccionado;
+    ArrayList<TipoDocumento> tiposExistentes;    
     /** Creates new form Tipo_Documento */
     public Tipo_Documento(Documento documento) {
         initComponents();
         this.documento=documento;
-        tiposExistentes = new ArrayList<TipoDocumento>();
-        tipoSeleccionado=null;
+        tiposExistentes = new ArrayList<TipoDocumento>();        
         initComboBox();
         biblioteca.gui.GUICatalogacion.Tipo_Documento_Guardado=false;
     }
@@ -266,7 +264,7 @@ public class Tipo_Documento extends javax.swing.JPanel {
 
     private void SiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteActionPerformed
         if(Tipos_Documento.getSelectedIndex()!=-1){
-            tipoSeleccionado = tiposExistentes.get(Tipos_Documento.getSelectedIndex());
+            documento.setTipoMaterial(tiposExistentes.get(Tipos_Documento.getSelectedIndex()).getTipoDocumento());
             biblioteca.gui.GUICatalogacion.Tipo_Documento_Guardado=true;
             Tipos_Documento.setEnabled(false);
             Estado.setForeground(Color.green);
@@ -280,8 +278,7 @@ public class Tipo_Documento extends javax.swing.JPanel {
 }//GEN-LAST:event_SiguienteActionPerformed
 
     private void EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarActionPerformed
-        Tipos_Documento.setEnabled(true);
-        tipoSeleccionado=null;
+        Tipos_Documento.setEnabled(true);        
         biblioteca.gui.GUICatalogacion.Tipo_Documento_Guardado=false;
         Editar.setEnabled(false);
         Estado.setForeground(Color.red);

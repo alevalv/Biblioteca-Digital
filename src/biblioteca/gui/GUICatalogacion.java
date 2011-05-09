@@ -11,6 +11,7 @@
 package biblioteca.gui;
 
 import biblioteca.database2.beans.Documento;
+import biblioteca.database2.controladores.ControladorDocumento;
 import java.util.ArrayList;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -20,7 +21,7 @@ import javax.swing.UnsupportedLookAndFeelException;
  * @author alejandro
  */
 public class GUICatalogacion extends javax.swing.JFrame {
-    Documento documento;
+    static Documento documento;
     static public boolean Informacion_Basica_Guardada;
     static public boolean Autores_Guardado;
     static public boolean Areas_Guardadas;
@@ -35,6 +36,14 @@ public class GUICatalogacion extends javax.swing.JFrame {
         Tipo_Documento_Guardado=false;
         documento= new Documento();
         initComponents();
+    }
+    
+    static public void catalogar(){
+        if(Informacion_Basica_Guardada && Autores_Guardado && Areas_Guardadas
+                && Palabras_Clave_Guardadas && Tipo_Documento_Guardado){
+            ControladorDocumento controladorDocumento = new ControladorDocumento();
+            controladorDocumento.insertarDocumento(documento.getTituloPrincipal(), documento.getTituloSecundario(), documento.getEditorial(), documento.getDerechosAutor(), documento.getIdioma(), documento.getDescripcion(), documento.getTipoMaterial(), documento.getFechaPublicacion(), biblioteca.Main.BibliotecaDigital.LOGGED_USER);
+        }
     }
 
     /** This method is called from within the constructor to
