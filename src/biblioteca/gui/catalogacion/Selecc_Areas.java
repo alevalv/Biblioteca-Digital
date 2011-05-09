@@ -13,6 +13,7 @@ package biblioteca.gui.catalogacion;
 import biblioteca.database2.beans.Area;
 import biblioteca.database2.beans.Documento;
 import biblioteca.database2.controladores.ControladorArea;
+import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
@@ -87,6 +88,11 @@ public class Selecc_Areas extends javax.swing.JPanel {
         jLabel5.setText("Áreas Existentes: ");
 
         Cancelar.setText("Cancelar Operación");
+        Cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarActionPerformed(evt);
+            }
+        });
 
         Agregar.setText("Agregar Área al Documento");
         Agregar.addActionListener(new java.awt.event.ActionListener() {
@@ -272,8 +278,20 @@ public class Selecc_Areas extends javax.swing.JPanel {
     }
     
     private void SiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteActionPerformed
-        JTabbedPane parent =(JTabbedPane) this.getParent();
-        parent.setSelectedIndex(3);
+        if(!areasSeleccionadas.isEmpty()){
+            Estado.setForeground(Color.green);
+            Estado.setText("[Guardado]");
+            JTabbedPane parent =(JTabbedPane) this.getParent();
+            parent.setSelectedIndex(3);
+            Cancelar.setEnabled(true);
+            Agregar.setEnabled(false);
+            Areas.setEnabled(false);
+            Areas.setSelectedIndex(-1);
+            biblioteca.gui.GUICatalogacion.Areas_Guardadas=true;
+        }
+        else JOptionPane.showMessageDialog(this, "Debe seleccionar al menos un area", "Error", JOptionPane.ERROR_MESSAGE);
+        
+        
 }//GEN-LAST:event_SiguienteActionPerformed
 
     private void Agregar_AreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_AreaActionPerformed
@@ -283,9 +301,19 @@ public class Selecc_Areas extends javax.swing.JPanel {
             Area_Nombre.setText("");
             Area_Descripcion.setText("");
             Area_Padre.setSelectedIndex(-1);
+            Areas.setSelectedIndex(-1);
             initComboBox();
         }
     }//GEN-LAST:event_Agregar_AreaActionPerformed
+
+    private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
+        biblioteca.gui.GUICatalogacion.Areas_Guardadas=false;
+        Cancelar.setEnabled(false);
+        Agregar.setEnabled(true);
+        Areas.setEnabled(true);
+        Estado.setForeground(Color.red);
+        Estado.setText("[Sin Guardar]");
+    }//GEN-LAST:event_CancelarActionPerformed
 
     private boolean checkEmptyFieldsArea(){
         if(Area_Nombre.getText()==null || Area_Nombre.getText().equals("")){
