@@ -49,5 +49,8 @@ public class Area {
         return descripcion;
     }
 
-
+      @Override
+      public String toString(){
+        return area_id+";\""+nombre+"\";"+Area_Padre;
+    }
 }
