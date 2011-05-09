@@ -17,17 +17,14 @@ import java.util.ArrayList;
  */
 public class ControladorDocumento {
     
-    public void insertarDocumento(String id_documento, String editorial,
-            String derechosAutor, String idioma, String descripcion, String tipoMaterial,
-            String tituloPrincipal, String tituloSecundario, String fechaPublicacion,
-            String fechaCatalogacion, String tipoDocumento, String catalogador){
+    public void insertarDocumento(String tituloPrincipal, String tituloSecundario,
+             String editorial, String derechosAutor, String idioma, String descripcion,
+             String tipoMaterial,String fechaPublicacion, String catalogador){
         Documento documento = new Documento();
-        documento.setID_documento(id_documento);
         documento.setActivo(true);
         documento.setDerechosAutor(derechosAutor);
         documento.setDescripcion(descripcion);
         documento.setEditorial(editorial);
-        documento.setFechaCatalogacion(fechaCatalogacion);
         documento.setFechaPublicacion(fechaPublicacion);
         documento.setIdioma(idioma);
         documento.setTipoMaterial(tipoMaterial);
