@@ -281,7 +281,6 @@ public class Autores extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
-       
         if(!autoresSeleccionados.contains(autoresExistentes.get(Autores.getSelectedIndex())))
             autoresSeleccionados.add(autoresExistentes.get(Autores.getSelectedIndex()));
         refreshAutoresSeleccionados();
@@ -295,6 +294,8 @@ public class Autores extends javax.swing.JPanel {
             Estado.setText("[Guardado]");
             JTabbedPane parent =(JTabbedPane) this.getParent();
             parent.setSelectedIndex(2);
+            Autores.setEnabled(false);
+            Agregar.setEnabled(false);
         }
         else{
             JOptionPane.showMessageDialog(this, "Debe seleccionar almenos un autor", "Error", JOptionPane.ERROR_MESSAGE);
@@ -320,6 +321,8 @@ public class Autores extends javax.swing.JPanel {
         biblioteca.gui.GUICatalogacion.Autores_Guardado=false;
         Estado.setForeground(Color.red);
         Estado.setText("[Sin Guardar]");
+        Autores.setEnabled(true);
+        Agregar.setEnabled(true);
     }//GEN-LAST:event_CancelarActionPerformed
 
     private boolean checkEmptyFieldsAuthor(){

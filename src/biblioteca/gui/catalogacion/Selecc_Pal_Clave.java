@@ -253,6 +253,7 @@ public class Selecc_Pal_Clave extends javax.swing.JPanel {
             if(!palabrasClaveSeleccionadas.contains(palabrasClaveExistentes.get(Palabras_Clave.getSelectedIndex()))){
                 palabrasClaveSeleccionadas.add(palabrasClaveExistentes.get(Palabras_Clave.getSelectedIndex()));
                 refreshPalabrasClave();
+                biblioteca.gui.GUICatalogacion.Palabras_Clave_Guardadas=false;
             }
         }
 }//GEN-LAST:event_AgregarActionPerformed
@@ -264,6 +265,7 @@ public class Selecc_Pal_Clave extends javax.swing.JPanel {
             Agregar.setEnabled(false);
             JTabbedPane parent =(JTabbedPane) this.getParent();
             parent.setSelectedIndex(4);
+            biblioteca.gui.GUICatalogacion.Palabras_Clave_Guardadas=true;
         }else JOptionPane.showMessageDialog(this, "Debe seleccionar almenos una palabra clave", "Error", JOptionPane.ERROR_MESSAGE);
 }//GEN-LAST:event_SiguienteActionPerformed
 

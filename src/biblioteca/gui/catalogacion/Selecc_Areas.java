@@ -296,6 +296,7 @@ public class Selecc_Areas extends javax.swing.JPanel {
 
     private void Agregar_AreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_AreaActionPerformed
         if(checkEmptyFieldsArea()){
+            System.out.println(areasExistentes.get(Area_Padre.getSelectedIndex()).getID());
             new ControladorArea().insertarArea(Area_Descripcion.getText(), Area_Nombre.getText(), areasExistentes.get(Area_Padre.getSelectedIndex()).getID());
             JOptionPane.showMessageDialog(this, "El el area con nombre "+Area_Nombre.getText()+ " ha sido agregado", "Notificación", JOptionPane.INFORMATION_MESSAGE);
             Area_Nombre.setText("");

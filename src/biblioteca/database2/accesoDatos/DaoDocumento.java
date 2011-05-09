@@ -5,7 +5,7 @@
 package biblioteca.database2.accesoDatos;
 
 import biblioteca.database2.fachada.Fachada;
-import biblioteca.database2.beans.Documento;
+import biblioteca.database2.beans.*;
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -25,13 +25,12 @@ public class DaoDocumento {
         String sql_agregar;
         sql_agregar = "INSERT INTO documentos(activo, titulo_principal, "+
                 "titulo_secundario, descripcion, idioma, editorial, fecha_publicacion, " +
-                "derechos_autor, ubicacion, tipo_documento, catalogador)"+
+                "derechos_autor, tipo_documento, catalogador)"+
                 "VALUES ('" + "true" + "','" + documento.getTituloPrincipal() + "','" 
                 + documento.getTituloSecundario() + "','"+ documento.getDescripcion() + "','"
                 + documento.getIdioma() + "','" + documento.getEditorial() + "','" 
                 + documento.getFechaPublicacion() + "','" + documento.getDerechosAutor() + "','"
-                + documento.getUbicacion() + "','" + documento.getTipoMaterial() + "','"
-                + usuario + "');";
+                + documento.getTipoMaterial() + "','" + usuario + "');";
 
        try{
             Connection conn= Fachada.conectar();
@@ -46,6 +45,46 @@ public class DaoDocumento {
        return -1;
     }
     
+    public String obtenerDocumentoID(Documento documento, String catalogador){
+        String sql_consultar;
+        sql_consultar="SELECT doc_id FROM documentos WHERE titulo_principal='"+
+                documento.getTituloPrincipal()+"'AND titulo_secundario='"+
+                documento.getTituloSecundario()+"'AND descripcion='"+
+                documento.getDescripcion()+"'AND editorial='"+
+                documento.getEditorial()+"'AND idioma='"+
+                documento.getIdioma()+"'AND fecha_publicacion='"+
+                documento.getFechaPublicacion()+"'AND derechos_autor='"+
+                documento.getDerechosAutor()+"'AND catalogador='"+catalogador+"'";
+        String id=null;
+        try{
+            Connection conn= Fachada.conectar();
+            java.sql.Statement sentencia = conn.createStatement();
+            ResultSet salida=sentencia.executeQuery(sql_consultar);
+            if(salida.next()){
+                id=salida.getString(1);
+            }
+            conn.close();
+        }catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+        return id;
+    }
+    
+    public int insertarUbicacion(String id_documento, String ubicacion){
+        String sql_modificar;
+        sql_modificar="UPDATE documentos SET ubicacion ='"+ubicacion+"' WHERE doc_id = '"
+                + id_documento + "';";
+        try{
+            Connection conn= Fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            int num_filas = sentencia.executeUpdate(sql_modificar);
+            conn.close();
+            return num_filas;
+
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+        return -1;
+    }
     public int deshabilitarDocumento(String id_documento){
         String sql_modificar;
         sql_modificar="UPDATE documentos SET activo = 'false' WHERE doc_id = '"
@@ -170,14 +209,14 @@ public class DaoDocumento {
        return -1;
     }
     
-    public void insertarAreas(ArrayList<String> areas, String id_documento){
+    public void insertarAreas(ArrayList<Area> areas, String id_documento){
         try{
             Connection conn= Fachada.conectar();
             Statement sentencia = conn.createStatement();
             String sql_insertar;
             for(int i=0;i<areas.size();i++){
                 sql_insertar="INSERT INTO documento_areas_computacion VALUES ('"+
-                    areas.get(i)+"','"+id_documento+"');";
+                    areas.get(i).getID()+"','"+id_documento+"');";
                 sentencia.addBatch(sql_insertar);
             }
             sentencia.executeBatch();
@@ -186,14 +225,14 @@ public class DaoDocumento {
         catch(Exception e){ System.out.println(e); }
     }
     
-    public void insertarPalabrasClave(ArrayList<String> PC, String id_documento){
+    public void insertarPalabrasClave(ArrayList<PalabraClave> PC, String id_documento){
         try{
             Connection conn= Fachada.conectar();
             Statement sentencia = conn.createStatement();
             String sql_insertar;
             for(int i=0;i<PC.size();i++){
                 sql_insertar="INSERT INTO documento_palabras_clave VALUES ('"+
-                    id_documento+"','"+PC.get(i) +"');";
+                    id_documento+"','"+PC.get(i).getNombre() +"');";
                 sentencia.addBatch(sql_insertar);
             }
             sentencia.executeBatch();
@@ -202,14 +241,14 @@ public class DaoDocumento {
         catch(Exception e){ System.out.println(e); }
     }
     
-    public void insertarAutores(ArrayList<String> emails, String id_documento){
+    public void insertarAutores(ArrayList<Autor> emails, String id_documento){
         try{
             Connection conn= Fachada.conectar();
             Statement sentencia = conn.createStatement();
             String sql_insertar;
             for(int i=0;i<emails.size();i++){
                 sql_insertar="INSERT INTO documento_autor VALUES ('"+
-                    id_documento+"','"+emails.get(i) +"');";
+                    id_documento+"','"+emails.get(i).getCorreo() +"');";
                 sentencia.addBatch(sql_insertar);
             }
             sentencia.executeBatch();
@@ -218,14 +257,14 @@ public class DaoDocumento {
         catch(Exception e){ System.out.println(e); }
     }
     
-    public void eliminarAreas(ArrayList<String> areas, String id_documento){
+    public void eliminarAreas(ArrayList<Area> areas, String id_documento){
         try{
             Connection conn= Fachada.conectar();
             Statement sentencia = conn.createStatement();
             String sql_eliminar;
             for(int i=0;i<areas.size();i++){
                 sql_eliminar="DELETE FROM documento_areas_computacion WHERE"+
-                        "area_id='"+ areas.get(i)+"' AND doc_id='"+id_documento+"';";
+                        "area_id='"+ areas.get(i).getID()+"' AND doc_id='"+id_documento+"';";
                 sentencia.addBatch(sql_eliminar);
             }
             sentencia.executeBatch();
@@ -234,14 +273,14 @@ public class DaoDocumento {
         catch(Exception e){ System.out.println(e); }
     }
     
-    public void eliminarPalabrasClave(ArrayList<String> PC, String id_documento){
+    public void eliminarPalabrasClave(ArrayList<PalabraClave> PC, String id_documento){
         try{
             Connection conn= Fachada.conectar();
             Statement sentencia = conn.createStatement();
             String sql_eliminar;
             for(int i=0;i<PC.size();i++){
                 sql_eliminar="DELETE FROM documento_palabras_clave WHERE doc_id='"+
-                    id_documento+"'AND nombre='"+PC.get(i) +"';";
+                    id_documento+"'AND nombre='"+PC.get(i).getNombre() +"';";
                 sentencia.addBatch(sql_eliminar);
             }
             sentencia.executeBatch();
@@ -250,14 +289,14 @@ public class DaoDocumento {
         catch(Exception e){ System.out.println(e); }
     }
     
-    public void eliminarAutores(ArrayList<String> emails, String id_documento){
+    public void eliminarAutores(ArrayList<Autor> emails, String id_documento){
         try{
             Connection conn= Fachada.conectar();
             Statement sentencia = conn.createStatement();
             String sql_eliminar;
             for(int i=0;i<emails.size();i++){
                 sql_eliminar="DELETE FROM documento_autor WHERE doc_id='"+
-                    id_documento+"AND autor_correo='"+emails.get(i) +"';";
+                    id_documento+"AND autor_correo='"+emails.get(i).getCorreo() +"';";
                 sentencia.addBatch(sql_eliminar);
             }
             sentencia.executeBatch();

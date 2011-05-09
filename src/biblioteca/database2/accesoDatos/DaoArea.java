@@ -77,7 +77,6 @@ public class DaoArea {
                  a.setDescripcion(tabla.getString(3));
                  a.setAreaPadre(tabla.getString(4));
                  Areas.add(a);
-                 return Areas;
              }
             conn.close();
 
