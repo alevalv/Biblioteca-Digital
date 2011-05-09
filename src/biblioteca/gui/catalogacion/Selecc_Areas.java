@@ -280,6 +280,10 @@ public class Selecc_Areas extends javax.swing.JPanel {
         if(checkEmptyFieldsArea()){
             new ControladorArea().insertarArea(Area_Descripcion.getText(), Area_Nombre.getText(), areasExistentes.get(Area_Padre.getSelectedIndex()).getID());
             JOptionPane.showMessageDialog(this, "El el area con nombre "+Area_Nombre.getText()+ " ha sido agregado", "Notificación", JOptionPane.INFORMATION_MESSAGE);
+            Area_Nombre.setText("");
+            Area_Descripcion.setText("");
+            Area_Padre.setSelectedIndex(-1);
+            initComboBox();
         }
     }//GEN-LAST:event_Agregar_AreaActionPerformed
 
