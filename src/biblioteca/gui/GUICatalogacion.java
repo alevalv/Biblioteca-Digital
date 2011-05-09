@@ -90,6 +90,18 @@ public class GUICatalogacion extends javax.swing.JFrame {
             controladorDocumento.insertarAreas(id, biblioteca.gui.catalogacion.Selecc_Areas.areasSeleccionadas);
             controladorDocumento.insertarPalabrasClave(id, biblioteca.gui.catalogacion.Selecc_Pal_Clave.palabrasClaveSeleccionadas);
             JOptionPane.showMessageDialog(this, "El documento "+documento.getTituloPrincipal()+ " ha sido agregado", "Notificación", JOptionPane.INFORMATION_MESSAGE);
+            
+            //seguridad
+            documento=null;
+            biblioteca.gui.catalogacion.Autores.autoresSeleccionados=null;
+            biblioteca.gui.catalogacion.Selecc_Areas.areasSeleccionadas=null;
+            biblioteca.gui.catalogacion.Selecc_Pal_Clave.palabrasClaveSeleccionadas=null;
+            Informacion_Basica_Guardada=false;
+            Autores_Guardado=false;
+            Areas_Guardadas=false;
+            Palabras_Clave_Guardadas=false;
+            Tipo_Documento_Guardado=false;
+            
             this.dispose();
         }
         else{
