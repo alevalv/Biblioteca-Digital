@@ -15,12 +15,10 @@ import java.util.ArrayList;
 public class ControladorArea {
 
 
-     public void insertarArea(String idArea, String descrpcion, String nombre, String Area_Padre)
+     public void insertarArea(String descrpcion, String nombre, String Area_Padre)
     {
         Area area= new Area();
         DaoArea daoArea= new DaoArea();
-
-        area.setID(idArea);
         area.setDescripcion(descrpcion);
         area.setNombre(nombre);
         area.setAreaPadre(Area_Padre);
@@ -28,7 +26,7 @@ public class ControladorArea {
         daoArea.guardarArea(area);
     }
 
-    public void modficarArea(String idArea, String descrpcion, String nombre, String Area_Padre)
+    public void modificarArea(String idArea, String descrpcion, String nombre, String Area_Padre)
     {
         Area area= new Area();
         DaoArea daoArea= new DaoArea();
