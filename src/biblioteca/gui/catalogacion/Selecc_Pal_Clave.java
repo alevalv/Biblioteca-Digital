@@ -13,6 +13,7 @@ package biblioteca.gui.catalogacion;
 import biblioteca.database2.beans.PalabraClave;
 import biblioteca.database2.beans.Documento;
 import biblioteca.database2.controladores.ControladorPalabraClave;
+import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
@@ -44,7 +45,6 @@ public class Selecc_Pal_Clave extends javax.swing.JPanel {
          }
          Palabras_Clave.setSelectedIndex(-1);
      }
-     
     }
     
     private void refreshPalabrasClave(){
@@ -263,9 +263,12 @@ public class Selecc_Pal_Clave extends javax.swing.JPanel {
             Palabras_Clave.setEnabled(false);
             Palabras_Clave.setSelectedIndex(-1);
             Agregar.setEnabled(false);
+            Estado.setForeground(Color.green);
+            Estado.setText("[Guardado]");
             JTabbedPane parent =(JTabbedPane) this.getParent();
             parent.setSelectedIndex(4);
             biblioteca.gui.GUICatalogacion.Palabras_Clave_Guardadas=true;
+            
         }else JOptionPane.showMessageDialog(this, "Debe seleccionar almenos una palabra clave", "Error", JOptionPane.ERROR_MESSAGE);
 }//GEN-LAST:event_SiguienteActionPerformed
 
@@ -285,6 +288,8 @@ public class Selecc_Pal_Clave extends javax.swing.JPanel {
         biblioteca.gui.GUICatalogacion.Palabras_Clave_Guardadas=false;
         Palabras_Clave.setEnabled(true);
         Agregar.setEnabled(true);
+        Estado.setForeground(Color.red);
+        Estado.setText("[Sin guardar]");
     }//GEN-LAST:event_CancelarActionPerformed
 
     private boolean checkEmptyFieldsPC(){
