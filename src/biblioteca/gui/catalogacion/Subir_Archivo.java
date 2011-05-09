@@ -13,6 +13,7 @@ package biblioteca.gui.catalogacion;
 import biblioteca.database2.beans.Documento;
 import java.io.File;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,10 +22,12 @@ import javax.swing.JOptionPane;
  */
 public class Subir_Archivo extends javax.swing.JPanel {
     Documento documento;
+    biblioteca.gui.GUICatalogacion MainGui;
     /** Creates new form Subir_Archivo */
-    public Subir_Archivo(Documento documento) {
+    public Subir_Archivo(Documento documento, biblioteca.gui.GUICatalogacion Parent) {
         initComponents();
         this.documento=documento;
+        MainGui=Parent;
     }
 
     /** This method is called from within the constructor to
@@ -133,7 +136,7 @@ public class Subir_Archivo extends javax.swing.JPanel {
     private void FinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FinalizarActionPerformed
         File file = new File(Path.getText());
         if(file.exists()){
-            biblioteca.gui.GUICatalogacion.catalogar(Path.getText());
+            MainGui.catalogar(Path.getText());
         }
         else{
             JOptionPane.showMessageDialog(this, "El archivo no existe, por favor, verifique la ruta", "Error", JOptionPane.ERROR_MESSAGE);

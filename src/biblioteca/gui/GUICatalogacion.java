@@ -17,7 +17,9 @@ import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.File;
 import java.util.StringTokenizer;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -43,7 +45,7 @@ public class GUICatalogacion extends javax.swing.JFrame {
         initComponents();
     }
     
-    static public void catalogar(String path){
+    public void catalogar(String path){
         if(Informacion_Basica_Guardada && Autores_Guardado && Areas_Guardadas
                 && Palabras_Clave_Guardadas && Tipo_Documento_Guardado){
             ControladorDocumento controladorDocumento = new ControladorDocumento();
@@ -59,6 +61,11 @@ public class GUICatalogacion extends javax.swing.JFrame {
             FileInputStream fileInput = new FileInputStream(path);
             BufferedInputStream bufferedInput = new BufferedInputStream(fileInput);
             /// Se abre el fichero donde se hará la copia
+            File newFile = new File(newname);
+            if(!newFile.exists()){
+                newFile.mkdir();
+                newFile.createNewFile();
+            }
             FileOutputStream fileOutput = new FileOutputStream (newname);
             BufferedOutputStream bufferedOutput = new BufferedOutputStream(fileOutput);
             // Bucle para leer de un fichero y escribir en el otro.
@@ -76,14 +83,17 @@ public class GUICatalogacion extends javax.swing.JFrame {
                 System.err.println(ioe);
             }
             controladorDocumento.insertarUbicacion(id, newname);
-            
-            
             //RELACIONES CON OTRAS TABLAS.
-            
+
             //autores
             controladorDocumento.insertarAutores(id, biblioteca.gui.catalogacion.Autores.autoresSeleccionados);
             controladorDocumento.insertarAreas(id, biblioteca.gui.catalogacion.Selecc_Areas.areasSeleccionadas);
             controladorDocumento.insertarPalabrasClave(id, biblioteca.gui.catalogacion.Selecc_Pal_Clave.palabrasClaveSeleccionadas);
+            JOptionPane.showMessageDialog(this, "El documento "+documento.getTituloPrincipal()+ " ha sido agregado", "Notificación", JOptionPane.INFORMATION_MESSAGE);
+            this.dispose();
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "No se puede guardar el documento por que no están completos todos los pasos", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -105,7 +115,7 @@ public class GUICatalogacion extends javax.swing.JFrame {
         biblioteca.gui.catalogacion.Autores autores = new biblioteca.gui.catalogacion.Autores(documento);
         biblioteca.gui.catalogacion.Selecc_Areas areas = new biblioteca.gui.catalogacion.Selecc_Areas(documento);
         biblioteca.gui.catalogacion.Selecc_Pal_Clave pc = new biblioteca.gui.catalogacion.Selecc_Pal_Clave(documento);
-        biblioteca.gui.catalogacion.Subir_Archivo sa = new biblioteca.gui.catalogacion.Subir_Archivo(documento);
+        biblioteca.gui.catalogacion.Subir_Archivo sa = new biblioteca.gui.catalogacion.Subir_Archivo(documento, this);
         biblioteca.gui.catalogacion.Tipo_Documento td = new biblioteca.gui.catalogacion.Tipo_Documento(documento);
         jTabbedPane1.add("Información Basica", informacionBasica);
         jTabbedPane1.add("Autores", autores);
