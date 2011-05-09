@@ -12,7 +12,12 @@ package biblioteca.gui;
 
 import biblioteca.database2.beans.Documento;
 import biblioteca.database2.controladores.ControladorDocumento;
-import java.util.ArrayList;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.StringTokenizer;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -38,11 +43,47 @@ public class GUICatalogacion extends javax.swing.JFrame {
         initComponents();
     }
     
-    static public void catalogar(){
+    static public void catalogar(String path){
         if(Informacion_Basica_Guardada && Autores_Guardado && Areas_Guardadas
                 && Palabras_Clave_Guardadas && Tipo_Documento_Guardado){
             ControladorDocumento controladorDocumento = new ControladorDocumento();
             controladorDocumento.insertarDocumento(documento.getTituloPrincipal(), documento.getTituloSecundario(), documento.getEditorial(), documento.getDerechosAutor(), documento.getIdioma(), documento.getDescripcion(), documento.getTipoMaterial(), documento.getFechaPublicacion(), biblioteca.Main.BibliotecaDigital.LOGGED_USER);
+            String id=controladorDocumento.obtenerId(documento.getTituloPrincipal(), documento.getTituloSecundario(), documento.getEditorial(), documento.getDerechosAutor(), documento.getIdioma(), documento.getDescripcion(), documento.getTipoMaterial(), documento.getFechaPublicacion(), biblioteca.Main.BibliotecaDigital.LOGGED_USER);
+            StringTokenizer stk=new StringTokenizer(path, ".");
+            while(stk.countTokens()>1){
+                stk.nextToken();
+            }
+            String newname="repository/"+id+"."+stk.nextToken();
+            try{
+            //guardar archivo
+            FileInputStream fileInput = new FileInputStream(path);
+            BufferedInputStream bufferedInput = new BufferedInputStream(fileInput);
+            /// Se abre el fichero donde se hará la copia
+            FileOutputStream fileOutput = new FileOutputStream (newname);
+            BufferedOutputStream bufferedOutput = new BufferedOutputStream(fileOutput);
+            // Bucle para leer de un fichero y escribir en el otro.
+            byte [] array = new byte[1000];
+            int leidos = bufferedInput.read(array);
+            while (leidos > 0){
+                bufferedOutput.write(array,0,leidos);
+                leidos=bufferedInput.read(array);
+            }
+            // Cierre de los ficheros
+            bufferedInput.close();
+            bufferedOutput.close();
+            }
+            catch(IOException ioe){
+                System.err.println(ioe);
+            }
+            controladorDocumento.insertarUbicacion(id, newname);
+            
+            
+            //RELACIONES CON OTRAS TABLAS.
+            
+            //autores
+            controladorDocumento.insertarAutores(id, biblioteca.gui.catalogacion.Autores.autoresSeleccionados);
+            controladorDocumento.insertarAreas(id, biblioteca.gui.catalogacion.Selecc_Areas.areasSeleccionadas);
+            controladorDocumento.insertarPalabrasClave(id, biblioteca.gui.catalogacion.Selecc_Pal_Clave.palabrasClaveSeleccionadas);
         }
     }
 
