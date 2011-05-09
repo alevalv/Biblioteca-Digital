@@ -5,7 +5,7 @@
 package biblioteca.database2.controladores;
 
 import biblioteca.database2.accesoDatos.DaoDocumento;
-import biblioteca.database2.beans.Documento;
+import biblioteca.database2.beans.*;
 //import java.sql.ResultSet;
 //import java.sql.SQLException;
 import java.util.ArrayList;
@@ -96,34 +96,33 @@ public class ControladorDocumento {
     public Documento verDatos(String id_documento, String usuario){
         DaoDocumento daoDocumento = new DaoDocumento();
         return daoDocumento.verDatosDocumento(id_documento, usuario);
-        //TODO
     }
     
-    public void insertarPalabrasClave(String id_documento, ArrayList<String> PC){
+    public void insertarPalabrasClave(String id_documento, ArrayList<PalabraClave> PC){
         DaoDocumento daoDocumento = new DaoDocumento();
         daoDocumento.insertarPalabrasClave(PC, id_documento);
     }
     
-    public void insertarAreas(String id_documento, ArrayList<String> Areas){
+    public void insertarAreas(String id_documento, ArrayList<Area> Areas){
         DaoDocumento daoDocumento = new DaoDocumento();
         daoDocumento.insertarAreas(Areas, id_documento);
     }
     
-    public void insertarAutores(String id_documento, ArrayList<String> emails){
+    public void insertarAutores(String id_documento, ArrayList<Autor> emails){
         DaoDocumento daoDocumento = new DaoDocumento();
         daoDocumento.insertarAutores(emails, id_documento);
     }
     
-    public void eliminarPalabrasClave(String id_documento, ArrayList<String> PC){
+    public void eliminarPalabrasClave(String id_documento, ArrayList<PalabraClave> PC){
         DaoDocumento daoDocumento = new DaoDocumento();
         daoDocumento.eliminarPalabrasClave(PC, id_documento);
     }
-    public void eliminarAreas(String id_documento, ArrayList<String> Areas){
+    public void eliminarAreas(String id_documento, ArrayList<Area> Areas){
         DaoDocumento daoDocumento = new DaoDocumento();
         daoDocumento.eliminarAreas(Areas, id_documento);
     }
     
-    public void eliminarAutores(String id_documento, ArrayList<String> emails){
+    public void eliminarAutores(String id_documento, ArrayList<Autor> emails){
         DaoDocumento daoDocumento = new DaoDocumento();
         daoDocumento.eliminarAutores(emails, id_documento);
     }
