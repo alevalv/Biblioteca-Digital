@@ -11,11 +11,7 @@
 package biblioteca.gui.catalogacion;
 
 import biblioteca.database2.beans.Documento;
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -135,33 +131,14 @@ public class Subir_Archivo extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void FinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FinalizarActionPerformed
-        try{
-            File file = new File(Path.getText());
-            if(file.exists()){
-                /*
-                FileInputStream fileInput = new FileInputStream(Path.getText());
-                BufferedInputStream bufferedInput = new BufferedInputStream(fileInput);
-                // Se abre el fichero donde se hará la copia
-                FileOutputStream fileOutput = new FileOutputStream (ficheroCopia);
-                BufferedOutputStream bufferedOutput = new BufferedOutputStream(fileOutput);
-                // Bucle para leer de un fichero y escribir en el otro.
-                byte [] array = new byte[1000];
-                int leidos = bufferedInput.read(array);
-                while (leidos > 0){
-                    bufferedOutput.write(array,0,leidos);
-                    leidos=bufferedInput.read(array);
-                }
-                // Cierre de los ficheros
-                bufferedInput.close();
-                bufferedOutput.close();
-                 */
-            }
-            else{
-                JOptionPane.showMessageDialog(this, "El archivo no existe, por favor, verifique la ruta", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-            
+        File file = new File(Path.getText());
+        if(file.exists()){
+            biblioteca.gui.GUICatalogacion.catalogar(Path.getText());
         }
-	catch (Exception e){System.err.println(e);}
+        else{
+            JOptionPane.showMessageDialog(this, "El archivo no existe, por favor, verifique la ruta", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+            
 }//GEN-LAST:event_FinalizarActionPerformed
 
     private void Seleccionar_ArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Seleccionar_ArchivoActionPerformed
