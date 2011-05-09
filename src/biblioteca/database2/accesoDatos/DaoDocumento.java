@@ -69,6 +69,22 @@ public class DaoDocumento {
         return id;
     }
     
+    public int insertarUbicacion(String id_documento, String ubicacion){
+        String sql_modificar;
+        sql_modificar="UPDATE documentos SET ubicacion ='"+ubicacion+"' WHERE doc_id = '"
+                + id_documento + "';";
+        try{
+            Connection conn= Fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            int num_filas = sentencia.executeUpdate(sql_modificar);
+            conn.close();
+            return num_filas;
+
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+        return -1;
+    }
     public int deshabilitarDocumento(String id_documento){
         String sql_modificar;
         sql_modificar="UPDATE documentos SET activo = 'false' WHERE doc_id = '"

@@ -43,6 +43,10 @@ public class ControladorDocumento {
         daoDocumento.deshabilitarDocumento(id_documento);
     }
     
+    public void insertarUbicacion(String id_documento, String ubicacion){
+        new DaoDocumento().insertarUbicacion(id_documento, ubicacion);
+    }
+    
     public void modificarDocumento(String id_documento, boolean activo,
             String editorial, String derechosAutor, String idioma, 
             String descripcion, String tipoMaterial, String tituloPrincipal,
