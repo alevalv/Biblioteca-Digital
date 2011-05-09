@@ -14,6 +14,7 @@ import biblioteca.database2.accesoDatos.DaoTipoDocumento;
 import biblioteca.database2.beans.Documento;
 import biblioteca.database2.beans.TipoDocumento;
 import biblioteca.database2.controladores.ControladorTipoDocumento;
+import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
@@ -268,6 +269,8 @@ public class Tipo_Documento extends javax.swing.JPanel {
             tipoSeleccionado = tiposExistentes.get(Tipos_Documento.getSelectedIndex());
             biblioteca.gui.GUICatalogacion.Tipo_Documento_Guardado=true;
             Tipos_Documento.setEnabled(false);
+            Estado.setForeground(Color.green);
+            Estado.setText("[Guardado]");
             JTabbedPane parent =(JTabbedPane) this.getParent();
             parent.setSelectedIndex(5);
             Editar.setEnabled(true);
@@ -281,6 +284,8 @@ public class Tipo_Documento extends javax.swing.JPanel {
         tipoSeleccionado=null;
         biblioteca.gui.GUICatalogacion.Tipo_Documento_Guardado=false;
         Editar.setEnabled(false);
+        Estado.setForeground(Color.red);
+        Estado.setText("[Sin Guardar]");
     }//GEN-LAST:event_EditarActionPerformed
 
     private boolean checkEmptyFieldsTipo(){

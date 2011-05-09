@@ -318,6 +318,8 @@ public class Autores extends javax.swing.JPanel {
         autoresSeleccionados.clear();
         refreshAutoresSeleccionados();
         biblioteca.gui.GUICatalogacion.Autores_Guardado=false;
+        Estado.setForeground(Color.red);
+        Estado.setText("[Sin Guardar]");
     }//GEN-LAST:event_CancelarActionPerformed
 
     private boolean checkEmptyFieldsAuthor(){
