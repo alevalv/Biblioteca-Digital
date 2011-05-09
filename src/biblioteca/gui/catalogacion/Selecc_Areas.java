@@ -12,7 +12,9 @@ package biblioteca.gui.catalogacion;
 
 import biblioteca.database2.beans.Area;
 import biblioteca.database2.beans.Documento;
+import biblioteca.database2.controladores.ControladorArea;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 
 /**
@@ -27,11 +29,22 @@ public class Selecc_Areas extends javax.swing.JPanel {
     public Selecc_Areas(Documento documento) {
         initComponents();
         this.documento=documento;
-        areasExistentes=new ArrayList<Area>();
+        areasSeleccionadas=new ArrayList<Area>();
+        initComboBox();
     }
     
     private void initComboBox(){
         Areas.removeAllItems();
+        Area_Padre.removeAllItems();
+        areasExistentes= new ControladorArea().consultarTodasLasAreas();
+        if(areasExistentes!=null){
+            for(int i=0;i<areasExistentes.size();i++){
+                Areas.insertItemAt(areasExistentes.get(i).toString(), i);
+                Area_Padre.insertItemAt(areasExistentes.get(i).toString(), i);
+            }
+            Areas.setSelectedIndex(-1);
+            Area_Padre.setSelectedIndex(-1);
+        }
     }
 
     /** This method is called from within the constructor to
@@ -242,18 +255,50 @@ public class Selecc_Areas extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
-        // TODO add your handling code here:
+        if(Areas.getSelectedIndex()!=-1){
+            if(!areasSeleccionadas.contains(areasExistentes.get(Areas.getSelectedIndex()))){
+                areasSeleccionadas.add(areasExistentes.get(Areas.getSelectedIndex()));
+            }
+        }
+        refreshAreas();
 }//GEN-LAST:event_AgregarActionPerformed
 
+    private void refreshAreas(){
+        String texto="";
+        for(int i=0;i<areasSeleccionadas.size();i++){
+            texto+=areasSeleccionadas.get(i).toString()+"\n";
+        }
+        Areas_Agregadas.setText(texto);
+    }
+    
     private void SiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteActionPerformed
         JTabbedPane parent =(JTabbedPane) this.getParent();
         parent.setSelectedIndex(3);
 }//GEN-LAST:event_SiguienteActionPerformed
 
     private void Agregar_AreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_AreaActionPerformed
-        // TODO add your handling code here:
+        if(checkEmptyFieldsArea()){
+            new ControladorArea().insertarArea(Area_Descripcion.getText(), Area_Nombre.getText(), areasExistentes.get(Area_Padre.getSelectedIndex()).getID());
+            JOptionPane.showMessageDialog(this, "El el area con nombre "+Area_Nombre.getText()+ " ha sido agregado", "Notificación", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_Agregar_AreaActionPerformed
 
+    private boolean checkEmptyFieldsArea(){
+        if(Area_Nombre.getText()==null || Area_Nombre.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "El campo Area Nombre no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        else if(Area_Descripcion.getText()==null || Area_Descripcion.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "El campo Area Descripcion no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        else if(Area_Padre.getSelectedIndex()==-1){
+            JOptionPane.showMessageDialog(this, "El campo Area Padre no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        else return true;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Agregar;
     private javax.swing.JButton Agregar_Area;
