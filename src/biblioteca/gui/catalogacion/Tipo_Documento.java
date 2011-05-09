@@ -265,7 +265,7 @@ public class Tipo_Documento extends javax.swing.JPanel {
 
     private void SiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteActionPerformed
         if(Tipos_Documento.getSelectedIndex()!=-1){
-            tipoSeleccionado = new DaoTipoDocumento().consultarDocumento((String)Tipos_Documento.getItemAt(Tipos_Documento.getSelectedIndex()));
+            tipoSeleccionado = tiposExistentes.get(Tipos_Documento.getSelectedIndex());
             biblioteca.gui.GUICatalogacion.Tipo_Documento_Guardado=true;
             Tipos_Documento.setEnabled(false);
             JTabbedPane parent =(JTabbedPane) this.getParent();
