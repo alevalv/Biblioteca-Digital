@@ -47,32 +47,34 @@ public class DaoUsuario {
         catch(Exception e){ System.out.println(e); }
         return -1;
     }
-/*
+
     public Usuario consultarUsuario(String login){
         Usuario usuario= new Usuario();
         
         String sql_consultar;
-        sql_consultar="SELECT username, password, pregunta_secreta, respuesta_secreta, nombres, apellidos, genero, fecha_nacimiento, nivel_escolaridad, vinculo_univalle, "
-                + "tipo_usuario, fecha_registro,activo,correo_electronico FROM usuarios WHERE username= '" +login+ "';";
+        sql_consultar="SELECT username, nombres,  apellidos, password, pregunta_secreta, respuesta_secreta, vinculo_con_univalle, tipo_usuario, correo_electronico, nivel_escolaridad, genero, "
+                + "fecha_nacimiento, fecha_registro FROM usuarios WHERE username= '" +login+ "';";
          try{
             Connection conn= fachada.conectar();
             Statement sentencia = conn.createStatement();
             ResultSet tabla = sentencia.executeQuery(sql_consultar);
             while(tabla.next()){
              usuario.setLogin( tabla.getString(1));
-               usuario.setContraseña(tabla.getString(2));
-               usuario.setPreguntaSecreta(tabla.getString(3));
-               usuario.setRespuestaSecreta(tabla.getString(4));
-               usuario.setNombre(tabla.getString(5));
-               usuario.setApellido(tabla.getString(6));
-               usuario.setGenero( tabla.getString(7));
-               usuario.setFechaNacimiento(tabla.getString(8));
-               usuario.setEscolaridad(tabla.getString(9));
-               usuario.setVinculoUnivalle(tabla.getString(10));
-               usuario.setPerfil(tabla.getString(11));
-               usuario.setFechaRegistro(tabla.getString(12));
-               usuario.setActivo(tabla.getString(13));
-               usuario.setCorreoElectronico(tabla.getString(14));
+             usuario.setNombre(tabla.getString(2));
+             usuario.setApellido(tabla.getString(3));
+             usuario.setContraseña(tabla.getString(4));
+             usuario.setPreguntaSecreta(tabla.getString(5));
+             usuario.setRespuestaSecreta(tabla.getString(6));
+             usuario.setVinculoUnivalle(tabla.getString(7));
+             usuario.setPerfil(tabla.getString(8));
+             usuario.setCorreoElectronico(tabla.getString(9));
+             usuario.setEscolaridad(tabla.getString(10));
+             usuario.setGenero( tabla.getString(11));
+               usuario.setFechaNacimiento(tabla.getString(12));
+               
+               usuario.setFechaRegistro(tabla.getString(13));
+               //usuario.setActivo(tabla.getString(13));
+               
             }
             conn.close();
 
@@ -81,7 +83,7 @@ public class DaoUsuario {
          catch(Exception e){ System.out.println(e); }
         return usuario;
     }
-*/
+
 
     public int modificarUsuario(Usuario usuario)
     {
@@ -95,8 +97,8 @@ public class DaoUsuario {
                 "', genero= '"+usuario.getGenero() +
                 "', fecha_nacimiento = '"+usuario.getFechaNacimiento()+
                 "', nivel_escolaridad= '"+usuario.getEscolaridad()+
-                "', vinculo_univalle= '"+usuario.getVinculoUnivalle()+
-                "', perfil= '"+usuario.getPerfil()+
+                "', vinculo_con_univalle= '"+usuario.getVinculoUnivalle()+
+                "', tipo_usuario= '"+usuario.getPerfil()+
                 "', correo_electronico= '"+usuario.getCorreoElectronico()+
                 "' WHERE username= '"+usuario.getLogin()+"';";
 

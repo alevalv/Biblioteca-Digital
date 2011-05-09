@@ -15,7 +15,7 @@ public class ControladorUsuario {
         
     }
 
-    public void guardarUsuario(String Username, String Nombre, String Apellido,String genero, String Email, String Password, Date Fecha_Nacimiento, String Pregunta_secreta, String Respuesta_secreta, String Vinculo_univalle, String Tipo_usuario, String Nivel_escolaridad,Timestamp fechaRegistro)
+    public void guardarUsuario(String Username, String Nombre, String Apellido,String genero, String Email, String Password, String Fecha_Nacimiento, String Pregunta_secreta, String Respuesta_secreta, String Vinculo_univalle, String Tipo_usuario, String Nivel_escolaridad,String fechaRegistro)
     {
         Usuario usuario= new Usuario();
         DaoUsuario daoUsuario= new DaoUsuario();
@@ -37,7 +37,7 @@ public class ControladorUsuario {
         int u=daoUsuario.guardarUsuario(usuario);
     }
 
-    public void modificarUsuario(String Username, String Nombre, String Apellido,String genero, String Email, String Password, Date Fecha_Nacimiento, String Pregunta_secreta, String Respuesta_secreta, String Vinculo_univalle, String Tipo_usuario, String Nivel_escolaridad,Timestamp fechaRegistro)
+    public void modificarUsuario(String Username, String Nombre, String Apellido,String genero, String Email, String Password, String Fecha_Nacimiento, String Pregunta_secreta, String Respuesta_secreta, String Vinculo_univalle, String Tipo_usuario, String Nivel_escolaridad,String fechaRegistro)
     {
         Usuario usuario= new Usuario();
         DaoUsuario daoUsuario= new DaoUsuario();
@@ -53,6 +53,8 @@ public class ControladorUsuario {
         usuario.setVinculoUnivalle(Vinculo_univalle);
         usuario.setPerfil(Tipo_usuario);
         usuario.setEscolaridad(Nivel_escolaridad);
+        usuario.setGenero(genero);
+        usuario.setFechaRegistro(fechaRegistro);
 
         usuario.setFechaRegistro(fechaRegistro);
         usuario.setGenero(genero);
@@ -75,7 +77,7 @@ public class ControladorUsuario {
          respuesta= daoUsuario.AutenticarUsuario(Username, Password);
          return respuesta;
     }
-/*
+
     public Usuario consultarUsuario(String username)
     {
         Usuario usuario= new Usuario();
@@ -83,7 +85,7 @@ public class ControladorUsuario {
         usuario= daoUsuario.consultarUsuario(username);
         return usuario;
     }
-*/
+
     public void desactivarrUsuario(String username)
     {
         DaoUsuario daoUsuario= new DaoUsuario();

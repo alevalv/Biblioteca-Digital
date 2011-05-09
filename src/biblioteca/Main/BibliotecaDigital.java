@@ -4,6 +4,8 @@
  */
 package biblioteca.Main;
 
+import biblioteca.gui.GUIModificarUsuario;
+
 /**
  *
  * @author alejandro
@@ -16,6 +18,8 @@ public class BibliotecaDigital {
      */
     public static void main(String[] args) {
         LOGGED_USER="dummyuser";
+        new GUIModificarUsuario().setVisible(true);
+        
         // TODO code application logic here
     }
 }
