@@ -59,11 +59,28 @@ public class ControladorDocumento {
         documento.setTituloPrincipal(tituloPrincipal);
         documento.setTituloSecundario(tituloSecundario);
         DaoDocumento daoDocumento = new DaoDocumento();
-        daoDocumento.actualizarDocumento(documento);
+        daoDocumento.modificarDocumento(documento);
         
         //seguridad?
         daoDocumento= null;
         documento= null;
+    }
+    
+    public String obtenerId(String tituloPrincipal, String tituloSecundario,
+             String editorial, String derechosAutor, String idioma, String descripcion,
+             String tipoMaterial,String fechaPublicacion, String catalogador){
+        Documento documento = new Documento();
+        documento.setActivo(true);
+        documento.setDerechosAutor(derechosAutor);
+        documento.setDescripcion(descripcion);
+        documento.setEditorial(editorial);
+        documento.setFechaPublicacion(fechaPublicacion);
+        documento.setIdioma(idioma);
+        documento.setTipoMaterial(tipoMaterial);
+        documento.setTituloPrincipal(tituloPrincipal);
+        documento.setTituloSecundario(tituloSecundario);
+        DaoDocumento daoDocumento = new DaoDocumento();
+        return daoDocumento.obtenerDocumentoID(documento, catalogador);
     }
     
     @Deprecated
