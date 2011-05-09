@@ -66,10 +66,10 @@ public class DaoArea {
          sql_consultar="SELECT * FROM areas_computacion ORDER BY area_id ASC;";
          ArrayList<Area> Areas=null;
          try{
-             Areas= new ArrayList<Area>();
              Connection conn= fachada.conectar();
              Statement sentencia = conn.createStatement();
              ResultSet tabla = sentencia.executeQuery(sql_consultar);
+             Areas= new ArrayList<Area>();
              while(tabla.next()){
                  Area a= new Area();
                  a.setID(tabla.getString(1));
