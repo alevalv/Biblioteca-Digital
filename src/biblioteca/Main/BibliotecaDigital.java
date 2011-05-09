@@ -15,6 +15,7 @@ public class BibliotecaDigital {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        LOGGED_USER="dummyuser";
         // TODO code application logic here
     }
 }
