@@ -10,7 +10,9 @@
  */
 package biblioteca.gui.catalogacion;
 
+import biblioteca.database2.beans.Area;
 import biblioteca.database2.beans.Documento;
+import java.util.ArrayList;
 import javax.swing.JTabbedPane;
 
 /**
@@ -19,10 +21,17 @@ import javax.swing.JTabbedPane;
  */
 public class Selecc_Areas extends javax.swing.JPanel {
     Documento documento;
+    ArrayList<Area> areasExistentes;
+    static public ArrayList<Area> areasSeleccionadas;
     /** Creates new form Selecc_Areas */
     public Selecc_Areas(Documento documento) {
         initComponents();
         this.documento=documento;
+        areasExistentes=new ArrayList<Area>();
+    }
+    
+    private void initComboBox(){
+        Areas.removeAllItems();
     }
 
     /** This method is called from within the constructor to
