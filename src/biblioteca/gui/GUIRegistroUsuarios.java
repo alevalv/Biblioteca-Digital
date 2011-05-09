@@ -112,7 +112,7 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addContainerGap(282, Short.MAX_VALUE))
+                .addContainerGap(332, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,13 +124,13 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 24));
         jLabel4.setText("Registro de Usuarios");
 
-        jLabel10.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel10.setText("Nivel Escolaridad:");
 
         jLabel9.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel9.setText("Genero:");
 
-        jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel7.setText("Vinculo con Univalle:");
 
         jTextField4.setFont(new java.awt.Font("Arial", 0, 11));
@@ -180,7 +180,7 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
         jComboBox5.setMaximumRowCount(2);
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "M", "F" }));
 
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Primaria", "Bachiller", "Universidad", "Maestria", "Doctorado", "Ninguno" }));
+        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ninguno", "Primaria", "Bachiller", "Universidad", "Maestria", "Doctorado" }));
         jComboBox7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox7ActionPerformed(evt);
@@ -188,7 +188,7 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
         });
 
         jComboBox8.setMaximumRowCount(6);
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pregrado", "Posgrado", "Egresado", "Profesor", "Jubilado", "Ninguno" }));
+        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ninguno", "Pregrado", "Posgrado", "Egresado", "Profesor", "Jubilado" }));
 
         jButton3.setText("Cancelar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -409,20 +409,73 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
         vinculo=(String)jComboBox8.getSelectedItem();
 
         fecha_nacimiento=ano+"-"+mes+"-"+dia;
-        java.sql.Date fecha_nac=java.sql.Date.valueOf("2010-06-26");
+        java.sql.Date fecha_nac=java.sql.Date.valueOf(fecha_nacimiento);
         
         /// Falta verificar Contraseñaaa !! :/
         String contrasenaS=new String(contrasena);
-        String vericontrasenaS=new String(vericontrasena);
 
         java.util.Date actual=new java.util.Date();
         java.sql.Timestamp fechaderegistro=new java.sql.Timestamp(actual.getTime());
-        
         ControladorUsuario controlador=new ControladorUsuario();
+        
+        if(checkEmptyFields() && verificarDisponibilidad()){
         controlador.guardarUsuario(username, nombre, apellido, genero, correo, contrasenaS, fecha_nac, pregunta, respuesta, vinculo,tipo_usuario, nivel, fechaderegistro);
-
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
+
+    private boolean checkEmptyFields(){
+        String contrasena=new String(jPasswordField1.getPassword());
+        String vericontrasena=new String(jPasswordField2.getPassword());
+        if(jTextField1.getText()==null || jTextField1.getText().equals("")){
+             JOptionPane.showMessageDialog(null, "Por favor ingrese un Username", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        else if(jTextField2.getText() == null || jTextField2.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese sus Nombres", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        else if(jTextField3.getText() == null || jTextField3.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese sus Apellidos", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        else if(contrasena == null || contrasena.equals("")){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese su contraseña", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        else if(vericontrasena == null || vericontrasena.equals("")){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese nuevamente su contraseña en el campo de Verificar Contraseña", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        else if(jTextField6.getText() == null || jTextField6.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese una Pregunta Secreta", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        else if(jTextField7.getText() == null || jTextField7.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese una Respuesta Secreta", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        else if(!contrasena.equals(vericontrasena)){
+            jPasswordField2.setText("");
+            JOptionPane.showMessageDialog(null, "Por favor vuelva a verificar su contraseña", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+
+        return true;
+    }
+
+    private boolean verificarDisponibilidad(){
+        String username=jTextField1.getText();
+        ControladorUsuario controlador=new ControladorUsuario();
+        boolean Disponible=controlador.verificarDisponibilidadUsuario(username);
+        if(username.equals("")){
+        JOptionPane.showMessageDialog(null, "Por favor ingrese un Nombre de Usuario Valido", "Error", JOptionPane.ERROR_MESSAGE); }
+        else{
+        if(!Disponible )
+         JOptionPane.showMessageDialog(null, "Lo sentimos, el Nombre de Usuario no esta Disponible, por favor ingrese otro", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        return Disponible;
+    }
     private void jComboBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox7ActionPerformed
@@ -440,16 +493,10 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox9ActionPerformed
 
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
-        String username=jTextField1.getText();
-        ControladorUsuario controlador=new ControladorUsuario();
-        boolean Disponible=controlador.verificarDisponibilidadUsuario(username);
-        if(username.equals("")){
-        JOptionPane.showMessageDialog(null, "Por favor ingrese un Nombre de Usuario Valido", "", JOptionPane.INFORMATION_MESSAGE); }
-        else{
-        if(Disponible )
-        JOptionPane.showMessageDialog(null, "El Nombre de Usuario si se encuentra Disponible", "", JOptionPane.INFORMATION_MESSAGE);
-        else JOptionPane.showMessageDialog(null, "Lo sentimos, el Nombre de Usuario no esta Disponible, por favor ingrese otro", "", JOptionPane.ERROR_MESSAGE);
-        }
+        boolean esDisponible=verificarDisponibilidad();
+        if(esDisponible)
+            JOptionPane.showMessageDialog(null, "El Nombre de Usuario si se encuentra Disponible", "", JOptionPane.INFORMATION_MESSAGE);
+     
     }//GEN-LAST:event_jLabel17MouseClicked
 
     /**

@@ -146,7 +146,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="282" max="32767" attributes="0"/>
+                  <EmptySpace pref="332" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -467,12 +467,12 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="6">
-                <StringItem index="0" value="Primaria"/>
-                <StringItem index="1" value="Bachiller"/>
-                <StringItem index="2" value="Universidad"/>
-                <StringItem index="3" value="Maestria"/>
-                <StringItem index="4" value="Doctorado"/>
-                <StringItem index="5" value="Ninguno"/>
+                <StringItem index="0" value="Ninguno"/>
+                <StringItem index="1" value="Primaria"/>
+                <StringItem index="2" value="Bachiller"/>
+                <StringItem index="3" value="Universidad"/>
+                <StringItem index="4" value="Maestria"/>
+                <StringItem index="5" value="Doctorado"/>
               </StringArray>
             </Property>
           </Properties>
@@ -485,12 +485,12 @@
             <Property name="maximumRowCount" type="int" value="6"/>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="6">
-                <StringItem index="0" value="Pregrado"/>
-                <StringItem index="1" value="Posgrado"/>
-                <StringItem index="2" value="Egresado"/>
-                <StringItem index="3" value="Profesor"/>
-                <StringItem index="4" value="Jubilado"/>
-                <StringItem index="5" value="Ninguno"/>
+                <StringItem index="0" value="Ninguno"/>
+                <StringItem index="1" value="Pregrado"/>
+                <StringItem index="2" value="Posgrado"/>
+                <StringItem index="3" value="Egresado"/>
+                <StringItem index="4" value="Profesor"/>
+                <StringItem index="5" value="Jubilado"/>
               </StringArray>
             </Property>
           </Properties>
