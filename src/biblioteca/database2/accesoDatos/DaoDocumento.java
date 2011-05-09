@@ -25,13 +25,12 @@ public class DaoDocumento {
         String sql_agregar;
         sql_agregar = "INSERT INTO documentos(activo, titulo_principal, "+
                 "titulo_secundario, descripcion, idioma, editorial, fecha_publicacion, " +
-                "derechos_autor, ubicacion, tipo_documento, catalogador)"+
+                "derechos_autor, tipo_documento, catalogador)"+
                 "VALUES ('" + "true" + "','" + documento.getTituloPrincipal() + "','" 
                 + documento.getTituloSecundario() + "','"+ documento.getDescripcion() + "','"
                 + documento.getIdioma() + "','" + documento.getEditorial() + "','" 
                 + documento.getFechaPublicacion() + "','" + documento.getDerechosAutor() + "','"
-                + documento.getUbicacion() + "','" + documento.getTipoMaterial() + "','"
-                + usuario + "');";
+                + documento.getTipoMaterial() + "','" + usuario + "');";
 
        try{
             Connection conn= Fachada.conectar();
@@ -44,6 +43,30 @@ public class DaoDocumento {
         catch(Exception e){ System.out.println(e); }
 
        return -1;
+    }
+    
+    public String obtenerDocumentoID(Documento documento, String catalogador){
+        String sql_consultar;
+        sql_consultar="SELECT doc_id FROM documentos WHERE titulo_principal='"+
+                documento.getTituloPrincipal()+"'AND titulo_secundario='"+
+                documento.getTituloSecundario()+"'AND descripcion='"+
+                documento.getDescripcion()+"'AND editorial='"+
+                documento.getEditorial()+"'AND idioma='"+
+                documento.getIdioma()+"'AND fecha_publicacion='"+
+                documento.getFechaPublicacion()+"'AND derechos_autor='"+
+                documento.getDerechosAutor()+"'AND catalogador='"+catalogador+"'";
+        String id=null;
+        try{
+            Connection conn= Fachada.conectar();
+            java.sql.Statement sentencia = conn.createStatement();
+            ResultSet salida=sentencia.executeQuery(sql_consultar);
+            if(salida.next()){
+                id=salida.getString(1);
+            }
+            conn.close();
+        }catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+        return id;
     }
     
     public int deshabilitarDocumento(String id_documento){
