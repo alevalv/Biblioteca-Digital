@@ -35,7 +35,7 @@ public class ControladorUsuario {
         int u=daoUsuario.guardarUsuario(usuario);
     }
 
-    public void modificarUsuario(String Username, String Nombre, String Apellido,String genero, String Email, String Password, String Fecha_Nacimiento, String Pregunta_secreta, String Respuesta_secreta, String Vinculo_univalle, String Tipo_usuario, String Nivel_escolaridad,String fechaRegistro)
+    public int modificarUsuario(String Username, String Nombre, String Apellido,String genero, String Email, String Password, String Fecha_Nacimiento, String Pregunta_secreta, String Respuesta_secreta, String Vinculo_univalle, String Tipo_usuario, String Nivel_escolaridad,String fechaRegistro)
     {
         Usuario usuario= new Usuario();
         DaoUsuario daoUsuario= new DaoUsuario();
@@ -57,7 +57,7 @@ public class ControladorUsuario {
         usuario.setFechaRegistro(fechaRegistro);
         usuario.setGenero(genero);
 
-        daoUsuario.modificarUsuario(usuario);
+        return daoUsuario.modificarUsuario(usuario);
     }
 
     public boolean verificarDisponibilidadUsuario(String Username)
