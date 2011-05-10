@@ -312,6 +312,8 @@ public class Selecc_Areas extends javax.swing.JPanel {
         Cancelar.setEnabled(false);
         Agregar.setEnabled(true);
         Areas.setEnabled(true);
+        areasSeleccionadas.clear();
+        refreshAreas();
         Estado.setForeground(Color.red);
         Estado.setText("[Sin Guardar]");
     }//GEN-LAST:event_CancelarActionPerformed
