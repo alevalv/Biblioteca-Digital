@@ -7,7 +7,6 @@ package biblioteca.Main;
 //import biblioteca.gui.GUIModificarUsuario;
 
 import java.io.File;
-import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
