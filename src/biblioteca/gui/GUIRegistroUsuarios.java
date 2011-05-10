@@ -452,36 +452,36 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
         String contrasena=new String(jPasswordField1.getPassword());
         String vericontrasena=new String(jPasswordField2.getPassword());
         if(jTextField1.getText()==null || jTextField1.getText().equals("")){
-             JOptionPane.showMessageDialog(null, "Por favor ingrese un Username", "Error", JOptionPane.ERROR_MESSAGE);
+             JOptionPane.showMessageDialog(this, "Por favor ingrese un Username", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         else if(jTextField2.getText() == null || jTextField2.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Por favor ingrese sus Nombres", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Por favor ingrese sus Nombres", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         else if(jTextField3.getText() == null || jTextField3.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Por favor ingrese sus Apellidos", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Por favor ingrese sus Apellidos", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         else if(contrasena == null || contrasena.equals("")){
-            JOptionPane.showMessageDialog(null, "Por favor ingrese su contraseña", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Por favor ingrese su contraseña", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         else if(vericontrasena == null || vericontrasena.equals("")){
-            JOptionPane.showMessageDialog(null, "Por favor ingrese nuevamente su contraseña en el campo de Verificar Contraseña", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Por favor ingrese nuevamente su contraseña en el campo de Verificar Contraseña", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         else if(jTextField6.getText() == null || jTextField6.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Por favor ingrese una Pregunta Secreta", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Por favor ingrese una Pregunta Secreta", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         else if(jTextField7.getText() == null || jTextField7.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Por favor ingrese una Respuesta Secreta", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Por favor ingrese una Respuesta Secreta", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         else if(!contrasena.equals(vericontrasena)){
             jPasswordField2.setText("");
-            JOptionPane.showMessageDialog(null, "Por favor vuelva a verificar su contraseña", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Por favor vuelva a verificar su contraseña", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
 
@@ -493,17 +493,17 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
         ControladorUsuario controlador=new ControladorUsuario();
         boolean Disponible=controlador.verificarDisponibilidadUsuario(username);
         if(username.equals("")){
-        JOptionPane.showMessageDialog(null, "Por favor ingrese un Nombre de Usuario Valido", "Error", JOptionPane.ERROR_MESSAGE); }
+        JOptionPane.showMessageDialog(this, "Por favor ingrese un Nombre de Usuario Valido", "Error", JOptionPane.ERROR_MESSAGE); }
         else{
         if(!Disponible )
-         JOptionPane.showMessageDialog(null, "Lo sentimos, el Nombre de Usuario no esta Disponible, por favor ingrese otro", "Error", JOptionPane.ERROR_MESSAGE);
+         JOptionPane.showMessageDialog(this, "Lo sentimos, el Nombre de Usuario no esta Disponible, por favor ingrese otro", "Error", JOptionPane.ERROR_MESSAGE);
         }
         return Disponible;
     }
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
         boolean esDisponible=verificarDisponibilidad();
         if(esDisponible)
-            JOptionPane.showMessageDialog(null, "El Nombre de Usuario si se encuentra Disponible", "", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "El Nombre de Usuario si se encuentra Disponible", "", JOptionPane.INFORMATION_MESSAGE);
      
     }//GEN-LAST:event_jLabel17MouseClicked
 
