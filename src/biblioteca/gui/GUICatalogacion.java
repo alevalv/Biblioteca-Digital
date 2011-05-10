@@ -35,16 +35,17 @@ public class GUICatalogacion extends javax.swing.JFrame {
     static public boolean Areas_Guardadas;
     static public boolean Palabras_Clave_Guardadas;
     static public boolean Tipo_Documento_Guardado;
+    biblioteca.gui.GUIBusqueda parent;
     /** Creates new form GUICatalogacion */
-    public GUICatalogacion() {
+    public GUICatalogacion(biblioteca.gui.GUIBusqueda parent) {
         Informacion_Basica_Guardada=false;
         Autores_Guardado=false;
         Areas_Guardadas=false;
         Palabras_Clave_Guardadas=false;
         Tipo_Documento_Guardado=false;
         documento= new Documento();
+        this.parent = parent;
         initComponents();
-        this.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
     }
     
     public void catalogar(File file){
@@ -97,15 +98,7 @@ public class GUICatalogacion extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "El documento "+documento.getTituloPrincipal()+ " ha sido agregado", "Notificación", JOptionPane.INFORMATION_MESSAGE);
             
                 //seguridad
-                documento=null;
-                biblioteca.gui.catalogacion.Autores.autoresSeleccionados=null;
-                biblioteca.gui.catalogacion.Selecc_Areas.areasSeleccionadas=null;
-                biblioteca.gui.catalogacion.Selecc_Pal_Clave.palabrasClaveSeleccionadas=null;
-                Informacion_Basica_Guardada=false;
-                Autores_Guardado=false;
-                Areas_Guardadas=false;
-                Palabras_Clave_Guardadas=false;
-                Tipo_Documento_Guardado=false;
+                destroyAll();
                 
                 //cerramos la ventana
                 this.dispose();
@@ -120,6 +113,17 @@ public class GUICatalogacion extends javax.swing.JFrame {
         }
     }
 
+    static public void destroyAll(){
+        documento=null;
+                biblioteca.gui.catalogacion.Autores.autoresSeleccionados=null;
+                biblioteca.gui.catalogacion.Selecc_Areas.areasSeleccionadas=null;
+                biblioteca.gui.catalogacion.Selecc_Pal_Clave.palabrasClaveSeleccionadas=null;
+                Informacion_Basica_Guardada=false;
+                Autores_Guardado=false;
+                Areas_Guardadas=false;
+                Palabras_Clave_Guardadas=false;
+                Tipo_Documento_Guardado=false;
+    }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -132,6 +136,11 @@ public class GUICatalogacion extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         biblioteca.gui.catalogacion.Informacion_Basica informacionBasica = new biblioteca.gui.catalogacion.Informacion_Basica(documento);
@@ -151,36 +160,12 @@ public class GUICatalogacion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        biblioteca.Main.BibliotecaDigital.LOGGED_USER="dummyuser";
-        java.awt.EventQueue.invokeLater(new Runnable() {
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        parent.setVisible(true);
+        destroyAll();
+        this.dispose();
+    }//GEN-LAST:event_formWindowClosing
 
-            @Override
-            public void run() {
-                try {
-	    // Set System L&F
-        UIManager.setLookAndFeel(
-            UIManager.getSystemLookAndFeelClassName());
-    } 
-    catch (UnsupportedLookAndFeelException e) {
-       // handle exception
-    }
-    catch (ClassNotFoundException e) {
-       // handle exception
-    }
-    catch (InstantiationException e) {
-       // handle exception
-    }
-    catch (IllegalAccessException e) {
-       // handle exception
-    }
-                new GUICatalogacion().setVisible(true);
-            }
-        });
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
