@@ -44,6 +44,7 @@ public class Selecc_Areas extends javax.swing.JPanel {
                 Area_Padre.insertItemAt(areasExistentes.get(i).toString(), i);
             }
             Areas.setSelectedIndex(-1);
+            Areas.remove(0);
             Area_Padre.setSelectedIndex(-1);
         }
     }
