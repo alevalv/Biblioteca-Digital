@@ -6,8 +6,6 @@ package biblioteca.database2.controladores;
 
 import biblioteca.database2.accesoDatos.DaoUsuario;
 import biblioteca.database2.beans.Usuario;
-import java.sql.Timestamp;
-import java.sql.Date;
 
 public class ControladorUsuario {
 
@@ -77,6 +75,13 @@ public class ControladorUsuario {
         }
         else return false;
     }
+    
+    public boolean verificarActivo(String username){
+        String activo=new DaoUsuario().obtenerActivoUsuario(username);
+        if(activo.equals("t") || activo.equals("true"))
+            return true;
+        else return false;
+    }
 
     public boolean autenticarUsuario(String Username, String Password)
     {
@@ -94,7 +99,7 @@ public class ControladorUsuario {
         return usuario;
     }
 
-    public void desactivarrUsuario(String username)
+    public void desactivarUsuario(String username)
     {
         DaoUsuario daoUsuario= new DaoUsuario();
         daoUsuario.desactivarUsuario(username);

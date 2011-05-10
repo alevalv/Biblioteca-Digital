@@ -232,7 +232,7 @@ public class DaoUsuario {
             Statement sentencia = conn.createStatement();
             ResultSet tabla = sentencia.executeQuery(sql_verificarUsuario);
             tipoRecibido="";
-            while(tabla.next()){
+            if(tabla.next()){
                 tipoRecibido=tabla.getString(1);
             }
              conn.close();
@@ -243,5 +243,24 @@ public class DaoUsuario {
         return tipoRecibido;
     }
 
+    public String obtenerActivoUsuario(String username){
+        String activoRecibido= null;
+        String sql_verificarUsuario;
+        sql_verificarUsuario="SELECT activo FROM usuarios WHERE username= '"+username+"';";
+         try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_verificarUsuario);
+            activoRecibido="";
+            if(tabla.next()){
+                activoRecibido=tabla.getString(1);
+            }
+             conn.close();
+         }
+         catch(SQLException e){ System.out.println(e); }
+         catch(Exception e){ System.out.println(e); }
+
+        return activoRecibido;
+    }
 
 }
