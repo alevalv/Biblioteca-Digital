@@ -193,38 +193,10 @@ public class GUIBusqueda extends javax.swing.JFrame {
         new biblioteca.gui.GUIAutenticacion(this).setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    
     private void unsupportedOperation(){
         JOptionPane.showMessageDialog(this, "Esta operación aún no ha sido implementada", "Error", JOptionPane.ERROR_MESSAGE);
     }
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-
-            public void run() {
-                try {
-	    // Set System L&F
-        UIManager.setLookAndFeel(
-            UIManager.getSystemLookAndFeelClassName());
-    } 
-    catch (UnsupportedLookAndFeelException e) {
-       // handle exception
-    }
-    catch (ClassNotFoundException e) {
-       // handle exception
-    }
-    catch (InstantiationException e) {
-       // handle exception
-    }
-    catch (IllegalAccessException e) {
-       // handle exception
-    }
-                new GUIBusqueda().setVisible(true);
-            }
-        });
-    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem Agregar_Documento;
     private javax.swing.JMenu Archivo;
