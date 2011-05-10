@@ -22,9 +22,9 @@ import javax.swing.JOptionPane;
  */
 public class Subir_Archivo extends javax.swing.JPanel {
     Documento documento;
-    biblioteca.gui.GUICatalogacion MainGui;
+    biblioteca.gui.GUIModificacionDocumento MainGui;
     /** Creates new form Subir_Archivo */
-    public Subir_Archivo(Documento documento, biblioteca.gui.GUICatalogacion Parent) {
+    public Subir_Archivo(Documento documento, biblioteca.gui.GUIModificacionDocumento Parent) {
         initComponents();
         this.documento=documento;
         MainGui=Parent;

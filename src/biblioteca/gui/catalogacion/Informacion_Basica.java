@@ -231,6 +231,8 @@ public class Informacion_Basica extends javax.swing.JPanel {
 
     private void EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarActionPerformed
         biblioteca.gui.GUICatalogacion.Informacion_Basica_Guardada=false;
+        Estado.setForeground(Color.red);
+        Estado.setText("[Sin guardar]");
         enableFields(true);
     }//GEN-LAST:event_EditarActionPerformed
 

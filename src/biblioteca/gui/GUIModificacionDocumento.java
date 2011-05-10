@@ -144,12 +144,12 @@ public class GUIModificacionDocumento extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
-        biblioteca.gui.catalogacion.Informacion_Basica informacionBasica = new biblioteca.gui.catalogacion.Informacion_Basica(documento);
-        biblioteca.gui.catalogacion.Autores autores = new biblioteca.gui.catalogacion.Autores(documento);
-        biblioteca.gui.catalogacion.Selecc_Areas areas = new biblioteca.gui.catalogacion.Selecc_Areas(documento);
-        biblioteca.gui.catalogacion.Selecc_Pal_Clave pc = new biblioteca.gui.catalogacion.Selecc_Pal_Clave(documento);
-        biblioteca.gui.catalogacion.Subir_Archivo sa = new biblioteca.gui.catalogacion.Subir_Archivo(documento, this);
-        biblioteca.gui.catalogacion.Tipo_Documento td = new biblioteca.gui.catalogacion.Tipo_Documento(documento);
+        biblioteca.gui.modificacion.Informacion_Basica informacionBasica = new biblioteca.gui.modificacion.Informacion_Basica(documento);
+        biblioteca.gui.modificacion.Autores autores = new biblioteca.gui.modificacion.Autores(documento);
+        biblioteca.gui.modificacion.Selecc_Areas areas = new biblioteca.gui.modificacion.Selecc_Areas(documento);
+        biblioteca.gui.modificacion.Selecc_Pal_Clave pc = new biblioteca.gui.modificacion.Selecc_Pal_Clave(documento);
+        biblioteca.gui.modificacion.Subir_Archivo sa = new biblioteca.gui.modificacion.Subir_Archivo(documento, this);
+        biblioteca.gui.modificacion.Tipo_Documento td = new biblioteca.gui.modificacion.Tipo_Documento(documento);
         jTabbedPane1.add("Información Basica", informacionBasica);
         jTabbedPane1.add("Autores", autores);
         jTabbedPane1.add("Areas de la Computación", areas);
