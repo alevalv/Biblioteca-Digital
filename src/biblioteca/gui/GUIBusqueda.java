@@ -177,7 +177,12 @@ public class GUIBusqueda extends javax.swing.JFrame {
 
     private void Modificar_DatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modificar_DatosActionPerformed
         this.setVisible(false);
+        if(!biblioteca.Main.BibliotecaDigital.LOGGED_USER.equals("dummyuser")){
         new biblioteca.gui.GUIModificarUsuario(this).setVisible(true);
+        }
+        else{
+           JOptionPane.showMessageDialog(this, "Tiene que autenticarse para modificar sus datos", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_Modificar_DatosActionPerformed
 
     private void GestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GestionActionPerformed
