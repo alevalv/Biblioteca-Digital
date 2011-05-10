@@ -13,7 +13,7 @@ public class ControladorUsuario {
         
     }
 
-    public void guardarUsuario(String Username, String Nombre, String Apellido,String genero, String Email, String Password, String Fecha_Nacimiento, String Pregunta_secreta, String Respuesta_secreta, String Vinculo_univalle, String Tipo_usuario, String Nivel_escolaridad,String fechaRegistro)
+    public int guardarUsuario(String Username, String Nombre, String Apellido,String genero, String Email, String Password, String Fecha_Nacimiento, String Pregunta_secreta, String Respuesta_secreta, String Vinculo_univalle, String Tipo_usuario, String Nivel_escolaridad,String fechaRegistro)
     {
         Usuario usuario= new Usuario();
         DaoUsuario daoUsuario= new DaoUsuario();
@@ -32,7 +32,7 @@ public class ControladorUsuario {
         usuario.setGenero(genero);
         usuario.setFechaRegistro(fechaRegistro);
 
-        int u=daoUsuario.guardarUsuario(usuario);
+        return daoUsuario.guardarUsuario(usuario);
     }
 
     public int modificarUsuario(String Username, String Nombre, String Apellido,String genero, String Email, String Password, String Fecha_Nacimiento, String Pregunta_secreta, String Respuesta_secreta, String Vinculo_univalle, String Tipo_usuario, String Nivel_escolaridad,String fechaRegistro)
