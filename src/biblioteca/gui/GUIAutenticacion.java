@@ -116,20 +116,20 @@ class GUIAutenticacion extends javax.swing.JFrame {
         ControladorUsuario controlador=new ControladorUsuario();
         boolean autenticarUsuario = controlador.autenticarUsuario(username, pass);
        if(username.equals("") || pass.equals(""))
-           JOptionPane.showMessageDialog(null, "Datos Invalidos", "", JOptionPane.ERROR_MESSAGE);
+           JOptionPane.showMessageDialog(this, "Datos Invalidos", "", JOptionPane.ERROR_MESSAGE);
        else{
            if(autenticarUsuario){
                boolean activo=controlador.verificarActivo(username);
                if(activo){
-                   JOptionPane.showMessageDialog(null, "Bienvenido "+username, "", JOptionPane.INFORMATION_MESSAGE);
+                   JOptionPane.showMessageDialog(this, "Bienvenido "+username, "", JOptionPane.INFORMATION_MESSAGE);
                    biblioteca.Main.BibliotecaDigital.LOGGED_USER=username;
                    parent.setVisible(true);
                    this.dispose();
                }
-               else JOptionPane.showMessageDialog(null, "El usuario "+username+" esta desactivado", "", JOptionPane.ERROR_MESSAGE);
+               else JOptionPane.showMessageDialog(this, "El usuario "+username+" esta desactivado", "", JOptionPane.ERROR_MESSAGE);
                
            }
-           else JOptionPane.showMessageDialog(null, "Autenticación Incorrecta", "", JOptionPane.ERROR_MESSAGE);
+           else JOptionPane.showMessageDialog(this, "Autenticación Incorrecta", "", JOptionPane.ERROR_MESSAGE);
        }
        
 
