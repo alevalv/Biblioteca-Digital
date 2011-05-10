@@ -85,7 +85,7 @@ public class Autores extends javax.swing.JPanel {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biblioteca/gui/resources/logo.png"))); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 24));
         jLabel4.setText("Autores");
 
         Agregar.setText("Agregar Autor al Documento");
@@ -119,7 +119,7 @@ public class Autores extends javax.swing.JPanel {
 
         jLabel9.setText("Acronimo: ");
 
-        Estado.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        Estado.setFont(new java.awt.Font("Ubuntu", 0, 24));
         Estado.setForeground(new java.awt.Color(255, 0, 0));
         Estado.setText("[Sin Guardar]");
 
@@ -141,7 +141,7 @@ public class Autores extends javax.swing.JPanel {
         jSeparator2.setMinimumSize(new java.awt.Dimension(150, 6));
         jSeparator2.setPreferredSize(new java.awt.Dimension(200, 10));
 
-        jLabel10.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Ubuntu", 0, 18));
         jLabel10.setText("Autores Existentes: ");
 
         Autores_Agregados.setColumns(20);
@@ -156,7 +156,7 @@ public class Autores extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 165, Short.MAX_VALUE)
                 .addComponent(jLabel4))
             .addGroup(layout.createSequentialGroup()
                 .addGap(12, 12, 12)
@@ -203,7 +203,7 @@ public class Autores extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -283,9 +283,6 @@ public class Autores extends javax.swing.JPanel {
             autoresSeleccionados.add(autoresExistentes.get(Autores.getSelectedIndex()));
             refreshAutoresSeleccionados();
             biblioteca.gui.GUICatalogacion.Autores_Guardado=false;
-        }
-        else{
-            initAuthorComboBox();
         }
     }//GEN-LAST:event_AgregarActionPerformed
 
