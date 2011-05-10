@@ -1321,9 +1321,6 @@ public class GUIModificarAreas extends javax.swing.JFrame {
             if(modificar){
                 parent.setVisible(true);
             }
-            else{
-                parent2.setVisible(false);
-            }
             JOptionPane.showMessageDialog(this, "Areas modificadas con Exito", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
             this.dispose();
         }
