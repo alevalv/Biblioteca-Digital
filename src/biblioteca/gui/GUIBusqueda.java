@@ -182,6 +182,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
         }
         else{
            JOptionPane.showMessageDialog(this, "Tiene que autenticarse para modificar sus datos", "Error", JOptionPane.ERROR_MESSAGE);
+           this.setVisible(true);
         }
     }//GEN-LAST:event_Modificar_DatosActionPerformed
 
