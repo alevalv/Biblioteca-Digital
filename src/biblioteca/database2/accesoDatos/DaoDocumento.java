@@ -294,7 +294,7 @@ public class DaoDocumento {
             Statement sentencia = conn.createStatement();
             String sql_eliminar;
             for(int i=0;i<areas.size();i++){
-                sql_eliminar="DELETE FROM documento_areas_computacion WHERE"+
+                sql_eliminar="DELETE FROM documento_areas_computacion WHERE "+
                         "area_id='"+ areas.get(i).getID()+"' AND doc_id='"+id_documento+"';";
                 sentencia.addBatch(sql_eliminar);
             }
@@ -311,7 +311,7 @@ public class DaoDocumento {
             String sql_eliminar;
             for(int i=0;i<PC.size();i++){
                 sql_eliminar="DELETE FROM documento_palabras_clave WHERE doc_id='"+
-                    id_documento+"'AND nombre='"+PC.get(i).getNombre() +"';";
+                    id_documento+"' AND nombre='"+PC.get(i).getNombre() +"';";
                 sentencia.addBatch(sql_eliminar);
             }
             sentencia.executeBatch();
@@ -327,13 +327,88 @@ public class DaoDocumento {
             String sql_eliminar;
             for(int i=0;i<emails.size();i++){
                 sql_eliminar="DELETE FROM documento_autor WHERE doc_id='"+
-                    id_documento+"AND autor_correo='"+emails.get(i).getCorreo() +"';";
+                    id_documento+"' AND autor_correo='"+emails.get(i).getCorreo() +"';";
                 sentencia.addBatch(sql_eliminar);
             }
             sentencia.executeBatch();
         }
         catch(SQLException e){ System.out.println(e); }
         catch(Exception e){ System.out.println(e); }
+    }
+    
+    public ArrayList<PalabraClave> consultarPalabrasClaveDocumento(String id_documento){
+        String sql_consultar;
+        sql_consultar="SELECT nombre, descripcion FROM documento_palabras_clave"+
+                " NATURAL JOIN palabras_clave WHERE doc_id='"+id_documento+"';";
+        ArrayList<PalabraClave> palabrasClave=null;
+        try{
+            Connection conn= Fachada.conectar();
+            java.sql.Statement sentencia = conn.createStatement();
+            ResultSet salida=sentencia.executeQuery(sql_consultar);
+            palabrasClave = new ArrayList<PalabraClave>();
+            while(salida.next()){
+                PalabraClave palabraClave = new PalabraClave();
+                palabraClave.setNombre(salida.getString(1));
+                palabraClave.setDescripcion(salida.getString(2));
+                palabrasClave.add(palabraClave);
+            }
+            conn.close();
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+        return palabrasClave;
+    }
+    
+    public ArrayList<Autor> consultarAutoresDocumento(String id_documento){
+        String sql_consultar;
+        sql_consultar="SELECT autor_correo, acronimo, nombre, apellido FROM "+
+                "documento_autor NATURAL JOIN autor WHERE "
+                + "doc_id='"+id_documento+"';";
+        ArrayList<Autor> Autores=null;
+        try{
+            Connection conn= Fachada.conectar();
+            java.sql.Statement sentencia = conn.createStatement();
+            ResultSet salida=sentencia.executeQuery(sql_consultar);
+            Autores = new ArrayList<Autor>();
+            while(salida.next()){
+                Autor autor = new Autor();
+                autor.setCorreo(salida.getString(1));
+                autor.setAcronimo(salida.getString(2));
+                autor.setNombre(salida.getString(3));
+                autor.setApellido(salida.getString(4));
+                Autores.add(autor);
+            }
+            conn.close();
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+        return Autores;
+    }
+    
+    public ArrayList<Area> consultarAreasDocumento(String id_documento){
+        String sql_consultar;
+        sql_consultar="SELECT area_id, nombre, descripcion, area_padre FROM "+
+                "documento_areas_computacion NATURAL JOIN areas_computacion"
+                + " WHERE doc_id='"+id_documento+"';";        
+        ArrayList<Area> Areas=null;
+        try{
+            Connection conn= Fachada.conectar();
+            java.sql.Statement sentencia = conn.createStatement();
+            ResultSet salida=sentencia.executeQuery(sql_consultar);
+            Areas = new ArrayList<Area>();
+            while(salida.next()){
+                Area area = new Area();
+                area.setID(salida.getString(1));
+                area.setNombre(salida.getString(2));
+                area.setDescripcion(salida.getString(3));
+                area.setAreaPadre(salida.getString(4));
+                Areas.add(area);
+            }
+            conn.close();
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+        return Areas;
     }
     
     //public ResultSet consultarDocumento(ArrayList<String> datos){

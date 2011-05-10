@@ -22,9 +22,9 @@ public class Fachada {
         Statement instruccion;
         ResultSet tabla;
         public Fachada(){
-            url="jdbc:postgresql://localhost:5432/pruebas";
+            url="jdbc:postgresql://localhost:5432/alevalvi";
             usuario="postgres";
-            password="evelynromo";
+            password="root";
         }
 
         public Connection conectar(){

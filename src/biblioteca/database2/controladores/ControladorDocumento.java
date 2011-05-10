@@ -51,10 +51,9 @@ public class ControladorDocumento {
         new DaoDocumento().insertarUbicacion(id_documento, ubicacion);
     }
     
-    public void modificarDocumento(String id_documento, boolean activo,
-            String editorial, String derechosAutor, String idioma, 
-            String descripcion, String tipoMaterial, String tituloPrincipal,
-            String tituloSecundario, String fechaPublicacion, String tipoDocumento){
+    public void modificarDocumento(String id_documento, String tituloPrincipal, String tituloSecundario,
+             String editorial, String derechosAutor, String idioma, String descripcion,
+             String tipoMaterial,String fechaPublicacion, boolean activo){
         Documento documento = new Documento();
         documento.setID_documento(id_documento);
         documento.setDerechosAutor(derechosAutor);
@@ -129,6 +128,18 @@ public class ControladorDocumento {
     public void eliminarAutores(String id_documento, ArrayList<Autor> emails){
         DaoDocumento daoDocumento = new DaoDocumento();
         daoDocumento.eliminarAutores(emails, id_documento);
+    }
+    
+    public ArrayList<PalabraClave> obtenerPalabrasClave(String id_documento){
+        return new DaoDocumento().consultarPalabrasClaveDocumento(id_documento);
+    }
+    
+    public ArrayList<Autor> obtenerAutores(String id_documento){
+        return new DaoDocumento().consultarAutoresDocumento(id_documento);
+    }
+    
+    public ArrayList<Area> obtenerAreas(String id_documento){
+        return new DaoDocumento().consultarAreasDocumento(id_documento);
     }
     /*
      * 

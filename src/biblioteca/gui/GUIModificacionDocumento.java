@@ -27,7 +27,7 @@ import javax.swing.JOptionPane;
  * @author alejandro
  */
 public class GUIModificacionDocumento extends javax.swing.JFrame {
-    static Documento documento;
+    static public Documento documento;
     static public boolean Informacion_Basica_Guardada;
     static public boolean Autores_Guardado;
     static public boolean Areas_Guardadas;
@@ -47,64 +47,30 @@ public class GUIModificacionDocumento extends javax.swing.JFrame {
         Areas_Guardadas=false;
         Palabras_Clave_Guardadas=false;
         Tipo_Documento_Guardado=false;
-        documento= new Documento();
         this.parent = parent;
         informacionBasica = new biblioteca.gui.modificacion.Informacion_Basica(documento, this);
-        autores = new biblioteca.gui.modificacion.Autores(documento);
-        areas = new biblioteca.gui.modificacion.Selecc_Areas(documento);
-        pc = new biblioteca.gui.modificacion.Selecc_Pal_Clave(documento);
-        sa = new biblioteca.gui.modificacion.Subir_Archivo(documento, this);
-        td = new biblioteca.gui.modificacion.Tipo_Documento(documento);
+        autores = new biblioteca.gui.modificacion.Autores();
+        areas = new biblioteca.gui.modificacion.Selecc_Areas();
+        pc = new biblioteca.gui.modificacion.Selecc_Pal_Clave();
+        sa = new biblioteca.gui.modificacion.Subir_Archivo(this);
+        td = new biblioteca.gui.modificacion.Tipo_Documento();
         initComponents();
     }
     
-    public void catalogar(File file){
+    public void catalogar(){
         if(Informacion_Basica_Guardada && Autores_Guardado && Areas_Guardadas
                 && Palabras_Clave_Guardadas && Tipo_Documento_Guardado){
             if(new ControladorUsuario().verificarTipoUsuario("2", biblioteca.Main.BibliotecaDigital.LOGGED_USER)
                 || new ControladorUsuario().verificarTipoUsuario("1", biblioteca.Main.BibliotecaDigital.LOGGED_USER)){
                 ControladorDocumento controladorDocumento = new ControladorDocumento();
-                controladorDocumento.insertarDocumento(documento.getTituloPrincipal(), documento.getTituloSecundario(), documento.getEditorial(), documento.getDerechosAutor(), documento.getIdioma(), documento.getDescripcion(), documento.getTipoMaterial(), documento.getFechaPublicacion(), biblioteca.Main.BibliotecaDigital.LOGGED_USER);
-                String id=controladorDocumento.obtenerId(documento.getTituloPrincipal(), documento.getTituloSecundario(), documento.getEditorial(), documento.getDerechosAutor(), documento.getIdioma(), documento.getDescripcion(), documento.getTipoMaterial(), documento.getFechaPublicacion(), biblioteca.Main.BibliotecaDigital.LOGGED_USER);
-                String path=file.getPath();
-                StringTokenizer stk=new StringTokenizer(path, ".");
-                while(stk.countTokens()>1){
-                    stk.nextToken();
-                }
-                String newname="repository/"+id+"."+stk.nextToken();
-                System.out.println(newname);
-                try{
-                    //guardar archivo
-                    FileInputStream fileInput = new FileInputStream(path);
-                    BufferedInputStream bufferedInput = new BufferedInputStream(fileInput);
-                    /// Se abre el fichero donde se hará la copia
-                    File newFile = new File(newname);
-                    if(!newFile.exists()){
-                        newFile.createNewFile();
-                    }
-                    FileOutputStream fileOutput = new FileOutputStream (newname);
-                    BufferedOutputStream bufferedOutput = new BufferedOutputStream(fileOutput);
-                    // Bucle para leer de un fichero y escribir en el otro.
-                    byte [] array = new byte[1000];
-                    int leidos = bufferedInput.read(array);
-                    while (leidos > 0){
-                        bufferedOutput.write(array,0,leidos);
-                        leidos=bufferedInput.read(array);
-                    }
-                    // Cierre de los ficheros
-                    bufferedInput.close();
-                    bufferedOutput.close();
-                }
-                catch(IOException ioe){
-                    System.err.println(ioe);
-                }
-                controladorDocumento.insertarUbicacion(id, newname);
+                controladorDocumento.modificarDocumento(documento.getID_documento(), documento.getTituloPrincipal(), documento.getTituloSecundario(), documento.getEditorial(), documento.getDerechosAutor(), documento.getIdioma(), documento.getDescripcion(), documento.getTipoMaterial(), documento.getFechaPublicacion(), true);
+                controladorDocumento.insertarUbicacion(documento.getID_documento(), documento.getUbicacion());
                 //RELACIONES CON OTRAS TABLAS.
                 
                 //autores
-                controladorDocumento.insertarAutores(id, biblioteca.gui.catalogacion.Autores.autoresSeleccionados);
-                controladorDocumento.insertarAreas(id, biblioteca.gui.catalogacion.Selecc_Areas.areasSeleccionadas);
-                controladorDocumento.insertarPalabrasClave(id, biblioteca.gui.catalogacion.Selecc_Pal_Clave.palabrasClaveSeleccionadas);
+                controladorDocumento.insertarAutores(documento.getID_documento(), biblioteca.gui.modificacion.Autores.autoresSeleccionados);
+                controladorDocumento.insertarAreas(documento.getID_documento(), biblioteca.gui.modificacion.Selecc_Areas.areasSeleccionadas);
+                controladorDocumento.insertarPalabrasClave(documento.getID_documento(), biblioteca.gui.modificacion.Selecc_Pal_Clave.palabrasClaveSeleccionadas);
                 JOptionPane.showMessageDialog(this, "El documento "+documento.getTituloPrincipal()+ " ha sido agregado", "Notificación", JOptionPane.INFORMATION_MESSAGE);
             
                 //seguridad

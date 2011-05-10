@@ -264,7 +264,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
     }//GEN-LAST:event_SiguienteActionPerformed
 
     private void EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarActionPerformed
-        biblioteca.gui.GUICatalogacion.Informacion_Basica_Guardada=false;
+        biblioteca.gui.GUIModificacionDocumento.Informacion_Basica_Guardada=false;
         enableFields(true);
     }//GEN-LAST:event_EditarActionPerformed
 
@@ -286,6 +286,8 @@ public class Informacion_Basica extends javax.swing.JPanel {
         Fecha_Publicacion.setText(documento.getFechaPublicacion());
         Derechos_Autor.setText(documento.getDerechosAutor());
         Idioma.setSelectedItem(documento.getIdioma());
+        
+        biblioteca.gui.GUIModificacionDocumento.documento=this.documento;
         parent.documentoAbierto();
          }
          else{
@@ -333,7 +335,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         Estado.setForeground(Color.green);
         Estado.setText("[Guardado]");
         enableFields(false);
-        biblioteca.gui.GUICatalogacion.Informacion_Basica_Guardada=true;
+        biblioteca.gui.GUIModificacionDocumento.Informacion_Basica_Guardada=true;
     }
     
     private void enableFields(boolean b){

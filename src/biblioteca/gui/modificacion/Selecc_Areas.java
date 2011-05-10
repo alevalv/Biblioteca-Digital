@@ -13,6 +13,7 @@ package biblioteca.gui.modificacion;
 import biblioteca.database2.beans.Area;
 import biblioteca.database2.beans.Documento;
 import biblioteca.database2.controladores.ControladorArea;
+import biblioteca.database2.controladores.ControladorDocumento;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -23,19 +24,22 @@ import javax.swing.JTabbedPane;
  * @author alejandro
  */
 public class Selecc_Areas extends javax.swing.JPanel {
-    Documento documento;
     ArrayList<Area> areasExistentes;
     static public ArrayList<Area> areasSeleccionadas;
     /** Creates new form Selecc_Areas */
-    public Selecc_Areas(Documento documento) {
+    public Selecc_Areas() {
         initComponents();
-        this.documento=documento;
         areasSeleccionadas=new ArrayList<Area>();
         initComboBox();
     }
     
     public void inicializarDocumento(){
-        
+        ArrayList<Area> areaDoc = new ControladorDocumento().obtenerAreas(biblioteca.gui.GUIModificacionDocumento.documento.getID_documento());
+        for(int i=0;i<areaDoc.size();i++){
+            areasSeleccionadas.add(areaDoc.get(i));
+        }
+        new ControladorDocumento().eliminarAreas(biblioteca.gui.GUIModificacionDocumento.documento.getID_documento(), areaDoc);
+        refreshAreas();
     }
     
     private void initComboBox(){
@@ -292,7 +296,7 @@ public class Selecc_Areas extends javax.swing.JPanel {
             Agregar.setEnabled(false);
             Areas.setEnabled(false);
             Areas.setSelectedIndex(-1);
-            biblioteca.gui.GUICatalogacion.Areas_Guardadas=true;
+            biblioteca.gui.GUIModificacionDocumento.Areas_Guardadas=true;
         }
         else JOptionPane.showMessageDialog(this, "Debe seleccionar al menos un area", "Error", JOptionPane.ERROR_MESSAGE);
         
@@ -313,7 +317,7 @@ public class Selecc_Areas extends javax.swing.JPanel {
     }//GEN-LAST:event_Agregar_AreaActionPerformed
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
-        biblioteca.gui.GUICatalogacion.Areas_Guardadas=false;
+        biblioteca.gui.GUIModificacionDocumento.Areas_Guardadas=false;
         Cancelar.setEnabled(false);
         Agregar.setEnabled(true);
         Areas.setEnabled(true);

@@ -14,6 +14,7 @@ package biblioteca.gui.modificacion;
 import biblioteca.database2.beans.Autor;
 import biblioteca.database2.beans.Documento;
 import biblioteca.database2.controladores.ControladorAutor;
+import biblioteca.database2.controladores.ControladorDocumento;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -24,20 +25,23 @@ import javax.swing.JTabbedPane;
  * @author alejandro
  */
 public class Autores extends javax.swing.JPanel {
-    Documento documento;
     private ArrayList<Autor> autoresExistentes;
     public static ArrayList<Autor> autoresSeleccionados;
     /** Creates new form GUICAT_Autores */
-    public Autores(Documento documento) {
+    public Autores() {
         initComponents();
-        this.documento=documento;
         autoresSeleccionados = new ArrayList<Autor>();
-        biblioteca.gui.GUICatalogacion.Autores_Guardado=false;
+        biblioteca.gui.GUIModificacionDocumento.Autores_Guardado=false;
         initAuthorComboBox();
     }
     
     public void inicializarDocumento(){
-        
+        ArrayList<Autor> autorDoc = new ControladorDocumento().obtenerAutores(biblioteca.gui.GUIModificacionDocumento.documento.getID_documento());
+        for(int i=0;i<autorDoc.size();i++){
+            autoresSeleccionados.add(autorDoc.get(i));
+        }
+        refreshAutoresSeleccionados();
+        new ControladorDocumento().eliminarAutores(biblioteca.gui.GUIModificacionDocumento.documento.getID_documento(), autorDoc);
     }
     
     private void initAuthorComboBox(){
@@ -286,13 +290,13 @@ public class Autores extends javax.swing.JPanel {
             &&(autoresExistentes.get(Autores.getSelectedIndex()).toString().equals(Autores.getSelectedItem()))){
             autoresSeleccionados.add(autoresExistentes.get(Autores.getSelectedIndex()));
             refreshAutoresSeleccionados();
-            biblioteca.gui.GUICatalogacion.Autores_Guardado=false;
+            biblioteca.gui.GUIModificacionDocumento.Autores_Guardado=false;
         }
     }//GEN-LAST:event_AgregarActionPerformed
 
     private void SiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteActionPerformed
         if(!autoresSeleccionados.isEmpty()){
-            biblioteca.gui.GUICatalogacion.Autores_Guardado=true;
+            biblioteca.gui.GUIModificacionDocumento.Autores_Guardado=true;
             Estado.setForeground(Color.green);
             Estado.setText("[Guardado]");
             JTabbedPane parent =(JTabbedPane) this.getParent();
@@ -321,7 +325,7 @@ public class Autores extends javax.swing.JPanel {
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
         autoresSeleccionados.clear();
         refreshAutoresSeleccionados();
-        biblioteca.gui.GUICatalogacion.Autores_Guardado=false;
+        biblioteca.gui.GUIModificacionDocumento.Autores_Guardado=false;
         Estado.setForeground(Color.red);
         Estado.setText("[Sin Guardar]");
         Autores.setEnabled(true);

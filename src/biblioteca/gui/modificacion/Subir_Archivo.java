@@ -21,17 +21,17 @@ import javax.swing.JOptionPane;
  * @author alejandro
  */
 public class Subir_Archivo extends javax.swing.JPanel {
-    Documento documento;
     biblioteca.gui.GUIModificacionDocumento MainGui;
     /** Creates new form Subir_Archivo */
-    public Subir_Archivo(Documento documento, biblioteca.gui.GUIModificacionDocumento Parent) {
+    public Subir_Archivo(biblioteca.gui.GUIModificacionDocumento Parent) {
         initComponents();
-        this.documento=documento;
         MainGui=Parent;
     }
     
     public void inicializarDocumento(){
-        
+        Path.setEnabled(false);
+        Path.setEditable(false);
+        Seleccionar_Archivo.setEnabled(false);
     }
 
     /** This method is called from within the constructor to
@@ -138,14 +138,7 @@ public class Subir_Archivo extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void FinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FinalizarActionPerformed
-        File file = new File(Path.getText());
-        if(file.exists()){
-            MainGui.catalogar(file);
-        }
-        else{
-            JOptionPane.showMessageDialog(this, "El archivo no existe, por favor, verifique la ruta", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-            
+        MainGui.catalogar();
 }//GEN-LAST:event_FinalizarActionPerformed
 
     private void Seleccionar_ArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Seleccionar_ArchivoActionPerformed

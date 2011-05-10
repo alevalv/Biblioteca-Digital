@@ -12,6 +12,7 @@ package biblioteca.gui.modificacion;
 
 import biblioteca.database2.beans.PalabraClave;
 import biblioteca.database2.beans.Documento;
+import biblioteca.database2.controladores.ControladorDocumento;
 import biblioteca.database2.controladores.ControladorPalabraClave;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -23,19 +24,23 @@ import javax.swing.JTabbedPane;
  * @author alejandro
  */
 public class Selecc_Pal_Clave extends javax.swing.JPanel {
-    Documento documento;
     ArrayList<PalabraClave> palabrasClaveExistentes;
     static public ArrayList<PalabraClave> palabrasClaveSeleccionadas;
     /** Creates new form Selecc_Pal_Clave */
-    public Selecc_Pal_Clave(Documento documento) {
+    public Selecc_Pal_Clave() {
         initComponents();
-        this.documento=documento;
         palabrasClaveSeleccionadas = new ArrayList<PalabraClave>();
         initComboBox();
     }
 
     public void inicializarDocumento(){
-        
+        initComboBox();
+        ArrayList<PalabraClave> palabrasDoc = new ControladorDocumento().obtenerPalabrasClave(biblioteca.gui.GUIModificacionDocumento.documento.getID_documento());
+        for(int i=0;i<palabrasDoc.size();i++){
+            palabrasClaveSeleccionadas.add(palabrasDoc.get(i));
+        }
+        refreshPalabrasClave();
+        new ControladorDocumento().eliminarPalabrasClave(biblioteca.gui.GUIModificacionDocumento.documento.getID_documento(), palabrasDoc);
     }
     
     
@@ -257,7 +262,7 @@ public class Selecc_Pal_Clave extends javax.swing.JPanel {
             if(!palabrasClaveSeleccionadas.contains(palabrasClaveExistentes.get(Palabras_Clave.getSelectedIndex()))){
                 palabrasClaveSeleccionadas.add(palabrasClaveExistentes.get(Palabras_Clave.getSelectedIndex()));
                 refreshPalabrasClave();
-                biblioteca.gui.GUICatalogacion.Palabras_Clave_Guardadas=false;
+                biblioteca.gui.GUIModificacionDocumento.Palabras_Clave_Guardadas=false;
             }
         }
 }//GEN-LAST:event_AgregarActionPerformed
@@ -271,7 +276,7 @@ public class Selecc_Pal_Clave extends javax.swing.JPanel {
             Estado.setText("[Guardado]");
             JTabbedPane parent =(JTabbedPane) this.getParent();
             parent.setSelectedIndex(4);
-            biblioteca.gui.GUICatalogacion.Palabras_Clave_Guardadas=true;
+            biblioteca.gui.GUIModificacionDocumento.Palabras_Clave_Guardadas=true;
             
         }else JOptionPane.showMessageDialog(this, "Debe seleccionar almenos una palabra clave", "Error", JOptionPane.ERROR_MESSAGE);
 }//GEN-LAST:event_SiguienteActionPerformed
@@ -289,7 +294,7 @@ public class Selecc_Pal_Clave extends javax.swing.JPanel {
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
         palabrasClaveSeleccionadas.clear();
         refreshPalabrasClave();
-        biblioteca.gui.GUICatalogacion.Palabras_Clave_Guardadas=false;
+        biblioteca.gui.GUIModificacionDocumento.Palabras_Clave_Guardadas=false;
         Palabras_Clave.setEnabled(true);
         Agregar.setEnabled(true);
         Estado.setForeground(Color.red);

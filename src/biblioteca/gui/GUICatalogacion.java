@@ -100,9 +100,12 @@ public class GUICatalogacion extends javax.swing.JFrame {
                 
                 //cerramos la ventana
                 this.dispose();
+                parent.setVisible(true);
             }
             else{
                 JOptionPane.showMessageDialog(this, "El usuario no es un catalogador", "Error", JOptionPane.ERROR_MESSAGE);
+                this.dispose();
+                parent.setVisible(true);
             }
             
         }
