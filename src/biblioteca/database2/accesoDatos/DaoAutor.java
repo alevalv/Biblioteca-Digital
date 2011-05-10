@@ -62,13 +62,14 @@ public class DaoAutor {
     }
     
     public ArrayList<Autor> consultarTodos(){
-        ArrayList<Autor> autores = new ArrayList<Autor>();
+        ArrayList<Autor> autores = null;
         String sql_consultar;
         sql_consultar="SELECT * FROM autor ORDER BY autor_correo ASC;";
          try{
             Connection conn= fachada.conectar();
             Statement sentencia = conn.createStatement();
             ResultSet tabla = sentencia.executeQuery(sql_consultar);
+            autores = new ArrayList<Autor>();
             while(tabla.next()){
               Autor autor = new Autor();
               autor.setCorreo(tabla.getString(1));

@@ -38,10 +38,7 @@ public class Autores extends javax.swing.JPanel {
     
     private void initAuthorComboBox(){
         Autores.removeAllItems();
-        System.out.println("Obteniendo lista de autores..");
-        autoresExistentes=null;
         autoresExistentes = new ControladorAutor().obtenerTodosLosAutores();
-        System.out.println("Obtenida.");
         if(!(autoresExistentes==null)){
             for(int i=0;i<autoresExistentes.size();i++){
                 Autores.insertItemAt(autoresExistentes.get(i).toString(), i);
@@ -281,10 +278,15 @@ public class Autores extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
-        if(!autoresSeleccionados.contains(autoresExistentes.get(Autores.getSelectedIndex())))
+        if(!autoresSeleccionados.contains(autoresExistentes.get(Autores.getSelectedIndex()))
+            &&(autoresExistentes.get(Autores.getSelectedIndex()).toString().equals(Autores.getSelectedItem()))){
             autoresSeleccionados.add(autoresExistentes.get(Autores.getSelectedIndex()));
-        refreshAutoresSeleccionados();
-        biblioteca.gui.GUICatalogacion.Autores_Guardado=false;
+            refreshAutoresSeleccionados();
+            biblioteca.gui.GUICatalogacion.Autores_Guardado=false;
+        }
+        else{
+            initAuthorComboBox();
+        }
     }//GEN-LAST:event_AgregarActionPerformed
 
     private void SiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteActionPerformed
