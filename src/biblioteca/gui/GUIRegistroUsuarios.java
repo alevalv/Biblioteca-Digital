@@ -121,7 +121,7 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addContainerGap(500, Short.MAX_VALUE))
+                .addContainerGap(584, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,10 +139,10 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel9.setText("Genero:");
 
-        jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel7.setText("Vinculo con Univalle:");
 
-        jTextField4.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jTextField4.setFont(new java.awt.Font("Arial", 0, 11));
 
         jLabel8.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel8.setText("Correo Electronico: ");
@@ -155,7 +155,7 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
             }
         });
 
-        jPasswordField1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jPasswordField1.setFont(new java.awt.Font("Arial", 0, 11));
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel5.setText("Contraseña:");
@@ -163,14 +163,9 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel14.setText("Apellidos:");
 
-        jTextField3.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jTextField3.setFont(new java.awt.Font("Arial", 0, 11));
 
-        jTextField2.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
+        jTextField2.setFont(new java.awt.Font("Arial", 0, 11));
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel3.setText("Nombres:");
@@ -178,31 +173,26 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel2.setText("Nombre de Usuario: ");
 
-        jTextField1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jTextField1.setFont(new java.awt.Font("Arial", 0, 11));
 
-        jLabel15.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel15.setText("Respuesta Secreta: ");
 
-        jTextField6.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jTextField6.setFont(new java.awt.Font("Arial", 0, 11));
 
-        jTextField7.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jTextField7.setFont(new java.awt.Font("Arial", 0, 11));
 
         jLabel16.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel16.setText("Verificar Contraseña:");
 
-        jComboBox5.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jComboBox5.setFont(new java.awt.Font("Arial", 0, 11));
         jComboBox5.setMaximumRowCount(2);
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "M", "F" }));
 
-        jComboBox7.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jComboBox7.setFont(new java.awt.Font("Arial", 0, 11));
         jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ninguno", "Primaria", "Bachiller", "Universidad", "Maestria", "Doctorado" }));
-        jComboBox7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox7ActionPerformed(evt);
-            }
-        });
 
-        jComboBox8.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jComboBox8.setFont(new java.awt.Font("Arial", 0, 11));
         jComboBox8.setMaximumRowCount(6);
         jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ninguno", "Pregrado", "Posgrado", "Egresado", "Profesor", "Jubilado" }));
 
@@ -220,30 +210,20 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
             }
         });
 
-        jPasswordField2.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jPasswordField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField2ActionPerformed(evt);
-            }
-        });
+        jPasswordField2.setFont(new java.awt.Font("Arial", 0, 11));
 
         jLabel11.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel11.setText("Fecha de Nacimiento:");
 
-        jComboBox6.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jComboBox6.setFont(new java.awt.Font("Arial", 0, 11));
         jComboBox6.setMaximumRowCount(31);
         jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
-        jComboBox9.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jComboBox9.setFont(new java.awt.Font("Arial", 0, 11));
         jComboBox9.setMaximumRowCount(12);
         jComboBox9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
-        jComboBox9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox9ActionPerformed(evt);
-            }
-        });
 
-        jComboBox10.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jComboBox10.setFont(new java.awt.Font("Arial", 0, 11));
         jComboBox10.setMaximumRowCount(60);
         jComboBox10.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970", "1969", "1968", "1967", "1966", "1965", "1964", "1963", "1962", "1961", "1960", "1959", "1958", "1957", "1956", "1955", "1954", "1953", "1952", "1951", "1950", "1949", "1948", "1947", "1946", "1945", "1944", "1943", "1942", "1941", "1940" }));
 
@@ -254,11 +234,11 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
             }
         });
 
-        jComboBox11.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jComboBox11.setFont(new java.awt.Font("Arial", 0, 11));
         jComboBox11.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Usuario Registrado", "Usuario Catalogador" }));
         jComboBox11.setEnabled(false);
 
-        jLabel18.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel18.setText("Perfil Usuario");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -289,29 +269,29 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
                             .addComponent(jLabel18))
                         .addGap(21, 21, 21)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
-                            .addComponent(jPasswordField2, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
-                            .addComponent(jComboBox8, javax.swing.GroupLayout.Alignment.TRAILING, 0, 399, Short.MAX_VALUE)
-                            .addComponent(jComboBox7, javax.swing.GroupLayout.Alignment.TRAILING, 0, 399, Short.MAX_VALUE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
+                            .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
+                            .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
+                            .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
+                            .addComponent(jPasswordField2, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
+                            .addComponent(jComboBox8, javax.swing.GroupLayout.Alignment.TRAILING, 0, 401, Short.MAX_VALUE)
+                            .addComponent(jComboBox7, javax.swing.GroupLayout.Alignment.TRAILING, 0, 401, Short.MAX_VALUE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jComboBox9, 0, 251, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jComboBox5, javax.swing.GroupLayout.Alignment.TRAILING, 0, 399, Short.MAX_VALUE)
-                            .addComponent(jComboBox11, 0, 399, Short.MAX_VALUE))))
+                            .addComponent(jComboBox5, javax.swing.GroupLayout.Alignment.TRAILING, 0, 401, Short.MAX_VALUE)
+                            .addComponent(jComboBox11, 0, 401, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel17)
                 .addGap(76, 76, 76))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(423, Short.MAX_VALUE)
+                .addContainerGap(507, Short.MAX_VALUE)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -513,22 +493,6 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
         }
         return Disponible;
     }
-    private void jComboBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox7ActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jPasswordField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField2ActionPerformed
-
-    private void jComboBox9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox9ActionPerformed
-
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
         boolean esDisponible=verificarDisponibilidad();
         if(esDisponible)
