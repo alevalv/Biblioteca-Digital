@@ -171,7 +171,8 @@ public class GUIBusqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_EstadisticasActionPerformed
 
     private void RegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarseActionPerformed
-        unsupportedOperation();
+        this.setVisible(false);
+        new biblioteca.gui.GUIRegistroUsuarios(this).setVisible(true);
     }//GEN-LAST:event_RegistrarseActionPerformed
 
     private void Modificar_DatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modificar_DatosActionPerformed
