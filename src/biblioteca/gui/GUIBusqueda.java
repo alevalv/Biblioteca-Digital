@@ -179,7 +179,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
     private void Modificar_DatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modificar_DatosActionPerformed
         this.setVisible(false);
         if(!biblioteca.Main.BibliotecaDigital.LOGGED_USER.equals("dummyuser")){
-        new biblioteca.gui.GUIModificarUsuario(this).setVisible(true);
+        new biblioteca.gui.GUIModificarUsuario(this, false).setVisible(true);
         }
         else{
            JOptionPane.showMessageDialog(this, "Tiene que autenticarse para modificar sus datos", "Error", JOptionPane.ERROR_MESSAGE);
@@ -190,7 +190,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
     private void GestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GestionActionPerformed
         if(new ControladorUsuario().verificarTipoUsuario("1", biblioteca.Main.BibliotecaDigital.LOGGED_USER)){
             this.setVisible(false);
-            new biblioteca.gui.GUIModificarUsuario(this).setVisible(true);
+            new biblioteca.gui.GUIModificarUsuario(this, true).setVisible(true);
         }
         else{
             JOptionPane.showMessageDialog(this, "Esta opción solo está disponible para administradores", "Error", JOptionPane.ERROR_MESSAGE);

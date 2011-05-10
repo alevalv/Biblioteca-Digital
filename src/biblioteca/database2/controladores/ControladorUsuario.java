@@ -83,6 +83,10 @@ public class ControladorUsuario {
         else return false;
     }
 
+    public int cambiarTipoUsuario(String username, String tipo){
+        return new DaoUsuario().cambiarTipoUsuario(username, tipo);
+
+    }
     public boolean autenticarUsuario(String Username, String Password)
     {
          boolean respuesta;

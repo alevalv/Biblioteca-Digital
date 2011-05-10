@@ -263,4 +263,20 @@ public class DaoUsuario {
         return activoRecibido;
     }
 
+    public int cambiarTipoUsuario(String username, String tipo) {
+        String sql_asignar;
+        sql_asignar="UPDATE usuarios SET tipo_usuario='"+tipo+"'  WHERE username= '"+username+"';";
+
+        try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            int numFilas = sentencia.executeUpdate(sql_asignar);
+            conn.close();
+            return numFilas;
+        }
+        catch(SQLException e){ System.out.println(e); }
+
+        return -1;
+    }
+
 }
