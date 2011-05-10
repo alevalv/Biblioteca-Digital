@@ -159,8 +159,13 @@ public class GUIBusqueda extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Agregar_DocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_DocumentoActionPerformed
-        this.setVisible(false);
-        new biblioteca.gui.GUICatalogacion(this).setVisible(true);
+        if(new ControladorUsuario().verificarTipoUsuario("2", biblioteca.Main.BibliotecaDigital.LOGGED_USER)){
+            this.setVisible(false);
+            new biblioteca.gui.GUICatalogacion(this).setVisible(true);
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Esta opción solo está disponible para catalogadores", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_Agregar_DocumentoActionPerformed
 
     private void Modificar_DocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modificar_DocumentoActionPerformed
