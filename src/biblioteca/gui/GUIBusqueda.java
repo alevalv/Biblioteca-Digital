@@ -161,7 +161,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
     private void Agregar_DocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_DocumentoActionPerformed
         if(new ControladorUsuario().verificarTipoUsuario("2", biblioteca.Main.BibliotecaDigital.LOGGED_USER)){
             this.setVisible(false);
-            new biblioteca.gui.GUICatalogacion(this).setVisible(true);
+            new biblioteca.gui.GUICatalogacion(this, false).setVisible(true);
         }
         else{
             JOptionPane.showMessageDialog(this, "Esta opción solo está disponible para catalogadores", "Error", JOptionPane.ERROR_MESSAGE);

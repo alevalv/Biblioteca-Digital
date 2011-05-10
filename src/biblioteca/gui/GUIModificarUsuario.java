@@ -385,10 +385,9 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
 }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        biblioteca.gui.GUIModificarAreas GMA = new biblioteca.gui.GUIModificarAreas();
+        biblioteca.gui.GUIModificarAreas GMA = new biblioteca.gui.GUIModificarAreas(parent);
         GMA.setVisible(true);
-        GMA.setParent(this);
-        this.setVisible(false);
+        this.dispose();
 }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

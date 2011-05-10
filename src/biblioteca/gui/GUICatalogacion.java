@@ -33,9 +33,10 @@ public class GUICatalogacion extends javax.swing.JFrame {
     static public boolean Areas_Guardadas;
     static public boolean Palabras_Clave_Guardadas;
     static public boolean Tipo_Documento_Guardado;
+    static public boolean editar;
     biblioteca.gui.GUIBusqueda parent;
     /** Creates new form GUICatalogacion */
-    public GUICatalogacion(biblioteca.gui.GUIBusqueda parent) {
+    public GUICatalogacion(biblioteca.gui.GUIBusqueda parent, boolean editar) {
         Informacion_Basica_Guardada=false;
         Autores_Guardado=false;
         Areas_Guardadas=false;
@@ -43,6 +44,7 @@ public class GUICatalogacion extends javax.swing.JFrame {
         Tipo_Documento_Guardado=false;
         documento= new Documento();
         this.parent = parent;
+        this.editar=editar;
         initComponents();
     }
     

@@ -27,13 +27,13 @@ public class GUIModificarAreas extends javax.swing.JFrame {
     Vector<String> areasExistentes, areasSeleccionadas;
     ArrayList<Area> areasexistentesarray, areasSeleccionadasarray;
     ArrayList<Area> areasAgregadas, areasEliminadas;
-    biblioteca.gui.GUIModificarUsuario parent;
-    biblioteca.gui.GUIRegistroUsuarios parent2;
-    boolean modificar;
+    biblioteca.gui.GUIBusqueda parent;
+   
    
     /** Creates new form GUIModificarAreas */
-    public GUIModificarAreas() {
+    public GUIModificarAreas(biblioteca.gui.GUIBusqueda parent) {
         username=biblioteca.Main.BibliotecaDigital.LOGGED_USER;
+        this.parent=parent;
         areasAgregadas=new ArrayList<Area>();
         areasEliminadas=new ArrayList<Area>();
         initComponents();
@@ -42,16 +42,6 @@ public class GUIModificarAreas extends javax.swing.JFrame {
 
     }
     
-    public void setParent(biblioteca.gui.GUIModificarUsuario parent){
-        this.parent=parent;
-        modificar=true;
-    }
-    
-    public void setParent(biblioteca.gui.GUIRegistroUsuarios parent){
-        this.parent2=parent;
-        modificar=false;
-    }
-
 
     private void initListExistentes(){
        areasExistentes=new Vector<String>();
@@ -1280,14 +1270,8 @@ public class GUIModificarAreas extends javax.swing.JFrame {
 }//GEN-LAST:event_jButton11ActionPerformed
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
-     /*   biblioteca.gui.GUICatalogacion.Areas_Guardadas=false;
-        Cancelar.setEnabled(false);
-        Agregar.setEnabled(true);
-        Areas.setEnabled(true);
-        areasSeleccionadas.clear();
-        refreshAreas();
-        Estado.setForeground(Color.red);
-        Estado.setText("[Sin Guardar]");*/
+            this.dispose();
+             parent.setVisible(true);
 }//GEN-LAST:event_CancelarActionPerformed
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
@@ -1315,35 +1299,21 @@ public class GUIModificarAreas extends javax.swing.JFrame {
         int i=new ControladorArea().agregarAreasporUsuario(username, areasAgregadas);
         int j=new ControladorArea().eliminarAreasporUsuario(username, areasEliminadas);
         if(i!=-1 && j!=-1){
-            if(modificar){
-                parent.setVisible(true);
-            }
+
             JOptionPane.showMessageDialog(this, "Areas modificadas con Exito", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
             this.dispose();
+            parent.setVisible(true);
         }
            
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        if(modificar){
-            parent.setVisible(true);
-        }
-        else{
-            parent2.setVisible(false);
-        }
-        this.dispose();
+         this.dispose();
+        parent.setVisible(true);
+        
+       
     }//GEN-LAST:event_formWindowClosing
 
-    /**
-    * @param args the command line arguments
-    */
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GUIModificarAreas().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Agregar;
