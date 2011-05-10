@@ -48,9 +48,10 @@ public class GUIBusqueda extends javax.swing.JFrame {
         Salir = new javax.swing.JMenuItem();
         Autenticarse = new javax.swing.JMenu();
         Registrarse = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
         Modificar_Datos = new javax.swing.JMenuItem();
         Gestion = new javax.swing.JMenuItem();
+        Iniciar_Sesion = new javax.swing.JMenu();
+        Cerrar_Sesion = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Biblioteca Digital");
@@ -121,16 +122,6 @@ public class GUIBusqueda extends javax.swing.JFrame {
         });
         Autenticarse.add(Registrarse);
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setMnemonic('a');
-        jMenuItem1.setText("Autenticarse");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        Autenticarse.add(jMenuItem1);
-
         Modificar_Datos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
         Modificar_Datos.setMnemonic('m');
         Modificar_Datos.setText("Modificar tus datos");
@@ -152,6 +143,25 @@ public class GUIBusqueda extends javax.swing.JFrame {
         Autenticarse.add(Gestion);
 
         jMenuBar1.add(Autenticarse);
+
+        Iniciar_Sesion.setText("Iniciar Sesión");
+        Iniciar_Sesion.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        Iniciar_Sesion.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        Iniciar_Sesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Iniciar_SesionActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(Iniciar_Sesion);
+
+        Cerrar_Sesion.setText("Cerrar Sesión");
+        Cerrar_Sesion.setEnabled(false);
+        Cerrar_Sesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Cerrar_SesionActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(Cerrar_Sesion);
 
         setJMenuBar(jMenuBar1);
 
@@ -206,10 +216,20 @@ public class GUIBusqueda extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_SalirActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void Cerrar_SesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cerrar_SesionActionPerformed
+        biblioteca.Main.BibliotecaDigital.LOGGED_USER="dummyuser";
+        Iniciar_Sesion.setEnabled(true);
+        Cerrar_Sesion.setEnabled(false);
+    }//GEN-LAST:event_Cerrar_SesionActionPerformed
+
+    private void Iniciar_SesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Iniciar_SesionActionPerformed
         this.setVisible(false);
         new biblioteca.gui.GUIAutenticacion(this).setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+        if(biblioteca.Main.BibliotecaDigital.LOGGED_USER.equals("dummyuser")){
+            Cerrar_Sesion.setEnabled(true);
+            Iniciar_Sesion.setEnabled(false);
+        }
+    }//GEN-LAST:event_Iniciar_SesionActionPerformed
 
     private void unsupportedOperation(){
         JOptionPane.showMessageDialog(this, "Esta operación aún no ha sido implementada", "Error", JOptionPane.ERROR_MESSAGE);
@@ -220,13 +240,14 @@ public class GUIBusqueda extends javax.swing.JFrame {
     private javax.swing.JMenu Archivo;
     private javax.swing.JMenu Autenticarse;
     private javax.swing.JButton Cambiar;
+    private javax.swing.JMenu Cerrar_Sesion;
     private javax.swing.JMenuItem Estadisticas;
     private javax.swing.JMenuItem Gestion;
+    private javax.swing.JMenu Iniciar_Sesion;
     private javax.swing.JMenuItem Modificar_Datos;
     private javax.swing.JMenuItem Modificar_Documento;
     private javax.swing.JMenuItem Registrarse;
     private javax.swing.JMenuItem Salir;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables
 }
