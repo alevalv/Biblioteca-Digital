@@ -142,11 +142,6 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
         jTextField3.setFont(new java.awt.Font("Arial", 0, 11));
 
         jTextField2.setFont(new java.awt.Font("Arial", 0, 11));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel3.setText("Nombres:");
@@ -168,11 +163,6 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "M", "F" }));
 
         jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ninguno", "Primaria", "Bachiller", "Universidad", "Maestria", "Doctorado" }));
-        jComboBox7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox7ActionPerformed(evt);
-            }
-        });
 
         jComboBox8.setMaximumRowCount(6);
         jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ninguno", "Pregrado", "Posgrado", "Egresado", "Profesor", "Jubilado" }));
@@ -191,12 +181,6 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
             }
         });
 
-        jPasswordField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField2ActionPerformed(evt);
-            }
-        });
-
         jLabel11.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel11.setText("Fecha de Nacimiento:");
 
@@ -205,19 +189,9 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
 
         jComboBox9.setMaximumRowCount(12);
         jComboBox9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
-        jComboBox9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox9ActionPerformed(evt);
-            }
-        });
 
         jComboBox10.setMaximumRowCount(60);
         jComboBox10.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970", "1969", "1968", "1967", "1966", "1965", "1964", "1963", "1962", "1961", "1960", "1959", "1958", "1957", "1956", "1955", "1954", "1953", "1952", "1951", "1950", "1949", "1948", "1947", "1946", "1945", "1944", "1943", "1942", "1941", "1940" }));
-        jComboBox10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox10ActionPerformed(evt);
-            }
-        });
 
         jButton5.setText("Cancelar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -371,14 +345,6 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
 
 }//GEN-LAST:event_jLabel6MouseClicked
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jComboBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox7ActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_jComboBox7ActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         biblioteca.gui.GUIModificarAreas GMA = new biblioteca.gui.GUIModificarAreas();
         GMA.setVisible(true);
@@ -483,14 +449,6 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
         return true;
     }
 
-    private void jPasswordField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField2ActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_jPasswordField2ActionPerformed
-
-    private void jComboBox9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox9ActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_jComboBox9ActionPerformed
-
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
        
     }//GEN-LAST:event_jLabel17MouseClicked
@@ -499,10 +457,6 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
         parent.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jComboBox10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox10ActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         parent.setVisible(true);
