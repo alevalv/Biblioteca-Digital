@@ -172,7 +172,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
         if(new ControladorUsuario().verificarTipoUsuario("2", biblioteca.Main.BibliotecaDigital.LOGGED_USER) ||
                 new ControladorUsuario().verificarTipoUsuario("1", biblioteca.Main.BibliotecaDigital.LOGGED_USER)){
             this.setVisible(false);
-            new biblioteca.gui.GUICatalogacion(this, false).setVisible(true);
+            new biblioteca.gui.GUICatalogacion(this).setVisible(true);
         }
         else{
             JOptionPane.showMessageDialog(this, "Esta opción solo está disponible para catalogadores", "Error", JOptionPane.ERROR_MESSAGE);
@@ -180,7 +180,14 @@ public class GUIBusqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_Agregar_DocumentoActionPerformed
 
     private void Modificar_DocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modificar_DocumentoActionPerformed
-        unsupportedOperation();
+         if(new ControladorUsuario().verificarTipoUsuario("2", biblioteca.Main.BibliotecaDigital.LOGGED_USER) ||
+                new ControladorUsuario().verificarTipoUsuario("1", biblioteca.Main.BibliotecaDigital.LOGGED_USER)){
+            this.setVisible(false);
+            new biblioteca.gui.GUIModificacionDocumento(this).setVisible(true);
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Esta opción solo está disponible para catalogadores", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_Modificar_DocumentoActionPerformed
 
     private void EstadisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstadisticasActionPerformed
