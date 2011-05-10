@@ -27,7 +27,9 @@ public class GUIModificarAreas extends javax.swing.JFrame {
     Vector<String> areasExistentes, areasSeleccionadas;
     ArrayList<Area> areasexistentesarray, areasSeleccionadasarray;
     ArrayList<Area> areasAgregadas, areasEliminadas;
-
+    biblioteca.gui.GUIModificarUsuario parent;
+    biblioteca.gui.GUIRegistroUsuarios parent2;
+    boolean modificar;
    
     /** Creates new form GUIModificarAreas */
     public GUIModificarAreas() {
@@ -37,8 +39,17 @@ public class GUIModificarAreas extends javax.swing.JFrame {
         initComponents();
         initListExistentes();
         initListSeleccionadas();
-        
 
+    }
+    
+    public void setParent(biblioteca.gui.GUIModificarUsuario parent){
+        this.parent=parent;
+        modificar=true;
+    }
+    
+    public void setParent(biblioteca.gui.GUIRegistroUsuarios parent){
+        this.parent2=parent;
+        modificar=false;
     }
 
 
@@ -1022,6 +1033,11 @@ public class GUIModificarAreas extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biblioteca/gui/resources/logo.png"))); // NOI18N
 
@@ -1047,7 +1063,7 @@ public class GUIModificarAreas extends javax.swing.JFrame {
             }
         });
 
-        jLabel44.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        jLabel44.setFont(new java.awt.Font("Ubuntu", 0, 18));
         jLabel44.setText("Áreas Existentes: ");
 
         Agregar.setText("Agregar Área de Interes");
@@ -1057,13 +1073,13 @@ public class GUIModificarAreas extends javax.swing.JFrame {
             }
         });
 
-        jLabel45.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        jLabel45.setFont(new java.awt.Font("Ubuntu", 0, 18));
         jLabel45.setText("Áreas Agregadas: ");
 
-        jLabel46.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel46.setFont(new java.awt.Font("Ubuntu", 1, 24));
         jLabel46.setText("Modificar Áreas de Interés");
 
-        jLabel47.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel47.setFont(new java.awt.Font("Arial", 1, 14));
         jLabel47.setText("Usuario = ");
 
         jScrollPane1.setViewportView(jList1);
@@ -1089,7 +1105,7 @@ public class GUIModificarAreas extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(197, Short.MAX_VALUE)
+                .addContainerGap(208, Short.MAX_VALUE)
                 .addComponent(jLabel46)
                 .addGap(200, 200, 200))
             .addGroup(layout.createSequentialGroup()
@@ -1301,9 +1317,28 @@ public class GUIModificarAreas extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int i=new ControladorArea().agregarAreasporUsuario(username, areasAgregadas);
         int j=new ControladorArea().eliminarAreasporUsuario(username, areasEliminadas);
-        if(i!=-1 && j!=-1)
-           JOptionPane.showMessageDialog(this, "Areas modificadas con Exito", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+        if(i!=-1 && j!=-1){
+            if(modificar){
+                parent.setVisible(true);
+            }
+            else{
+                parent2.setVisible(false);
+            }
+            JOptionPane.showMessageDialog(this, "Areas modificadas con Exito", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+            this.dispose();
+        }
+           
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        if(modificar){
+            parent.setVisible(true);
+        }
+        else{
+            parent2.setVisible(false);
+        }
+        this.dispose();
+    }//GEN-LAST:event_formWindowClosing
 
     /**
     * @param args the command line arguments
