@@ -44,6 +44,7 @@ public class GUICatalogacion extends javax.swing.JFrame {
         Tipo_Documento_Guardado=false;
         documento= new Documento();
         initComponents();
+        this.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
     }
     
     public void catalogar(File file){
