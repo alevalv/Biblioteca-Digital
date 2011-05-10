@@ -397,7 +397,7 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         String username, nombre, apellido,
                pregunta, respuesta, correo, genero, nivel, vinculo, ano, mes, dia, fecha_nacimiento="",
-               tipo_usuario="3";
+               tipo_usuario="1";
         char[] contrasena;
 
         username=jTextField1.getText();

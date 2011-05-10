@@ -150,7 +150,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="416" max="32767" attributes="0"/>
+                  <EmptySpace pref="500" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -204,22 +204,22 @@
                           </Group>
                           <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextField1" alignment="0" pref="315" max="32767" attributes="1"/>
-                              <Component id="jTextField6" alignment="1" pref="315" max="32767" attributes="1"/>
-                              <Component id="jTextField2" alignment="0" pref="315" max="32767" attributes="1"/>
-                              <Component id="jTextField3" alignment="0" pref="315" max="32767" attributes="1"/>
-                              <Component id="jPasswordField1" alignment="0" pref="315" max="32767" attributes="1"/>
-                              <Component id="jTextField7" alignment="0" pref="315" max="32767" attributes="1"/>
-                              <Component id="jTextField4" alignment="0" pref="315" max="32767" attributes="1"/>
-                              <Component id="jPasswordField2" alignment="0" pref="315" max="32767" attributes="0"/>
+                              <Component id="jTextField1" alignment="0" pref="317" max="32767" attributes="1"/>
+                              <Component id="jTextField6" alignment="1" pref="317" max="32767" attributes="1"/>
+                              <Component id="jTextField2" alignment="0" pref="317" max="32767" attributes="1"/>
+                              <Component id="jTextField3" alignment="0" pref="317" max="32767" attributes="1"/>
+                              <Component id="jPasswordField1" alignment="0" pref="317" max="32767" attributes="1"/>
+                              <Component id="jTextField7" alignment="0" pref="317" max="32767" attributes="1"/>
+                              <Component id="jTextField4" alignment="0" pref="317" max="32767" attributes="1"/>
+                              <Component id="jPasswordField2" alignment="0" pref="317" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace pref="103" max="32767" attributes="0"/>
                                   <Component id="jButton4" min="-2" pref="101" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="jButton3" min="-2" pref="101" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jComboBox8" alignment="1" pref="315" max="32767" attributes="1"/>
-                              <Component id="jComboBox7" alignment="1" pref="315" max="32767" attributes="1"/>
+                              <Component id="jComboBox8" alignment="1" pref="317" max="32767" attributes="1"/>
+                              <Component id="jComboBox7" alignment="1" pref="317" max="32767" attributes="1"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jComboBox6" min="-2" pref="68" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -227,7 +227,7 @@
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="jComboBox10" min="-2" pref="64" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jComboBox5" alignment="1" pref="315" max="32767" attributes="1"/>
+                              <Component id="jComboBox5" alignment="1" pref="317" max="32767" attributes="1"/>
                           </Group>
                       </Group>
                   </Group>
