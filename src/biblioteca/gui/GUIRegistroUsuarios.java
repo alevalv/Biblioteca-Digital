@@ -422,9 +422,11 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
         java.util.Date actual=new java.util.Date();
         java.sql.Timestamp fechaderegistro=new java.sql.Timestamp(actual.getTime());
         ControladorUsuario controlador=new ControladorUsuario();
-        
+        int i;
         if(checkEmptyFields() && verificarDisponibilidad()){
-        controlador.guardarUsuario(username, nombre, apellido, genero, correo, contrasenaS, fecha_nacimiento, pregunta, respuesta, vinculo,tipo_usuario, nivel, fechaderegistro+"");
+        i=controlador.guardarUsuario(username, nombre, apellido, genero, correo, contrasenaS, fecha_nacimiento, pregunta, respuesta, vinculo,tipo_usuario, nivel, fechaderegistro+"");
+        if(i!=-1)
+            JOptionPane.showMessageDialog(this, "Información de Usuario Modificada con Exito", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
