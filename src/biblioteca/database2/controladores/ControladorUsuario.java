@@ -69,6 +69,14 @@ public class ControladorUsuario {
          respuesta= daoUsuario.verificarUsuarioDisponible(Username);
          return respuesta;
     }
+    
+    public boolean verificarTipoUsuario(String Tipo, String username){
+        String tipoRecibido=new DaoUsuario().obtenerTipoUsuario(username);
+        if(tipoRecibido.equals(Tipo)){
+            return true;
+        }
+        else return false;
+    }
 
     public boolean autenticarUsuario(String Username, String Password)
     {

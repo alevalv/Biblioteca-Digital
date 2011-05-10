@@ -222,6 +222,26 @@ public class DaoUsuario {
         }
         return true;
     }
+    
+    public String obtenerTipoUsuario(String username){
+        String tipoRecibido= null;
+        String sql_verificarUsuario;
+        sql_verificarUsuario="SELECT tipo_usuario FROM usuarios WHERE username= '"+username+"';";
+         try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_verificarUsuario);
+            tipoRecibido="";
+            while(tabla.next()){
+                tipoRecibido=tabla.getString(1);
+            }
+             conn.close();
+         }
+         catch(SQLException e){ System.out.println(e); }
+         catch(Exception e){ System.out.println(e); }
+
+        return tipoRecibido;
+    }
 
 
 }
