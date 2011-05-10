@@ -12,8 +12,6 @@ package biblioteca.gui;
 
 import biblioteca.gui.busquedas.*;
 import javax.swing.JOptionPane;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 /**
  *
  * @author alejandro

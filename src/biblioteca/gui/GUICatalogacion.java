@@ -21,8 +21,6 @@ import java.io.IOException;
 import java.io.File;
 import java.util.StringTokenizer;
 import javax.swing.JOptionPane;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
