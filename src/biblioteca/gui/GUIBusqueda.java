@@ -147,18 +147,18 @@ public class GUIBusqueda extends javax.swing.JFrame {
         Iniciar_Sesion.setText("Iniciar Sesión");
         Iniciar_Sesion.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         Iniciar_Sesion.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        Iniciar_Sesion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Iniciar_SesionActionPerformed(evt);
+        Iniciar_Sesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Iniciar_SesionMouseClicked(evt);
             }
         });
         jMenuBar1.add(Iniciar_Sesion);
 
         Cerrar_Sesion.setText("Cerrar Sesión");
         Cerrar_Sesion.setEnabled(false);
-        Cerrar_Sesion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Cerrar_SesionActionPerformed(evt);
+        Cerrar_Sesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Cerrar_SesionMouseClicked(evt);
             }
         });
         jMenuBar1.add(Cerrar_Sesion);
@@ -192,13 +192,12 @@ public class GUIBusqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_RegistrarseActionPerformed
 
     private void Modificar_DatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modificar_DatosActionPerformed
-        this.setVisible(false);
         if(!biblioteca.Main.BibliotecaDigital.LOGGED_USER.equals("dummyuser")){
+            this.setVisible(false);
         new biblioteca.gui.GUIModificarUsuario(this, false).setVisible(true);
         }
         else{
            JOptionPane.showMessageDialog(this, "Tiene que autenticarse para modificar sus datos", "Error", JOptionPane.ERROR_MESSAGE);
-           this.setVisible(true);
         }
     }//GEN-LAST:event_Modificar_DatosActionPerformed
 
@@ -216,21 +215,22 @@ public class GUIBusqueda extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_SalirActionPerformed
 
-    private void Cerrar_SesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cerrar_SesionActionPerformed
-        biblioteca.Main.BibliotecaDigital.LOGGED_USER="dummyuser";
-        Iniciar_Sesion.setEnabled(true);
-        Cerrar_Sesion.setEnabled(false);
-    }//GEN-LAST:event_Cerrar_SesionActionPerformed
-
-    private void Iniciar_SesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Iniciar_SesionActionPerformed
-        this.setVisible(false);
+    private void Iniciar_SesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Iniciar_SesionMouseClicked
+                this.setVisible(false);
         new biblioteca.gui.GUIAutenticacion(this).setVisible(true);
-        if(biblioteca.Main.BibliotecaDigital.LOGGED_USER.equals("dummyuser")){
-            Cerrar_Sesion.setEnabled(true);
-            Iniciar_Sesion.setEnabled(false);
-        }
-    }//GEN-LAST:event_Iniciar_SesionActionPerformed
+    }//GEN-LAST:event_Iniciar_SesionMouseClicked
 
+    private void Cerrar_SesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Cerrar_SesionMouseClicked
+        biblioteca.Main.BibliotecaDigital.LOGGED_USER="dummyuser";
+        habilitarBotones(true);
+        JOptionPane.showMessageDialog(this, "Su sesión ha sido cerrada", "Error", JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_Cerrar_SesionMouseClicked
+
+    public void habilitarBotones(boolean b){
+        Iniciar_Sesion.setEnabled(b);
+        Cerrar_Sesion.setEnabled(!b);
+    }
+    
     private void unsupportedOperation(){
         JOptionPane.showMessageDialog(this, "Esta operación aún no ha sido implementada", "Error", JOptionPane.ERROR_MESSAGE);
     }
