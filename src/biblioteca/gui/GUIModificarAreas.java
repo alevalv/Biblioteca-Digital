@@ -192,6 +192,7 @@ public class GUIModificarAreas extends javax.swing.JFrame {
         jComboBox21 = new javax.swing.JComboBox();
         jComboBox22 = new javax.swing.JComboBox();
         jButton11 = new javax.swing.JButton();
+        jLabel47 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel43 = new javax.swing.JLabel();
         Cancelar = new javax.swing.JButton();
@@ -199,7 +200,6 @@ public class GUIModificarAreas extends javax.swing.JFrame {
         Agregar = new javax.swing.JButton();
         jLabel45 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
-        jLabel47 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
         Agregar1 = new javax.swing.JButton();
@@ -1032,6 +1032,9 @@ public class GUIModificarAreas extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel47.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel47.setText("Usuario = ");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -1079,9 +1082,6 @@ public class GUIModificarAreas extends javax.swing.JFrame {
         jLabel46.setFont(new java.awt.Font("Ubuntu", 1, 24));
         jLabel46.setText("Modificar Áreas de Interés");
 
-        jLabel47.setFont(new java.awt.Font("Arial", 1, 14));
-        jLabel47.setText("Usuario = ");
-
         jScrollPane1.setViewportView(jList1);
 
         Agregar1.setText("Eliminar Área de Interes");
@@ -1121,7 +1121,6 @@ public class GUIModificarAreas extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel44)
-                            .addComponent(jLabel47)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1133,13 +1132,13 @@ public class GUIModificarAreas extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel45)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 316, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 321, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(Agregar)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                                 .addComponent(Agregar1)
                                 .addGap(20, 20, 20)))
-                        .addContainerGap(24, Short.MAX_VALUE))))
+                        .addContainerGap(30, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1148,9 +1147,7 @@ public class GUIModificarAreas extends javax.swing.JFrame {
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel46)
-                .addGap(25, 25, 25)
-                .addComponent(jLabel47)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(48, 48, 48)
                 .addComponent(jLabel44)
                 .addGap(11, 11, 11)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
