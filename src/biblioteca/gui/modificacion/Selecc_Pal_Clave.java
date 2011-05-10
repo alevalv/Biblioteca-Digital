@@ -34,6 +34,10 @@ public class Selecc_Pal_Clave extends javax.swing.JPanel {
         initComboBox();
     }
 
+    public void inicializarDocumento(){
+        
+    }
+    
     
     private void initComboBox() {
      Palabras_Clave.removeAllItems();

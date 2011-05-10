@@ -36,6 +36,10 @@ public class Autores extends javax.swing.JPanel {
         initAuthorComboBox();
     }
     
+    public void inicializarDocumento(){
+        
+    }
+    
     private void initAuthorComboBox(){
         Autores.removeAllItems();
         autoresExistentes = new ControladorAutor().obtenerTodosLosAutores();

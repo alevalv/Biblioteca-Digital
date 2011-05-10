@@ -29,6 +29,10 @@ public class Subir_Archivo extends javax.swing.JPanel {
         this.documento=documento;
         MainGui=Parent;
     }
+    
+    public void inicializarDocumento(){
+        
+    }
 
     /** This method is called from within the constructor to
      * initialize the form.

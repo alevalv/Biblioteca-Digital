@@ -10,6 +10,7 @@
  */
 package biblioteca.gui.modificacion;
 
+import biblioteca.database2.accesoDatos.DaoDocumento;
 import biblioteca.database2.beans.Documento;
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -21,10 +22,12 @@ import javax.swing.JTabbedPane;
  */
 public class Informacion_Basica extends javax.swing.JPanel {
     Documento documento;    
+    biblioteca.gui.GUIModificacionDocumento parent;
     /** Creates new form GUICAT_Informacion_Basica */
-    public Informacion_Basica(Documento documento) {
+    public Informacion_Basica(Documento documento, biblioteca.gui.GUIModificacionDocumento parent) {
         initComponents();
         this.documento=documento;
+        this.parent=parent;
     }
 
     /** This method is called from within the constructor to
@@ -56,6 +59,9 @@ public class Informacion_Basica extends javax.swing.JPanel {
         Estado = new javax.swing.JLabel();
         Siguiente = new javax.swing.JButton();
         Editar = new javax.swing.JButton();
+        Consultar = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        id_Documento = new javax.swing.JTextField();
 
         jLabel1.setText("Titulo Principal: ");
 
@@ -89,7 +95,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
 
         jLabel9.setText("Derechos de Autor: ");
 
-        Estado.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        Estado.setFont(new java.awt.Font("Ubuntu", 0, 24));
         Estado.setForeground(new java.awt.Color(255, 0, 0));
         Estado.setText("[Sin Guardar]");
 
@@ -109,58 +115,81 @@ public class Informacion_Basica extends javax.swing.JPanel {
             }
         });
 
+        Consultar.setText("Consultar Documento");
+        Consultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultarActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setText("identificador:");
+
+        id_Documento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                id_DocumentoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel1)
-                .addGap(22, 22, 22)
-                .addComponent(Titulo_Principal, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(jLabel2)
-                .addGap(13, 13, 13)
-                .addComponent(Titulo_Secundario, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jLabel5)
-                .addGap(34, 34, 34)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(jLabel7)
-                .addGap(45, 45, 45)
-                .addComponent(Editorial, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(jLabel8)
-                .addGap(11, 11, 11)
-                .addComponent(Fecha_Publicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(jLabel6)
-                .addGap(102, 102, 102)
-                .addComponent(Idioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(7, 7, 7)
-                .addComponent(jLabel9)
-                .addGap(8, 8, 8)
-                .addComponent(Derechos_Autor, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addComponent(jLabel4))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Estado)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 317, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 320, Short.MAX_VALUE)
                 .addComponent(Siguiente)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(538, Short.MAX_VALUE)
-                .addComponent(Editar)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel2)
+                        .addGap(13, 13, 13)
+                        .addComponent(Titulo_Secundario, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel5)
+                        .addGap(34, 34, 34)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(jLabel7)
+                        .addGap(45, 45, 45)
+                        .addComponent(Editorial, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(jLabel8)
+                        .addGap(11, 11, 11)
+                        .addComponent(Fecha_Publicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(jLabel6)
+                        .addGap(102, 102, 102)
+                        .addComponent(Idioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(8, 8, 8)
+                        .addComponent(Derechos_Autor, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Editar)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel1))
+                                .addGap(22, 22, 22)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(id_Documento)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(Consultar))
+                                    .addComponent(Titulo_Principal, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -169,9 +198,14 @@ public class Informacion_Basica extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4))
-                .addGap(32, 32, 32)
+                .addGap(25, 25, 25)
                 .addComponent(Editar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Consultar)
+                    .addComponent(jLabel10)
+                    .addComponent(id_Documento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(5, 5, 5)
@@ -213,7 +247,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
                         .addGap(5, 5, 5)
                         .addComponent(jLabel6))
                     .addComponent(Idioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Siguiente)
                     .addComponent(Estado))
@@ -224,8 +258,8 @@ public class Informacion_Basica extends javax.swing.JPanel {
     private void SiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteActionPerformed
         if(checkEmptyFields()){
             guardarDatos();
-            JTabbedPane parent =(JTabbedPane) this.getParent();
-            parent.setSelectedIndex(1);
+            JTabbedPane panelParent =(JTabbedPane) this.getParent();
+            panelParent.setSelectedIndex(1);
         }
     }//GEN-LAST:event_SiguienteActionPerformed
 
@@ -233,6 +267,31 @@ public class Informacion_Basica extends javax.swing.JPanel {
         biblioteca.gui.GUICatalogacion.Informacion_Basica_Guardada=false;
         enableFields(true);
     }//GEN-LAST:event_EditarActionPerformed
+
+    private void id_DocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id_DocumentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_id_DocumentoActionPerformed
+
+    private void ConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarActionPerformed
+         documento=new DaoDocumento().consultarDocumento(id_Documento.getText());
+         if(!documento.getID_documento().equalsIgnoreCase("")){
+             id_Documento.setEnabled(false);
+             Titulo_Principal.setText(documento.getTituloPrincipal());
+        Titulo_Secundario.setText(documento.getTituloSecundario());
+        
+        Descripcion.setText(documento.getTituloPrincipal());
+       
+        Editorial.setText(documento.getEditorial());
+        
+        Fecha_Publicacion.setText(documento.getFechaPublicacion());
+        Derechos_Autor.setText(documento.getDerechosAutor());
+        Idioma.setSelectedItem(documento.getIdioma());
+        parent.documentoAbierto();
+         }
+         else{
+            JOptionPane.showMessageDialog(this, "El documento no existe, por favor ingrese ", "Error", JOptionPane.ERROR_MESSAGE);   
+         }
+    }//GEN-LAST:event_ConsultarActionPerformed
 
     private boolean checkEmptyFields(){
         if(Titulo_Principal.getText()==null || Titulo_Principal.getText().equals("")){
@@ -299,6 +358,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Consultar;
     private javax.swing.JTextField Derechos_Autor;
     private javax.swing.JTextArea Descripcion;
     private javax.swing.JButton Editar;
@@ -309,7 +369,9 @@ public class Informacion_Basica extends javax.swing.JPanel {
     private javax.swing.JButton Siguiente;
     private javax.swing.JTextField Titulo_Principal;
     private javax.swing.JTextField Titulo_Secundario;
+    private javax.swing.JTextField id_Documento;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

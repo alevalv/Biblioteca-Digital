@@ -34,6 +34,12 @@ public class GUIModificacionDocumento extends javax.swing.JFrame {
     static public boolean Palabras_Clave_Guardadas;
     static public boolean Tipo_Documento_Guardado;
     biblioteca.gui.GUIBusqueda parent;
+    biblioteca.gui.modificacion.Informacion_Basica informacionBasica;
+    biblioteca.gui.modificacion.Autores autores;
+    biblioteca.gui.modificacion.Selecc_Areas areas;
+    biblioteca.gui.modificacion.Selecc_Pal_Clave pc;
+    biblioteca.gui.modificacion.Subir_Archivo sa;
+    biblioteca.gui.modificacion.Tipo_Documento td;
     /** Creates new form GUICatalogacion */
     public GUIModificacionDocumento(biblioteca.gui.GUIBusqueda parent) {
         Informacion_Basica_Guardada=false;
@@ -43,6 +49,12 @@ public class GUIModificacionDocumento extends javax.swing.JFrame {
         Tipo_Documento_Guardado=false;
         documento= new Documento();
         this.parent = parent;
+        informacionBasica = new biblioteca.gui.modificacion.Informacion_Basica(documento, this);
+        autores = new biblioteca.gui.modificacion.Autores(documento);
+        areas = new biblioteca.gui.modificacion.Selecc_Areas(documento);
+        pc = new biblioteca.gui.modificacion.Selecc_Pal_Clave(documento);
+        sa = new biblioteca.gui.modificacion.Subir_Archivo(documento, this);
+        td = new biblioteca.gui.modificacion.Tipo_Documento(documento);
         initComponents();
     }
     
@@ -110,6 +122,14 @@ public class GUIModificacionDocumento extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "No se puede guardar el documento por que no están completos todos los pasos", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+    
+    public void documentoAbierto(){
+        this.areas.inicializarDocumento();
+        this.autores.inicializarDocumento();
+        this.pc.inicializarDocumento();
+        this.sa.inicializarDocumento();
+        this.td.inicializarDocumento();
+    }
 
     static public void destroyAll(){
         documento=null;
@@ -142,12 +162,6 @@ public class GUIModificacionDocumento extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
-        biblioteca.gui.modificacion.Informacion_Basica informacionBasica = new biblioteca.gui.modificacion.Informacion_Basica(documento);
-        biblioteca.gui.modificacion.Autores autores = new biblioteca.gui.modificacion.Autores(documento);
-        biblioteca.gui.modificacion.Selecc_Areas areas = new biblioteca.gui.modificacion.Selecc_Areas(documento);
-        biblioteca.gui.modificacion.Selecc_Pal_Clave pc = new biblioteca.gui.modificacion.Selecc_Pal_Clave(documento);
-        biblioteca.gui.modificacion.Subir_Archivo sa = new biblioteca.gui.modificacion.Subir_Archivo(documento, this);
-        biblioteca.gui.modificacion.Tipo_Documento td = new biblioteca.gui.modificacion.Tipo_Documento(documento);
         jTabbedPane1.add("Información Basica", informacionBasica);
         jTabbedPane1.add("Autores", autores);
         jTabbedPane1.add("Areas de la Computación", areas);

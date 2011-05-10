@@ -34,6 +34,10 @@ public class Selecc_Areas extends javax.swing.JPanel {
         initComboBox();
     }
     
+    public void inicializarDocumento(){
+        
+    }
+    
     private void initComboBox(){
         Areas.removeAllItems();
         Area_Padre.removeAllItems();
