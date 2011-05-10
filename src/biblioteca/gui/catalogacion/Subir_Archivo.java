@@ -136,7 +136,7 @@ public class Subir_Archivo extends javax.swing.JPanel {
     private void FinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FinalizarActionPerformed
         File file = new File(Path.getText());
         if(file.exists()){
-            MainGui.catalogar(Path.getText());
+            MainGui.catalogar(file);
         }
         else{
             JOptionPane.showMessageDialog(this, "El archivo no existe, por favor, verifique la ruta", "Error", JOptionPane.ERROR_MESSAGE);

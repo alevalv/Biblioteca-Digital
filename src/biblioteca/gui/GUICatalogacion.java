@@ -45,17 +45,20 @@ public class GUICatalogacion extends javax.swing.JFrame {
         initComponents();
     }
     
-    public void catalogar(String path){
+    public void catalogar(File file){
         if(Informacion_Basica_Guardada && Autores_Guardado && Areas_Guardadas
                 && Palabras_Clave_Guardadas && Tipo_Documento_Guardado){
             ControladorDocumento controladorDocumento = new ControladorDocumento();
             controladorDocumento.insertarDocumento(documento.getTituloPrincipal(), documento.getTituloSecundario(), documento.getEditorial(), documento.getDerechosAutor(), documento.getIdioma(), documento.getDescripcion(), documento.getTipoMaterial(), documento.getFechaPublicacion(), biblioteca.Main.BibliotecaDigital.LOGGED_USER);
             String id=controladorDocumento.obtenerId(documento.getTituloPrincipal(), documento.getTituloSecundario(), documento.getEditorial(), documento.getDerechosAutor(), documento.getIdioma(), documento.getDescripcion(), documento.getTipoMaterial(), documento.getFechaPublicacion(), biblioteca.Main.BibliotecaDigital.LOGGED_USER);
+            String path=file.getPath();
             StringTokenizer stk=new StringTokenizer(path, ".");
+            //StringTokenizer stk2=new StringTokenizer(path, "/");
             while(stk.countTokens()>1){
                 stk.nextToken();
             }
             String newname="repository/"+id+"."+stk.nextToken();
+            System.out.println(newname);
             try{
             //guardar archivo
             FileInputStream fileInput = new FileInputStream(path);
@@ -63,7 +66,6 @@ public class GUICatalogacion extends javax.swing.JFrame {
             /// Se abre el fichero donde se hará la copia
             File newFile = new File(newname);
             if(!newFile.exists()){
-                newFile.mkdir();
                 newFile.createNewFile();
             }
             FileOutputStream fileOutput = new FileOutputStream (newname);
@@ -144,6 +146,7 @@ public class GUICatalogacion extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        biblioteca.Main.BibliotecaDigital.LOGGED_USER="dummyuser";
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             @Override
