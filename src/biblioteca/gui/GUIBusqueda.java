@@ -12,6 +12,7 @@ package biblioteca.gui;
 
 import biblioteca.gui.busquedas.*;
 import javax.swing.JOptionPane;
+import biblioteca.database2.controladores.ControladorUsuario;
 /**
  *
  * @author alejandro
@@ -187,7 +188,13 @@ public class GUIBusqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_Modificar_DatosActionPerformed
 
     private void GestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GestionActionPerformed
-        unsupportedOperation();
+        if(new ControladorUsuario().verificarTipoUsuario("1", biblioteca.Main.BibliotecaDigital.LOGGED_USER)){
+            this.setVisible(false);
+            new biblioteca.gui.GUIModificarUsuario(this).setVisible(true);
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Esta opción solo está disponible para administradores", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_GestionActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
