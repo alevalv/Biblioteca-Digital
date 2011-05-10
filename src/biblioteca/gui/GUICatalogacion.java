@@ -12,6 +12,7 @@ package biblioteca.gui;
 
 import biblioteca.database2.beans.Documento;
 import biblioteca.database2.controladores.ControladorDocumento;
+import biblioteca.database2.controladores.ControladorUsuario;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
@@ -48,63 +49,70 @@ public class GUICatalogacion extends javax.swing.JFrame {
     public void catalogar(File file){
         if(Informacion_Basica_Guardada && Autores_Guardado && Areas_Guardadas
                 && Palabras_Clave_Guardadas && Tipo_Documento_Guardado){
-            ControladorDocumento controladorDocumento = new ControladorDocumento();
-            controladorDocumento.insertarDocumento(documento.getTituloPrincipal(), documento.getTituloSecundario(), documento.getEditorial(), documento.getDerechosAutor(), documento.getIdioma(), documento.getDescripcion(), documento.getTipoMaterial(), documento.getFechaPublicacion(), biblioteca.Main.BibliotecaDigital.LOGGED_USER);
-            String id=controladorDocumento.obtenerId(documento.getTituloPrincipal(), documento.getTituloSecundario(), documento.getEditorial(), documento.getDerechosAutor(), documento.getIdioma(), documento.getDescripcion(), documento.getTipoMaterial(), documento.getFechaPublicacion(), biblioteca.Main.BibliotecaDigital.LOGGED_USER);
-            String path=file.getPath();
-            StringTokenizer stk=new StringTokenizer(path, ".");
-            //StringTokenizer stk2=new StringTokenizer(path, "/");
-            while(stk.countTokens()>1){
-                stk.nextToken();
-            }
-            String newname="repository/"+id+"."+stk.nextToken();
-            System.out.println(newname);
-            try{
-            //guardar archivo
-            FileInputStream fileInput = new FileInputStream(path);
-            BufferedInputStream bufferedInput = new BufferedInputStream(fileInput);
-            /// Se abre el fichero donde se hará la copia
-            File newFile = new File(newname);
-            if(!newFile.exists()){
-                newFile.createNewFile();
-            }
-            FileOutputStream fileOutput = new FileOutputStream (newname);
-            BufferedOutputStream bufferedOutput = new BufferedOutputStream(fileOutput);
-            // Bucle para leer de un fichero y escribir en el otro.
-            byte [] array = new byte[1000];
-            int leidos = bufferedInput.read(array);
-            while (leidos > 0){
-                bufferedOutput.write(array,0,leidos);
-                leidos=bufferedInput.read(array);
-            }
-            // Cierre de los ficheros
-            bufferedInput.close();
-            bufferedOutput.close();
-            }
-            catch(IOException ioe){
-                System.err.println(ioe);
-            }
-            controladorDocumento.insertarUbicacion(id, newname);
-            //RELACIONES CON OTRAS TABLAS.
-
-            //autores
-            controladorDocumento.insertarAutores(id, biblioteca.gui.catalogacion.Autores.autoresSeleccionados);
-            controladorDocumento.insertarAreas(id, biblioteca.gui.catalogacion.Selecc_Areas.areasSeleccionadas);
-            controladorDocumento.insertarPalabrasClave(id, biblioteca.gui.catalogacion.Selecc_Pal_Clave.palabrasClaveSeleccionadas);
-            JOptionPane.showMessageDialog(this, "El documento "+documento.getTituloPrincipal()+ " ha sido agregado", "Notificación", JOptionPane.INFORMATION_MESSAGE);
+            if(new ControladorUsuario().verificarTipoUsuario("2", biblioteca.Main.BibliotecaDigital.LOGGED_USER)
+                || new ControladorUsuario().verificarTipoUsuario("3", biblioteca.Main.BibliotecaDigital.LOGGED_USER)){
+                ControladorDocumento controladorDocumento = new ControladorDocumento();
+                controladorDocumento.insertarDocumento(documento.getTituloPrincipal(), documento.getTituloSecundario(), documento.getEditorial(), documento.getDerechosAutor(), documento.getIdioma(), documento.getDescripcion(), documento.getTipoMaterial(), documento.getFechaPublicacion(), biblioteca.Main.BibliotecaDigital.LOGGED_USER);
+                String id=controladorDocumento.obtenerId(documento.getTituloPrincipal(), documento.getTituloSecundario(), documento.getEditorial(), documento.getDerechosAutor(), documento.getIdioma(), documento.getDescripcion(), documento.getTipoMaterial(), documento.getFechaPublicacion(), biblioteca.Main.BibliotecaDigital.LOGGED_USER);
+                String path=file.getPath();
+                StringTokenizer stk=new StringTokenizer(path, ".");
+                while(stk.countTokens()>1){
+                    stk.nextToken();
+                }
+                String newname="repository/"+id+"."+stk.nextToken();
+                System.out.println(newname);
+                try{
+                    //guardar archivo
+                    FileInputStream fileInput = new FileInputStream(path);
+                    BufferedInputStream bufferedInput = new BufferedInputStream(fileInput);
+                    /// Se abre el fichero donde se hará la copia
+                    File newFile = new File(newname);
+                    if(!newFile.exists()){
+                        newFile.createNewFile();
+                    }
+                    FileOutputStream fileOutput = new FileOutputStream (newname);
+                    BufferedOutputStream bufferedOutput = new BufferedOutputStream(fileOutput);
+                    // Bucle para leer de un fichero y escribir en el otro.
+                    byte [] array = new byte[1000];
+                    int leidos = bufferedInput.read(array);
+                    while (leidos > 0){
+                        bufferedOutput.write(array,0,leidos);
+                        leidos=bufferedInput.read(array);
+                    }
+                    // Cierre de los ficheros
+                    bufferedInput.close();
+                    bufferedOutput.close();
+                }
+                catch(IOException ioe){
+                    System.err.println(ioe);
+                }
+                controladorDocumento.insertarUbicacion(id, newname);
+                //RELACIONES CON OTRAS TABLAS.
+                
+                //autores
+                controladorDocumento.insertarAutores(id, biblioteca.gui.catalogacion.Autores.autoresSeleccionados);
+                controladorDocumento.insertarAreas(id, biblioteca.gui.catalogacion.Selecc_Areas.areasSeleccionadas);
+                controladorDocumento.insertarPalabrasClave(id, biblioteca.gui.catalogacion.Selecc_Pal_Clave.palabrasClaveSeleccionadas);
+                JOptionPane.showMessageDialog(this, "El documento "+documento.getTituloPrincipal()+ " ha sido agregado", "Notificación", JOptionPane.INFORMATION_MESSAGE);
             
-            //seguridad
-            documento=null;
-            biblioteca.gui.catalogacion.Autores.autoresSeleccionados=null;
-            biblioteca.gui.catalogacion.Selecc_Areas.areasSeleccionadas=null;
-            biblioteca.gui.catalogacion.Selecc_Pal_Clave.palabrasClaveSeleccionadas=null;
-            Informacion_Basica_Guardada=false;
-            Autores_Guardado=false;
-            Areas_Guardadas=false;
-            Palabras_Clave_Guardadas=false;
-            Tipo_Documento_Guardado=false;
+                //seguridad
+                documento=null;
+                biblioteca.gui.catalogacion.Autores.autoresSeleccionados=null;
+                biblioteca.gui.catalogacion.Selecc_Areas.areasSeleccionadas=null;
+                biblioteca.gui.catalogacion.Selecc_Pal_Clave.palabrasClaveSeleccionadas=null;
+                Informacion_Basica_Guardada=false;
+                Autores_Guardado=false;
+                Areas_Guardadas=false;
+                Palabras_Clave_Guardadas=false;
+                Tipo_Documento_Guardado=false;
+                
+                //cerramos la ventana
+                this.dispose();
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "El usuario no es un catalogador", "Error", JOptionPane.ERROR_MESSAGE);
+            }
             
-            this.dispose();
         }
         else{
             JOptionPane.showMessageDialog(this, "No se puede guardar el documento por que no están completos todos los pasos", "Error", JOptionPane.ERROR_MESSAGE);
