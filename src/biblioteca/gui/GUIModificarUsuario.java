@@ -33,6 +33,7 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
         if(!tipo){
         jTextField1.setEditable(false);
         jTextField1.setText(Username);
+        jLabel12.setText("");
         ConsultarDatosUsuario(jTextField1.getText());
         }
         else{
@@ -516,7 +517,8 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
-        if(jTextField1.getText()==null || jTextField1.getText().equals("")){
+        if(tipo){
+                if(jTextField1.getText()==null || jTextField1.getText().equals("")){
              JOptionPane.showMessageDialog(null, "Por favor ingrese un Username", "Error", JOptionPane.ERROR_MESSAGE);
 
         }
@@ -559,6 +561,7 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
                     jComboBox8.setEnabled(false);
                     jComboBox11.setEnabled(true);
             }
+        }
         }
     }//GEN-LAST:event_jLabel12MouseClicked
 
