@@ -50,7 +50,7 @@ public class GUICatalogacion extends javax.swing.JFrame {
         if(Informacion_Basica_Guardada && Autores_Guardado && Areas_Guardadas
                 && Palabras_Clave_Guardadas && Tipo_Documento_Guardado){
             if(new ControladorUsuario().verificarTipoUsuario("2", biblioteca.Main.BibliotecaDigital.LOGGED_USER)
-                || new ControladorUsuario().verificarTipoUsuario("3", biblioteca.Main.BibliotecaDigital.LOGGED_USER)){
+                || new ControladorUsuario().verificarTipoUsuario("1", biblioteca.Main.BibliotecaDigital.LOGGED_USER)){
                 ControladorDocumento controladorDocumento = new ControladorDocumento();
                 controladorDocumento.insertarDocumento(documento.getTituloPrincipal(), documento.getTituloSecundario(), documento.getEditorial(), documento.getDerechosAutor(), documento.getIdioma(), documento.getDescripcion(), documento.getTipoMaterial(), documento.getFechaPublicacion(), biblioteca.Main.BibliotecaDigital.LOGGED_USER);
                 String id=controladorDocumento.obtenerId(documento.getTituloPrincipal(), documento.getTituloSecundario(), documento.getEditorial(), documento.getDerechosAutor(), documento.getIdioma(), documento.getDescripcion(), documento.getTipoMaterial(), documento.getFechaPublicacion(), biblioteca.Main.BibliotecaDigital.LOGGED_USER);
