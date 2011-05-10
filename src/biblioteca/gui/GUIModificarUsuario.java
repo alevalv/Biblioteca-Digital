@@ -25,7 +25,7 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
     public GUIModificarUsuario() {
         initComponents();
         jTextField1.setEditable(false);
-        jTextField1.setText("cris");
+        jTextField1.setText("Cris");
         ConsultarDatosUsuario(jTextField1.getText());
     }
 

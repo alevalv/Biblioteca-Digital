@@ -64,4 +64,17 @@ public class ControladorArea {
          respuesta= daoArea.comprobarExistenciaArea(id_area);
          return respuesta;
     }
+
+    ///para la relacion usuarios con area
+     public ArrayList<Area> consultarAreasporUsuario(String Username){
+        return new DaoArea().consultarAreasporUsuario(Username);
+    }
+
+     public int agregarAreasporUsuario(String Username, ArrayList<Area> areas){
+         return new DaoArea().agregarAreasporUsuario(Username,areas);
+     }
+
+     public int eliminarAreasporUsuario(String Username, ArrayList<Area> areas){
+         return new DaoArea().eliminarAreasporUsuario(Username, areas);
+     }
 }

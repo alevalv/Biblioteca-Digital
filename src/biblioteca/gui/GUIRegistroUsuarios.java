@@ -391,13 +391,12 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
         String username, nombre, apellido,
                pregunta, respuesta, correo, genero, nivel, vinculo, ano, mes, dia, fecha_nacimiento="",
                tipo_usuario="3";
-        char[] contrasena, vericontrasena;
+        char[] contrasena;
 
         username=jTextField1.getText();
         nombre=jTextField2.getText();
         apellido=jTextField3.getText();
         contrasena=jPasswordField1.getPassword();
-        vericontrasena=jPasswordField2.getPassword();
         pregunta=jTextField6.getText();
         respuesta=jTextField7.getText();
         correo=jTextField4.getText();

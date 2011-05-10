@@ -146,5 +146,68 @@ public class DaoArea {
         }
         return true;
     }
+
+    public ArrayList<Area> consultarAreasporUsuario(String Username) {
+       String sql_consultar;
+         sql_consultar="SELECT area_id,nombre,descripcion,area_padre FROM usuario_areas_computacion natural join areas_computacion where username='"+Username+"';";
+         ArrayList<Area> Areas=null;
+         try{
+             Connection conn= fachada.conectar();
+             Statement sentencia = conn.createStatement();
+             ResultSet tabla = sentencia.executeQuery(sql_consultar);
+             Areas= new ArrayList<Area>();
+             while(tabla.next()){
+                 Area a= new Area();
+                 a.setID(tabla.getString(1));
+                 a.setNombre(tabla.getString(2));
+                 a.setDescripcion(tabla.getString(3));
+                 a.setAreaPadre(tabla.getString(4));
+                 Areas.add(a);
+             }
+            conn.close();
+
+         }
+         catch(SQLException e){ System.out.println(e); }
+         catch(Exception e){ System.out.println(e); }
+        return Areas;
+    }
+
+    public int agregarAreasporUsuario(String Username, ArrayList<Area> areas) {
+       String sql_agregar="";
+       for(int i=0;i<areas.size();i++){
+        sql_agregar+="INSERT INTO usuario_areas_computacion(area_id,username) VALUES ('" +
+                areas.get(i).getID() + "', '" +  Username
+                + "');";
+        }
+        try{
+            Connection conect= fachada.conectar();
+            Statement sentencia = conect.createStatement();
+            int numFilas = sentencia.executeUpdate(sql_agregar);
+            conect.close();
+            return numFilas;
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+        return -1;
+    }
+
+    public int eliminarAreasporUsuario(String Username, ArrayList<Area> areas) {
+        String sql_eliminar="";
+       for(int i=0;i<areas.size();i++){
+        sql_eliminar+="DELETE FROM usuario_areas_computacion WHERE area_id='" +
+                areas.get(i).getID() + "' and Username='" +  Username
+                + "';";
+        }
+        try{
+            Connection conect= fachada.conectar();
+            Statement sentencia = conect.createStatement();
+            int numFilas = sentencia.executeUpdate(sql_eliminar);
+            conect.close();
+            return numFilas;
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+        return -1;
+    }
 }
 
