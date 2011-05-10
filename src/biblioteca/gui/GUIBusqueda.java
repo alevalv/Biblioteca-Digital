@@ -47,13 +47,14 @@ public class GUIBusqueda extends javax.swing.JFrame {
         Modificar_Documento = new javax.swing.JMenuItem();
         Estadisticas = new javax.swing.JMenuItem();
         Salir = new javax.swing.JMenuItem();
-        Registrarse = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        Autenticarse = new javax.swing.JMenu();
+        Registrarse = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         Modificar_Datos = new javax.swing.JMenuItem();
         Gestion = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Biblioteca Digital");
         setMinimumSize(new java.awt.Dimension(600, 300));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
@@ -108,23 +109,28 @@ public class GUIBusqueda extends javax.swing.JFrame {
 
         jMenuBar1.add(Archivo);
 
-        Registrarse.setMnemonic('o');
-        Registrarse.setText("Opciones");
+        Autenticarse.setMnemonic('o');
+        Autenticarse.setText("Opciones");
 
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem3.setMnemonic('r');
-        jMenuItem3.setText("Registrarse");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        Registrarse.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
+        Registrarse.setMnemonic('r');
+        Registrarse.setText("Registrarse");
+        Registrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                RegistrarseActionPerformed(evt);
             }
         });
-        Registrarse.add(jMenuItem3);
+        Autenticarse.add(Registrarse);
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem1.setMnemonic('a');
         jMenuItem1.setText("Autenticarse");
-        Registrarse.add(jMenuItem1);
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        Autenticarse.add(jMenuItem1);
 
         Modificar_Datos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
         Modificar_Datos.setMnemonic('m');
@@ -134,7 +140,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
                 Modificar_DatosActionPerformed(evt);
             }
         });
-        Registrarse.add(Modificar_Datos);
+        Autenticarse.add(Modificar_Datos);
 
         Gestion.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
         Gestion.setMnemonic('g');
@@ -144,9 +150,9 @@ public class GUIBusqueda extends javax.swing.JFrame {
                 GestionActionPerformed(evt);
             }
         });
-        Registrarse.add(Gestion);
+        Autenticarse.add(Gestion);
 
-        jMenuBar1.add(Registrarse);
+        jMenuBar1.add(Autenticarse);
 
         setJMenuBar(jMenuBar1);
 
@@ -154,7 +160,8 @@ public class GUIBusqueda extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Agregar_DocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_DocumentoActionPerformed
-        new biblioteca.gui.GUICatalogacion().setVisible(true);
+        this.setVisible(false);
+        new biblioteca.gui.GUICatalogacion(this).setVisible(true);
     }//GEN-LAST:event_Agregar_DocumentoActionPerformed
 
     private void Modificar_DocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modificar_DocumentoActionPerformed
@@ -165,9 +172,9 @@ public class GUIBusqueda extends javax.swing.JFrame {
         unsupportedOperation();
     }//GEN-LAST:event_EstadisticasActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void RegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarseActionPerformed
         unsupportedOperation();
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_RegistrarseActionPerformed
 
     private void Modificar_DatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modificar_DatosActionPerformed
         unsupportedOperation();
@@ -180,6 +187,11 @@ public class GUIBusqueda extends javax.swing.JFrame {
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_SalirActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        this.setVisible(false);
+        new biblioteca.gui.GUIAutenticacion(this).setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     
     private void unsupportedOperation(){
@@ -216,15 +228,15 @@ public class GUIBusqueda extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem Agregar_Documento;
     private javax.swing.JMenu Archivo;
+    private javax.swing.JMenu Autenticarse;
     private javax.swing.JButton Cambiar;
     private javax.swing.JMenuItem Estadisticas;
     private javax.swing.JMenuItem Gestion;
     private javax.swing.JMenuItem Modificar_Datos;
     private javax.swing.JMenuItem Modificar_Documento;
-    private javax.swing.JMenu Registrarse;
+    private javax.swing.JMenuItem Registrarse;
     private javax.swing.JMenuItem Salir;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem3;
     // End of variables declaration//GEN-END:variables
 }
