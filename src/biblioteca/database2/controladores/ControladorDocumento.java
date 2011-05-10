@@ -43,6 +43,10 @@ public class ControladorDocumento {
         daoDocumento.deshabilitarDocumento(id_documento);
     }
     
+    public Documento consultarDocumento(String id_documento){
+        return new DaoDocumento().consultarDocumento(id_documento);
+    }
+    
     public void insertarUbicacion(String id_documento, String ubicacion){
         new DaoDocumento().insertarUbicacion(id_documento, ubicacion);
     }

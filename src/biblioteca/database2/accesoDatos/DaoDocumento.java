@@ -45,6 +45,37 @@ public class DaoDocumento {
        return -1;
     }
     
+    public Documento consultarDocumento(String id_documento){
+        String sql_consultar;
+        sql_consultar="SELECT * FROM documentos WHERE doc_id='"+id_documento+"';";
+        try{
+            Connection conn= Fachada.conectar();
+            java.sql.Statement sentencia = conn.createStatement();
+            ResultSet salida=sentencia.executeQuery(sql_consultar);
+            Documento documento = new Documento();
+            while(salida.next()){
+                documento.setActivo(true);
+                documento.setID_documento(id_documento);
+                documento.setTituloPrincipal(salida.getString("titulo_principal"));
+                documento.setTituloSecundario(salida.getString("titulo_secundario"));
+                documento.setDescripcion(salida.getString("descripcion"));
+                documento.setTipoMaterial(salida.getString("tipo_documento"));
+                documento.setIdioma(salida.getString("idioma"));
+                documento.setEditorial(salida.getString("editorial"));
+                documento.setFechaPublicacion(salida.getString("fecha_publicacion"));
+                documento.setDerechosAutor(salida.getString("derechos_autor"));
+                documento.setUbicacion(salida.getString("ubicacion"));
+                documento.setFechaCatalogacion(salida.getString("fecha_catalogacion"));
+            }
+            conn.close();
+            return documento;
+            
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+        return null;
+    }
+    
     public String obtenerDocumentoID(Documento documento, String catalogador){
         String sql_consultar;
         sql_consultar="SELECT doc_id FROM documentos WHERE titulo_principal='"+
