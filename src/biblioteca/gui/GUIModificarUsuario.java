@@ -21,11 +21,13 @@ import javax.swing.JOptionPane;
  */
 public class GUIModificarUsuario extends javax.swing.JFrame {
 
+    String Username;
     /** Creates new form GUIModificarUsuario */
     public GUIModificarUsuario() {
+        Username=biblioteca.Main.BibliotecaDigital.LOGGED_USER;
         initComponents();
         jTextField1.setEditable(false);
-        jTextField1.setText("Cris");
+        jTextField1.setText(Username);
         ConsultarDatosUsuario(jTextField1.getText());
     }
 
@@ -398,18 +400,17 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
         vinculo=(String)jComboBox8.getSelectedItem();
 
         fecha_nacimiento=ano+"-"+mes+"-"+dia;
-        java.sql.Date fecha_nac=java.sql.Date.valueOf(fecha_nacimiento);
-
-        /// Falta verificar Contraseñaaa !! :/
+        
         String contrasenaS=new String(contrasena);
 
         java.util.Date actual=new java.util.Date();
         java.sql.Timestamp fechaderegistro=new java.sql.Timestamp(actual.getTime());
         ControladorUsuario controlador=new ControladorUsuario();
-
+        int i;
         if(checkEmptyFields()){
-           controlador.modificarUsuario(username, nombre, apellido, genero, correo, contrasenaS, fecha_nacimiento, pregunta, respuesta, vinculo,tipo_usuario, nivel, fechaderegistro+"");
-
+           i=controlador.modificarUsuario(username, nombre, apellido, genero, correo, contrasenaS, fecha_nacimiento, pregunta, respuesta, vinculo,tipo_usuario, nivel, fechaderegistro+"");
+           if(i!=-1)
+               JOptionPane.showMessageDialog(null, "Datos Modificados con Exito", "Error", JOptionPane.INFORMATION_MESSAGE);
         }
 }//GEN-LAST:event_jButton4ActionPerformed
 
