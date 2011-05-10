@@ -391,7 +391,8 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
 }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        parent.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -427,6 +428,8 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
         i=controlador.guardarUsuario(username, nombre, apellido, genero, correo, contrasenaS, fecha_nacimiento, pregunta, respuesta, vinculo,tipo_usuario, nivel, fechaderegistro+"");
         if(i!=-1)
             JOptionPane.showMessageDialog(this, "Información de Usuario Modificada con Exito", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+             this.dispose();
+             parent.setVisible(true);
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -507,8 +510,8 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel17MouseClicked
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        parent.setVisible(true);
         this.dispose();
+        parent.setVisible(true);
     }//GEN-LAST:event_formWindowClosing
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
