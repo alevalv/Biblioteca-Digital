@@ -18,10 +18,11 @@ import javax.swing.JOptionPane;
  * @author alejandro
  */
 class GUIAutenticacion extends javax.swing.JFrame {
-
+    biblioteca.gui.GUIBusqueda parent;
     /** Creates new form GUIAutenticacion */
-    public GUIAutenticacion() {
+    public GUIAutenticacion(biblioteca.gui.GUIBusqueda parent) {
         initComponents();
+        this.parent=parent;
     }
 
     /** This method is called from within the constructor to
@@ -42,6 +43,11 @@ class GUIAutenticacion extends javax.swing.JFrame {
         Ingresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 24));
         jLabel1.setText("Autenticación");
@@ -116,28 +122,24 @@ class GUIAutenticacion extends javax.swing.JFrame {
                if(activo){
                    JOptionPane.showMessageDialog(null, "Bienvenido "+username, "", JOptionPane.INFORMATION_MESSAGE);
                    biblioteca.Main.BibliotecaDigital.LOGGED_USER=username;
+                   parent.setVisible(true);
+                   this.dispose();
                }
                else JOptionPane.showMessageDialog(null, "El usuario "+username+" esta desactivado", "", JOptionPane.ERROR_MESSAGE);
                
            }
            else JOptionPane.showMessageDialog(null, "Autenticación Incorrecta", "", JOptionPane.ERROR_MESSAGE);
        }
-        
+       
 
 
     }//GEN-LAST:event_IngresarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        parent.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_formWindowClosing
 
-            public void run() {
-                new GUIAutenticacion().setVisible(true);
-            }
-        });
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Ingresar;
     private javax.swing.JPasswordField Password;
