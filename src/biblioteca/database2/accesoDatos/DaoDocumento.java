@@ -417,7 +417,7 @@ public class DaoDocumento {
     
     //TODO programar consultaAvanzadaDocumento
     
-    private void UsuarioConsultaDocumento(String id_documento, String usuario){
+    public void UsuarioConsultaDocumento(String id_documento, String usuario){
         String sql_insertar;
         sql_insertar="INSERT INTO usuario_consulta_documento (doc_id, username)"+
                 "VALUES ('"+id_documento+"','"+usuario+"');";
@@ -431,7 +431,7 @@ public class DaoDocumento {
         catch(Exception e){ System.out.println(e); }
     }
     
-    private void UsuarioDescargaDocumento(String id_documento, String usuario){
+    public void UsuarioDescargaDocumento(String id_documento, String usuario){
         String sql_insertar;
         sql_insertar="INSERT INTO usuario_descarga_documento (doc_id, username)"+
                 "VALUES ('"+id_documento+"','"+usuario+"');";
