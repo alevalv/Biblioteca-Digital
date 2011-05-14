@@ -456,7 +456,7 @@ public class DaoDocumento {
         }
         return Areas;
     }
-
+    /*
     public ArrayList<String> consultarDocumento(ArrayList<String> metadatos) {
         String sql_consultar = "(SELECT documentos.doc_id, titulo_principal, autor.nombre,"
                 + " autor.apellido FROM ((((areas_computacion NATURAL JOIN "
@@ -494,6 +494,8 @@ public class DaoDocumento {
         }
         
     }
+     *
+     */
 
     //TODO programar consultaAvanzadaDocumento
     public void UsuarioConsultaDocumento(String id_documento, String usuario) {
