@@ -9,6 +9,7 @@ import biblioteca.database2.beans.*;
 //import java.sql.ResultSet;
 //import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 //import java.util.StringTokenizer;
 
 /**
@@ -146,29 +147,17 @@ public class ControladorDocumento {
      * La Salida es un ArrayList, donde se metera primero el id del documento, 
      * luego el titulo principal, titulo secundario y autor
      */
-    /*
-    public ArrayList<String> consultaDocumentoGeneral(String metadatos){
-        StringTokenizer Stk = new StringTokenizer(metadatos, " ");
-        ArrayList<String> ListMetadatos = new ArrayList<String>();
+    
+    public ArrayList<String> consultaDocumentoGeneral(String entrada){
+        StringTokenizer Stk = new StringTokenizer(entrada, " ");
+        ArrayList<String> metadatos = new ArrayList<String>();
         while(Stk.hasMoreTokens()){
-            ListMetadatos.add(Stk.nextToken());
+            metadatos.add(Stk.nextToken());
         }
-        DaoDocumento daoDocumento = new DaoDocumento();
-        ResultSet salida=daoDocumento.consultarDocumento(ListMetadatos);
-        ArrayList<String> ResultadoConsulta = new ArrayList<String>();
-        try{
-            while(salida.next()){
-                ResultadoConsulta.add(salida.getString(1));
-                ResultadoConsulta.add(salida.getString(2));
-                ResultadoConsulta.add(salida.getString(3));
-                ResultadoConsulta.add(salida.getString(4));
-            }
-        }catch(SQLException se){
-            System.err.println(se);
-        }
-        return ResultadoConsulta;
+        return new DaoDocumento().consultarDocumento(metadatos);
     }
     
+    /*
     public ArrayList<String> consultaDocumentoAvanzada(String titulo, String autor, 
             String pc, int opcion1, int opcion2, int opcion3, String area, 
             String idioma, int fecha, String formato){
