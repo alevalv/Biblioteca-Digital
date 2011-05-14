@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 /**
  *
  * @author Alejandro Valdés
@@ -410,11 +411,25 @@ public class DaoDocumento {
         catch(Exception e){ System.out.println(e); }
         return Areas;
     }
-    
-    //public ResultSet consultarDocumento(ArrayList<String> datos){
-        //TODO programar consultarDocumento
-    //}
-    
+    /*
+    public ArrayList<String> consultarDocumento(ArrayList<String> metadatos){
+        String sql_consultar="";
+        for(int i=0;i<metadatos.size();i++){
+            sql_consultar="("+sql_consultar+" UNION ";
+            String temporal;
+            temporal=" select documentos.doc_id, titulo_principal, autor.nombre,"
+                    + " autor.apellido from ((((areas_computacion NATURAL JOIN "
+                    + "documento_areas_computacion) JOIN documentos ON "
+                    + "documento_areas_computacion.doc_id=documentos.doc_id) "
+                    + "JOIN documento_autor ON documentos.doc_id=documento_autor.doc_id "
+                    + "JOIN autor ON documento_autor.autor_correo=autor.autor_correo) "
+                    + "JOIN documento_palabras_clave ON documentos.doc_id="
+                    + "documento_palabras_clave.doc_id) WHERE ;";
+                
+            
+        }
+    }
+    */
     //TODO programar consultaAvanzadaDocumento
     
     public void UsuarioConsultaDocumento(String id_documento, String usuario){

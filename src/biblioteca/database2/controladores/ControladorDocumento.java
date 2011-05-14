@@ -147,7 +147,7 @@ public class ControladorDocumento {
      * La Salida es un ArrayList, donde se metera primero el id del documento, 
      * luego el titulo principal, titulo secundario y autor
      */
-    
+    /*
     public ArrayList<String> consultaDocumentoGeneral(String entrada){
         StringTokenizer Stk = new StringTokenizer(entrada, " ");
         ArrayList<String> metadatos = new ArrayList<String>();
@@ -157,7 +157,6 @@ public class ControladorDocumento {
         return new DaoDocumento().consultarDocumento(metadatos);
     }
     
-    /*
     public ArrayList<String> consultaDocumentoAvanzada(String titulo, String autor, 
             String pc, int opcion1, int opcion2, int opcion3, String area, 
             String idioma, int fecha, String formato){
