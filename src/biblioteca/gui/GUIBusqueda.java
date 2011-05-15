@@ -224,14 +224,18 @@ public class GUIBusqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_SalirActionPerformed
 
     private void Iniciar_SesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Iniciar_SesionMouseClicked
-                this.setVisible(false);
+        if(Iniciar_Sesion.isEnabled()){
+            this.setVisible(false);
         new biblioteca.gui.GUIAutenticacion(this).setVisible(true);
+        }
     }//GEN-LAST:event_Iniciar_SesionMouseClicked
 
     private void Cerrar_SesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Cerrar_SesionMouseClicked
-        biblioteca.Main.BibliotecaDigital.LOGGED_USER="dummyuser";
-        habilitarBotones(true);
-        JOptionPane.showMessageDialog(this, "Su sesión ha sido cerrada", "Error", JOptionPane.ERROR_MESSAGE);
+        if(Cerrar_Sesion.isEnabled()){
+            biblioteca.Main.BibliotecaDigital.LOGGED_USER="dummyuser";
+            habilitarBotones(true);
+            JOptionPane.showMessageDialog(this, "Su sesión ha sido cerrada", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_Cerrar_SesionMouseClicked
 
     public void habilitarBotones(boolean b){
