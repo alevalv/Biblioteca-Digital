@@ -10,6 +10,11 @@
  */
 package biblioteca.gui.busquedas;
 
+import biblioteca.database2.controladores.ControladorDocumento;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import biblioteca.gui.GUIResultados;
+
 /**
  *
  * @author alejandro
@@ -94,7 +99,14 @@ public class BusquedaNormal extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
-        // TODO add your handling code here:
+        if(Texto_Busqueda.getText().equals("")|| Texto_Busqueda.getText() ==null){
+            JOptionPane.showMessageDialog(this, "El texto de busqueda no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            ArrayList<String> resultados = new ControladorDocumento().consultaDocumentoGeneral(Texto_Busqueda.getText());
+            new GUIResultados(resultados).setVisible(true);  
+        }
+        
     }//GEN-LAST:event_BuscarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
