@@ -159,8 +159,12 @@ public class ControladorDocumento {
         return new DaoDocumento().consultarDocumento(metadatos);
     }
     
-    public void consultaAvanzada(String titulo, String autor, String pc, int tituloopcion, int autoropcion, int pcopcion, String area, String editorial, String tipo_material, String idioma, int fecha, int formato) {
-        throw new UnsupportedOperationException("Not yet implemented");
+    public void consultaDocumentoAvanzada(String titulo, String autor,
+            String pc, int tituloopcion, int autoropcion, int pcopcion, String area,
+            String editorial, String tipo_material, String idioma, int fecha, int formato){
+                     new DaoDocumento().consultaAvanzada(titulo, autor,
+             pc,  tituloopcion,  autoropcion, pcopcion, area,
+            editorial,  tipo_material, idioma, fecha,  formato);
     }
     
     
