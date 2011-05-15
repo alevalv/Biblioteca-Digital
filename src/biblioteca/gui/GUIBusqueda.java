@@ -25,11 +25,6 @@ public class GUIBusqueda extends javax.swing.JFrame {
     /** Creates new form GUIBusqueda */
     public GUIBusqueda() {
         initComponents();
-        normal = new BusquedaNormal();
-        avanzada = new BusquedaAvanzada();
-
-        this.getContentPane().add(normal);
-        this.setSize(normal.getPreferredSize());
         this.setLocationRelativeTo(null);
     }
 
@@ -203,14 +198,13 @@ public class GUIBusqueda extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addComponent(jLabel3))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Texto_Busqueda, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(220, 220, 220)
                         .addComponent(Buscar))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(377, Short.MAX_VALUE)
-                        .addComponent(Cambiar)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Cambiar)
+                            .addComponent(Texto_Busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -309,8 +303,11 @@ public class GUIBusqueda extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El texto de busqueda no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
         } else{
             ArrayList<String> resultados = new ControladorDocumento().consultaDocumentoGeneral(Texto_Busqueda.getText());
-            if(!resultados.isEmpty())
-                new GUIResultados(resultados).setVisible(true);
+            if(!resultados.isEmpty()){
+                new GUIResultados(resultados, this).setVisible(true);
+                this.setVisible(false);
+            }
+                
             else
                 JOptionPane.showMessageDialog(this, "La busqueda no ha retornado resultados", "Erorr", JOptionPane.ERROR_MESSAGE);
         }

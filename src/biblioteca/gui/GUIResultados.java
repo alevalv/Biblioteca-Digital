@@ -11,8 +11,6 @@
 package biblioteca.gui;
 
 import java.util.ArrayList;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,9 +19,9 @@ import javax.swing.table.DefaultTableModel;
  */
 public class GUIResultados extends javax.swing.JFrame {
     /** Creates new form GUIResultados */
-    public GUIResultados(ArrayList<String> resultados) {
-        
-       
+    biblioteca.gui.GUIBusqueda parent;
+    public GUIResultados(ArrayList<String> resultados, biblioteca.gui.GUIBusqueda parent) {
+            this.parent=parent;       
             initComponents();
             System.out.println(resultados.size());
             DefaultTableModel modelo =new DefaultTableModel();
@@ -74,11 +72,16 @@ public class GUIResultados extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biblioteca/gui/resources/logo.png"))); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 24));
         jLabel4.setText("Resultados de Busqueda");
 
         jScrollPane2.setViewportView(Resultados);
@@ -130,10 +133,11 @@ public class GUIResultados extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ConsultarActionPerformed
 
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {
-        
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        parent.setVisible(true);
         this.dispose();
-    }
+    }//GEN-LAST:event_formWindowClosing
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Consultar;
     private javax.swing.JTable Resultados;
