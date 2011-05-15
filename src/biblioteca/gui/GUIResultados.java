@@ -23,10 +23,11 @@ import javax.swing.table.DefaultTableModel;
 public class GUIResultados extends javax.swing.JFrame {
     /** Creates new form GUIResultados */
     biblioteca.gui.GUIBusqueda parent;
+    ArrayList<String> resultados;
     public GUIResultados(ArrayList<String> resultados, biblioteca.gui.GUIBusqueda parent) {
             this.parent=parent;       
             initComponents();
-            System.out.println(resultados.size());
+            this.resultados=resultados;
             DefaultTableModel modelo =new DefaultTableModel();
             modelo.addColumn("Titulo");
             modelo.addColumn("Autores");
@@ -142,7 +143,7 @@ public class GUIResultados extends javax.swing.JFrame {
         }
         else{
             this.setVisible(false);
-            new biblioteca.gui.GUIInformacionDocumento(this, (String) Resultados.getValueAt(numeroSelecc, 0)).setVisible(true);
+            new biblioteca.gui.GUIInformacionDocumento(this, resultados.get(numeroSelecc*2)).setVisible(true);
         }
     }//GEN-LAST:event_ConsultarActionPerformed
 
