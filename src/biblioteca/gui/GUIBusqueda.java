@@ -10,9 +10,11 @@
  */
 package biblioteca.gui;
 
+import biblioteca.database2.controladores.ControladorDocumento;
 import biblioteca.gui.busquedas.*;
 import javax.swing.JOptionPane;
 import biblioteca.database2.controladores.ControladorUsuario;
+import java.util.ArrayList;
 /**
  *
  * @author alejandro
@@ -42,6 +44,12 @@ public class GUIBusqueda extends javax.swing.JFrame {
         java.awt.GridBagConstraints gridBagConstraints;
 
         Cambiar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        Texto_Busqueda = new javax.swing.JTextField();
+        Buscar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         Archivo = new javax.swing.JMenu();
         Agregar_Documento = new javax.swing.JMenuItem();
@@ -58,13 +66,24 @@ public class GUIBusqueda extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Biblioteca Digital");
         setMinimumSize(new java.awt.Dimension(600, 300));
-        getContentPane().setLayout(new java.awt.GridBagLayout());
 
         Cambiar.setText("Busqueda Avanzada");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        getContentPane().add(Cambiar, gridBagConstraints);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biblioteca/gui/resources/logo.png"))); // NOI18N
+
+        jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel4.setText("Busqueda Normal");
+
+        Buscar.setText("Buscar");
+        Buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Introduzca cualquier metadato que conozca del documento que desea");
+
+        jLabel2.setText("buscar, como una parte del nombre, el autor, etc.");
 
         Archivo.setMnemonic('a');
         Archivo.setText("Archivo");
@@ -167,6 +186,51 @@ public class GUIBusqueda extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(136, 136, 136)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(48, 48, 48)
+                                .addComponent(jLabel2))
+                            .addComponent(jLabel1)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel4)
+                        .addComponent(jLabel3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Texto_Busqueda, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(220, 220, 220)
+                        .addComponent(Buscar))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(377, Short.MAX_VALUE)
+                        .addComponent(Cambiar)))
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel3)
+                .addGap(1, 1, 1)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Texto_Busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Buscar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(Cambiar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -240,6 +304,18 @@ public class GUIBusqueda extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Cerrar_SesionMouseClicked
 
+    private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
+        if(Texto_Busqueda.getText().equals("")|| Texto_Busqueda.getText() ==null){
+            JOptionPane.showMessageDialog(this, "El texto de busqueda no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
+        } else{
+            ArrayList<String> resultados = new ControladorDocumento().consultaDocumentoGeneral(Texto_Busqueda.getText());
+            if(!resultados.isEmpty())
+                new GUIResultados(resultados).setVisible(true);
+            else
+                JOptionPane.showMessageDialog(this, "La busqueda no ha retornado resultados", "Erorr", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_BuscarActionPerformed
+
     public void habilitarBotones(boolean b){
         Iniciar_Sesion.setEnabled(b);
         Cerrar_Sesion.setEnabled(!b);
@@ -253,6 +329,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
     private javax.swing.JMenuItem Agregar_Documento;
     private javax.swing.JMenu Archivo;
     private javax.swing.JMenu Autenticarse;
+    private javax.swing.JButton Buscar;
     private javax.swing.JButton Cambiar;
     private javax.swing.JMenu Cerrar_Sesion;
     private javax.swing.JMenuItem Estadisticas;
@@ -262,6 +339,11 @@ public class GUIBusqueda extends javax.swing.JFrame {
     private javax.swing.JMenuItem Modificar_Documento;
     private javax.swing.JMenuItem Registrarse;
     private javax.swing.JMenuItem Salir;
+    private javax.swing.JTextField Texto_Busqueda;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }
