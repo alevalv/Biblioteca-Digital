@@ -31,13 +31,13 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
         initComponents();
       
         if(!tipo){
-        jTextField1.setEditable(false);
-        jTextField1.setText(Username);
-        jLabel12.setText("");
-        ConsultarDatosUsuario(jTextField1.getText());
+        NombreUsuarioTextField1.setEditable(false);
+        NombreUsuarioTextField1.setText(Username);
+        ConsultarLabel.setText("");
+        ConsultarDatosUsuario(NombreUsuarioTextField1.getText());
         }
         else{
-            jTextField1.setEditable(true);
+            NombreUsuarioTextField1.setEditable(true);
         }
     }
 
@@ -51,49 +51,46 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel17 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        HeadPanel = new javax.swing.JPanel();
+        UniValleLabel = new javax.swing.JLabel();
+        BodyPanel = new javax.swing.JPanel();
+        TittleLabel = new javax.swing.JLabel();
+        EscolaridadLabel = new javax.swing.JLabel();
+        GeneroLabel = new javax.swing.JLabel();
+        VinculoLabel = new javax.swing.JLabel();
+        CorreoTextField = new javax.swing.JTextField();
+        CorreoLabel = new javax.swing.JLabel();
+        PreguntaSecretaLabel = new javax.swing.JLabel();
+        ContrasenaPasswordField = new javax.swing.JPasswordField();
+        ContrasenaLabel = new javax.swing.JLabel();
+        ApellidosLabel = new javax.swing.JLabel();
+        ApellidosTextField = new javax.swing.JTextField();
+        NombresTextField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox();
-        jComboBox7 = new javax.swing.JComboBox();
-        jComboBox8 = new javax.swing.JComboBox();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jPasswordField2 = new javax.swing.JPasswordField();
-        jLabel11 = new javax.swing.JLabel();
-        jComboBox6 = new javax.swing.JComboBox();
-        jComboBox9 = new javax.swing.JComboBox();
-        jComboBox10 = new javax.swing.JComboBox();
-        jButton5 = new javax.swing.JButton();
-        jComboBox11 = new javax.swing.JComboBox();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        NombreUsuarioTextField1 = new javax.swing.JTextField();
+        RespuestaSecretaLabel = new javax.swing.JLabel();
+        PreguntaSecretaTextField = new javax.swing.JTextField();
+        RespuestaSecretaTextField = new javax.swing.JTextField();
+        VerificarContrasenaLabel = new javax.swing.JLabel();
+        GeneroComboBox = new javax.swing.JComboBox();
+        EscolaridadComboBox = new javax.swing.JComboBox();
+        VinculoComboBox = new javax.swing.JComboBox();
+        ModificarAreasButton = new javax.swing.JButton();
+        ModificarButton = new javax.swing.JButton();
+        VerificarContrasenaPasswordField = new javax.swing.JPasswordField();
+        FechaNacimientoLabel = new javax.swing.JLabel();
+        DayComboBox = new javax.swing.JComboBox();
+        MonthComboBox = new javax.swing.JComboBox();
+        YearComboBox = new javax.swing.JComboBox();
+        CancelarButton = new javax.swing.JButton();
+        PerfilComboBox = new javax.swing.JComboBox();
+        PerfilLabel = new javax.swing.JLabel();
+        ConsultarLabel = new javax.swing.JLabel();
+        EstadoLabel = new javax.swing.JLabel();
+        EstadoCuentaComboBox = new javax.swing.JComboBox();
 
-        jLabel17.setText("Comprobar Disponibilidad");
-        jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel17MouseClicked(evt);
-            }
-        });
+        
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Modificar Información");
@@ -103,57 +100,53 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biblioteca/gui/resources/logo.png"))); // NOI18N
+        UniValleLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biblioteca/gui/resources/logo.png"))); // NOI18N
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addContainerGap(335, Short.MAX_VALUE))
+        javax.swing.GroupLayout HeadPanelLayout = new javax.swing.GroupLayout(HeadPanel);
+        HeadPanel.setLayout(HeadPanelLayout);
+        HeadPanelLayout.setHorizontalGroup(
+            HeadPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HeadPanelLayout.createSequentialGroup()
+                .addComponent(UniValleLabel)
+                .addContainerGap(291, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1)
+        HeadPanelLayout.setVerticalGroup(
+            HeadPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HeadPanelLayout.createSequentialGroup()
+                .addComponent(UniValleLabel)
                 .addContainerGap(55, Short.MAX_VALUE))
         );
 
-        jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 24));
-        jLabel4.setText("Modificar Información");
+        TittleLabel.setFont(new java.awt.Font("Ubuntu", 1, 24));
+        TittleLabel.setText("Modificar Información");
 
-        jLabel10.setFont(new java.awt.Font("Arial", 0, 12));
-        jLabel10.setText("Nivel Escolaridad:");
+        EscolaridadLabel.setFont(new java.awt.Font("Arial", 0, 12));
+        EscolaridadLabel.setText("Nivel Escolaridad:");
 
-        jLabel9.setFont(new java.awt.Font("Arial", 0, 12));
-        jLabel9.setText("Genero:");
+        GeneroLabel.setFont(new java.awt.Font("Arial", 0, 12));
+        GeneroLabel.setText("Genero:");
 
-        jLabel7.setFont(new java.awt.Font("Arial", 0, 12));
-        jLabel7.setText("Vinculo con Univalle:");
+        VinculoLabel.setFont(new java.awt.Font("Arial", 0, 12));
+        VinculoLabel.setText("Vinculo con Univalle:");
 
-        jTextField4.setFont(new java.awt.Font("Arial", 0, 11));
+        CorreoTextField.setFont(new java.awt.Font("Arial", 0, 11));
 
-        jLabel8.setFont(new java.awt.Font("Arial", 0, 12));
-        jLabel8.setText("Correo Electronico: ");
+        CorreoLabel.setFont(new java.awt.Font("Arial", 0, 12));
+        CorreoLabel.setText("Correo Electronico: ");
 
-        jLabel6.setFont(new java.awt.Font("Arial", 0, 12));
-        jLabel6.setText("Pregunta Secreta:");
-        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel6MouseClicked(evt);
-            }
-        });
+        PreguntaSecretaLabel.setFont(new java.awt.Font("Arial", 0, 12));
+        PreguntaSecretaLabel.setText("Pregunta Secreta:");
+        
 
-        jLabel5.setFont(new java.awt.Font("Arial", 0, 12));
-        jLabel5.setText("Contraseña:");
+        ContrasenaLabel.setFont(new java.awt.Font("Arial", 0, 12));
+        ContrasenaLabel.setText("Contraseña:");
 
-        jLabel14.setFont(new java.awt.Font("Arial", 0, 12));
-        jLabel14.setText("Apellidos:");
+        ApellidosLabel.setFont(new java.awt.Font("Arial", 0, 12));
+        ApellidosLabel.setText("Apellidos:");
 
-        jTextField3.setFont(new java.awt.Font("Arial", 0, 11));
+        ApellidosTextField.setFont(new java.awt.Font("Arial", 0, 11));
 
-        jTextField2.setFont(new java.awt.Font("Arial", 0, 11));
+        NombresTextField.setFont(new java.awt.Font("Arial", 0, 11));
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel3.setText("Nombres:");
@@ -161,197 +154,220 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel2.setText("Nombre de Usuario: ");
 
-        jTextField1.setFont(new java.awt.Font("Arial", 0, 11));
+        NombreUsuarioTextField1.setFont(new java.awt.Font("Arial", 0, 11));
 
-        jLabel15.setFont(new java.awt.Font("Arial", 0, 12));
-        jLabel15.setText("Respuesta Secreta: ");
+        RespuestaSecretaLabel.setFont(new java.awt.Font("Arial", 0, 12));
+        RespuestaSecretaLabel.setText("Respuesta Secreta: ");
 
-        jTextField6.setFont(new java.awt.Font("Arial", 0, 11));
+        PreguntaSecretaTextField.setFont(new java.awt.Font("Arial", 0, 11));
 
-        jLabel16.setFont(new java.awt.Font("Arial", 0, 12));
-        jLabel16.setText("Verificar Contraseña:");
+        VerificarContrasenaLabel.setFont(new java.awt.Font("Arial", 0, 12));
+        VerificarContrasenaLabel.setText("Verificar Contraseña:");
 
-        jComboBox5.setMaximumRowCount(2);
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "M", "F" }));
+        GeneroComboBox.setMaximumRowCount(2);
+        GeneroComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "M", "F" }));
 
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ninguno", "Primaria", "Bachiller", "Universidad", "Maestria", "Doctorado" }));
+        EscolaridadComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ninguno", "Primaria", "Bachiller", "Universidad", "Maestria", "Doctorado" }));
 
-        jComboBox8.setMaximumRowCount(6);
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ninguno", "Pregrado", "Posgrado", "Egresado", "Profesor", "Jubilado" }));
+        VinculoComboBox.setMaximumRowCount(6);
+        VinculoComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ninguno", "Pregrado", "Posgrado", "Egresado", "Profesor", "Jubilado" }));
 
-        jButton3.setText("Modificar Areas");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        ModificarAreasButton.setText("Modificar Areas");
+        ModificarAreasButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                ModificarAreasButtonActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Modificar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        ModificarButton.setText("Modificar");
+        ModificarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                ModificarButtonActionPerformed(evt);
             }
         });
 
-        jLabel11.setFont(new java.awt.Font("Arial", 0, 12));
-        jLabel11.setText("Fecha de Nacimiento:");
+        FechaNacimientoLabel.setFont(new java.awt.Font("Arial", 0, 12));
+        FechaNacimientoLabel.setText("Fecha de Nacimiento:");
 
-        jComboBox6.setMaximumRowCount(31);
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        DayComboBox.setMaximumRowCount(31);
+        DayComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
-        jComboBox9.setMaximumRowCount(12);
-        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        MonthComboBox.setMaximumRowCount(12);
+        MonthComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
 
-        jComboBox10.setMaximumRowCount(60);
-        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970", "1969", "1968", "1967", "1966", "1965", "1964", "1963", "1962", "1961", "1960", "1959", "1958", "1957", "1956", "1955", "1954", "1953", "1952", "1951", "1950", "1949", "1948", "1947", "1946", "1945", "1944", "1943", "1942", "1941", "1940" }));
+        YearComboBox.setMaximumRowCount(60);
+        YearComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970", "1969", "1968", "1967", "1966", "1965", "1964", "1963", "1962", "1961", "1960", "1959", "1958", "1957", "1956", "1955", "1954", "1953", "1952", "1951", "1950", "1949", "1948", "1947", "1946", "1945", "1944", "1943", "1942", "1941", "1940" }));
 
-        jButton5.setText("Cancelar");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        CancelarButton.setText("Cancelar");
+        CancelarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                CancelarButtonActionPerformed(evt);
             }
         });
 
-        jComboBox11.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jComboBox11.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Usuario Registrado", "Usuario Catalogador" }));
-        jComboBox11.setEnabled(false);
+        PerfilComboBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        PerfilComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Usuario Registrado", "Usuario Catalogador" }));
+        PerfilComboBox.setEnabled(false);
 
-        jLabel18.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel18.setText("Perfil Usuario");
+        PerfilLabel.setFont(new java.awt.Font("Arial", 0, 12));
+        PerfilLabel.setText("Perfil Usuario");
 
-        jLabel12.setText("Consultar");
-        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+        ConsultarLabel.setText("Consultar");
+        ConsultarLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel12MouseClicked(evt);
+                ConsultarLabelMouseClicked(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        EstadoLabel.setFont(new java.awt.Font("Arial", 0, 12));
+        EstadoLabel.setText("Estado de Cuenta");
+
+        EstadoCuentaComboBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        EstadoCuentaComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Activo", "Inactivo" }));
+        EstadoCuentaComboBox.setEnabled(false);
+        EstadoCuentaComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EstadoCuentaComboBoxActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout BodyPanelLayout = new javax.swing.GroupLayout(BodyPanel);
+        BodyPanel.setLayout(BodyPanelLayout);
+        BodyPanelLayout.setHorizontalGroup(
+            BodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BodyPanelLayout.createSequentialGroup()
                 .addGap(175, 175, 175)
-                .addComponent(jLabel4)
-                .addContainerGap(242, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(TittleLabel)
+                .addContainerGap(198, Short.MAX_VALUE))
+            .addGroup(BodyPanelLayout.createSequentialGroup()
                 .addGap(95, 95, 95)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel18)
+                .addGroup(BodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BodyPanelLayout.createSequentialGroup()
+                        .addComponent(EstadoLabel)
                         .addContainerGap())
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel15)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel16)
-                                    .addComponent(jLabel5)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel3)
-                                        .addComponent(jLabel14))
-                                    .addComponent(jLabel2))
-                                .addGap(8, 8, 8)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
-                                    .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
-                                    .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
-                                    .addComponent(jPasswordField2, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
-                                    .addComponent(jComboBox8, javax.swing.GroupLayout.Alignment.TRAILING, 0, 247, Short.MAX_VALUE)
-                                    .addComponent(jComboBox7, javax.swing.GroupLayout.Alignment.TRAILING, 0, 247, Short.MAX_VALUE)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jComboBox9, 0, 99, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jComboBox5, javax.swing.GroupLayout.Alignment.TRAILING, 0, 247, Short.MAX_VALUE)
-                                    .addComponent(jComboBox11, 0, 247, Short.MAX_VALUE)))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel12)
-                        .addGap(150, 150, 150))))
+                    .addGroup(BodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(BodyPanelLayout.createSequentialGroup()
+                            .addComponent(PerfilLabel)
+                            .addContainerGap())
+                        .addGroup(BodyPanelLayout.createSequentialGroup()
+                            .addGroup(BodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(BodyPanelLayout.createSequentialGroup()
+                                    .addGroup(BodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(RespuestaSecretaLabel)
+                                        .addComponent(PreguntaSecretaLabel)
+                                        .addComponent(CorreoLabel)
+                                        .addComponent(FechaNacimientoLabel)
+                                        .addComponent(VinculoLabel)
+                                        .addComponent(EscolaridadLabel)
+                                        .addComponent(GeneroLabel)
+                                        .addComponent(VerificarContrasenaLabel)
+                                        .addComponent(ContrasenaLabel)
+                                        .addComponent(jLabel2)
+                                        .addGroup(BodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, BodyPanelLayout.createSequentialGroup()
+                                                .addGap(1, 1, 1)
+                                                .addComponent(ApellidosLabel))))
+                                    .addGap(8, 8, 8)
+                                    .addGroup(BodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(NombreUsuarioTextField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                                        .addComponent(PreguntaSecretaTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                                        .addComponent(NombresTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                                        .addComponent(ApellidosTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                                        .addComponent(ContrasenaPasswordField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                                        .addComponent(RespuestaSecretaTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                                        .addComponent(CorreoTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                                        .addComponent(VerificarContrasenaPasswordField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                                        .addComponent(VinculoComboBox, 0, 197, Short.MAX_VALUE)
+                                        .addComponent(EscolaridadComboBox, 0, 197, Short.MAX_VALUE)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, BodyPanelLayout.createSequentialGroup()
+                                            .addComponent(DayComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(MonthComboBox, 0, 49, Short.MAX_VALUE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(YearComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(GeneroComboBox, 0, 197, Short.MAX_VALUE)
+                                        .addComponent(PerfilComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, 197, Short.MAX_VALUE)
+                                        .addComponent(EstadoCuentaComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, 197, Short.MAX_VALUE)))
+                                .addGroup(BodyPanelLayout.createSequentialGroup()
+                                    .addComponent(ModificarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(ModificarAreasButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(CancelarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(ConsultarLabel)
+                            .addGap(150, 150, 150)))))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel4)
+        BodyPanelLayout.setVerticalGroup(
+            BodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BodyPanelLayout.createSequentialGroup()
+                .addComponent(TittleLabel)
                 .addGap(37, 37, 37)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(BodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12))
+                    .addComponent(NombreUsuarioTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsultarLabel))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(BodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NombresTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(12, 12, 12)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(BodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ApellidosTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ApellidosLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(13, 13, 13)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                .addGroup(BodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ContrasenaPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ContrasenaLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16))
+                .addGroup(BodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(VerificarContrasenaPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(VerificarContrasenaLabel))
                 .addGap(9, 9, 9)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
+                .addGroup(BodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PreguntaSecretaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PreguntaSecretaLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(BodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RespuestaSecretaLabel)
+                    .addComponent(RespuestaSecretaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
+                .addGroup(BodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CorreoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CorreoLabel))
                 .addGap(14, 14, 14)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(BodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(FechaNacimientoLabel)
+                    .addComponent(DayComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MonthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(YearComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
+                .addGroup(BodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(GeneroComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(GeneroLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel10)
-                    .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(BodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(EscolaridadLabel)
+                    .addComponent(EscolaridadComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(BodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(VinculoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(VinculoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel18)
-                    .addComponent(jComboBox11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton5)
-                    .addComponent(jButton4))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addGroup(BodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PerfilLabel)
+                    .addComponent(PerfilComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(BodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(EstadoLabel)
+                    .addComponent(EstadoCuentaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(BodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CancelarButton)
+                    .addComponent(ModificarAreasButton)
+                    .addComponent(ModificarButton))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -363,116 +379,143 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(BodyPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(HeadPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(HeadPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BodyPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+    
 
-}//GEN-LAST:event_jLabel6MouseClicked
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void ModificarAreasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarAreasButtonActionPerformed
         biblioteca.gui.GUIModificarAreas GMA = new biblioteca.gui.GUIModificarAreas(parent);
         GMA.setVisible(true);
         this.dispose();
-}//GEN-LAST:event_jButton3ActionPerformed
+}//GEN-LAST:event_ModificarAreasButtonActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void ModificarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarButtonActionPerformed
         if(!tipo){
             String username, nombre, apellido,
                 pregunta, respuesta, correo, genero, nivel, vinculo, ano, mes, dia, fecha_nacimiento="",
-                tipo_usuario="3";
-        char[] contrasena, vericontrasena;
+                contrasenaS, estado;
+                char[] contrasena;
 
-        username=jTextField1.getText();
-        nombre=jTextField2.getText();
-        apellido=jTextField3.getText();
-        contrasena=jPasswordField1.getPassword();
-        vericontrasena=jPasswordField2.getPassword();
-        pregunta=jTextField6.getText();
-        respuesta=jTextField7.getText();
-        correo=jTextField4.getText();
-        dia=(String)jComboBox6.getSelectedItem();
-        mes=(String)jComboBox9.getSelectedItem();
-        ano=(String)jComboBox10.getSelectedItem();
-        genero=(String)jComboBox5.getSelectedItem();
-        nivel=(String)jComboBox7.getSelectedItem();
-        vinculo=(String)jComboBox8.getSelectedItem();
-
+        username=NombreUsuarioTextField1.getText();
+        nombre=NombresTextField.getText();
+        apellido=ApellidosTextField.getText();
+        contrasena=ContrasenaPasswordField.getPassword();
+        pregunta=PreguntaSecretaTextField.getText();
+        respuesta=RespuestaSecretaTextField.getText();
+        correo=CorreoTextField.getText();
+        dia=(String)DayComboBox.getSelectedItem();
+        mes=(String)MonthComboBox.getSelectedItem();
+        ano=(String)YearComboBox.getSelectedItem();
+        genero=(String)GeneroComboBox.getSelectedItem();
+        nivel=(String)EscolaridadComboBox.getSelectedItem();
+        vinculo=(String)VinculoComboBox.getSelectedItem();
+        estado=getEstadoComboBox((String)EstadoCuentaComboBox.getSelectedItem());
         fecha_nacimiento=ano+"-"+mes+"-"+dia;
-        
-        String contrasenaS=new String(contrasena);
+        contrasenaS=new String(contrasena);
 
-        java.util.Date actual=new java.util.Date();
-        java.sql.Timestamp fechaderegistro=new java.sql.Timestamp(actual.getTime());
         ControladorUsuario controlador=new ControladorUsuario();
         int i;
         if(checkEmptyFields()){
-           i=controlador.modificarUsuario(username, nombre, apellido, genero, correo, contrasenaS, fecha_nacimiento, pregunta, respuesta, vinculo,tipo_usuario, nivel, fechaderegistro+"");
+           i=controlador.modificarUsuario(username, nombre, apellido, genero, correo, contrasenaS, fecha_nacimiento, pregunta, respuesta, vinculo, nivel, estado);
            if(i!=-1)
-               JOptionPane.showMessageDialog(null, "Datos Modificados con Exito", "Error", JOptionPane.INFORMATION_MESSAGE);
+               JOptionPane.showMessageDialog(null, "Datos Modificados con Exito", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
             }
         }
-        else{
-            int i=-1;
-            String username=jTextField1.getText();
-            String tipo_usuario=(String) jComboBox11.getSelectedItem();
-            if(tipo_usuario.equals("Usuario Registrado")){
-                i=new ControladorUsuario().cambiarTipoUsuario(username, "3");
-            }
-            else
-                i=new ControladorUsuario().cambiarTipoUsuario(username, "2");
 
-            if(i!=-1) JOptionPane.showMessageDialog(null, "Datos Modificados con Exito", "Error", JOptionPane.INFORMATION_MESSAGE);
+        else{
+            int i=-1, j=-1;
+            String username=NombreUsuarioTextField1.getText();
+            String estado=getEstadoComboBox((String)EstadoCuentaComboBox.getSelectedItem());
+            String tipo_usuario=getPerfilComboBox((String)PerfilComboBox.getSelectedItem());
+            System.err.println("estado "+estado);
+            System.err.println("tipo_usuario "+tipo_usuario);
+            i=new ControladorUsuario().cambiarTipoUsuario(username, tipo_usuario);
+            j=new ControladorUsuario().cambiarEstadoCuenta(username, estado);
+
+            if(i!=-1 && j!=-1)
+                JOptionPane.showMessageDialog(null, "Datos Modificados con Exito", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
         }
-}//GEN-LAST:event_jButton4ActionPerformed
+}//GEN-LAST:event_ModificarButtonActionPerformed
 
 
     private void ConsultarDatosUsuario(String username){
-        ControladorUsuario controlador=new ControladorUsuario();
-        Usuario usuario=controlador.consultarUsuario(username);
+
+        Usuario usuario= new ControladorUsuario().consultarUsuario(username);
         String fecha_nac=usuario.getFechaNacimiento();
-        jTextField1.setText(usuario.getLogin());
-        jTextField2.setText(usuario.getNombre());
-        jTextField3.setText(usuario.getApellido());
-        jPasswordField1.setText(usuario.getContraseña());
-        jPasswordField2.setText(usuario.getContraseña());
-        jTextField6.setText(usuario.getPreguntaSecreta());
-        jTextField7.setText(usuario.getRespuestaSecreta());
-        jTextField4.setText(usuario.getCorreoElectronico());
-        jComboBox6.setSelectedItem(fecha_nac.substring(8, 10));
-        jComboBox9.setSelectedItem(fecha_nac.substring(5, 7));
-        jComboBox10.setSelectedItem(fecha_nac.substring(0, 4));
-        jComboBox5.setSelectedItem(usuario.getGenero());
-        jComboBox7.setSelectedItem(usuario.getEscolaridad());
-        jComboBox8.setSelectedItem(usuario.getVinculoUnivalle());
+        NombreUsuarioTextField1.setText(usuario.getLogin());
+        NombresTextField.setText(usuario.getNombre());
+        ApellidosTextField.setText(usuario.getApellido());
+        ContrasenaPasswordField.setText(usuario.getContraseña());
+        VerificarContrasenaPasswordField.setText(usuario.getContraseña());
+        PreguntaSecretaTextField.setText(usuario.getPreguntaSecreta());
+        RespuestaSecretaTextField.setText(usuario.getRespuestaSecreta());
+        CorreoTextField.setText(usuario.getCorreoElectronico());
+        DayComboBox.setSelectedItem(fecha_nac.substring(8, 10));
+        MonthComboBox.setSelectedItem(fecha_nac.substring(5, 7));
+        YearComboBox.setSelectedItem(fecha_nac.substring(0, 4));
+        GeneroComboBox.setSelectedItem(usuario.getGenero());
+        EscolaridadComboBox.setSelectedItem(usuario.getEscolaridad());
+        VinculoComboBox.setSelectedItem(usuario.getVinculoUnivalle());
+        SetEstadoComboBox(usuario.getActivo());
+        SetPerfilComboBox(usuario.getPerfil());
+    }
+
+    private void SetEstadoComboBox(String estado){
+        System.err.print(estado);
+        if(estado.equals("t"))
+            EstadoCuentaComboBox.setSelectedIndex(0);
+        else
+            EstadoCuentaComboBox.setSelectedIndex(1);
 
     }
+
+    private void SetPerfilComboBox(String perfil){
+        if(perfil.equals("3"))
+            PerfilComboBox.setSelectedIndex(0);
+        else if(perfil.equals("2"))
+            PerfilComboBox.setSelectedIndex(1);
+
+    }
+    
+    private String getPerfilComboBox(String perfil){
+        if(perfil.equals("Usuario Catalogador"))
+            return "2";
+        return "1";
+    }
+
+    private String getEstadoComboBox(String estado){
+        if(estado.equals("Activo"))
+            return "t";
+        return "f";
+    }
+
      private boolean checkEmptyFields(){
-        String contrasena=new String(jPasswordField1.getPassword());
-        String vericontrasena=new String(jPasswordField2.getPassword());
-        if(jTextField1.getText()==null || jTextField1.getText().equals("")){
+        String contrasena=new String(ContrasenaPasswordField.getPassword());
+        String vericontrasena=new String(VerificarContrasenaPasswordField.getPassword());
+        if(NombreUsuarioTextField1.getText()==null || NombreUsuarioTextField1.getText().equals("")){
              JOptionPane.showMessageDialog(null, "Por favor ingrese un Username", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
-        else if(jTextField2.getText() == null || jTextField2.getText().equals("")){
+        else if(NombresTextField.getText() == null || NombresTextField.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Por favor ingrese sus Nombres", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
-        else if(jTextField3.getText() == null || jTextField3.getText().equals("")){
+        else if(ApellidosTextField.getText() == null || ApellidosTextField.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Por favor ingrese sus Apellidos", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
@@ -484,16 +527,16 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Por favor ingrese nuevamente su contraseña en el campo de Verificar Contraseña", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
-        else if(jTextField6.getText() == null || jTextField6.getText().equals("")){
+        else if(PreguntaSecretaTextField.getText() == null || PreguntaSecretaTextField.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Por favor ingrese una Pregunta Secreta", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
-        else if(jTextField7.getText() == null || jTextField7.getText().equals("")){
+        else if(RespuestaSecretaTextField.getText() == null || RespuestaSecretaTextField.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Por favor ingrese una Respuesta Secreta", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         else if(!contrasena.equals(vericontrasena)){
-            jPasswordField2.setText("");
+            VerificarContrasenaPasswordField.setText("");
             JOptionPane.showMessageDialog(null, "Por favor vuelva a verificar su contraseña", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
@@ -501,107 +544,109 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
         return true;
     }
 
-    private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
-       
-    }//GEN-LAST:event_jLabel17MouseClicked
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void CancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarButtonActionPerformed
         parent.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_CancelarButtonActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         parent.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_formWindowClosing
 
-    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
-        if(tipo){
-                if(jTextField1.getText()==null || jTextField1.getText().equals("")){
-             JOptionPane.showMessageDialog(null, "Por favor ingrese un Username", "Error", JOptionPane.ERROR_MESSAGE);
-
-        }
-     else{
+    private void ConsultarLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConsultarLabelMouseClicked
+      
            Usuario usuario=new Usuario();
-           usuario=new ControladorUsuario().consultarUsuario(jTextField1.getText());
+           usuario=new ControladorUsuario().consultarUsuario(NombreUsuarioTextField1.getText());
            if(usuario.getLogin().equals("")){
                JOptionPane.showMessageDialog(null, "Lo sentimos, el Nombre de Usuario no esta Disponible, por favor ingrese otro", "Error", JOptionPane.ERROR_MESSAGE);
                  }
 
             else{
                 String fecha_nac=usuario.getFechaNacimiento();
-                    jTextField1.setText(usuario.getLogin());
-                    jTextField2.setText(usuario.getNombre());
-                    jTextField3.setText(usuario.getApellido());
-                    jPasswordField1.setText(usuario.getContraseña());
-                    jPasswordField2.setText(usuario.getContraseña());
-                    jTextField6.setText(usuario.getPreguntaSecreta());
-                    jTextField7.setText(usuario.getRespuestaSecreta());
-                    jTextField4.setText(usuario.getCorreoElectronico());
-                    jComboBox6.setSelectedItem(fecha_nac.substring(8, 10));
-                    jComboBox9.setSelectedItem(fecha_nac.substring(5, 7));
-                    jComboBox10.setSelectedItem(fecha_nac.substring(0, 4));
-                    jComboBox5.setSelectedItem(usuario.getGenero());
-                    jComboBox7.setSelectedItem(usuario.getEscolaridad());
-                    jComboBox8.setSelectedItem(usuario.getVinculoUnivalle());
-                    jTextField1.setEnabled(false);
-                    jTextField2.setEnabled(false);
-                    jTextField3.setEnabled(false);
-                    jPasswordField1.setEnabled(false);
-                    jPasswordField2.setEnabled(false);
-                    jTextField6.setEnabled(false);
-                    jTextField7.setEnabled(false);
-                    jTextField4.setEnabled(false);
-                    jComboBox6.setEnabled(false);
-                    jComboBox9.setEnabled(false);
-                    jComboBox10.setEnabled(false);
-                    jComboBox5.setEnabled(false);
-                    jComboBox7.setEnabled(false);
-                    jComboBox8.setEnabled(false);
-                    jComboBox11.setEnabled(true);
-            }
-        }
-        }
-    }//GEN-LAST:event_jLabel12MouseClicked
+                    NombreUsuarioTextField1.setText(usuario.getLogin());
+                    NombresTextField.setText(usuario.getNombre());
+                    ApellidosTextField.setText(usuario.getApellido());
+                    ContrasenaPasswordField.setText(usuario.getContraseña());
+                    VerificarContrasenaPasswordField.setText(usuario.getContraseña());
+                    PreguntaSecretaTextField.setText(usuario.getPreguntaSecreta());
+                    RespuestaSecretaTextField.setText(usuario.getRespuestaSecreta());
+                    CorreoTextField.setText(usuario.getCorreoElectronico());
+                    DayComboBox.setSelectedItem(fecha_nac.substring(8, 10));
+                    MonthComboBox.setSelectedItem(fecha_nac.substring(5, 7));
+                    YearComboBox.setSelectedItem(fecha_nac.substring(0, 4));
+                    GeneroComboBox.setSelectedItem(usuario.getGenero());
+                    EscolaridadComboBox.setSelectedItem(usuario.getEscolaridad());
+                    VinculoComboBox.setSelectedItem(usuario.getVinculoUnivalle());
+                    SetEstadoComboBox(usuario.getActivo());
+                    SetPerfilComboBox(usuario.getPerfil());
+                    
+                    NombreUsuarioTextField1.setEnabled(false);
+                    NombresTextField.setEnabled(false);
+                    ApellidosTextField.setEnabled(false);
+                    ContrasenaPasswordField.setEnabled(false);
+                    VerificarContrasenaPasswordField.setEnabled(false);
+                    PreguntaSecretaTextField.setEnabled(false);
+                    RespuestaSecretaTextField.setEnabled(false);
+                    CorreoTextField.setEnabled(false);
+                    DayComboBox.setEnabled(false);
+                    MonthComboBox.setEnabled(false);
+                    YearComboBox.setEnabled(false);
+                    GeneroComboBox.setEnabled(false);
+                    EscolaridadComboBox.setEnabled(false);
+                    VinculoComboBox.setEnabled(false);
+                    PerfilComboBox.setEnabled(true);
+                    EstadoCuentaComboBox.setEnabled(true);
+                        }
+        
+    }//GEN-LAST:event_ConsultarLabelMouseClicked
 
+    private void EstadoCuentaComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstadoCuentaComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EstadoCuentaComboBoxActionPerformed
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox jComboBox10;
-    private javax.swing.JComboBox jComboBox11;
-    private javax.swing.JComboBox jComboBox5;
-    private javax.swing.JComboBox jComboBox6;
-    private javax.swing.JComboBox jComboBox7;
-    private javax.swing.JComboBox jComboBox8;
-    private javax.swing.JComboBox jComboBox9;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel ApellidosLabel;
+    private javax.swing.JTextField ApellidosTextField;
+    private javax.swing.JPanel BodyPanel;
+    private javax.swing.JButton CancelarButton;
+    private javax.swing.JLabel ConsultarLabel;
+    private javax.swing.JLabel ContrasenaLabel;
+    private javax.swing.JPasswordField ContrasenaPasswordField;
+    private javax.swing.JLabel CorreoLabel;
+    private javax.swing.JTextField CorreoTextField;
+    private javax.swing.JComboBox DayComboBox;
+    private javax.swing.JComboBox EscolaridadComboBox;
+    private javax.swing.JLabel EscolaridadLabel;
+    private javax.swing.JComboBox EstadoCuentaComboBox;
+    private javax.swing.JLabel EstadoLabel;
+    private javax.swing.JLabel FechaNacimientoLabel;
+    private javax.swing.JComboBox GeneroComboBox;
+    private javax.swing.JLabel GeneroLabel;
+    private javax.swing.JPanel HeadPanel;
+    private javax.swing.JButton ModificarAreasButton;
+    private javax.swing.JButton ModificarButton;
+    private javax.swing.JComboBox MonthComboBox;
+    private javax.swing.JTextField NombreUsuarioTextField1;
+    private javax.swing.JTextField NombresTextField;
+    private javax.swing.JComboBox PerfilComboBox;
+    private javax.swing.JLabel PerfilLabel;
+    private javax.swing.JLabel PreguntaSecretaLabel;
+    private javax.swing.JTextField PreguntaSecretaTextField;
+    private javax.swing.JLabel RespuestaSecretaLabel;
+    private javax.swing.JTextField RespuestaSecretaTextField;
+    private javax.swing.JLabel TittleLabel;
+    private javax.swing.JLabel UniValleLabel;
+    private javax.swing.JLabel VerificarContrasenaLabel;
+    private javax.swing.JPasswordField VerificarContrasenaPasswordField;
+    private javax.swing.JComboBox VinculoComboBox;
+    private javax.swing.JLabel VinculoLabel;
+    private javax.swing.JComboBox YearComboBox;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
 
 }

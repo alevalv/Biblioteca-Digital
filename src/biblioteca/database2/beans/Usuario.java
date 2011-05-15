@@ -141,5 +141,12 @@ public class Usuario {
      public String getCorreoElectronico(){
          return correo_electronico;
      }
+
+    @Override
+     public String toString(){
+         String result="";
+         result+=getLogin()+"-"+getNombre()+"-"+getPerfil();
+         return result;
+     }
 }
 

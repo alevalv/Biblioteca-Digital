@@ -35,7 +35,7 @@ public class ControladorUsuario {
         return daoUsuario.guardarUsuario(usuario);
     }
 
-    public int modificarUsuario(String Username, String Nombre, String Apellido,String genero, String Email, String Password, String Fecha_Nacimiento, String Pregunta_secreta, String Respuesta_secreta, String Vinculo_univalle, String Tipo_usuario, String Nivel_escolaridad,String fechaRegistro)
+    public int modificarUsuario(String Username, String Nombre, String Apellido,String genero, String Email, String Password, String Fecha_Nacimiento, String Pregunta_secreta, String Respuesta_secreta, String Vinculo_univalle, String Nivel_escolaridad, String estado)
     {
         Usuario usuario= new Usuario();
         DaoUsuario daoUsuario= new DaoUsuario();
@@ -49,13 +49,10 @@ public class ControladorUsuario {
         usuario.setPreguntaSecreta(Pregunta_secreta);
         usuario.setRespuestaSecreta(Respuesta_secreta);
         usuario.setVinculoUnivalle(Vinculo_univalle);
-        usuario.setPerfil(Tipo_usuario);
         usuario.setEscolaridad(Nivel_escolaridad);
         usuario.setGenero(genero);
-        usuario.setFechaRegistro(fechaRegistro);
-
-        usuario.setFechaRegistro(fechaRegistro);
         usuario.setGenero(genero);
+        usuario.setActivo(estado);
 
         return daoUsuario.modificarUsuario(usuario);
     }
@@ -87,6 +84,12 @@ public class ControladorUsuario {
         return new DaoUsuario().cambiarTipoUsuario(username, tipo);
 
     }
+
+     public int cambiarEstadoCuenta(String username, String estado){
+        return new DaoUsuario().cambiarEstadoCuenta(username, estado);
+
+    }
+
     public boolean autenticarUsuario(String Username, String Password)
     {
          boolean respuesta;
@@ -109,15 +112,5 @@ public class ControladorUsuario {
         daoUsuario.desactivarUsuario(username);
     }
 
-    public void agregarAreasCompuacion(String Username, String Nombre)
-    {
-        DaoUsuario daoUsuario= new DaoUsuario();
-        daoUsuario.agregarAreasComputacion(Username, Nombre);
-    }
 
-    public void eliminarAreasCompuacion(String username, String nombre)
-    {
-        DaoUsuario daoUsuario= new DaoUsuario();
-        daoUsuario.eliminarAreasComputacion(username, nombre);
-    }
 }

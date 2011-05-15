@@ -53,7 +53,7 @@ public class DaoUsuario {
         
         String sql_consultar;
         sql_consultar="SELECT username, nombres,  apellidos, password, pregunta_secreta, respuesta_secreta, vinculo_con_univalle, tipo_usuario, correo_electronico, nivel_escolaridad, genero, "
-                + "fecha_nacimiento, fecha_registro FROM usuarios WHERE username= '" +login+ "';";
+                + "fecha_nacimiento, fecha_registro, activo FROM usuarios WHERE username= '" +login+ "';";
          try{
             Connection conn= fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -70,11 +70,9 @@ public class DaoUsuario {
              usuario.setCorreoElectronico(tabla.getString(9));
              usuario.setEscolaridad(tabla.getString(10));
              usuario.setGenero( tabla.getString(11));
-               usuario.setFechaNacimiento(tabla.getString(12));
-               
-               usuario.setFechaRegistro(tabla.getString(13));
-               //usuario.setActivo(tabla.getString(13));
-               
+             usuario.setFechaNacimiento(tabla.getString(12));
+             usuario.setFechaRegistro(tabla.getString(13));
+             usuario.setActivo(tabla.getString(14));
             }
             conn.close();
 
@@ -98,8 +96,8 @@ public class DaoUsuario {
                 "', fecha_nacimiento = '"+usuario.getFechaNacimiento()+
                 "', nivel_escolaridad= '"+usuario.getEscolaridad()+
                 "', vinculo_con_univalle= '"+usuario.getVinculoUnivalle()+
-                "', tipo_usuario= '"+usuario.getPerfil()+
                 "', correo_electronico= '"+usuario.getCorreoElectronico()+
+                "', activo="+ usuario.getActivo()+
                 "' WHERE username= '"+usuario.getLogin()+"';";
 
         try{
@@ -278,5 +276,23 @@ public class DaoUsuario {
 
         return -1;
     }
+    
+    public int cambiarEstadoCuenta(String username, String estado) {
+        String sql_asignar;
+        sql_asignar="UPDATE usuarios SET activo='"+estado+"'  WHERE username= '"+username+"';";
+
+        try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            int numFilas = sentencia.executeUpdate(sql_asignar);
+            conn.close();
+            return numFilas;
+        }
+        catch(SQLException e){ System.out.println(e); }
+
+        return -1;
+    }
+
+
 
 }
