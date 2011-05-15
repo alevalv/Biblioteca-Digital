@@ -154,7 +154,7 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="Cambiar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cambiar busqueda"/>
+        <Property name="text" type="java.lang.String" value="Busqueda Avanzada"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">

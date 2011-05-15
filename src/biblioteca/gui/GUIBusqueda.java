@@ -58,7 +58,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(600, 300));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        Cambiar.setText("Cambiar busqueda");
+        Cambiar.setText("Busqueda Avanzada");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;

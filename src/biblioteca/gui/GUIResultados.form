@@ -106,16 +106,6 @@
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
         <Component class="javax.swing.JTable" name="Resultados">
-          <Properties>
-            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="4" rowCount="0">
-                <Column editable="false" title="ID Documento" type="java.lang.String"/>
-                <Column editable="false" title="T&#xed;tulo Principal" type="java.lang.String"/>
-                <Column editable="false" title="T&#xed;tulo Secundario" type="java.lang.String"/>
-                <Column editable="false" title="Autores" type="java.lang.String"/>
-              </Table>
-            </Property>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>

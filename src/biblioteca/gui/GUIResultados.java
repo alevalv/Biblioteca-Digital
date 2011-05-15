@@ -12,6 +12,7 @@ package biblioteca.gui;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -27,12 +28,21 @@ public class GUIResultados extends javax.swing.JFrame {
         }
         else{
             initComponents();
-            for(int i=0;i<(int) resultados.size()/3;i++){
-                for(int j=0;j<3;j++){
-                    Resultados.setValueAt(resultados.get(i*3+j), i, j);
-                }
-            }
+            System.out.println(resultados.size());
+            DefaultTableModel modelo =new DefaultTableModel();
+            modelo.addColumn("Id Documento");
+            modelo.addColumn("Titulo Principal");
+            modelo.addColumn("Titulo Secundario");
             
+            for(int i=0;i<(int) resultados.size()/3;i++){
+                String[] row = new String[3];
+                for(int j=0;j<3;j++){
+                    row[j] =resultados.get(i*3+j);
+                    
+                }
+                modelo.addRow(row);
+            }
+            Resultados.setModel(modelo);
         }
         
     }
@@ -74,29 +84,6 @@ public class GUIResultados extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
         jLabel4.setText("Resultados de Busqueda");
 
-        Resultados.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID Documento", "Título Principal", "Título Secundario", "Autores"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
         jScrollPane2.setViewportView(Resultados);
 
         Consultar.setText("Consultar Documento Seleccionado");
