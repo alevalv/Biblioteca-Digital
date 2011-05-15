@@ -104,7 +104,10 @@ public class BusquedaNormal extends javax.swing.JPanel {
         }
         else{
             ArrayList<String> resultados = new ControladorDocumento().consultaDocumentoGeneral(Texto_Busqueda.getText());
-            new GUIResultados(resultados).setVisible(true);  
+            if(!resultados.isEmpty())
+            new GUIResultados(resultados).setVisible(true);
+            else
+                JOptionPane.showMessageDialog(this, "La busqueda no ha retornado resultados", "Erorr", JOptionPane.ERROR_MESSAGE);
         }
         
     }//GEN-LAST:event_BuscarActionPerformed

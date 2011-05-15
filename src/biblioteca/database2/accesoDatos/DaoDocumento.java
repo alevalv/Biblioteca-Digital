@@ -457,8 +457,8 @@ public class DaoDocumento {
     }
     
     public ArrayList<String> consultarDocumento(ArrayList<String> metadatos) {
-        String sql_consultar = "(SELECT documentos.doc_id, titulo_principal,"
-                + " titulo_secundario FROM ((((areas_computacion NATURAL JOIN "
+        String sql_consultar = "(SELECT titulo_principal, autor.nombre, autor.apellido"
+                + " FROM ((((areas_computacion NATURAL JOIN "
                 + "documento_areas_computacion) JOIN documentos ON "
                 + "documento_areas_computacion.doc_id=documentos.doc_id) "
                 + "JOIN documento_autor ON documentos.doc_id=documento_autor.doc_id "
@@ -475,8 +475,8 @@ public class DaoDocumento {
         for (int i = 1; i < metadatos.size(); i++) {
             sql_consultar = "(" + sql_consultar + " UNION ";
             String temporal;
-            temporal = "(SELECT documentos.doc_id, titulo_principal,"
-                + " titulo_secundario FROM ((((areas_computacion NATURAL JOIN "
+            temporal = "(SELECT  titulo_principal, autor.nombre, autor.apellido "
+                + "FROM ((((areas_computacion NATURAL JOIN "
                 + "documento_areas_computacion) JOIN documentos ON "
                 + "documento_areas_computacion.doc_id=documentos.doc_id) "
                 + "JOIN documento_autor ON documentos.doc_id=documento_autor.doc_id "

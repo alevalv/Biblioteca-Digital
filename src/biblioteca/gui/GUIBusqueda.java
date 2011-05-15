@@ -25,6 +25,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
         initComponents();
         normal = new BusquedaNormal();
         avanzada = new BusquedaAvanzada();
+
         this.getContentPane().add(normal);
         this.setSize(normal.getPreferredSize());
         this.setLocationRelativeTo(null);

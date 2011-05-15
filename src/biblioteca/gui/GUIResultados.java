@@ -11,6 +11,7 @@
 package biblioteca.gui;
 
 import java.util.ArrayList;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -19,20 +20,16 @@ import javax.swing.table.DefaultTableModel;
  * @author Alejandro
  */
 public class GUIResultados extends javax.swing.JFrame {
-
     /** Creates new form GUIResultados */
     public GUIResultados(ArrayList<String> resultados) {
-        if(resultados.isEmpty()){
-            JOptionPane.showMessageDialog(this, "La busqueda no ha retornado resultados", "Erorr", JOptionPane.ERROR_MESSAGE);
-            this.dispose();
-        }
-        else{
+        
+       
             initComponents();
             System.out.println(resultados.size());
             DefaultTableModel modelo =new DefaultTableModel();
-            modelo.addColumn("Id Documento");
-            modelo.addColumn("Titulo Principal");
-            modelo.addColumn("Titulo Secundario");
+            modelo.addColumn("Titulo");
+            modelo.addColumn("Nombre Autor");
+            modelo.addColumn("Apellido Autor");
             
             for(int i=0;i<(int) resultados.size()/3;i++){
                 String[] row = new String[3];
@@ -43,7 +40,7 @@ public class GUIResultados extends javax.swing.JFrame {
                 modelo.addRow(row);
             }
             Resultados.setModel(modelo);
-        }
+        
         
     }
 
@@ -133,6 +130,10 @@ public class GUIResultados extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ConsultarActionPerformed
 
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {
+        
+        this.dispose();
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Consultar;
     private javax.swing.JTable Resultados;
