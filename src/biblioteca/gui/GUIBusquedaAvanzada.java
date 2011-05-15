@@ -67,7 +67,7 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biblioteca/gui/resources/logo.png"))); // NOI18N
 
-        titlelabel.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        titlelabel.setFont(new java.awt.Font("Arial", 1, 24));
         titlelabel.setText("Busqueda Avanzada");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -79,7 +79,7 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(189, 189, 189)
                 .addComponent(titlelabel)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,28 +94,28 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel2.setText("Titulo:");
 
-        jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel4.setText("Autor:");
 
-        jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel5.setText("Palabra Clave:");
 
-        jTextField1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTextField1.setFont(new java.awt.Font("Arial", 0, 12));
 
-        jTextField2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTextField2.setFont(new java.awt.Font("Arial", 0, 12));
 
-        jTextField3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTextField3.setFont(new java.awt.Font("Arial", 0, 12));
 
-        jComboBox1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jComboBox1.setFont(new java.awt.Font("Arial", 0, 12));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jComboBox2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jComboBox2.setFont(new java.awt.Font("Arial", 0, 12));
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jComboBox3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jComboBox3.setFont(new java.awt.Font("Arial", 0, 12));
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -135,9 +135,9 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
                     .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox2, 0, 227, Short.MAX_VALUE)
-                    .addComponent(jComboBox1, 0, 227, Short.MAX_VALUE)
-                    .addComponent(jComboBox3, 0, 227, Short.MAX_VALUE))
+                    .addComponent(jComboBox2, 0, 210, Short.MAX_VALUE)
+                    .addComponent(jComboBox1, 0, 210, Short.MAX_VALUE)
+                    .addComponent(jComboBox3, 0, 210, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -161,40 +161,40 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel1.setText("Area: ");
 
-        jComboBox4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jComboBox4.setFont(new java.awt.Font("Arial", 0, 12));
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel6.setText("Idioma:");
 
-        jComboBox5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jComboBox5.setFont(new java.awt.Font("Arial", 0, 12));
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel7.setText("Tipo de Material: ");
 
-        jComboBox6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jComboBox6.setFont(new java.awt.Font("Arial", 0, 12));
         jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jLabel8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel8.setText("Fecha de Publicación: ");
 
-        jComboBox7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jComboBox7.setFont(new java.awt.Font("Arial", 0, 12));
         jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel9.setText("Formato Archivo: ");
 
-        jComboBox8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jComboBox8.setFont(new java.awt.Font("Arial", 0, 12));
         jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jLabel10.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel10.setText("Editorial: ");
 
-        jTextField4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTextField4.setFont(new java.awt.Font("Arial", 0, 12));
 
         jButton1.setText("Buscar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -318,15 +318,15 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 819, Short.MAX_VALUE)
-                .addContainerGap(290, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 802, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(220, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
