@@ -94,9 +94,14 @@ public class ControladorDocumento {
         return daoDocumento.verificarExistencia(id_documento);
     }
     
-    public Documento verDatos(String id_documento, String usuario){
+    public Documento usuarioConsultaDocumento(String id_documento, String usuario){
         DaoDocumento daoDocumento = new DaoDocumento();
-        return daoDocumento.verDatosDocumento(id_documento, usuario);
+        daoDocumento.UsuarioDescargaDocumento(id_documento, usuario);
+        return daoDocumento.consultarDocumento(id_documento);
+    }
+    
+    public void usuarioDescargaDocumento(String documento, String usuario){
+        new DaoDocumento().UsuarioDescargaDocumento(documento, usuario);
     }
     
     public void insertarPalabrasClave(String id_documento, ArrayList<PalabraClave> PC){
@@ -161,7 +166,5 @@ public class ControladorDocumento {
         
     }*/
     
-    public void descargarDocumento(String documento, String usuario){
-        
-    }
+    
 }

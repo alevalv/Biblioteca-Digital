@@ -141,9 +141,8 @@ public class GUIResultados extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Debe seleccionar una fila", "Error", JOptionPane.ERROR_MESSAGE);
         }
         else{
-            System.out.println(numeroSelecc);
-            System.out.println(Resultados.getValueAt(numeroSelecc, 0));
-            //TODO mostrarDocumentoAvanzado
+            this.setVisible(false);
+            new biblioteca.gui.GUIInformacionDocumento(this, (String) Resultados.getValueAt(numeroSelecc, 0)).setVisible(true);
         }
     }//GEN-LAST:event_ConsultarActionPerformed
 
