@@ -27,6 +27,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
         avanzada = new BusquedaAvanzada();
         this.getContentPane().add(normal);
         this.setSize(normal.getPreferredSize());
+        this.setLocationRelativeTo(null);
     }
 
     /** This method is called from within the constructor to
