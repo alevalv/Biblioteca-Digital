@@ -11,7 +11,6 @@
 package biblioteca.gui;
 
 import biblioteca.database2.controladores.ControladorDocumento;
-import biblioteca.gui.busquedas.*;
 import javax.swing.JOptionPane;
 import biblioteca.database2.controladores.ControladorUsuario;
 import java.util.ArrayList;
@@ -20,8 +19,6 @@ import java.util.ArrayList;
  * @author alejandro
  */
 public class GUIBusqueda extends javax.swing.JFrame {
-    BusquedaNormal normal;
-    BusquedaAvanzada avanzada;
     /** Creates new form GUIBusqueda */
     public GUIBusqueda() {
         initComponents();

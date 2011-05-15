@@ -10,7 +10,10 @@
  */
 package biblioteca.gui;
 
+import biblioteca.database2.beans.Autor;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import biblioteca.database2.controladores.ControladorDocumento;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -26,15 +29,18 @@ public class GUIResultados extends javax.swing.JFrame {
             System.out.println(resultados.size());
             DefaultTableModel modelo =new DefaultTableModel();
             modelo.addColumn("Titulo");
-            modelo.addColumn("Nombre Autor");
-            modelo.addColumn("Apellido Autor");
-            
-            for(int i=0;i<(int) resultados.size()/3;i++){
-                String[] row = new String[3];
-                for(int j=0;j<3;j++){
-                    row[j] =resultados.get(i*3+j);
-                    
+            modelo.addColumn("Autores");
+            for(int i=0;i<(int) resultados.size()/2;i++){
+                String[] row = new String[2];
+                row[0] =resultados.get(i*2+1);
+                String autores="";
+                ArrayList<Autor> obtenerAutores = new ControladorDocumento().obtenerAutores(resultados.get(i*2));
+                for(int j=0;j<obtenerAutores.size();j++){
+                    autores+=obtenerAutores.get(j).getNombre()+" "+obtenerAutores.get(j).getApellido();
+                    if(j!=(obtenerAutores.size()-1))
+                        autores+=", ";
                 }
+                row[1]=autores;
                 modelo.addRow(row);
             }
             Resultados.setModel(modelo);
@@ -130,7 +136,15 @@ public class GUIResultados extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarActionPerformed
-        // TODO add your handling code here:
+        int numeroSelecc=Resultados.getSelectedRow();
+        if(numeroSelecc==-1){
+            JOptionPane.showMessageDialog(this, "Debe seleccionar una fila", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            System.out.println(numeroSelecc);
+            System.out.println(Resultados.getValueAt(numeroSelecc, 0));
+            //TODO mostrarDocumentoAvanzado
+        }
     }//GEN-LAST:event_ConsultarActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
