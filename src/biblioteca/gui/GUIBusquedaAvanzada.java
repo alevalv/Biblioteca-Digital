@@ -109,14 +109,19 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
 
         jTextField3.setFont(new java.awt.Font("Arial", 0, 12));
 
-        jComboBox1.setFont(new java.awt.Font("Arial", 0, 12));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "con todas las palabras", "con la frase exacta", "con alguna de las palabras", "sin las palabras" }));
 
-        jComboBox2.setFont(new java.awt.Font("Arial", 0, 12));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "con todas las palabras", "con la frase exacta", "con alguna de las palabras", "sin las palabras" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
 
-        jComboBox3.setFont(new java.awt.Font("Arial", 0, 12));
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "con todas las palabras", "con la frase exacta", "con alguna de las palabras", "sin las palabras" }));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -164,32 +169,31 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel1.setText("Area: ");
 
-        jComboBox4.setFont(new java.awt.Font("Arial", 0, 12));
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel6.setText("Idioma:");
 
-        jComboBox5.setFont(new java.awt.Font("Arial", 0, 12));
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cualquiera", "Libro", "Articulo", "Memoria", "Tesis de Maestría", "Tesis de Doctorado", "Material de Clase" }));
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel7.setText("Tipo de Material: ");
 
-        jComboBox6.setFont(new java.awt.Font("Arial", 0, 12));
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cualquiera", "Español", "Ingles", "Frances", "Aleman", "Japones" }));
 
         jLabel8.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel8.setText("Fecha de Publicación: ");
 
-        jComboBox7.setFont(new java.awt.Font("Arial", 0, 12));
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cualquier Fecha", "En el ultimo mes", "Hace 6 meses", "Hace un año", "Hace 2 años", "Hace 5 años" }));
 
         jLabel9.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel9.setText("Formato Archivo: ");
 
-        jComboBox8.setFont(new java.awt.Font("Arial", 0, 12));
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "PDF", "DOC", "JPG", "ODT" }));
 
         jLabel10.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel10.setText("Editorial: ");
@@ -335,6 +339,10 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
 
     /**
     * @param args the command line arguments

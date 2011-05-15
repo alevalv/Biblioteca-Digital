@@ -258,10 +258,10 @@
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
+                        <StringItem index="0" value="con todas las palabras"/>
+                        <StringItem index="1" value="con la frase exacta"/>
+                        <StringItem index="2" value="con alguna de las palabras"/>
+                        <StringItem index="3" value="sin las palabras"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -273,13 +273,16 @@
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
+                        <StringItem index="0" value="con todas las palabras"/>
+                        <StringItem index="1" value="con la frase exacta"/>
+                        <StringItem index="2" value="con alguna de las palabras"/>
+                        <StringItem index="3" value="sin las palabras"/>
                       </StringArray>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox2ActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jComboBox3">
                   <Properties>
@@ -288,10 +291,10 @@
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
+                        <StringItem index="0" value="con todas las palabras"/>
+                        <StringItem index="1" value="con la frase exacta"/>
+                        <StringItem index="2" value="con alguna de las palabras"/>
+                        <StringItem index="3" value="sin las palabras"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -401,12 +404,7 @@
                       <Font name="Arial" size="12" style="0"/>
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
-                      </StringArray>
+                      <StringArray count="0"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -424,11 +422,14 @@
                       <Font name="Arial" size="12" style="0"/>
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
+                      <StringArray count="7">
+                        <StringItem index="0" value="Cualquiera"/>
+                        <StringItem index="1" value="Libro"/>
+                        <StringItem index="2" value="Articulo"/>
+                        <StringItem index="3" value="Memoria"/>
+                        <StringItem index="4" value="Tesis de Maestr&#xed;a"/>
+                        <StringItem index="5" value="Tesis de Doctorado"/>
+                        <StringItem index="6" value="Material de Clase"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -447,11 +448,13 @@
                       <Font name="Arial" size="12" style="0"/>
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
+                      <StringArray count="6">
+                        <StringItem index="0" value="Cualquiera"/>
+                        <StringItem index="1" value="Espa&#xf1;ol"/>
+                        <StringItem index="2" value="Ingles"/>
+                        <StringItem index="3" value="Frances"/>
+                        <StringItem index="4" value="Aleman"/>
+                        <StringItem index="5" value="Japones"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -470,11 +473,13 @@
                       <Font name="Arial" size="12" style="0"/>
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
+                      <StringArray count="6">
+                        <StringItem index="0" value="Cualquier Fecha"/>
+                        <StringItem index="1" value="En el ultimo mes"/>
+                        <StringItem index="2" value="Hace 6 meses"/>
+                        <StringItem index="3" value="Hace un a&#xf1;o"/>
+                        <StringItem index="4" value="Hace 2 a&#xf1;os"/>
+                        <StringItem index="5" value="Hace 5 a&#xf1;os"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -494,10 +499,10 @@
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
+                        <StringItem index="0" value="PDF"/>
+                        <StringItem index="1" value="DOC"/>
+                        <StringItem index="2" value="JPG"/>
+                        <StringItem index="3" value="ODT"/>
                       </StringArray>
                     </Property>
                   </Properties>
