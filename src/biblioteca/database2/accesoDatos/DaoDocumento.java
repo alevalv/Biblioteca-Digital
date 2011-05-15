@@ -52,35 +52,37 @@ public class DaoDocumento {
 
     public Documento consultarDocumento(String id_documento) {
         String sql_consultar;
-        sql_consultar = "SELECT * FROM documentos WHERE doc_id='" + id_documento + "';";
+        sql_consultar = "SELECT doc_id, activo, titulo_principal, titulo_secundario,"
+                + "descripcion, tipo_documento, idioma, editorial, fecha_publicacion, derechos_autor,"
+                + "ubicacion, fecha_catalogacion FROM documentos WHERE doc_id='" + id_documento + "';";
+        Documento documento = null;
         try {
             Connection conn = Fachada.conectar();
             java.sql.Statement sentencia = conn.createStatement();
             ResultSet salida = sentencia.executeQuery(sql_consultar);
-            Documento documento = new Documento();
-            while (salida.next()) {
-                documento.setActivo(true);
-                documento.setID_documento(id_documento);
-                documento.setTituloPrincipal(salida.getString("titulo_principal"));
-                documento.setTituloSecundario(salida.getString("titulo_secundario"));
-                documento.setDescripcion(salida.getString("descripcion"));
-                documento.setTipoMaterial(salida.getString("tipo_documento"));
-                documento.setIdioma(salida.getString("idioma"));
-                documento.setEditorial(salida.getString("editorial"));
-                documento.setFechaPublicacion(salida.getString("fecha_publicacion"));
-                documento.setDerechosAutor(salida.getString("derechos_autor"));
-                documento.setUbicacion(salida.getString("ubicacion"));
-                documento.setFechaCatalogacion(salida.getString("fecha_catalogacion"));
+            documento = new Documento();
+            if(salida.next()) {
+                documento.setID_documento(salida.getString(1));
+                documento.setActivo(salida.getString(2).equals("t") ? true : false);
+                documento.setTituloPrincipal(salida.getString(3));
+                documento.setTituloSecundario(salida.getString(4));
+                documento.setDescripcion(salida.getString(5));
+                documento.setTipoMaterial(salida.getString(6));
+                documento.setIdioma(salida.getString(7));
+                documento.setEditorial(salida.getString(8));
+                documento.setFechaPublicacion(salida.getString(9));
+                documento.setDerechosAutor(salida.getString(10));
+                documento.setUbicacion(salida.getString(11));
+                documento.setFechaCatalogacion(salida.getString(12));
             }
             conn.close();
-            return documento;
 
         } catch (SQLException e) {
             System.out.println(e);
         } catch (Exception e) {
             System.out.println(e);
         }
-        return null;
+        return documento;
     }
 
     public String obtenerDocumentoID(Documento documento, String catalogador) {
@@ -467,7 +469,6 @@ public class DaoDocumento {
             while (salida.next()) {
                 resultados.add(salida.getString(1));
                 resultados.add(salida.getString(2));
-                resultados.add(salida.getString(3));
             }
             conn.close();
         } catch (SQLException e) {
@@ -487,7 +488,7 @@ public class DaoDocumento {
         try {
             Connection conn = Fachada.conectar();
             java.sql.Statement sentencia = conn.createStatement();
-            sentencia.executeUpdate(sql_insertar);
+            sentencia.execute(sql_insertar);
             conn.close();
         } catch (SQLException e) {
             System.out.println(e);

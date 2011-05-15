@@ -96,7 +96,7 @@ public class ControladorDocumento {
     
     public Documento usuarioConsultaDocumento(String id_documento, String usuario){
         DaoDocumento daoDocumento = new DaoDocumento();
-        daoDocumento.UsuarioDescargaDocumento(id_documento, usuario);
+        daoDocumento.UsuarioConsultaDocumento(id_documento, usuario);
         return daoDocumento.consultarDocumento(id_documento);
     }
     
@@ -159,12 +159,9 @@ public class ControladorDocumento {
         return new DaoDocumento().consultarDocumento(metadatos);
     }
     
-    /*
-    public ArrayList<String> consultaDocumentoAvanzada(String titulo, String autor, 
-            String pc, int opcion1, int opcion2, int opcion3, String area, 
-            String idioma, int fecha, String formato){
-        
-    }*/
+    public void consultaAvanzada(String titulo, String autor, String pc, int tituloopcion, int autoropcion, int pcopcion, String area, String editorial, String tipo_material, String idioma, int fecha, int formato) {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
     
     
 }
