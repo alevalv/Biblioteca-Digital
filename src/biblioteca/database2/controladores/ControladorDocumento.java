@@ -6,11 +6,8 @@ package biblioteca.database2.controladores;
 
 import biblioteca.database2.accesoDatos.DaoDocumento;
 import biblioteca.database2.beans.*;
-//import java.sql.ResultSet;
-//import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
-//import java.util.StringTokenizer;
 
 /**
  *
@@ -147,7 +144,7 @@ public class ControladorDocumento {
      * La Salida es un ArrayList, donde se metera primero el id del documento, 
      * luego el titulo principal, titulo secundario y autor
      */
-    /*
+    
     public ArrayList<String> consultaDocumentoGeneral(String entrada){
         StringTokenizer Stk = new StringTokenizer(entrada, " ");
         ArrayList<String> metadatos = new ArrayList<String>();
@@ -157,6 +154,7 @@ public class ControladorDocumento {
         return new DaoDocumento().consultarDocumento(metadatos);
     }
     
+    /*
     public ArrayList<String> consultaDocumentoAvanzada(String titulo, String autor, 
             String pc, int opcion1, int opcion2, int opcion3, String area, 
             String idioma, int fecha, String formato){
