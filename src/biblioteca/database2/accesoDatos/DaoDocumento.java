@@ -425,7 +425,7 @@ public class DaoDocumento {
     }
     
     public ArrayList<String> consultarDocumento(ArrayList<String> metadatos) {
-        String sql_consultar = "(SELECT documentos.doc_id, titulo_principal"
+        String sql_consultar = "(SELECT DISTINCT documentos.doc_id, titulo_principal"
                 + " FROM ((((areas_computacion NATURAL JOIN "
                 + "documento_areas_computacion) JOIN documentos ON "
                 + "documento_areas_computacion.doc_id=documentos.doc_id) "
