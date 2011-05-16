@@ -23,6 +23,7 @@ class GUIAutenticacion extends javax.swing.JFrame {
     public GUIAutenticacion(biblioteca.gui.GUIBusqueda parent) {
         initComponents();
         this.parent=parent;
+        this.setLocationRelativeTo(parent);
     }
 
     /** This method is called from within the constructor to

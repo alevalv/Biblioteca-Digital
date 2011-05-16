@@ -23,6 +23,7 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
     public GUIRegistroUsuarios(biblioteca.gui.GUIBusqueda parent) {
         initComponents();
         this.parent=parent;
+        this.setLocationRelativeTo(parent);
     }
 
     /** This method is called from within the constructor to

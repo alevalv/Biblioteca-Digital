@@ -69,7 +69,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="UniValleLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="291" max="32767" attributes="0"/>
+                  <EmptySpace pref="301" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -138,32 +138,32 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="NombreUsuarioTextField1" alignment="0" pref="197" max="32767" attributes="1"/>
-                                          <Component id="PreguntaSecretaTextField" alignment="1" pref="197" max="32767" attributes="1"/>
-                                          <Component id="NombresTextField" alignment="0" pref="197" max="32767" attributes="1"/>
-                                          <Component id="ApellidosTextField" alignment="0" pref="197" max="32767" attributes="1"/>
-                                          <Component id="ContrasenaPasswordField" alignment="0" pref="197" max="32767" attributes="1"/>
-                                          <Component id="RespuestaSecretaTextField" alignment="0" pref="197" max="32767" attributes="1"/>
-                                          <Component id="CorreoTextField" alignment="0" pref="197" max="32767" attributes="1"/>
-                                          <Component id="VerificarContrasenaPasswordField" alignment="0" pref="197" max="32767" attributes="0"/>
-                                          <Component id="VinculoComboBox" alignment="1" pref="197" max="32767" attributes="1"/>
-                                          <Component id="EscolaridadComboBox" alignment="1" pref="197" max="32767" attributes="1"/>
+                                          <Component id="NombreUsuarioTextField1" alignment="0" pref="207" max="32767" attributes="1"/>
+                                          <Component id="PreguntaSecretaTextField" alignment="1" pref="207" max="32767" attributes="1"/>
+                                          <Component id="NombresTextField" alignment="0" pref="207" max="32767" attributes="1"/>
+                                          <Component id="ApellidosTextField" alignment="0" pref="207" max="32767" attributes="1"/>
+                                          <Component id="ContrasenaPasswordField" alignment="0" pref="207" max="32767" attributes="1"/>
+                                          <Component id="RespuestaSecretaTextField" alignment="0" pref="207" max="32767" attributes="1"/>
+                                          <Component id="CorreoTextField" alignment="0" pref="207" max="32767" attributes="1"/>
+                                          <Component id="VerificarContrasenaPasswordField" alignment="0" pref="207" max="32767" attributes="0"/>
+                                          <Component id="VinculoComboBox" alignment="1" pref="207" max="32767" attributes="1"/>
+                                          <Component id="EscolaridadComboBox" alignment="1" pref="207" max="32767" attributes="1"/>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="DayComboBox" min="-2" pref="68" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="MonthComboBox" pref="49" max="32767" attributes="0"/>
+                                              <Component id="MonthComboBox" pref="59" max="32767" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="YearComboBox" min="-2" pref="64" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="GeneroComboBox" alignment="1" pref="197" max="32767" attributes="1"/>
-                                          <Component id="PerfilComboBox" alignment="0" pref="197" max="32767" attributes="0"/>
-                                          <Component id="EstadoCuentaComboBox" alignment="0" pref="197" max="32767" attributes="0"/>
+                                          <Component id="GeneroComboBox" alignment="1" pref="207" max="32767" attributes="1"/>
+                                          <Component id="PerfilComboBox" alignment="0" pref="207" max="32767" attributes="0"/>
+                                          <Component id="EstadoCuentaComboBox" alignment="0" pref="207" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="ModificarButton" min="-2" pref="101" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="ModificarAreasButton" max="32767" attributes="0"/>
+                                      <Component id="ModificarAreasButton" pref="117" max="32767" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="CancelarButton" min="-2" pref="101" max="-2" attributes="0"/>
                                   </Group>

@@ -48,6 +48,7 @@ public class GUIModificacionDocumento extends javax.swing.JFrame {
         Palabras_Clave_Guardadas=false;
         Tipo_Documento_Guardado=false;
         this.parent = parent;
+        this.setLocationRelativeTo(parent);
         informacionBasica = new biblioteca.gui.modificacion.Informacion_Basica(documento, this);
         autores = new biblioteca.gui.modificacion.Autores();
         areas = new biblioteca.gui.modificacion.Selecc_Areas();

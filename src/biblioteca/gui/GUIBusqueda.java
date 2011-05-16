@@ -320,7 +320,8 @@ public class GUIBusqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_BuscarActionPerformed
 
     private void CambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CambiarActionPerformed
-        new GUIBusquedaAvanzada().setVisible(true);
+        this.setVisible(false);
+        new GUIBusquedaAvanzada(this).setVisible(true);
     }//GEN-LAST:event_CambiarActionPerformed
 
     public void habilitarBotones(boolean b){

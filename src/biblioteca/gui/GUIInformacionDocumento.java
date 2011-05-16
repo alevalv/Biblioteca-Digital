@@ -35,6 +35,7 @@ public class GUIInformacionDocumento extends javax.swing.JFrame {
     public GUIInformacionDocumento(biblioteca.gui.GUIResultados parent, String documento_id) {
         this.documento_id=documento_id;
         this.parent=parent;
+        this.setLocationRelativeTo(parent);
         controlador  = new ControladorDocumento();
         initComponents();
         inicializarDocumento();

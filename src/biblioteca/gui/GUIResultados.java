@@ -30,6 +30,8 @@ public class GUIResultados extends javax.swing.JFrame {
             this.parent=parent;       
             initComponents();
             this.resultados=resultados;
+            if(parent!=null)
+                this.setLocationRelativeTo(parent);
             DefaultTableModel modelo =new DefaultTableModel();
             modelo.addColumn("Titulo");
             modelo.addColumn("Autores");
@@ -53,6 +55,7 @@ public class GUIResultados extends javax.swing.JFrame {
 
     GUIResultados(ArrayList<String> resultados, GUIBusquedaAvanzada aThis) {
             this.parent2=aThis;
+            this.setLocationRelativeTo(parent2);
             initComponents();
             this.resultados=resultados;
             DefaultTableModel modelo =new DefaultTableModel();

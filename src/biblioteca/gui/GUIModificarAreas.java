@@ -34,6 +34,7 @@ public class GUIModificarAreas extends javax.swing.JFrame {
     public GUIModificarAreas(biblioteca.gui.GUIBusqueda parent) {
         username=biblioteca.Main.BibliotecaDigital.LOGGED_USER;
         this.parent=parent;
+        this.setLocationRelativeTo(parent);
         areasAgregadas=new ArrayList<Area>();
         areasEliminadas=new ArrayList<Area>();
         initComponents();

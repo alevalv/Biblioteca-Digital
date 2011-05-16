@@ -21,9 +21,11 @@ import javax.swing.JOptionPane;
  * @author Cris
  */
 public class GUIBusquedaAvanzada extends javax.swing.JFrame {
-
+    biblioteca.gui.GUIBusqueda parent;
     /** Creates new form GUIBusquedaAvanzada */
-    public GUIBusquedaAvanzada() {
+    public GUIBusquedaAvanzada(biblioteca.gui.GUIBusqueda parent) {
+        this.parent=parent;
+        this.setLocationRelativeTo(parent);
         initComponents();
     }
 
@@ -66,7 +68,13 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
         EditorialTextField = new javax.swing.JTextField();
         BuscarButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("Búsqueda Avanzada");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel1.setPreferredSize(new java.awt.Dimension(300, 300));
 
@@ -114,10 +122,10 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
 
         PalabraClaveTextField.setFont(new java.awt.Font("Arial", 0, 12));
 
-        TituloComboBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        TituloComboBox.setFont(new java.awt.Font("Arial", 0, 12));
         TituloComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "con todas las palabras", "con la frase exacta", "con alguna de las palabras", "sin las palabras" }));
 
-        AutorComboBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        AutorComboBox.setFont(new java.awt.Font("Arial", 0, 12));
         AutorComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "con todas las palabras", "con la frase exacta", "con alguna de las palabras", "sin las palabras" }));
         AutorComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,7 +133,7 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
             }
         });
 
-        PalabraClaveComboBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        PalabraClaveComboBox.setFont(new java.awt.Font("Arial", 0, 12));
         PalabraClaveComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "con todas las palabras", "con la frase exacta", "con alguna de las palabras", "sin las palabras" }));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -174,30 +182,30 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
         AreaLabel.setFont(new java.awt.Font("Arial", 0, 12));
         AreaLabel.setText("Area: ");
 
-        AreaComboBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        AreaComboBox.setFont(new java.awt.Font("Arial", 0, 12));
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel6.setText("Idioma:");
 
-        TipoMaterialComboBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        TipoMaterialComboBox.setFont(new java.awt.Font("Arial", 0, 12));
         TipoMaterialComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cualquiera", "Libro", "Articulo", "Memoria", "Tesis de Maestría", "Tesis de Doctorado", "Material de Clase" }));
 
         MaterialLabel.setFont(new java.awt.Font("Arial", 0, 12));
         MaterialLabel.setText("Tipo de Material: ");
 
-        IdiomaComboBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        IdiomaComboBox.setFont(new java.awt.Font("Arial", 0, 12));
         IdiomaComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cualquiera", "Español", "Ingles", "Frances", "Aleman", "Japones" }));
 
         FechaLabel.setFont(new java.awt.Font("Arial", 0, 12));
         FechaLabel.setText("Fecha de Publicación: ");
 
-        FechaComboBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        FechaComboBox.setFont(new java.awt.Font("Arial", 0, 12));
         FechaComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cualquier Fecha", "En el ultimo mes", "Hace 6 meses", "Hace un año", "Hace 2 años", "Hace 5 años" }));
 
         jLabel9.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel9.setText("Formato Archivo: ");
 
-        FormatoComboBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        FormatoComboBox.setFont(new java.awt.Font("Arial", 0, 12));
         FormatoComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "pdf", "doc", "jpg", "odt" }));
 
         EditorialLabel.setFont(new java.awt.Font("Arial", 0, 12));
@@ -397,16 +405,10 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_AutorComboBoxActionPerformed
 
-    /**
-    * @param args the command line arguments
-    */
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GUIBusquedaAvanzada().setVisible(true);
-            }
-        });
-    }
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        parent.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_formWindowClosing
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox AreaComboBox;
