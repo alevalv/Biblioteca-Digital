@@ -13,13 +13,6 @@ package biblioteca.gui;
 import biblioteca.database2.beans.Documento;
 import biblioteca.database2.controladores.ControladorDocumento;
 import biblioteca.database2.controladores.ControladorUsuario;
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.File;
-import java.util.StringTokenizer;
 import javax.swing.JOptionPane;
 
 /**
@@ -48,7 +41,6 @@ public class GUIModificacionDocumento extends javax.swing.JFrame {
         Palabras_Clave_Guardadas=false;
         Tipo_Documento_Guardado=false;
         this.parent = parent;
-        this.setLocationRelativeTo(parent);
         informacionBasica = new biblioteca.gui.modificacion.Informacion_Basica(documento, this);
         autores = new biblioteca.gui.modificacion.Autores();
         areas = new biblioteca.gui.modificacion.Selecc_Areas();
@@ -56,6 +48,7 @@ public class GUIModificacionDocumento extends javax.swing.JFrame {
         sa = new biblioteca.gui.modificacion.Subir_Archivo(this);
         td = new biblioteca.gui.modificacion.Tipo_Documento();
         initComponents();
+        this.setLocationRelativeTo(parent);
     }
     
     public void catalogar(){

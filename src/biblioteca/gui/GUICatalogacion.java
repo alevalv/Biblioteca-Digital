@@ -43,8 +43,8 @@ public class GUICatalogacion extends javax.swing.JFrame {
         Tipo_Documento_Guardado=false;
         documento= new Documento();
         this.parent = parent;
-        this.setLocationRelativeTo(parent);
         initComponents();
+        this.setLocationRelativeTo(parent);
     }
     
     public void catalogar(File file){

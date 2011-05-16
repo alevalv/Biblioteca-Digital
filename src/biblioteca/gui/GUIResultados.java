@@ -27,11 +27,8 @@ public class GUIResultados extends javax.swing.JFrame {
     ArrayList<String> resultados;
 
     public GUIResultados(ArrayList<String> resultados, biblioteca.gui.GUIBusqueda parent) {
-            this.parent=parent;       
-            initComponents();
             this.resultados=resultados;
-            if(parent!=null)
-                this.setLocationRelativeTo(parent);
+            initComponents();
             DefaultTableModel modelo =new DefaultTableModel();
             modelo.addColumn("Titulo");
             modelo.addColumn("Autores");
@@ -49,13 +46,11 @@ public class GUIResultados extends javax.swing.JFrame {
                 modelo.addRow(row);
             }
             Resultados.setModel(modelo);
-        
-        
+            this.parent=parent;
+            this.setLocationRelativeTo(parent);
     }
 
     GUIResultados(ArrayList<String> resultados, GUIBusquedaAvanzada aThis) {
-            this.parent2=aThis;
-            this.setLocationRelativeTo(parent2);
             initComponents();
             this.resultados=resultados;
             DefaultTableModel modelo =new DefaultTableModel();
@@ -75,7 +70,8 @@ public class GUIResultados extends javax.swing.JFrame {
                 modelo.addRow(row);
             }
             Resultados.setModel(modelo);
-
+            this.parent2=aThis;
+            this.setLocationRelativeTo(parent2);
     }
 
     /** This method is called from within the constructor to

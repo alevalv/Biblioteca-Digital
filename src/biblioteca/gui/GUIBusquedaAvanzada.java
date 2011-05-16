@@ -25,8 +25,8 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
     /** Creates new form GUIBusquedaAvanzada */
     public GUIBusquedaAvanzada(biblioteca.gui.GUIBusqueda parent) {
         this.parent=parent;
-        this.setLocationRelativeTo(parent);
         initComponents();
+        this.setLocationRelativeTo(parent);
     }
 
     /** This method is called from within the constructor to

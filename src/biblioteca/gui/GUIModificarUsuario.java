@@ -28,7 +28,6 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
         Username=biblioteca.Main.BibliotecaDigital.LOGGED_USER;
         this.parent=parent;
         this.tipo=tipo;
-        this.setLocationRelativeTo(parent);
         initComponents();
       
         if(!tipo){
@@ -40,6 +39,7 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
         else{
             NombreUsuarioTextField1.setEditable(true);
         }
+        this.setLocationRelativeTo(parent);
     }
 
     /** This method is called from within the constructor to
