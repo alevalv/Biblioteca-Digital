@@ -159,13 +159,15 @@ public class ControladorDocumento {
         return new DaoDocumento().consultarDocumento(metadatos);
     }
     
-    public void consultaDocumentoAvanzada(String titulo, String autor,
-            String pc, int tituloopcion, int autoropcion, int pcopcion, String area,
-            String editorial, String tipo_material, String idioma, int fecha, int formato){
-                     new DaoDocumento().consultaAvanzada(titulo, autor,
+    public ArrayList<String> consultaDocumentoAvanzada(ArrayList<String> titulo, ArrayList<String> autor,
+            ArrayList<String> pc, int tituloopcion, int autoropcion, int pcopcion, String area,
+            String editorial, int tipo_material, String idioma, int fecha, String formato){
+                 return new DaoDocumento().consultaAvanzada(titulo, autor,
              pc,  tituloopcion,  autoropcion, pcopcion, area,
             editorial,  tipo_material, idioma, fecha,  formato);
     }
+
+
     
     
 }

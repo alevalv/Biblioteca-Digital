@@ -513,7 +513,38 @@ public class DaoDocumento {
         }
     }
 
-    public void consultaAvanzada(String titulo, String autor, String pc, int tituloopcion, int autoropcion, int pcopcion, String area, String editorial, String tipo_material, String idioma, int fecha, int formato) {
-        throw new UnsupportedOperationException("Not yet implemented");
+    public ArrayList<String>  consultaAvanzada(ArrayList<String> titulo, ArrayList<String> autor, ArrayList<String> pc, int tituloopcion, int autoropcion, int pcopcion, String area, String editorial, int tipo_material, String idioma, int fecha, String formato) {
+
+      ArrayList<String> resultados = new ArrayList<String>();
+        
+      String SQL_Avanzado="select doc_id, titulo_principal from documentos ";
+
+      if(tituloopcion==0){
+          for(int i=0;i<titulo.size();i++){
+             if(i==0)
+                SQL_Avanzado+="where titulo_principal like '%"+titulo.get(i)+"%' ";
+             else SQL_Avanzado+=" or titulo_principal like '%"+titulo.get(i)+"%' ";
+          }
+          SQL_Avanzado+=";";
+      }
+      System.out.println(SQL_Avanzado);
+      try {
+            Connection conn = Fachada.conectar();
+            java.sql.Statement sentencia = conn.createStatement();
+            ResultSet salida = sentencia.executeQuery(SQL_Avanzado);
+             while (salida.next()) {
+                resultados.add(salida.getString(1));
+                resultados.add(salida.getString(2));
+            }
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println(e);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        return resultados;
     }
+
+   
 }

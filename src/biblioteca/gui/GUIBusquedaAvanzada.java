@@ -11,6 +11,11 @@
 
 package biblioteca.gui;
 
+import biblioteca.database2.controladores.ControladorDocumento;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Cris
@@ -37,29 +42,29 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
         titlelabel = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox();
-        jComboBox2 = new javax.swing.JComboBox();
-        jComboBox3 = new javax.swing.JComboBox();
+        TituloLabel = new javax.swing.JLabel();
+        AutorLabel = new javax.swing.JLabel();
+        PalabraClaveLabel = new javax.swing.JLabel();
+        TituloTextField = new javax.swing.JTextField();
+        AutorTextField = new javax.swing.JTextField();
+        PalabraClaveTextField = new javax.swing.JTextField();
+        TituloComboBox = new javax.swing.JComboBox();
+        AutorComboBox = new javax.swing.JComboBox();
+        PalabraClaveComboBox = new javax.swing.JComboBox();
         jPanel5 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox();
+        AreaLabel = new javax.swing.JLabel();
+        AreaComboBox = new javax.swing.JComboBox();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox();
-        jLabel7 = new javax.swing.JLabel();
-        jComboBox6 = new javax.swing.JComboBox();
-        jLabel8 = new javax.swing.JLabel();
-        jComboBox7 = new javax.swing.JComboBox();
+        TipoMaterialComboBox = new javax.swing.JComboBox();
+        MaterialLabel = new javax.swing.JLabel();
+        IdiomaComboBox = new javax.swing.JComboBox();
+        FechaLabel = new javax.swing.JLabel();
+        FechaComboBox = new javax.swing.JComboBox();
         jLabel9 = new javax.swing.JLabel();
-        jComboBox8 = new javax.swing.JComboBox();
-        jLabel10 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        FormatoComboBox = new javax.swing.JComboBox();
+        EditorialLabel = new javax.swing.JLabel();
+        EditorialTextField = new javax.swing.JTextField();
+        BuscarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,34 +99,34 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 12));
-        jLabel2.setText("Titulo:");
+        TituloLabel.setFont(new java.awt.Font("Arial", 0, 12));
+        TituloLabel.setText("Titulo:");
 
-        jLabel4.setFont(new java.awt.Font("Arial", 0, 12));
-        jLabel4.setText("Autor:");
+        AutorLabel.setFont(new java.awt.Font("Arial", 0, 12));
+        AutorLabel.setText("Autor:");
 
-        jLabel5.setFont(new java.awt.Font("Arial", 0, 12));
-        jLabel5.setText("Palabra Clave:");
+        PalabraClaveLabel.setFont(new java.awt.Font("Arial", 0, 12));
+        PalabraClaveLabel.setText("Palabra Clave:");
 
-        jTextField1.setFont(new java.awt.Font("Arial", 0, 12));
+        TituloTextField.setFont(new java.awt.Font("Arial", 0, 12));
 
-        jTextField2.setFont(new java.awt.Font("Arial", 0, 12));
+        AutorTextField.setFont(new java.awt.Font("Arial", 0, 12));
 
-        jTextField3.setFont(new java.awt.Font("Arial", 0, 12));
+        PalabraClaveTextField.setFont(new java.awt.Font("Arial", 0, 12));
 
-        jComboBox1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "con todas las palabras", "con la frase exacta", "con alguna de las palabras", "sin las palabras" }));
+        TituloComboBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        TituloComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "con todas las palabras", "con la frase exacta", "con alguna de las palabras", "sin las palabras" }));
 
-        jComboBox2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "con todas las palabras", "con la frase exacta", "con alguna de las palabras", "sin las palabras" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        AutorComboBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        AutorComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "con todas las palabras", "con la frase exacta", "con alguna de las palabras", "sin las palabras" }));
+        AutorComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                AutorComboBoxActionPerformed(evt);
             }
         });
 
-        jComboBox3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "con todas las palabras", "con la frase exacta", "con alguna de las palabras", "sin las palabras" }));
+        PalabraClaveComboBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        PalabraClaveComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "con todas las palabras", "con la frase exacta", "con alguna de las palabras", "sin las palabras" }));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -130,19 +135,19 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(TituloLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(AutorLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(PalabraClaveLabel, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField3)
-                    .addComponent(jTextField2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE))
+                    .addComponent(PalabraClaveTextField)
+                    .addComponent(AutorTextField)
+                    .addComponent(TituloTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox2, 0, 210, Short.MAX_VALUE)
-                    .addComponent(jComboBox1, 0, 210, Short.MAX_VALUE)
-                    .addComponent(jComboBox3, 0, 210, Short.MAX_VALUE))
+                    .addComponent(AutorComboBox, 0, 210, Short.MAX_VALUE)
+                    .addComponent(TituloComboBox, 0, 210, Short.MAX_VALUE)
+                    .addComponent(PalabraClaveComboBox, 0, 210, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -150,60 +155,60 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TituloLabel)
+                    .addComponent(TituloTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TituloComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AutorLabel)
+                    .addComponent(AutorTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AutorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PalabraClaveLabel)
+                    .addComponent(PalabraClaveTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PalabraClaveComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 12));
-        jLabel1.setText("Area: ");
+        AreaLabel.setFont(new java.awt.Font("Arial", 0, 12));
+        AreaLabel.setText("Area: ");
 
-        jComboBox4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        AreaComboBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel6.setText("Idioma:");
 
-        jComboBox5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cualquiera", "Libro", "Articulo", "Memoria", "Tesis de Maestría", "Tesis de Doctorado", "Material de Clase" }));
+        TipoMaterialComboBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        TipoMaterialComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cualquiera", "Libro", "Articulo", "Memoria", "Tesis de Maestría", "Tesis de Doctorado", "Material de Clase" }));
 
-        jLabel7.setFont(new java.awt.Font("Arial", 0, 12));
-        jLabel7.setText("Tipo de Material: ");
+        MaterialLabel.setFont(new java.awt.Font("Arial", 0, 12));
+        MaterialLabel.setText("Tipo de Material: ");
 
-        jComboBox6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cualquiera", "Español", "Ingles", "Frances", "Aleman", "Japones" }));
+        IdiomaComboBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        IdiomaComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cualquiera", "Español", "Ingles", "Frances", "Aleman", "Japones" }));
 
-        jLabel8.setFont(new java.awt.Font("Arial", 0, 12));
-        jLabel8.setText("Fecha de Publicación: ");
+        FechaLabel.setFont(new java.awt.Font("Arial", 0, 12));
+        FechaLabel.setText("Fecha de Publicación: ");
 
-        jComboBox7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cualquier Fecha", "En el ultimo mes", "Hace 6 meses", "Hace un año", "Hace 2 años", "Hace 5 años" }));
+        FechaComboBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        FechaComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cualquier Fecha", "En el ultimo mes", "Hace 6 meses", "Hace un año", "Hace 2 años", "Hace 5 años" }));
 
         jLabel9.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel9.setText("Formato Archivo: ");
 
-        jComboBox8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "PDF", "DOC", "JPG", "ODT" }));
+        FormatoComboBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        FormatoComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "pdf", "doc", "jpg", "odt" }));
 
-        jLabel10.setFont(new java.awt.Font("Arial", 0, 12));
-        jLabel10.setText("Editorial: ");
+        EditorialLabel.setFont(new java.awt.Font("Arial", 0, 12));
+        EditorialLabel.setText("Editorial: ");
 
-        jTextField4.setFont(new java.awt.Font("Arial", 0, 12));
+        EditorialTextField.setFont(new java.awt.Font("Arial", 0, 12));
 
-        jButton1.setText("Buscar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BuscarButton.setText("Buscar");
+        BuscarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BuscarButtonActionPerformed(evt);
             }
         });
 
@@ -218,33 +223,33 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
                         .addGroup(jPanel5Layout.createSequentialGroup()
                             .addGap(46, 46, 46)
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel1)
-                                .addComponent(jLabel7)))
+                                .addComponent(AreaLabel)
+                                .addComponent(MaterialLabel)))
                         .addGroup(jPanel5Layout.createSequentialGroup()
                             .addGap(19, 19, 19)
-                            .addComponent(jLabel8)))
-                    .addComponent(jLabel10))
+                            .addComponent(FechaLabel)))
+                    .addComponent(EditorialLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField4)
-                        .addComponent(jComboBox4, 0, 430, Short.MAX_VALUE))
+                        .addComponent(EditorialTextField)
+                        .addComponent(AreaComboBox, 0, 430, Short.MAX_VALUE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(FechaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel9))
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(TipoMaterialComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                                 .addComponent(jLabel6)))
                         .addGap(12, 12, 12)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox6, 0, 147, Short.MAX_VALUE)
-                            .addComponent(jComboBox8, 0, 147, Short.MAX_VALUE))))
+                            .addComponent(IdiomaComboBox, 0, 147, Short.MAX_VALUE)
+                            .addComponent(FormatoComboBox, 0, 147, Short.MAX_VALUE))))
                 .addGap(34, 34, 34)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BuscarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
         );
         jPanel5Layout.setVerticalGroup(
@@ -252,25 +257,25 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(AreaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AreaLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
+                    .addComponent(EditorialTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EditorialLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
+                    .addComponent(TipoMaterialComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(IdiomaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MaterialLabel)
                     .addComponent(jLabel6))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(FechaLabel)
+                    .addComponent(FechaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(FormatoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
-                    .addComponent(jButton1))
+                    .addComponent(BuscarButton))
                 .addGap(26, 26, 26))
         );
 
@@ -336,13 +341,49 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void BuscarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarButtonActionPerformed
+        String titulo=TituloTextField.getText();
+        String autor=AutorTextField.getText();
+        String pc=PalabraClaveTextField.getText();
+        int tituloopcion=TituloComboBox.getSelectedIndex();
+        int autoropcion=AutorComboBox.getSelectedIndex();
+        int pcopcion=PalabraClaveComboBox.getSelectedIndex();
+        String area=(String)AreaComboBox.getSelectedItem();
+        String editorial=EditorialTextField.getText();
+        int tipo_material=TipoMaterialComboBox.getSelectedIndex();
+        String idioma=(String)IdiomaComboBox.getSelectedItem();
+        int fecha=FechaComboBox.getSelectedIndex();
+        String formato=(String)FormatoComboBox.getSelectedItem();
+       StringTokenizer titulotokens = new StringTokenizer(titulo, " ");
+       StringTokenizer autortokens = new StringTokenizer(autor, " ");
+       StringTokenizer palabraclavetokens = new StringTokenizer(pc, " ");
+       ArrayList<String> Titulo=new ArrayList<String>(titulotokens.countTokens());
+       ArrayList<String> Autor=new ArrayList<String>(autortokens.countTokens());
+       ArrayList<String> PalabraClave=new ArrayList<String>(palabraclavetokens.countTokens());
+       while(titulotokens.hasMoreTokens()) Titulo.add(titulotokens.nextToken());
+       while(titulotokens.hasMoreTokens()) Autor.add(autortokens.nextToken());
+       while(titulotokens.hasMoreTokens()) PalabraClave.add(palabraclavetokens.nextToken());
+       
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+
+       ArrayList<String> resultados = new ControladorDocumento().consultaDocumentoAvanzada( Titulo, Autor,
+             PalabraClave,  tituloopcion, autoropcion,  pcopcion, area,
+            editorial, tipo_material, idioma, fecha,formato);
+
+       if(!resultados.isEmpty()){
+                new GUIResultados(resultados, this).setVisible(true);
+                this.setVisible(false);
+            }
+
+            else
+                JOptionPane.showMessageDialog(this, "La busqueda no ha retornado resultados", "Erorr", JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_BuscarButtonActionPerformed
+
+
+
+    private void AutorComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AutorComboBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    }//GEN-LAST:event_AutorComboBoxActionPerformed
 
     /**
     * @param args the command line arguments
@@ -356,34 +397,34 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JComboBox jComboBox3;
-    private javax.swing.JComboBox jComboBox4;
-    private javax.swing.JComboBox jComboBox5;
-    private javax.swing.JComboBox jComboBox6;
-    private javax.swing.JComboBox jComboBox7;
-    private javax.swing.JComboBox jComboBox8;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JComboBox AreaComboBox;
+    private javax.swing.JLabel AreaLabel;
+    private javax.swing.JComboBox AutorComboBox;
+    private javax.swing.JLabel AutorLabel;
+    private javax.swing.JTextField AutorTextField;
+    private javax.swing.JButton BuscarButton;
+    private javax.swing.JLabel EditorialLabel;
+    private javax.swing.JTextField EditorialTextField;
+    private javax.swing.JComboBox FechaComboBox;
+    private javax.swing.JLabel FechaLabel;
+    private javax.swing.JComboBox FormatoComboBox;
+    private javax.swing.JComboBox IdiomaComboBox;
+    private javax.swing.JLabel MaterialLabel;
+    private javax.swing.JComboBox PalabraClaveComboBox;
+    private javax.swing.JLabel PalabraClaveLabel;
+    private javax.swing.JTextField PalabraClaveTextField;
+    private javax.swing.JComboBox TipoMaterialComboBox;
+    private javax.swing.JComboBox TituloComboBox;
+    private javax.swing.JLabel TituloLabel;
+    private javax.swing.JTextField TituloTextField;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel titlelabel;
     // End of variables declaration//GEN-END:variables
 

@@ -33,7 +33,6 @@ public class GUIBusqueda extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         Cambiar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -60,10 +59,15 @@ public class GUIBusqueda extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(600, 300));
 
         Cambiar.setText("Busqueda Avanzada");
+        Cambiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CambiarActionPerformed(evt);
+            }
+        });
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biblioteca/gui/resources/logo.png"))); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 24));
         jLabel4.setText("Busqueda Normal");
 
         Buscar.setText("Buscar");
@@ -197,7 +201,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
                         .addComponent(Texto_Busqueda, javax.swing.GroupLayout.DEFAULT_SIZE, 585, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(216, Short.MAX_VALUE)
+                .addContainerGap(219, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addGap(181, 181, 181))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -314,6 +318,10 @@ public class GUIBusqueda extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "La busqueda no ha retornado resultados", "Erorr", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_BuscarActionPerformed
+
+    private void CambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CambiarActionPerformed
+        new GUIBusquedaAvanzada().setVisible(true);
+    }//GEN-LAST:event_CambiarActionPerformed
 
     public void habilitarBotones(boolean b){
         Iniciar_Sesion.setEnabled(b);

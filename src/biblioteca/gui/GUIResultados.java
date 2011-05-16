@@ -23,7 +23,9 @@ import javax.swing.table.DefaultTableModel;
 public class GUIResultados extends javax.swing.JFrame {
     /** Creates new form GUIResultados */
     biblioteca.gui.GUIBusqueda parent;
+    biblioteca.gui.GUIBusquedaAvanzada parent2;
     ArrayList<String> resultados;
+
     public GUIResultados(ArrayList<String> resultados, biblioteca.gui.GUIBusqueda parent) {
             this.parent=parent;       
             initComponents();
@@ -47,6 +49,30 @@ public class GUIResultados extends javax.swing.JFrame {
             Resultados.setModel(modelo);
         
         
+    }
+
+    GUIResultados(ArrayList<String> resultados, GUIBusquedaAvanzada aThis) {
+            this.parent2=aThis;
+            initComponents();
+            this.resultados=resultados;
+            DefaultTableModel modelo =new DefaultTableModel();
+            modelo.addColumn("Titulo");
+            modelo.addColumn("Autores");
+            for(int i=0;i<(int) resultados.size()/2;i++){
+                String[] row = new String[2];
+                row[0] =resultados.get(i*2+1);
+                String autores="";
+                ArrayList<Autor> obtenerAutores = new ControladorDocumento().obtenerAutores(resultados.get(i*2));
+                for(int j=0;j<obtenerAutores.size();j++){
+                    autores+=obtenerAutores.get(j).getNombre()+" "+obtenerAutores.get(j).getApellido();
+                    if(j!=(obtenerAutores.size()-1))
+                        autores+=", ";
+                }
+                row[1]=autores;
+                modelo.addRow(row);
+            }
+            Resultados.setModel(modelo);
+
     }
 
     /** This method is called from within the constructor to
@@ -148,7 +174,9 @@ public class GUIResultados extends javax.swing.JFrame {
     }//GEN-LAST:event_ConsultarActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        if(parent!=null)
         parent.setVisible(true);
+        else parent2.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_formWindowClosing
 
