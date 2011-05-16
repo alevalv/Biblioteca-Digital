@@ -354,15 +354,27 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
         String idioma=(String)IdiomaComboBox.getSelectedItem();
         int fecha=FechaComboBox.getSelectedIndex();
         String formato=(String)FormatoComboBox.getSelectedItem();
-       StringTokenizer titulotokens = new StringTokenizer(titulo, " ");
-       StringTokenizer autortokens = new StringTokenizer(autor, " ");
-       StringTokenizer palabraclavetokens = new StringTokenizer(pc, " ");
-       ArrayList<String> Titulo=new ArrayList<String>(titulotokens.countTokens());
-       ArrayList<String> Autor=new ArrayList<String>(autortokens.countTokens());
-       ArrayList<String> PalabraClave=new ArrayList<String>(palabraclavetokens.countTokens());
-       while(titulotokens.hasMoreTokens()) Titulo.add(titulotokens.nextToken());
-       while(titulotokens.hasMoreTokens()) Autor.add(autortokens.nextToken());
-       while(titulotokens.hasMoreTokens()) PalabraClave.add(palabraclavetokens.nextToken());
+       
+       
+       ArrayList<String> Titulo=new ArrayList<String>();
+       ArrayList<String> Autor=new ArrayList<String>();
+       ArrayList<String> PalabraClave=new ArrayList<String>();
+       if(tituloopcion==1) Titulo.add(titulo);
+       else {
+           StringTokenizer titulotokens = new StringTokenizer(titulo, " ");
+           while(titulotokens.hasMoreTokens())  Titulo.add(titulotokens.nextToken());
+           }
+       if(autoropcion==1) Autor.add(autor);
+       else {
+           StringTokenizer autortokens = new StringTokenizer(autor, " ");
+            while(autortokens.hasMoreTokens()) Autor.add(autortokens.nextToken());
+           }
+       if(pcopcion==1) PalabraClave.add(pc);
+       else {
+            StringTokenizer palabraclavetokens = new StringTokenizer(pc, " ");
+            while(palabraclavetokens.hasMoreTokens()) PalabraClave.add(palabraclavetokens.nextToken());
+           }
+       
        
 
 
