@@ -12,6 +12,16 @@ package biblioteca.gui;
 
 import biblioteca.database2.beans.Documento;
 import biblioteca.database2.controladores.ControladorDocumento;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.StringTokenizer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /**
@@ -272,6 +282,38 @@ public class GUIInformacionDocumento extends javax.swing.JFrame {
     private void DescargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DescargarActionPerformed
         if(!biblioteca.Main.BibliotecaDigital.LOGGED_USER.equals("dummyuser")){
             controlador.usuarioDescargaDocumento(documento_id, biblioteca.Main.BibliotecaDigital.LOGGED_USER);
+            JFileChooser JFC= new JFileChooser();
+            JFC.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+            JFC.showSaveDialog(this);
+            try{
+                //guardar archivo
+                FileInputStream fileInput = new FileInputStream(documento.getUbicacion());
+                StringTokenizer stk = new StringTokenizer(documento.getUbicacion(), ".");
+                stk.nextToken();
+                BufferedInputStream bufferedInput = new BufferedInputStream(fileInput);
+                /// Se abre el fichero donde se hará la copia
+                File newFile = JFC.getSelectedFile();
+                //if(!newFile.exists()){
+                //    newFile.createNewFile();
+                //}
+                String newFilePath=newFile.getAbsolutePath()+"/"+documento.getTituloPrincipal()+"."+stk.nextToken();
+                FileOutputStream fileOutput = new FileOutputStream (newFilePath);
+                BufferedOutputStream bufferedOutput = new BufferedOutputStream(fileOutput);
+                // Bucle para leer de un fichero y escribir en el otro.
+                byte [] array = new byte[1000];
+                int leidos = bufferedInput.read(array);
+                while (leidos > 0){
+                    bufferedOutput.write(array,0,leidos);
+                    leidos=bufferedInput.read(array);
+                }
+                // Cierre de los ficheros
+                bufferedInput.close();
+                bufferedOutput.close();
+                JOptionPane.showMessageDialog(this, "El documento ha sido guardado en "+newFilePath, "Notificación", JOptionPane.INFORMATION_MESSAGE);
+            }
+            catch(IOException ioe){
+                System.err.println(ioe);
+            }
         }
         else{
             JOptionPane.showMessageDialog(this, "Debe ser un usuario registrado para descargar este documento", "Error", JOptionPane.ERROR_MESSAGE);
