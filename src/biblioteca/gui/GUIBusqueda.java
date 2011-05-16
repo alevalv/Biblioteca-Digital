@@ -261,8 +261,13 @@ public class GUIBusqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_EstadisticasActionPerformed
 
     private void RegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarseActionPerformed
-        this.setVisible(false);
-        new biblioteca.gui.GUIRegistroUsuarios(this).setVisible(true);
+        if(biblioteca.Main.BibliotecaDigital.LOGGED_USER.equals("dummyuser")){
+            this.setVisible(false);
+            new biblioteca.gui.GUIRegistroUsuarios(this).setVisible(true);
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Usted ya está registrado", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_RegistrarseActionPerformed
 
     private void Modificar_DatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modificar_DatosActionPerformed
