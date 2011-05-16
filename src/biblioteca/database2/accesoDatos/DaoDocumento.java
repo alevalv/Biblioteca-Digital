@@ -480,7 +480,6 @@ public class DaoDocumento {
         
     }
 
-    //TODO programar consultaAvanzadaDocumento
     public void UsuarioConsultaDocumento(String id_documento, String usuario) {
         String sql_insertar;
         sql_insertar = "INSERT INTO usuario_consulta_documento (doc_id, username)"
@@ -517,16 +516,18 @@ public class DaoDocumento {
 
       ArrayList<String> resultados = new ArrayList<String>();
         
-      String SQL_Avanzado="select doc_id, titulo_principal from documentos ";
+      String SQL_Avanzado="SELECT DISTINCT documentos.doc_id, titulo_principal "
+                + "FROM ((((areas_computacion NATURAL JOIN "
+                + "documento_areas_computacion) JOIN documentos ON "
+                + "documento_areas_computacion.doc_id=documentos.doc_id) "
+                + "JOIN documento_autor ON documentos.doc_id=documento_autor.doc_id "
+                + "JOIN autor ON documento_autor.autor_correo=autor.autor_correo) "
+                + "JOIN documento_palabras_clave ON documentos.doc_id="
+                + "documento_palabras_clave.doc_id) WHERE ";
 
-      if(tituloopcion==0){
-          for(int i=0;i<titulo.size();i++){
-             if(i==0)
-                SQL_Avanzado+="where titulo_principal like '%"+titulo.get(i)+"%' ";
-             else SQL_Avanzado+=" or titulo_principal like '%"+titulo.get(i)+"%' ";
-          }
-          SQL_Avanzado+=";";
-      }
+      SQL_Avanzado+=ConsultaAvanzadaTitulo(titulo,tituloopcion);
+
+      SQL_Avanzado+=";";
       System.out.println(SQL_Avanzado);
       try {
             Connection conn = Fachada.conectar();
@@ -546,5 +547,45 @@ public class DaoDocumento {
         return resultados;
     }
 
-   
+   private String ConsultaAvanzadaTitulo(ArrayList<String> titulo, int tituloopcion){
+       String SQL_Avanzado="";
+       if(!titulo.isEmpty()){
+       if(tituloopcion==0){
+          for(int i=0;i<titulo.size();i++){
+             if(i==0)
+                SQL_Avanzado+=" titulo_principal like '%"+titulo.get(i)+"%' ";
+             else SQL_Avanzado+=" and titulo_principal like '%"+titulo.get(i)+"%' ";
+          }
+       }
+       else if(tituloopcion == 1)
+           {
+           for(int i=0;i<titulo.size();i++){
+             if(i==0)
+                SQL_Avanzado+=" titulo_principal='"+titulo.get(i)+" ";
+               else if(i == titulo.size() - 1)
+                 SQL_Avanzado+=""+titulo.get(i)+"' ";
+             else SQL_Avanzado+=""+titulo.get(i)+" ";
+
+          }
+         
+       }
+       else if(tituloopcion == 2)
+           {
+            for(int i=0;i<titulo.size();i++){
+             if(i==0)
+                SQL_Avanzado+=" titulo_principal like '%"+titulo.get(i)+"%' ";
+             else SQL_Avanzado+=" or titulo_principal like '%"+titulo.get(i)+"%' ";
+          }
+       }
+       else if(tituloopcion == 3)
+           {
+           for(int i=0;i<titulo.size();i++){
+             if(i==0)
+                SQL_Avanzado+=" titulo_principal not like '%"+titulo.get(i)+"%' ";
+             else SQL_Avanzado+=" and titulo_principal not like '%"+titulo.get(i)+"%' ";
+          }
+       }
+       }
+       return SQL_Avanzado;
+   }
 }
