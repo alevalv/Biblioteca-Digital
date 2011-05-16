@@ -445,11 +445,19 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
             String tipo_usuario=getPerfilComboBox((String)PerfilComboBox.getSelectedItem());
             System.err.println("estado "+estado);
             System.err.println("tipo_usuario "+tipo_usuario);
-            i=new ControladorUsuario().cambiarTipoUsuario(username, tipo_usuario);
-            j=new ControladorUsuario().cambiarEstadoCuenta(username, estado);
-
-            if(i!=-1 && j!=-1)
-                JOptionPane.showMessageDialog(null, "Datos Modificados con Exito", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+            int seleccion=0;
+            if(estado.equals("f")){
+                seleccion=JOptionPane.showConfirmDialog(this, "¿Está seguro de la desactivación de usuario?", "Deshabilitación de usuario", 2);
+            }
+            if(seleccion==0){
+                i=new ControladorUsuario().cambiarTipoUsuario(username, tipo_usuario);
+                j=new ControladorUsuario().cambiarEstadoCuenta(username, estado);
+            }
+            if(i!=-1 && j!=-1){
+                JOptionPane.showMessageDialog(this, "Datos Modificados con Exito", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+                parent.setVisible(true);
+                this.dispose();
+            }   
         }
 }//GEN-LAST:event_ModificarButtonActionPerformed
 
