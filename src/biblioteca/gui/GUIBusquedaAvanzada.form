@@ -87,7 +87,7 @@
                       <Component id="jLabel3" min="-2" pref="330" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="189" max="-2" attributes="0"/>
                       <Component id="titlelabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="19" max="32767" attributes="0"/>
+                      <EmptySpace pref="36" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -175,9 +175,9 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="AutorComboBox" pref="210" max="32767" attributes="0"/>
-                              <Component id="TituloComboBox" alignment="0" pref="210" max="32767" attributes="0"/>
-                              <Component id="PalabraClaveComboBox" alignment="0" pref="210" max="32767" attributes="0"/>
+                              <Component id="AutorComboBox" pref="227" max="32767" attributes="0"/>
+                              <Component id="TituloComboBox" alignment="0" pref="227" max="32767" attributes="0"/>
+                              <Component id="PalabraClaveComboBox" alignment="0" pref="227" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
