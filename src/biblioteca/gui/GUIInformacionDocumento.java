@@ -293,9 +293,9 @@ public class GUIInformacionDocumento extends javax.swing.JFrame {
                 BufferedInputStream bufferedInput = new BufferedInputStream(fileInput);
                 /// Se abre el fichero donde se hará la copia
                 File newFile = JFC.getSelectedFile();
-                //if(!newFile.exists()){
-                //    newFile.createNewFile();
-                //}
+                if(!newFile.exists()){
+                    newFile.createNewFile();
+                }
                 String newFilePath=newFile.getAbsolutePath()+"/"+documento.getTituloPrincipal()+"."+stk.nextToken();
                 FileOutputStream fileOutput = new FileOutputStream (newFilePath);
                 BufferedOutputStream bufferedOutput = new BufferedOutputStream(fileOutput);
