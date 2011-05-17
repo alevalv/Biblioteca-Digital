@@ -28,7 +28,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" pref="802" max="32767" attributes="0"/>
+              <Component id="jPanel1" pref="819" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -135,7 +135,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jPanel5" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jPanel5" alignment="0" pref="779" max="32767" attributes="0"/>
                           <Component id="jPanel4" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -329,29 +329,19 @@
                               <Component id="EditorialLabel" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="EditorialTextField" max="32767" attributes="1"/>
-                                  <Component id="AreaComboBox" alignment="0" pref="430" max="32767" attributes="1"/>
-                              </Group>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="EditorialTextField" max="32767" attributes="1"/>
+                              <Component id="AreaComboBox" alignment="0" pref="430" max="32767" attributes="1"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="FechaComboBox" min="-2" pref="167" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="TipoMaterialComboBox" min="-2" pref="168" max="-2" attributes="0"/>
-                                          <EmptySpace pref="62" max="32767" attributes="0"/>
-                                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="IdiomaComboBox" alignment="0" pref="147" max="32767" attributes="0"/>
-                                      <Component id="FormatoComboBox" alignment="0" pref="147" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="TipoMaterialComboBox" min="-2" pref="168" max="-2" attributes="0"/>
+                                  <EmptySpace pref="38" max="32767" attributes="0"/>
+                                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="IdiomaComboBox" min="-2" pref="173" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="FechaComboBox" min="-2" pref="167" max="-2" attributes="0"/>
+                                  <EmptySpace pref="263" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
@@ -384,8 +374,6 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="FechaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="FechaComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="FormatoComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="BuscarButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
@@ -426,15 +414,7 @@
                       <Font name="Arial" size="12" style="0"/>
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="7">
-                        <StringItem index="0" value="Cualquiera"/>
-                        <StringItem index="1" value="Libro"/>
-                        <StringItem index="2" value="Articulo"/>
-                        <StringItem index="3" value="Memoria"/>
-                        <StringItem index="4" value="Tesis de Maestr&#xed;a"/>
-                        <StringItem index="5" value="Tesis de Doctorado"/>
-                        <StringItem index="6" value="Material de Clase"/>
-                      </StringArray>
+                      <StringArray count="0"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -455,10 +435,10 @@
                       <StringArray count="6">
                         <StringItem index="0" value="Cualquiera"/>
                         <StringItem index="1" value="Espa&#xf1;ol"/>
-                        <StringItem index="2" value="Ingles"/>
-                        <StringItem index="3" value="Frances"/>
+                        <StringItem index="2" value="Ingl&#xe9;s"/>
+                        <StringItem index="3" value="Franc&#xe9;s"/>
                         <StringItem index="4" value="Aleman"/>
-                        <StringItem index="5" value="Japones"/>
+                        <StringItem index="5" value="Portugu&#xe9;s"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -484,29 +464,6 @@
                         <StringItem index="3" value="Hace un a&#xf1;o"/>
                         <StringItem index="4" value="Hace 2 a&#xf1;os"/>
                         <StringItem index="5" value="Hace 5 a&#xf1;os"/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel9">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Arial" size="12" style="0"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Formato Archivo: "/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="FormatoComboBox">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Arial" size="12" style="0"/>
-                    </Property>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
-                        <StringItem index="0" value="pdf"/>
-                        <StringItem index="1" value="doc"/>
-                        <StringItem index="2" value="jpg"/>
-                        <StringItem index="3" value="odt"/>
                       </StringArray>
                     </Property>
                   </Properties>

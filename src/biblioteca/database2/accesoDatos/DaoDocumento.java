@@ -509,7 +509,7 @@ public class DaoDocumento {
         }
     }
 
-    public ArrayList<String>  consultaAvanzada(ArrayList<String> titulo, ArrayList<String> autor, ArrayList<String> pc, int tituloopcion, int autoropcion, int pcopcion, String area, String editorial, String tipo_material, String idioma, int fecha, String formato) {
+    public ArrayList<String>  consultaAvanzada(ArrayList<String> titulo, ArrayList<String> autor, ArrayList<String> pc, int tituloopcion, int autoropcion, int pcopcion, String area, String editorial, String tipo_material, String idioma, int fecha) {
 
       ArrayList<String> resultados = new ArrayList<String>();
       String Restricciones=ConsultaRestricciones(editorial, tipo_material, idioma, fecha);
