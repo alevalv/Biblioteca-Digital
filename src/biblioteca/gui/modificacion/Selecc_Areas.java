@@ -48,11 +48,11 @@ public class Selecc_Areas extends javax.swing.JPanel {
         areasExistentes= new ControladorArea().consultarTodasLasAreas();
         if(areasExistentes!=null){
             for(int i=0;i<areasExistentes.size();i++){
-                Areas.insertItemAt(areasExistentes.get(i).toString(), i);
+                if(i!=0)
+                    Areas.insertItemAt(areasExistentes.get(i).toString(), i-1);
                 Area_Padre.insertItemAt(areasExistentes.get(i).toString(), i);
             }
             Areas.setSelectedIndex(-1);
-            Areas.remove(0);
             Area_Padre.setSelectedIndex(-1);
         }
     }
