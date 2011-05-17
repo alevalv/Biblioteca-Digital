@@ -26,9 +26,11 @@ import javax.swing.JOptionPane;
  */
 public class GUIBusquedaAvanzada extends javax.swing.JFrame {
     biblioteca.gui.GUIBusqueda parent;
+    ArrayList<Area> areasExistentes;
     /** Creates new form GUIBusquedaAvanzada */
     public GUIBusquedaAvanzada(biblioteca.gui.GUIBusqueda parent) {
         this.parent=parent;
+        areasExistentes= new ControladorArea().consultarTodasLasAreas();
         initComponents();
         initComboBoxArea();
         initComboBoxTipoMaterial();
@@ -38,12 +40,13 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
 
      private void initComboBoxArea(){
         AreaComboBox.removeAllItems();
-        ArrayList<Area> areasExistentes= new ControladorArea().consultarTodasLasAreas();
+        
         if(areasExistentes!=null){
             for(int i=0;i<areasExistentes.size();i++){
-                AreaComboBox.insertItemAt(areasExistentes.get(i).toString(), i);
+                if(i==0) AreaComboBox.insertItemAt("Cualquiera", 0);
+                else AreaComboBox.insertItemAt(areasExistentes.get(i).toString(), i);
             }
-            AreaComboBox.insertItemAt("Cualquiera", 0);
+           
             AreaComboBox.setSelectedIndex(0);
         }
     }
@@ -412,8 +415,9 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
             while(palabraclavetokens.hasMoreTokens()) PalabraClave.add(palabraclavetokens.nextToken());
            }
        
+       if(!area.equals("Cualquiera")) area=areasExistentes.get(AreaComboBox.getSelectedIndex()).getID();
        
-
+System.out.println("Area "+area);
 
        ArrayList<String> resultados = new ControladorDocumento().consultaDocumentoAvanzada( Titulo, Autor,
              PalabraClave,  tituloopcion, autoropcion,  pcopcion, area,

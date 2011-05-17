@@ -513,6 +513,7 @@ public class DaoDocumento {
 
       ArrayList<String> resultados = new ArrayList<String>();
       String Restricciones=ConsultaRestricciones(editorial, tipo_material, idioma, fecha);
+      String ConsultaAreas=ConsultaAvanzadaAreas(area);
       String SQL_Avanzado="";
       if(!titulo.isEmpty()) {
           SQL_Avanzado+="("+ConsultaAvanzadaTitulo(titulo,tituloopcion)+")";
@@ -530,6 +531,11 @@ public class DaoDocumento {
       if(!Restricciones.equals("")){
           if(!titulo.isEmpty() || !autor.isEmpty() || !titulo.isEmpty()) SQL_Avanzado+=" INTERSECT ";
           SQL_Avanzado+="("+Restricciones+")";
+      }
+
+      if(!ConsultaAreas.equals("")){
+          if(!titulo.isEmpty() || !autor.isEmpty() || !titulo.isEmpty() || !Restricciones.equals("")) SQL_Avanzado+=" INTERSECT ";
+          SQL_Avanzado+="("+ConsultaAreas+")";
       }
       
       SQL_Avanzado+=";";
@@ -741,9 +747,20 @@ public class DaoDocumento {
        }
     }
 
-   private String ConsultaAvanzadaAreas(){
-    return "";
-   }
+   private String ConsultaAvanzadaAreas(String area){
+       String SQL_Avanzado="";
+       if(area.equals("")){
+           return SQL_Avanzado;
+       }
+       else{
+         SQL_Avanzado="SELECT DISTINCT documentos.doc_id, titulo_principal FROM documentos NATURAL JOIN documento_areas_computacion"
+                 + " INNER JOIN areas_computacion ON documento_areas_computacion.area_id=areas_computacion.area_id "
+                 + " WHERE documento_areas_computacion.area_id='"+area+"'";
+
+         return SQL_Avanzado;
+        }
+    }
+
 }
 
 
