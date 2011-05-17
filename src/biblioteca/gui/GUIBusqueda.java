@@ -165,8 +165,8 @@ public class GUIBusqueda extends javax.swing.JFrame {
         Iniciar_Sesion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Iniciar_Sesion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Iniciar_Sesion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Iniciar_SesionMouseClicked(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Iniciar_SesionMousePressed(evt);
             }
         });
         jMenuBar1.add(Iniciar_Sesion);
@@ -176,8 +176,8 @@ public class GUIBusqueda extends javax.swing.JFrame {
         Cerrar_Sesion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Cerrar_Sesion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Cerrar_Sesion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Cerrar_SesionMouseClicked(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Cerrar_SesionMousePressed(evt);
             }
         });
         jMenuBar1.add(Cerrar_Sesion);
@@ -193,7 +193,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(Texto_Busqueda, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE))
+                        .addComponent(Texto_Busqueda, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(136, 136, 136)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,11 +207,11 @@ public class GUIBusqueda extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addGap(181, 181, 181))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(286, Short.MAX_VALUE)
+                .addContainerGap(289, Short.MAX_VALUE)
                 .addComponent(Buscar)
                 .addGap(249, 249, 249))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(459, Short.MAX_VALUE)
+                .addContainerGap(462, Short.MAX_VALUE)
                 .addComponent(Cambiar)
                 .addContainerGap())
         );
@@ -298,21 +298,6 @@ public class GUIBusqueda extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_SalirActionPerformed
 
-    private void Iniciar_SesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Iniciar_SesionMouseClicked
-        if(Iniciar_Sesion.isEnabled()){
-            this.setVisible(false);
-        new biblioteca.gui.GUIAutenticacion(this).setVisible(true);
-        }
-    }//GEN-LAST:event_Iniciar_SesionMouseClicked
-
-    private void Cerrar_SesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Cerrar_SesionMouseClicked
-        if(Cerrar_Sesion.isEnabled()){
-            biblioteca.Main.BibliotecaDigital.LOGGED_USER="dummyuser";
-            habilitarBotones(true);
-            JOptionPane.showMessageDialog(this, "Su sesión ha sido cerrada", "Notificación", JOptionPane.INFORMATION_MESSAGE);
-        }
-    }//GEN-LAST:event_Cerrar_SesionMouseClicked
-
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
         if(Texto_Busqueda.getText().equals("")|| Texto_Busqueda.getText() ==null){
             JOptionPane.showMessageDialog(this, "El texto de busqueda no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
@@ -332,6 +317,21 @@ public class GUIBusqueda extends javax.swing.JFrame {
         this.setVisible(false);
         new GUIBusquedaAvanzada(this).setVisible(true);
     }//GEN-LAST:event_CambiarActionPerformed
+
+    private void Iniciar_SesionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Iniciar_SesionMousePressed
+        if(Iniciar_Sesion.isEnabled()){
+            this.setVisible(false);
+        new biblioteca.gui.GUIAutenticacion(this).setVisible(true);
+        }
+    }//GEN-LAST:event_Iniciar_SesionMousePressed
+
+    private void Cerrar_SesionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Cerrar_SesionMousePressed
+        if(Cerrar_Sesion.isEnabled()){
+            biblioteca.Main.BibliotecaDigital.LOGGED_USER="dummyuser";
+            habilitarBotones(true);
+            JOptionPane.showMessageDialog(this, "Su sesión ha sido cerrada", "Notificación", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_Cerrar_SesionMousePressed
 
     public void habilitarBotones(boolean b){
         Iniciar_Sesion.setEnabled(b);

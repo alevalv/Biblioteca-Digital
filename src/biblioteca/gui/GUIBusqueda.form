@@ -111,7 +111,7 @@
             <Property name="horizontalTextPosition" type="int" value="0"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Iniciar_SesionMouseClicked"/>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Iniciar_SesionMousePressed"/>
           </Events>
         </Menu>
         <Menu class="javax.swing.JMenu" name="Cerrar_Sesion">
@@ -122,7 +122,7 @@
             <Property name="horizontalTextPosition" type="int" value="0"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Cerrar_SesionMouseClicked"/>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Cerrar_SesionMousePressed"/>
           </Events>
         </Menu>
       </SubComponents>
@@ -159,7 +159,7 @@
                   <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Texto_Busqueda" pref="580" max="32767" attributes="0"/>
+                      <Component id="Texto_Busqueda" pref="583" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
@@ -180,12 +180,12 @@
               <EmptySpace min="-2" pref="181" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="286" max="32767" attributes="0"/>
+              <EmptySpace pref="289" max="32767" attributes="0"/>
               <Component id="Buscar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="249" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="459" max="32767" attributes="0"/>
+              <EmptySpace pref="462" max="32767" attributes="0"/>
               <Component id="Cambiar" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
