@@ -6,8 +6,11 @@ package biblioteca.Main;
 
 //import biblioteca.gui.GUIModificarUsuario;
 
+import biblioteca.database2.fachada.Fachada;
 import java.io.File;
-import java.util.Calendar;
+import java.sql.Connection;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -31,6 +34,20 @@ public class BibliotecaDigital {
         if(!dir.exists()){
             dir.mkdir();
         }
+        try{      
+        Connection test;
+        test = new Fachada().conectar();
+        if(test==null){
+            JOptionPane.showMessageDialog(null, "No se ha podido conectar a la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
+        }
+        else{
+            test.close();
+        }
+        }catch(SQLException sqlex){
+            System.err.println(sqlex);
+        }
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
