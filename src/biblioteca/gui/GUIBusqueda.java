@@ -162,8 +162,8 @@ public class GUIBusqueda extends javax.swing.JFrame {
         jMenuBar1.add(Autenticarse);
 
         Iniciar_Sesion.setText("Iniciar Sesión");
-        Iniciar_Sesion.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        Iniciar_Sesion.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        Iniciar_Sesion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Iniciar_Sesion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Iniciar_Sesion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Iniciar_SesionMouseClicked(evt);
@@ -173,6 +173,8 @@ public class GUIBusqueda extends javax.swing.JFrame {
 
         Cerrar_Sesion.setText("Cerrar Sesión");
         Cerrar_Sesion.setEnabled(false);
+        Cerrar_Sesion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Cerrar_Sesion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Cerrar_Sesion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Cerrar_SesionMouseClicked(evt);
