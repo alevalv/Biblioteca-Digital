@@ -529,7 +529,7 @@ public class DaoDocumento {
       }
 
       if(!Restricciones.equals("")){
-          if(!titulo.isEmpty() || !autor.isEmpty() || !titulo.isEmpty()) SQL_Avanzado+=" INTERSECT ";
+          if(!titulo.isEmpty() || !autor.isEmpty() || !titulo.isEmpty() || !pc.isEmpty()) SQL_Avanzado+=" INTERSECT ";
           SQL_Avanzado+="("+Restricciones+")";
       }
 
