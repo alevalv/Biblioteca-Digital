@@ -525,7 +525,7 @@ public class DaoDocumento {
       }
       if(!pc.isEmpty()){
           if(!titulo.isEmpty() || !autor.isEmpty()) SQL_Avanzado+=" INTERSECT ";
-          SQL_Avanzado+="("+ConsultaAvanzadaPalabraClave(pc, pcopcion);
+          SQL_Avanzado+="("+ConsultaAvanzadaPalabraClave(pc, pcopcion)+")";
       }
 
       if(!Restricciones.equals("")){
@@ -534,7 +534,8 @@ public class DaoDocumento {
       }
 
       if(!ConsultaAreas.equals("")){
-          if(!titulo.isEmpty() || !autor.isEmpty() || !titulo.isEmpty() || !Restricciones.equals("")) SQL_Avanzado+=" INTERSECT ";
+          if(!titulo.isEmpty() || !autor.isEmpty() || !titulo.isEmpty() || !pc.isEmpty() || !Restricciones.equals(""))
+              SQL_Avanzado+=" INTERSECT ";
           SQL_Avanzado+="("+ConsultaAreas+")";
       }
       
@@ -749,7 +750,7 @@ public class DaoDocumento {
 
    private String ConsultaAvanzadaAreas(String area){
        String SQL_Avanzado="";
-       if(area.equals("")){
+       if(area.equals("Cualquiera")){
            return SQL_Avanzado;
        }
        else{
