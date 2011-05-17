@@ -11,6 +11,8 @@
 
 package biblioteca.gui;
 
+import biblioteca.database2.beans.Area;
+import biblioteca.database2.controladores.ControladorArea;
 import biblioteca.database2.controladores.ControladorDocumento;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
@@ -26,9 +28,22 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
     public GUIBusquedaAvanzada(biblioteca.gui.GUIBusqueda parent) {
         this.parent=parent;
         initComponents();
+        initComboBoxArea();
         this.setLocationRelativeTo(parent);
     }
 
+
+     private void initComboBoxArea(){
+        AreaComboBox.removeAllItems();
+        ArrayList<Area> areasExistentes= new ControladorArea().consultarTodasLasAreas();
+        if(areasExistentes!=null){
+            for(int i=0;i<areasExistentes.size();i++){
+                AreaComboBox.insertItemAt(areasExistentes.get(i).toString(), i);
+            }
+            AreaComboBox.insertItemAt("Cualquiera", 0);
+            AreaComboBox.setSelectedIndex(0);
+        }
+    }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
