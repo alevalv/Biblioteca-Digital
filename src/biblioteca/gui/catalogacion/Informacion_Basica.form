@@ -24,12 +24,12 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="Estado" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="317" max="32767" attributes="0"/>
+              <EmptySpace pref="322" max="32767" attributes="0"/>
               <Component id="Siguiente" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="550" max="32767" attributes="0"/>
+              <EmptySpace pref="553" max="32767" attributes="0"/>
               <Component id="Editar" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -91,7 +91,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="66" max="32767" attributes="0"/>
+              <EmptySpace pref="69" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -235,11 +235,13 @@
     <Component class="javax.swing.JComboBox" name="Idioma">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Ingl&#xe9;s"/>
-            <StringItem index="1" value="Espa&#xf1;ol"/>
-            <StringItem index="2" value="Portuges"/>
-            <StringItem index="3" value="Otro"/>
+          <StringArray count="6">
+            <StringItem index="0" value="Espa&#xf1;ol"/>
+            <StringItem index="1" value="Ingl&#xe9;s"/>
+            <StringItem index="2" value="Franc&#xe9;s"/>
+            <StringItem index="3" value="Aleman"/>
+            <StringItem index="4" value="Portugu&#xe9;s"/>
+            <StringItem index="5" value="Otro"/>
           </StringArray>
         </Property>
       </Properties>
