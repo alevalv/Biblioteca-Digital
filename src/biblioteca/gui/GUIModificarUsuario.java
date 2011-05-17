@@ -51,7 +51,6 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel17 = new javax.swing.JLabel();
         HeadPanel = new javax.swing.JPanel();
         UniValleLabel = new javax.swing.JLabel();
         BodyPanel = new javax.swing.JPanel();
@@ -91,8 +90,6 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
         EstadoLabel = new javax.swing.JLabel();
         EstadoCuentaComboBox = new javax.swing.JComboBox();
 
-        
-
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Modificar Información");
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -109,7 +106,7 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
             HeadPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HeadPanelLayout.createSequentialGroup()
                 .addComponent(UniValleLabel)
-                .addContainerGap(291, Short.MAX_VALUE))
+                .addContainerGap(301, Short.MAX_VALUE))
         );
         HeadPanelLayout.setVerticalGroup(
             HeadPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,7 +134,6 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
 
         PreguntaSecretaLabel.setFont(new java.awt.Font("Arial", 0, 12));
         PreguntaSecretaLabel.setText("Pregunta Secreta:");
-        
 
         ContrasenaLabel.setFont(new java.awt.Font("Arial", 0, 12));
         ContrasenaLabel.setText("Contraseña:");
@@ -206,7 +202,7 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
             }
         });
 
-        PerfilComboBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        PerfilComboBox.setFont(new java.awt.Font("Arial", 0, 12));
         PerfilComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Usuario Registrado", "Usuario Catalogador" }));
         PerfilComboBox.setEnabled(false);
 
@@ -223,7 +219,7 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
         EstadoLabel.setFont(new java.awt.Font("Arial", 0, 12));
         EstadoLabel.setText("Estado de Cuenta");
 
-        EstadoCuentaComboBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        EstadoCuentaComboBox.setFont(new java.awt.Font("Arial", 0, 12));
         EstadoCuentaComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Activo", "Inactivo" }));
         EstadoCuentaComboBox.setEnabled(false);
         EstadoCuentaComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -271,29 +267,29 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
                                                 .addComponent(ApellidosLabel))))
                                     .addGap(8, 8, 8)
                                     .addGroup(BodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(NombreUsuarioTextField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
-                                        .addComponent(PreguntaSecretaTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
-                                        .addComponent(NombresTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
-                                        .addComponent(ApellidosTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
-                                        .addComponent(ContrasenaPasswordField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
-                                        .addComponent(RespuestaSecretaTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
-                                        .addComponent(CorreoTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
-                                        .addComponent(VerificarContrasenaPasswordField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
-                                        .addComponent(VinculoComboBox, 0, 197, Short.MAX_VALUE)
-                                        .addComponent(EscolaridadComboBox, 0, 197, Short.MAX_VALUE)
+                                        .addComponent(NombreUsuarioTextField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                                        .addComponent(PreguntaSecretaTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                                        .addComponent(NombresTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                                        .addComponent(ApellidosTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                                        .addComponent(ContrasenaPasswordField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                                        .addComponent(RespuestaSecretaTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                                        .addComponent(CorreoTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                                        .addComponent(VerificarContrasenaPasswordField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                                        .addComponent(VinculoComboBox, 0, 207, Short.MAX_VALUE)
+                                        .addComponent(EscolaridadComboBox, 0, 207, Short.MAX_VALUE)
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, BodyPanelLayout.createSequentialGroup()
                                             .addComponent(DayComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(MonthComboBox, 0, 49, Short.MAX_VALUE)
+                                            .addComponent(MonthComboBox, 0, 59, Short.MAX_VALUE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                             .addComponent(YearComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(GeneroComboBox, 0, 197, Short.MAX_VALUE)
-                                        .addComponent(PerfilComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, 197, Short.MAX_VALUE)
-                                        .addComponent(EstadoCuentaComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, 197, Short.MAX_VALUE)))
+                                        .addComponent(GeneroComboBox, 0, 207, Short.MAX_VALUE)
+                                        .addComponent(PerfilComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, 207, Short.MAX_VALUE)
+                                        .addComponent(EstadoCuentaComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, 207, Short.MAX_VALUE)))
                                 .addGroup(BodyPanelLayout.createSequentialGroup()
                                     .addComponent(ModificarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(ModificarAreasButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ModificarAreasButton, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(CancelarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -653,7 +649,6 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
     private javax.swing.JComboBox VinculoComboBox;
     private javax.swing.JLabel VinculoLabel;
     private javax.swing.JComboBox YearComboBox;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
