@@ -12,8 +12,10 @@
 package biblioteca.gui;
 
 import biblioteca.database2.beans.Area;
+import biblioteca.database2.beans.TipoDocumento;
 import biblioteca.database2.controladores.ControladorArea;
 import biblioteca.database2.controladores.ControladorDocumento;
+import biblioteca.database2.controladores.ControladorTipoDocumento;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 import javax.swing.JOptionPane;
@@ -24,26 +26,41 @@ import javax.swing.JOptionPane;
  */
 public class GUIBusquedaAvanzada extends javax.swing.JFrame {
     biblioteca.gui.GUIBusqueda parent;
+    ArrayList<Area> areasExistentes;
     /** Creates new form GUIBusquedaAvanzada */
     public GUIBusquedaAvanzada(biblioteca.gui.GUIBusqueda parent) {
         this.parent=parent;
+        areasExistentes= new ControladorArea().consultarTodasLasAreas();
         initComponents();
         initComboBoxArea();
+        initComboBoxTipoMaterial();
         this.setLocationRelativeTo(parent);
     }
 
 
      private void initComboBoxArea(){
         AreaComboBox.removeAllItems();
-        ArrayList<Area> areasExistentes= new ControladorArea().consultarTodasLasAreas();
+        
         if(areasExistentes!=null){
             for(int i=0;i<areasExistentes.size();i++){
-                AreaComboBox.insertItemAt(areasExistentes.get(i).toString(), i);
+                if(i==0) AreaComboBox.insertItemAt("Cualquiera", 0);
+                else AreaComboBox.insertItemAt(areasExistentes.get(i).toString(), i);
             }
-            AreaComboBox.insertItemAt("Cualquiera", 0);
+           
             AreaComboBox.setSelectedIndex(0);
         }
     }
+     private void initComboBoxTipoMaterial(){
+         TipoMaterialComboBox.removeAllItems();
+         ArrayList<TipoDocumento> tipoMaterialexistentes=new ControladorTipoDocumento().consultarTodosLosTipoDocumento();
+         if(tipoMaterialexistentes!=null){
+            for(int i=0;i<tipoMaterialexistentes.size();i++){
+                TipoMaterialComboBox.insertItemAt(tipoMaterialexistentes.get(i).getTipoDocumento(), i);
+            }
+           TipoMaterialComboBox.insertItemAt("Cualquiera", 0);
+           TipoMaterialComboBox.setSelectedIndex(0);
+         }
+     }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -373,7 +390,7 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
         int pcopcion=PalabraClaveComboBox.getSelectedIndex();
         String area=(String)AreaComboBox.getSelectedItem();
         String editorial=EditorialTextField.getText();
-        int tipo_material=TipoMaterialComboBox.getSelectedIndex();
+        String tipo_material=(String)TipoMaterialComboBox.getSelectedItem();
         String idioma=(String)IdiomaComboBox.getSelectedItem();
         int fecha=FechaComboBox.getSelectedIndex();
         String formato=(String)FormatoComboBox.getSelectedItem();
@@ -398,8 +415,9 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
             while(palabraclavetokens.hasMoreTokens()) PalabraClave.add(palabraclavetokens.nextToken());
            }
        
+       if(!area.equals("Cualquiera")) area=areasExistentes.get(AreaComboBox.getSelectedIndex()).getID();
        
-
+System.out.println("Area "+area);
 
        ArrayList<String> resultados = new ControladorDocumento().consultaDocumentoAvanzada( Titulo, Autor,
              PalabraClave,  tituloopcion, autoropcion,  pcopcion, area,

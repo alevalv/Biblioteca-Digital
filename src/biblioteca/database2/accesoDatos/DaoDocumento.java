@@ -11,11 +11,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 
-/**
- *
- * @author Alejandro Valdés
- */
 public class DaoDocumento {
 
     Fachada Fachada;
@@ -512,22 +509,33 @@ public class DaoDocumento {
         }
     }
 
-    public ArrayList<String>  consultaAvanzada(ArrayList<String> titulo, ArrayList<String> autor, ArrayList<String> pc, int tituloopcion, int autoropcion, int pcopcion, String area, String editorial, int tipo_material, String idioma, int fecha, String formato) {
+    public ArrayList<String>  consultaAvanzada(ArrayList<String> titulo, ArrayList<String> autor, ArrayList<String> pc, int tituloopcion, int autoropcion, int pcopcion, String area, String editorial, String tipo_material, String idioma, int fecha, String formato) {
 
       ArrayList<String> resultados = new ArrayList<String>();
-        
+      String Restricciones=ConsultaRestricciones(editorial, tipo_material, idioma, fecha);
+      String ConsultaAreas=ConsultaAvanzadaAreas(area);
       String SQL_Avanzado="";
       if(!titulo.isEmpty()) {
           SQL_Avanzado+="("+ConsultaAvanzadaTitulo(titulo,tituloopcion)+")";
 
       }
       if(!autor.isEmpty()){
-          if(!titulo.isEmpty()) SQL_Avanzado+=" UNION ";
+          if(!titulo.isEmpty()) SQL_Avanzado+=" INTERSECT ";
            SQL_Avanzado+="("+ConsultaAvanzadaAutor(autor,autoropcion)+")";
       }
       if(!pc.isEmpty()){
-          if(!titulo.isEmpty() || !autor.isEmpty()) SQL_Avanzado+=" UNION ";
-          SQL_Avanzado+=ConsultaAvanzadaPalabraClave(pc, pcopcion);
+          if(!titulo.isEmpty() || !autor.isEmpty()) SQL_Avanzado+=" INTERSECT ";
+          SQL_Avanzado+="("+ConsultaAvanzadaPalabraClave(pc, pcopcion);
+      }
+
+      if(!Restricciones.equals("")){
+          if(!titulo.isEmpty() || !autor.isEmpty() || !titulo.isEmpty()) SQL_Avanzado+=" INTERSECT ";
+          SQL_Avanzado+="("+Restricciones+")";
+      }
+
+      if(!ConsultaAreas.equals("")){
+          if(!titulo.isEmpty() || !autor.isEmpty() || !titulo.isEmpty() || !Restricciones.equals("")) SQL_Avanzado+=" INTERSECT ";
+          SQL_Avanzado+="("+ConsultaAreas+")";
       }
       
       SQL_Avanzado+=";";
@@ -696,15 +704,63 @@ public class DaoDocumento {
        }
        return SQL_Avanzado;
    }
-   private String ConsultaRestricciones(String area, String editorial, String tipo_material, String idioma, int fecha, String formato){
+
+   private String ConsultaRestricciones(String editorial, String tipo_material, String idioma, int fecha){
      String SQL_Avanzado="";
+     if(editorial.equals("") && tipo_material.equals("Cualquiera") && idioma.equals("Cualquiera") && fecha==0)
+         return SQL_Avanzado;
+     else{
+     SQL_Avanzado="SELECT  DISTINCT documentos.doc_id, titulo_principal FROM documentos WHERE";
      if(!editorial.equals("")){
          SQL_Avanzado+=" editorial='"+editorial+"' ";
      }
-     
+     if(!tipo_material.equals("Cualquiera")){
+         if(!editorial.equals("")) SQL_Avanzado+=" and ";
+         SQL_Avanzado+=" tipo_documento='"+tipo_material+"' ";
+     }
+     if(!idioma.equals("Cualquiera")){
+          if(!editorial.equals("") || !tipo_material.equals("Cualquiera")) SQL_Avanzado+=" and ";
+         SQL_Avanzado+=" idioma='"+idioma+"' ";
+     }
+     if(fecha!=0){
+        Calendar cal = Calendar.getInstance();
+        String fecha_actual=(cal.get(Calendar.YEAR))+"-"+(cal.get(Calendar.MONTH)+1)+"-"+(cal.get(Calendar.DAY_OF_MONTH));
+        if(fecha==1){
+            String mes_pasado=(cal.get(Calendar.YEAR))+"-"+(cal.get(Calendar.MONTH))+"-"+(cal.get(Calendar.DAY_OF_MONTH));
+            SQL_Avanzado+=" and fecha_publicacion BETWEEN '"+mes_pasado+"' and '"+fecha_actual+"' ";
+        }
+         else if(fecha == 2){
+           String ano_pasado=(cal.get(Calendar.YEAR)-1)+"-"+(cal.get(Calendar.MONTH)+1)+"-"+(cal.get(Calendar.DAY_OF_MONTH));
+            SQL_Avanzado+=" and fecha_publicacion BETWEEN '"+ano_pasado+"' and '"+fecha_actual+"' ";
+        }
+        else if(fecha == 3){
+            String hace_dos_anos=(cal.get(Calendar.YEAR)-2)+"-"+(cal.get(Calendar.MONTH)+1)+"-"+(cal.get(Calendar.DAY_OF_MONTH));
+            SQL_Avanzado+=" and fecha_publicacion BETWEEN '"+hace_dos_anos+"' and '"+fecha_actual+"' ";
+        }
+        else if(fecha == 4){
+            String hace_cinco_anos=(cal.get(Calendar.YEAR)-5)+"-"+(cal.get(Calendar.MONTH)+1)+"-"+(cal.get(Calendar.DAY_OF_MONTH));
+            SQL_Avanzado+=" and fecha_publicacion BETWEEN '"+hace_cinco_anos+"' and '"+fecha_actual+"' ";
+        }
+     }
 
      return SQL_Avanzado;
- }
+       }
+    }
+
+   private String ConsultaAvanzadaAreas(String area){
+       String SQL_Avanzado="";
+       if(area.equals("")){
+           return SQL_Avanzado;
+       }
+       else{
+         SQL_Avanzado="SELECT DISTINCT documentos.doc_id, titulo_principal FROM documentos NATURAL JOIN documento_areas_computacion"
+                 + " INNER JOIN areas_computacion ON documento_areas_computacion.area_id=areas_computacion.area_id "
+                 + " WHERE documento_areas_computacion.area_id='"+area+"'";
+
+         return SQL_Avanzado;
+        }
+    }
+
 }
 
 
