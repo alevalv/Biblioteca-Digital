@@ -34,24 +34,7 @@ public class BibliotecaDigital {
         if(!dir.exists()){
             dir.mkdir();
         }
-        try{      
-        Connection test;
-        test = new Fachada().conectar();
-        if(test==null){
-            JOptionPane.showMessageDialog(null, "No se ha podido conectar a la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
-            System.exit(0);
-        }
-        else{
-            test.close();
-        }
-        }catch(SQLException sqlex){
-            System.err.println(sqlex);
-        }
-        
-        java.awt.EventQueue.invokeLater(new Runnable() {
-
-            public void run() {
-                try {
+        try {
 	    // Set System L&F
         UIManager.setLookAndFeel(
             UIManager.getSystemLookAndFeelClassName());
@@ -68,6 +51,26 @@ public class BibliotecaDigital {
     catch (IllegalAccessException e) {
        // handle exception
     }
+        try{      
+        Connection test;
+        Comprobador ventanita=new Comprobador();
+        ventanita.setVisible(true);
+        test = new Fachada().conectar();
+        ventanita.dispose();
+        if(test==null){
+            JOptionPane.showMessageDialog(null, "No se ha podido conectar a la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
+        }
+        else{
+            test.close();
+        }
+        }catch(SQLException sqlex){
+            System.err.println(sqlex);
+        }
+        
+        java.awt.EventQueue.invokeLater(new Runnable() {
+
+            public void run() {
                 new biblioteca.gui.GUIBusqueda().setVisible(true);
             }
         });
@@ -75,3 +78,28 @@ public class BibliotecaDigital {
         // TODO code application logic here
     }
 }
+
+final class Comprobador extends javax.swing.JFrame {
+
+    public Comprobador() {
+        java.awt.GridBagConstraints gridBagConstraints;
+
+        jLabel1 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.GridBagLayout());
+
+        jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        jLabel1.setText("Comprobando si el servidor está ONLINE...");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.insets = new java.awt.Insets(30, 30, 30, 30);
+        getContentPane().add(jLabel1, gridBagConstraints);
+        this.setDefaultCloseOperation(javax.swing.JFrame.DO_NOTHING_ON_CLOSE);
+        this.setResizable(false);
+        this.setTitle("Biblioteca Digital: Comprobador");
+        pack();
+        this.setLocationRelativeTo(null);
+    }
+    private javax.swing.JLabel jLabel1;
+}
+
