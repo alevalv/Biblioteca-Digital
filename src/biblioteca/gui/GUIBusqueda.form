@@ -167,23 +167,23 @@
                   <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Texto_Busqueda" pref="688" max="32767" attributes="0"/>
+                      <Component id="Texto_Busqueda" pref="580" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="319" max="32767" attributes="0"/>
+              <EmptySpace pref="211" max="32767" attributes="0"/>
               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="181" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="394" max="32767" attributes="0"/>
+              <EmptySpace pref="286" max="32767" attributes="0"/>
               <Component id="Buscar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="249" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="467" max="32767" attributes="0"/>
+              <EmptySpace pref="459" max="32767" attributes="0"/>
               <Component id="Cambiar" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
