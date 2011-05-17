@@ -440,7 +440,7 @@ public class DaoDocumento {
         for (int i = 1; i < metadatos.size(); i++) {
             sql_consultar = "(" + sql_consultar + " UNION ";
             String temporal;
-            temporal = "(SELECT  titulo_principal, autor.nombre, autor.apellido "
+            temporal = "(SELECT DISTINCT documentos.doc_id, titulo_principal "
                 + "FROM ((((areas_computacion NATURAL JOIN "
                 + "documento_areas_computacion) JOIN documentos ON "
                 + "documento_areas_computacion.doc_id=documentos.doc_id) "
