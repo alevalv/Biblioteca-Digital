@@ -41,7 +41,6 @@ public class GUIBusqueda extends javax.swing.JFrame {
         Buscar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         Archivo = new javax.swing.JMenu();
         Agregar_Documento = new javax.swing.JMenuItem();
@@ -81,9 +80,6 @@ public class GUIBusqueda extends javax.swing.JFrame {
         jLabel1.setText("Introduzca cualquier metadato que conozca del documento que desea");
 
         jLabel2.setText("buscar, como una parte del nombre, el autor, etc.");
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel5.setText("La Busqueda de documentos es Sensible a MAYUSCULAS y minusculas.");
 
         Archivo.setMnemonic('a');
         Archivo.setText("Archivo");
@@ -202,20 +198,18 @@ public class GUIBusqueda extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(Texto_Busqueda, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)))
+                        .addComponent(Texto_Busqueda, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(266, Short.MAX_VALUE)
+                .addContainerGap(319, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addGap(181, 181, 181))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(341, Short.MAX_VALUE)
+                .addContainerGap(394, Short.MAX_VALUE)
                 .addComponent(Buscar)
                 .addGap(249, 249, 249))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addGap(73, 73, 73)
+                .addContainerGap(467, Short.MAX_VALUE)
                 .addComponent(Cambiar)
                 .addContainerGap())
         );
@@ -232,11 +226,9 @@ public class GUIBusqueda extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(jLabel1)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Cambiar)
-                    .addComponent(jLabel5))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Cambiar)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -362,7 +354,6 @@ public class GUIBusqueda extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }
