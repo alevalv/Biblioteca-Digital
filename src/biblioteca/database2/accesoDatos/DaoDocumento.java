@@ -430,12 +430,12 @@ public class DaoDocumento {
                 + "JOIN autor ON documento_autor.autor_correo=autor.autor_correo) "
                 + "JOIN documento_palabras_clave ON documentos.doc_id="
                 + "documento_palabras_clave.doc_id) WHERE ";
-        sql_consultar += "titulo_principal LIKE '%" + metadatos.get(0) + "%' OR ";
-        sql_consultar += "titulo_secundario LIKE '%" + metadatos.get(0) + "%' OR ";
-        sql_consultar += "autor.nombre LIKE '%" + metadatos.get(0) + "%' OR ";
-        sql_consultar += "autor.apellido LIKE '%" + metadatos.get(0) + "%' OR ";
-        sql_consultar += "areas_computacion.nombre LIKE '%" + metadatos.get(0) + "%' OR ";
-        sql_consultar += "documento_palabras_clave.nombre LIKE '%" + metadatos.get(0) + "%')";
+        sql_consultar += "titulo_principal ILIKE '%" + metadatos.get(0) + "%' OR ";
+        sql_consultar += "titulo_secundario ILIKE '%" + metadatos.get(0) + "%' OR ";
+        sql_consultar += "autor.nombre ILIKE '%" + metadatos.get(0) + "%' OR ";
+        sql_consultar += "autor.apellido ILIKE '%" + metadatos.get(0) + "%' OR ";
+        sql_consultar += "areas_computacion.nombre ILIKE '%" + metadatos.get(0) + "%' OR ";
+        sql_consultar += "documento_palabras_clave.nombre ILIKE '%" + metadatos.get(0) + "%')";
 
         for (int i = 1; i < metadatos.size(); i++) {
             sql_consultar = "(" + sql_consultar + " UNION ";
@@ -448,12 +448,12 @@ public class DaoDocumento {
                 + "JOIN autor ON documento_autor.autor_correo=autor.autor_correo) "
                 + "JOIN documento_palabras_clave ON documentos.doc_id="
                 + "documento_palabras_clave.doc_id) WHERE ";
-            temporal += "titulo_principal LIKE '%" + metadatos.get(i) + "%' OR ";
-            temporal += "titulo_secundario LIKE '%" + metadatos.get(i) + "%' OR ";
-            temporal += "autor.nombre LIKE '%" + metadatos.get(i) + "%' OR ";
-            temporal += "autor.apellido LIKE '%" + metadatos.get(i) + "%' OR ";
-            temporal += "areas_computacion.nombre LIKE '%" + metadatos.get(i) + "%' OR ";
-            temporal += "documento_palabras_clave.nombre LIKE '%" + metadatos.get(i) + "%')";
+            temporal += "titulo_principal ILIKE '%" + metadatos.get(i) + "%' OR ";
+            temporal += "titulo_secundario ILIKE '%" + metadatos.get(i) + "%' OR ";
+            temporal += "autor.nombre ILIKE '%" + metadatos.get(i) + "%' OR ";
+            temporal += "autor.apellido ILIKE '%" + metadatos.get(i) + "%' OR ";
+            temporal += "areas_computacion.nombre ILIKE '%" + metadatos.get(i) + "%' OR ";
+            temporal += "documento_palabras_clave.nombre ILIKE '%" + metadatos.get(i) + "%')";
             sql_consultar+=temporal+")";
         }
         ArrayList<String> resultados = null;
@@ -564,8 +564,8 @@ public class DaoDocumento {
        if(tituloopcion==0){
           for(int i=0;i<titulo.size();i++){
              if(i==0)
-                SQL_Avanzado+=" titulo_principal like '%"+titulo.get(i)+"%' ";
-             else SQL_Avanzado+=" and titulo_principal like '%"+titulo.get(i)+"%' ";
+                SQL_Avanzado+=" titulo_principal ilike '%"+titulo.get(i)+"%' ";
+             else SQL_Avanzado+=" and titulo_principal ilike '%"+titulo.get(i)+"%' ";
           }
        }
        else if(tituloopcion == 1)
@@ -576,16 +576,16 @@ public class DaoDocumento {
            {
             for(int i=0;i<titulo.size();i++){
              if(i==0)
-                SQL_Avanzado+=" titulo_principal like '%"+titulo.get(i)+"%' ";
-             else SQL_Avanzado+=" or titulo_principal like '%"+titulo.get(i)+"%' ";
+                SQL_Avanzado+=" titulo_principal ilike '%"+titulo.get(i)+"%' ";
+             else SQL_Avanzado+=" or titulo_principal ilike '%"+titulo.get(i)+"%' ";
           }
        }
        else if(tituloopcion == 3)
            {
            for(int i=0;i<titulo.size();i++){
              if(i==0)
-                SQL_Avanzado+=" titulo_principal not like '%"+titulo.get(i)+"%' ";
-             else SQL_Avanzado+=" and titulo_principal not like '%"+titulo.get(i)+"%' ";
+                SQL_Avanzado+=" titulo_principal not ilike '%"+titulo.get(i)+"%' ";
+             else SQL_Avanzado+=" and titulo_principal not ilike '%"+titulo.get(i)+"%' ";
           }
        
        }
@@ -600,20 +600,20 @@ public class DaoDocumento {
          if(autoropcion==0){
           for(int i=0;i<autor.size();i++){
              if(autor.size()==1){
-                SQL_Avanzado+=" nombre like '%"+autor.get(i)+"%' )";
-                SQL_AvanzadoUnion+=" apellido like '%"+autor.get(i)+"%' )";
+                SQL_Avanzado+=" nombre ilike '%"+autor.get(i)+"%' )";
+                SQL_AvanzadoUnion+=" apellido ilike '%"+autor.get(i)+"%' )";
              }
              else if (i == 0) {
-                SQL_Avanzado+=" nombre like '%"+autor.get(i)+"%' ";
-                SQL_AvanzadoUnion+=" apellido like '%"+autor.get(i)+"%' ";
+                SQL_Avanzado+=" nombre ilike '%"+autor.get(i)+"%' ";
+                SQL_AvanzadoUnion+=" apellido ilike '%"+autor.get(i)+"%' ";
               }
              else if(i == autor.size()-1){
-                 SQL_Avanzado+=" and nombre like '%"+autor.get(i)+"%') ";
-                 SQL_AvanzadoUnion+=" and apellido like '%"+autor.get(i)+"%') ";
+                 SQL_Avanzado+=" and nombre ilike '%"+autor.get(i)+"%') ";
+                 SQL_AvanzadoUnion+=" and apellido ilike '%"+autor.get(i)+"%') ";
                 }
              else {
-                 SQL_Avanzado+=" and nombre like '%"+autor.get(i)+"%' ";
-                 SQL_AvanzadoUnion+=" and apellido like '%"+autor.get(i)+"%' ";
+                 SQL_Avanzado+=" and nombre ilike '%"+autor.get(i)+"%' ";
+                 SQL_AvanzadoUnion+=" and apellido ilike '%"+autor.get(i)+"%' ";
              }
           }
        }
@@ -626,21 +626,21 @@ public class DaoDocumento {
            {
             for(int i=0;i<autor.size();i++){
              if(autor.size()==1){
-                SQL_Avanzado+=" nombre like '%"+autor.get(i)+"%' )";
-                SQL_AvanzadoUnion+=" apellido like '%"+autor.get(i)+"%' )";
+                SQL_Avanzado+=" nombre ilike '%"+autor.get(i)+"%' )";
+                SQL_AvanzadoUnion+=" apellido ilike '%"+autor.get(i)+"%' )";
              }
              else if(i == 0)
                 {
-                SQL_Avanzado+=" nombre like '%"+autor.get(i)+"%' ";
-                SQL_AvanzadoUnion+=" apellido like '%"+autor.get(i)+"%' ";
+                SQL_Avanzado+=" nombre ilike '%"+autor.get(i)+"%' ";
+                SQL_AvanzadoUnion+=" apellido ilike '%"+autor.get(i)+"%' ";
                 }
              else if(i == autor.size()-1) {
-                 SQL_Avanzado+=" or nombre like '%"+autor.get(i)+"%') ";
-                 SQL_AvanzadoUnion+=" or apellido like '%"+autor.get(i)+"%') ";
+                 SQL_Avanzado+=" or nombre ilike '%"+autor.get(i)+"%') ";
+                 SQL_AvanzadoUnion+=" or apellido ilike '%"+autor.get(i)+"%') ";
              }
             else{
-                 SQL_Avanzado+=" or nombre like '%"+autor.get(i)+"%' ";
-                 SQL_AvanzadoUnion+=" or apellido like '%"+autor.get(i)+"%' ";
+                 SQL_Avanzado+=" or nombre ilike '%"+autor.get(i)+"%' ";
+                 SQL_AvanzadoUnion+=" or apellido ilike '%"+autor.get(i)+"%' ";
              }
 
           }
@@ -649,21 +649,21 @@ public class DaoDocumento {
            {
            for(int i=0;i<autor.size();i++){
              if(autor.size()==1){
-                 SQL_Avanzado+=" nombre not like '%"+autor.get(i)+"%' )";
-                SQL_AvanzadoUnion+=" apellido not like '%"+autor.get(i)+"%' )";
+                 SQL_Avanzado+=" nombre not ilike '%"+autor.get(i)+"%' )";
+                SQL_AvanzadoUnion+=" apellido not ilike '%"+autor.get(i)+"%' )";
              }
                else if(i == 0)
                {
-                SQL_Avanzado+=" nombre not like '%"+autor.get(i)+"%' ";
-                SQL_AvanzadoUnion+=" apellido not like '%"+autor.get(i)+"%' ";
+                SQL_Avanzado+=" nombre not ilike '%"+autor.get(i)+"%' ";
+                SQL_AvanzadoUnion+=" apellido not ilike '%"+autor.get(i)+"%' ";
                }
             else if(i == autor.size()-1) {
-                 SQL_Avanzado+=" and nombre not like '%"+autor.get(i)+"%') ";
-                 SQL_AvanzadoUnion+=" and apellido not like '%"+autor.get(i)+"%') ";
+                 SQL_Avanzado+=" and nombre not ilike '%"+autor.get(i)+"%') ";
+                 SQL_AvanzadoUnion+=" and apellido not ilike '%"+autor.get(i)+"%') ";
                 }
              else {
-                 SQL_Avanzado+=" and nombre not like '%"+autor.get(i)+"%' ";
-                 SQL_AvanzadoUnion+=" and apellido not like '%"+autor.get(i)+"%' ";
+                 SQL_Avanzado+=" and nombre not ilike '%"+autor.get(i)+"%' ";
+                 SQL_AvanzadoUnion+=" and apellido not ilike '%"+autor.get(i)+"%' ";
              }
           }
 
@@ -678,8 +678,8 @@ public class DaoDocumento {
        if(pcopcion==0){
           for(int i=0;i<pc.size();i++){
              if(i==0)
-                SQL_Avanzado+=" palabras_clave.nombre like '%"+pc.get(i)+"%' ";
-             else SQL_Avanzado+=" and palabras_clave.nombre like '%"+pc.get(i)+"%' ";
+                SQL_Avanzado+=" palabras_clave.nombre ilike '%"+pc.get(i)+"%' ";
+             else SQL_Avanzado+=" and palabras_clave.nombre ilike '%"+pc.get(i)+"%' ";
           }
        }
        else if(pcopcion == 1)
@@ -690,16 +690,16 @@ public class DaoDocumento {
            {
             for(int i=0;i<pc.size();i++){
              if(i==0)
-                SQL_Avanzado+=" palabras_clave.nombre like '%"+pc.get(i)+"%' ";
-             else SQL_Avanzado+=" or palabras_clave.nombre like '%"+pc.get(i)+"%' ";
+                SQL_Avanzado+=" palabras_clave.nombre ilike '%"+pc.get(i)+"%' ";
+             else SQL_Avanzado+=" or palabras_clave.nombre ilike '%"+pc.get(i)+"%' ";
           }
        }
        else if(pcopcion == 3)
            {
            for(int i=0;i<pc.size();i++){
              if(i==0)
-                SQL_Avanzado+=" palabras_clave.nombre not like '%"+pc.get(i)+"%' ";
-             else SQL_Avanzado+=" and palabras_clave.nombre not like '%"+pc.get(i)+"%' ";
+                SQL_Avanzado+=" palabras_clave.nombre not ilike '%"+pc.get(i)+"%' ";
+             else SQL_Avanzado+=" and palabras_clave.nombre not ilike '%"+pc.get(i)+"%' ";
           }
 
        }
@@ -713,7 +713,7 @@ public class DaoDocumento {
      else{
      SQL_Avanzado="SELECT  DISTINCT documentos.doc_id, titulo_principal FROM documentos WHERE";
      if(!editorial.equals("")){
-         SQL_Avanzado+=" editorial='"+editorial+"' ";
+         SQL_Avanzado+=" editorial ilike '"+editorial+"' ";
      }
      if(!tipo_material.equals("Cualquiera")){
          if(!editorial.equals("")) SQL_Avanzado+=" and ";
