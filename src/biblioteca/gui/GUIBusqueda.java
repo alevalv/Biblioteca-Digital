@@ -257,7 +257,8 @@ public class GUIBusqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_Modificar_DocumentoActionPerformed
 
     private void EstadisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstadisticasActionPerformed
-        unsupportedOperation();
+        this.setVisible(false);
+        new biblioteca.gui.GUIEstadisticas(this).setVisible(true);
     }//GEN-LAST:event_EstadisticasActionPerformed
 
     private void RegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarseActionPerformed
@@ -332,10 +333,6 @@ public class GUIBusqueda extends javax.swing.JFrame {
     public void habilitarBotones(boolean b){
         Iniciar_Sesion.setEnabled(b);
         Cerrar_Sesion.setEnabled(!b);
-    }
-    
-    private void unsupportedOperation(){
-        JOptionPane.showMessageDialog(this, "Esta operación aún no ha sido implementada", "Error", JOptionPane.ERROR_MESSAGE);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
