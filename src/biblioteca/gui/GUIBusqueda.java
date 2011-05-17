@@ -79,7 +79,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
 
         jLabel1.setText("Introduzca cualquier metadato que conozca del documento que desea");
 
-        jLabel2.setText("buscar, como una parte del nombre, el autor, etc.");
+        jLabel2.setText("buscar, como una parte del nombre, el autor o una palabra clave");
 
         Archivo.setMnemonic('a');
         Archivo.setText("Archivo");
@@ -190,20 +190,20 @@ public class GUIBusqueda extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Texto_Busqueda, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(136, 136, 136)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(48, 48, 48)
+                                .addGap(10, 10, 10)
                                 .addComponent(jLabel2))
-                            .addComponent(jLabel1)))
-                    .addComponent(jLabel3)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Texto_Busqueda, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)))
+                            .addComponent(jLabel1))))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(211, Short.MAX_VALUE)
+                .addContainerGap(214, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addGap(181, 181, 181))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -227,10 +227,11 @@ public class GUIBusqueda extends javax.swing.JFrame {
                 .addComponent(Buscar)
                 .addGap(20, 20, 20)
                 .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(11, 11, 11)
                 .addComponent(Cambiar)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pack();
