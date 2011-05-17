@@ -79,7 +79,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
 
         jLabel6.setText("Idioma:");
 
-        Idioma.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Inglés", "Español", "Portuges", "Otro" }));
+        Idioma.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Español", "Inglés", "Francés", "Aleman", "Portugués", "Otro" }));
 
         jLabel7.setText("Editorial: ");
 
@@ -120,11 +120,11 @@ public class Informacion_Basica extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Estado)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 317, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 322, Short.MAX_VALUE)
                 .addComponent(Siguiente)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(550, Short.MAX_VALUE)
+                .addContainerGap(553, Short.MAX_VALUE)
                 .addComponent(Editar)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -170,7 +170,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
                                 .addComponent(Idioma, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(297, 297, 297))
                             .addComponent(Derechos_Autor))))
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
