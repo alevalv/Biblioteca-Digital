@@ -59,7 +59,7 @@ public class DaoTipoDocumento {
         return -1;
     }
     
-    public TipoDocumento consultarDocumento(String nombre){
+    public TipoDocumento consultarTipoDocumento(String nombre){
         String sql_consultar;
         sql_consultar="SELECT * FROM  tipo_material WHERE tipo_documento = '" +
                 nombre + "';";

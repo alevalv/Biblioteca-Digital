@@ -38,7 +38,7 @@ public class ControladorTipoDocumento {
     
     public TipoDocumento consultarTipoDocumento(String nombre){
         DaoTipoDocumento daoTipoDocumento = new DaoTipoDocumento();
-        TipoDocumento salida=daoTipoDocumento.consultarDocumento(nombre);
+        TipoDocumento salida=daoTipoDocumento.consultarTipoDocumento(nombre);
         return salida;
     }
     
