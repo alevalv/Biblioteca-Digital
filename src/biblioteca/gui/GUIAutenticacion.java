@@ -131,6 +131,7 @@ class GUIAutenticacion extends javax.swing.JFrame {
                if(activo){
                    JOptionPane.showMessageDialog(this, "Bienvenido "+username, "", JOptionPane.INFORMATION_MESSAGE);
                    biblioteca.Main.BibliotecaDigital.LOGGED_USER=username;
+                   parent.setTitle("Biblioteca Digital de "+username);
                    parent.setVisible(true);
                    parent.habilitarBotones(false);
                    this.dispose();
