@@ -329,6 +329,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
         if(Cerrar_Sesion.isEnabled()){
             biblioteca.Main.BibliotecaDigital.LOGGED_USER="dummyuser";
             habilitarBotones(true);
+            this.setTitle("Biblioteca Digital");
             JOptionPane.showMessageDialog(this, "Su sesión ha sido cerrada", "Notificación", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_Cerrar_SesionMousePressed
