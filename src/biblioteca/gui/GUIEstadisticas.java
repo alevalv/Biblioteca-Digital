@@ -192,6 +192,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 5);
         Panel_Documentos.add(jLabel6, gridBagConstraints);
 
+        Documentos_Areas.setMinimumSize(new java.awt.Dimension(240, 24));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -200,6 +201,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 10);
         Panel_Documentos.add(Documentos_Areas, gridBagConstraints);
 
+        Documentos_Autor.setMinimumSize(new java.awt.Dimension(240, 24));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -208,6 +210,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 10);
         Panel_Documentos.add(Documentos_Autor, gridBagConstraints);
 
+        Documentos_Tipo.setMinimumSize(new java.awt.Dimension(240, 24));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
@@ -258,6 +261,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 449;
         gridBagConstraints.ipady = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -266,6 +270,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 449;
         gridBagConstraints.ipady = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -274,6 +279,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 449;
         gridBagConstraints.ipady = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -467,6 +473,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 5);
         Panel_Documentos_Catalogados.add(jLabel13, gridBagConstraints);
 
+        Catalogados_Areas.setMinimumSize(new java.awt.Dimension(240, 24));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -525,6 +532,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         Panel_Principal.add(Panel_Documentos_Catalogados, gridBagConstraints);
 
         jLabel14.setFont(new java.awt.Font("Ubuntu", 1, 11));
@@ -636,6 +644,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         Panel_Principal.add(Panel_Documentos_Descargados, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
