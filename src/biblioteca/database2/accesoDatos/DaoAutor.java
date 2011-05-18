@@ -50,8 +50,8 @@ public class DaoAutor {
             while(tabla.next()){
               autor.setCorreo(tabla.getString(1));
               autor.setAcronimo(tabla.getString(2));
-              autor.setApellido(tabla.getString(3));
-              autor.setNombre(tabla.getString(4));
+              autor.setNombre(tabla.getString(3));
+              autor.setApellido(tabla.getString(4));
             }
             conn.close();
 
