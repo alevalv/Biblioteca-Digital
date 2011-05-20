@@ -540,7 +540,7 @@ public class DaoDocumento {
       }
       
       SQL_Avanzado+=";";
-      System.out.println(SQL_Avanzado);
+      
       try {
             Connection conn = Fachada.conectar();
             java.sql.Statement sentencia = conn.createStatement();
