@@ -24,6 +24,7 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
         initComponents();
         this.parent=parent;
         this.setLocationRelativeTo(parent);
+        this.setResizable(false);
     }
 
     /** This method is called from within the constructor to
