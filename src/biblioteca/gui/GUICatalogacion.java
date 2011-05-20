@@ -45,6 +45,7 @@ public class GUICatalogacion extends javax.swing.JFrame {
         this.parent = parent;
         initComponents();
         this.setLocationRelativeTo(parent);
+        this.setResizable(false);
     }
     
     public void catalogar(File file){

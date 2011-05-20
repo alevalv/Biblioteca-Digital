@@ -40,6 +40,7 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
             NombreUsuarioTextField1.setEditable(true);
         }
         this.setLocationRelativeTo(parent);
+        this.setResizable(false);
     }
 
     /** This method is called from within the constructor to

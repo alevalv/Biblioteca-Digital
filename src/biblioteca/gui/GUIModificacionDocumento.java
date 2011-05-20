@@ -49,6 +49,7 @@ public class GUIModificacionDocumento extends javax.swing.JFrame {
         td = new biblioteca.gui.modificacion.Tipo_Documento();
         initComponents();
         this.setLocationRelativeTo(parent);
+        this.setResizable(false);
     }
     
     public void catalogar(){
@@ -93,14 +94,14 @@ public class GUIModificacionDocumento extends javax.swing.JFrame {
 
     static public void destroyAll(){
         documento=null;
-                biblioteca.gui.catalogacion.Autores.autoresSeleccionados=null;
-                biblioteca.gui.catalogacion.Selecc_Areas.areasSeleccionadas=null;
-                biblioteca.gui.catalogacion.Selecc_Pal_Clave.palabrasClaveSeleccionadas=null;
-                Informacion_Basica_Guardada=false;
-                Autores_Guardado=false;
-                Areas_Guardadas=false;
-                Palabras_Clave_Guardadas=false;
-                Tipo_Documento_Guardado=false;
+        biblioteca.gui.modificacion.Autores.autoresSeleccionados=null;
+        biblioteca.gui.modificacion.Selecc_Areas.areasSeleccionadas=null;
+        biblioteca.gui.modificacion.Selecc_Pal_Clave.palabrasClaveSeleccionadas=null;
+        Informacion_Basica_Guardada=false;
+        Autores_Guardado=false;
+        Areas_Guardadas=false;
+        Palabras_Clave_Guardadas=false;
+        Tipo_Documento_Guardado=false;
     }
     /** This method is called from within the constructor to
      * initialize the form.

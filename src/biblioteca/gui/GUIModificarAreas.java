@@ -40,6 +40,7 @@ public class GUIModificarAreas extends javax.swing.JFrame {
         initListExistentes();
         initListSeleccionadas();
         this.setLocationRelativeTo(parent);
+        this.setResizable(false);
     }
     
 
@@ -1024,10 +1025,10 @@ public class GUIModificarAreas extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabel47.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel47.setFont(new java.awt.Font("Arial", 1, 14));
         jLabel47.setText("Usuario = ");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -1097,7 +1098,7 @@ public class GUIModificarAreas extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(208, Short.MAX_VALUE)
+                .addContainerGap(219, Short.MAX_VALUE)
                 .addComponent(jLabel46)
                 .addGap(200, 200, 200))
             .addGroup(layout.createSequentialGroup()
@@ -1124,13 +1125,13 @@ public class GUIModificarAreas extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel45)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 321, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 335, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(Agregar)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                                 .addComponent(Agregar1)
                                 .addGap(20, 20, 20)))
-                        .addContainerGap(30, Short.MAX_VALUE))))
+                        .addContainerGap(44, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1310,10 +1311,8 @@ public class GUIModificarAreas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-         this.dispose();
+        this.dispose();
         parent.setVisible(true);
-        
-       
     }//GEN-LAST:event_formWindowClosing
 
 

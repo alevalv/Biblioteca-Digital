@@ -36,6 +36,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         initTipoDocumento();
         this.parent=parent;
         this.setLocationRelativeTo(parent);
+        this.setResizable(false);
     }
     
     private void initAreas() {

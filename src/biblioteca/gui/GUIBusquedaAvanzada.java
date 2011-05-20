@@ -35,6 +35,7 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
         initComboBoxArea();
         initComboBoxTipoMaterial();
         this.setLocationRelativeTo(parent);
+        this.setResizable(false);
     }
 
 

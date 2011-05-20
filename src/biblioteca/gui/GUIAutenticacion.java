@@ -24,6 +24,7 @@ class GUIAutenticacion extends javax.swing.JFrame {
         initComponents();
         this.parent=parent;
         this.setLocationRelativeTo(parent);
+        this.setResizable(false);
     }
 
     /** This method is called from within the constructor to
@@ -42,6 +43,7 @@ class GUIAutenticacion extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         Password = new javax.swing.JPasswordField();
         Ingresar = new javax.swing.JButton();
+        Cancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Autenticar Usuario");
@@ -51,7 +53,7 @@ class GUIAutenticacion extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 24));
         jLabel1.setText("Autenticación");
 
         jLabel2.setText("Nombre de Usuario: ");
@@ -73,6 +75,13 @@ class GUIAutenticacion extends javax.swing.JFrame {
             }
         });
 
+        Cancelar.setText("Cancelar");
+        Cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -89,7 +98,9 @@ class GUIAutenticacion extends javax.swing.JFrame {
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(197, 197, 197)
-                        .addComponent(Ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(162, 162, 162)
                         .addComponent(jLabel1)))
@@ -110,7 +121,9 @@ class GUIAutenticacion extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(Ingresar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Ingresar)
+                    .addComponent(Cancelar))
                 .addContainerGap(43, Short.MAX_VALUE))
         );
 
@@ -155,7 +168,13 @@ class GUIAutenticacion extends javax.swing.JFrame {
         IngresarActionPerformed(evt);
     }//GEN-LAST:event_PasswordActionPerformed
 
+    private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
+        parent.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_CancelarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Cancelar;
     private javax.swing.JButton Ingresar;
     private javax.swing.JPasswordField Password;
     private javax.swing.JTextField Username;

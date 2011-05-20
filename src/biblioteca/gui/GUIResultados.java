@@ -48,6 +48,7 @@ public class GUIResultados extends javax.swing.JFrame {
             Resultados.setModel(modelo);
             this.parent=parent;
             this.setLocationRelativeTo(parent);
+            this.setResizable(false);
     }
 
     GUIResultados(ArrayList<String> resultados, GUIBusquedaAvanzada aThis) {
@@ -72,6 +73,7 @@ public class GUIResultados extends javax.swing.JFrame {
             Resultados.setModel(modelo);
             this.parent2=aThis;
             this.setLocationRelativeTo(parent2);
+            this.setResizable(false);
     }
 
     /** This method is called from within the constructor to
@@ -174,7 +176,7 @@ public class GUIResultados extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         if(parent!=null)
-        parent.setVisible(true);
+            parent.setVisible(true);
         else parent2.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_formWindowClosing

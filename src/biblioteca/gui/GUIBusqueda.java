@@ -23,6 +23,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
     public GUIBusqueda() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setResizable(false);
     }
 
     /** This method is called from within the constructor to
