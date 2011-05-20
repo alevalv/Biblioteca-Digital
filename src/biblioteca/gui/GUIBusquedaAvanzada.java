@@ -44,7 +44,7 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
         if(areasExistentes!=null){
             for(int i=0;i<areasExistentes.size();i++){
                 if(i==0) AreaComboBox.insertItemAt("Cualquiera", 0);
-                else AreaComboBox.insertItemAt(areasExistentes.get(i).toString(), i);
+                else AreaComboBox.insertItemAt(areasExistentes.get(i).getNombre(), i);
             }
            
             AreaComboBox.setSelectedIndex(0);
@@ -400,8 +400,6 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
        
        if(!area.equals("Cualquiera")) area=areasExistentes.get(AreaComboBox.getSelectedIndex()).getID();
        
-System.out.println("Area "+area);
-
        ArrayList<String> resultados = new ControladorDocumento().consultaDocumentoAvanzada( Titulo, Autor,
              PalabraClave,  tituloopcion, autoropcion,  pcopcion, area,
             editorial, tipo_material, idioma, fecha);
