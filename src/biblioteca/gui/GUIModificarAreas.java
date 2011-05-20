@@ -188,6 +188,7 @@ public class GUIModificarAreas extends javax.swing.JFrame {
         jLabel47 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel43 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
         Cancelar = new javax.swing.JButton();
         jLabel44 = new javax.swing.JLabel();
         Agregar = new javax.swing.JButton();
@@ -1037,18 +1038,25 @@ public class GUIModificarAreas extends javax.swing.JFrame {
 
         jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biblioteca/gui/resources/logo.png"))); // NOI18N
 
+        jLabel48.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel48.setText("Biblioteca Digital");
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addComponent(jLabel43)
-                .addContainerGap(332, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                .addComponent(jLabel48)
+                .addGap(27, 27, 27))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addComponent(jLabel43)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel48)
+                    .addComponent(jLabel43))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
@@ -1393,6 +1401,7 @@ public class GUIModificarAreas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

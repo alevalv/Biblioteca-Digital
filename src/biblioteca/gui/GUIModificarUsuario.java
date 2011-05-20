@@ -54,6 +54,7 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
 
         HeadPanel = new javax.swing.JPanel();
         UniValleLabel = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
         BodyPanel = new javax.swing.JPanel();
         TittleLabel = new javax.swing.JLabel();
         EscolaridadLabel = new javax.swing.JLabel();
@@ -101,18 +102,25 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
 
         UniValleLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biblioteca/gui/resources/logo.png"))); // NOI18N
 
+        jLabel19.setFont(new java.awt.Font("Ubuntu", 1, 24));
+        jLabel19.setText("Biblioteca Digital");
+
         javax.swing.GroupLayout HeadPanelLayout = new javax.swing.GroupLayout(HeadPanel);
         HeadPanel.setLayout(HeadPanelLayout);
         HeadPanelLayout.setHorizontalGroup(
             HeadPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HeadPanelLayout.createSequentialGroup()
                 .addComponent(UniValleLabel)
-                .addContainerGap(301, Short.MAX_VALUE))
+                .addGap(39, 39, 39)
+                .addComponent(jLabel19)
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         HeadPanelLayout.setVerticalGroup(
             HeadPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HeadPanelLayout.createSequentialGroup()
-                .addComponent(UniValleLabel)
+                .addGroup(HeadPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel19)
+                    .addComponent(UniValleLabel))
                 .addContainerGap(55, Short.MAX_VALUE))
         );
 
@@ -133,7 +141,7 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
         CorreoLabel.setFont(new java.awt.Font("Arial", 0, 12));
         CorreoLabel.setText("Correo Electronico: ");
 
-        PreguntaSecretaLabel.setFont(new java.awt.Font("Arial", 0, 12));
+        PreguntaSecretaLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         PreguntaSecretaLabel.setText("Pregunta Secreta:");
 
         ContrasenaLabel.setFont(new java.awt.Font("Arial", 0, 12));
@@ -157,7 +165,7 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
         RespuestaSecretaLabel.setFont(new java.awt.Font("Arial", 0, 12));
         RespuestaSecretaLabel.setText("Respuesta Secreta: ");
 
-        PreguntaSecretaTextField.setFont(new java.awt.Font("Arial", 0, 11));
+        PreguntaSecretaTextField.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
 
         VerificarContrasenaLabel.setFont(new java.awt.Font("Arial", 0, 12));
         VerificarContrasenaLabel.setText("Verificar Contraseña:");
@@ -650,6 +658,7 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
     private javax.swing.JComboBox VinculoComboBox;
     private javax.swing.JLabel VinculoLabel;
     private javax.swing.JComboBox YearComboBox;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables

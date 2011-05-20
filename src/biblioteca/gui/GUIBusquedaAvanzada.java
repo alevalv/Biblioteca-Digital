@@ -75,6 +75,7 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         titlelabel = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         TituloLabel = new javax.swing.JLabel();
@@ -98,6 +99,7 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
         EditorialLabel = new javax.swing.JLabel();
         EditorialTextField = new javax.swing.JTextField();
         BuscarButton = new javax.swing.JButton();
+        CancelarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Búsqueda Avanzada");
@@ -111,8 +113,11 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biblioteca/gui/resources/logo.png"))); // NOI18N
 
-        titlelabel.setFont(new java.awt.Font("Arial", 1, 24));
+        titlelabel.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         titlelabel.setText("Busqueda Avanzada");
+
+        jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel5.setText("Biblioteca Digital");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -120,22 +125,26 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(189, 189, 189)
-                .addComponent(titlelabel)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
+                        .addComponent(jLabel5)
+                        .addGap(42, 42, 42))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(titlelabel)
+                        .addGap(280, 280, 280))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(titlelabel)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(titlelabel)
+                .addContainerGap())
         );
 
         TituloLabel.setFont(new java.awt.Font("Arial", 0, 12));
@@ -218,12 +227,12 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel6.setText("Idioma:");
 
-        TipoMaterialComboBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        TipoMaterialComboBox.setFont(new java.awt.Font("Arial", 0, 12));
 
         MaterialLabel.setFont(new java.awt.Font("Arial", 0, 12));
         MaterialLabel.setText("Tipo de Material: ");
 
-        IdiomaComboBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        IdiomaComboBox.setFont(new java.awt.Font("Arial", 0, 12));
         IdiomaComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cualquiera", "Español", "Inglés", "Francés", "Aleman", "Portugués" }));
 
         FechaLabel.setFont(new java.awt.Font("Arial", 0, 12));
@@ -241,6 +250,13 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
         BuscarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BuscarButtonActionPerformed(evt);
+            }
+        });
+
+        CancelarButton.setText("Cancelar");
+        CancelarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarButtonActionPerformed(evt);
             }
         });
 
@@ -262,8 +278,8 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
                             .addComponent(FechaLabel)))
                     .addComponent(EditorialLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(EditorialTextField)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(EditorialTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
                     .addComponent(AreaComboBox, 0, 430, Short.MAX_VALUE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(TipoMaterialComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -273,10 +289,11 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
                         .addComponent(IdiomaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(FechaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 263, Short.MAX_VALUE)))
-                .addGap(34, 34, 34)
-                .addComponent(BuscarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
+                        .addComponent(BuscarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(CancelarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -299,7 +316,8 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(FechaLabel)
                     .addComponent(FechaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BuscarButton))
+                    .addComponent(BuscarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CancelarButton))
                 .addGap(26, 26, 26))
         );
 
@@ -310,7 +328,7 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 779, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -425,6 +443,12 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_formWindowClosing
 
+    private void CancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarButtonActionPerformed
+                parent.setVisible(true);
+                        this.dispose();
+
+    }//GEN-LAST:event_CancelarButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox AreaComboBox;
     private javax.swing.JLabel AreaLabel;
@@ -432,6 +456,7 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
     private javax.swing.JLabel AutorLabel;
     private javax.swing.JTextField AutorTextField;
     private javax.swing.JButton BuscarButton;
+    private javax.swing.JButton CancelarButton;
     private javax.swing.JLabel EditorialLabel;
     private javax.swing.JTextField EditorialTextField;
     private javax.swing.JComboBox FechaComboBox;
@@ -446,6 +471,7 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
     private javax.swing.JLabel TituloLabel;
     private javax.swing.JTextField TituloTextField;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

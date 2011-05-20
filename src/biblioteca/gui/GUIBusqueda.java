@@ -22,8 +22,8 @@ public class GUIBusqueda extends javax.swing.JFrame {
     /** Creates new form GUIBusqueda */
     public GUIBusqueda() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        this.setResizable(false);
+       this.setLocationRelativeTo(null);
+        this.setExtendedState(this.MAXIMIZED_BOTH);        
     }
 
     /** This method is called from within the constructor to
@@ -34,15 +34,16 @@ public class GUIBusqueda extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
-        Cambiar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         Texto_Busqueda = new javax.swing.JTextField();
         Buscar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        Cambiar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         Archivo = new javax.swing.JMenu();
         Agregar_Documento = new javax.swing.JMenuItem();
@@ -59,18 +60,40 @@ public class GUIBusqueda extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Biblioteca Digital");
         setMinimumSize(new java.awt.Dimension(600, 300));
-
-        Cambiar.setText("Busqueda Avanzada");
-        Cambiar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CambiarActionPerformed(evt);
-            }
-        });
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biblioteca/gui/resources/logo.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        getContentPane().add(jLabel3, gridBagConstraints);
+
+        jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel5.setText("Biblioteca Digital");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 20);
+        getContentPane().add(jLabel5, gridBagConstraints);
 
         jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
         jLabel4.setText("Busqueda Normal");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 0);
+        getContentPane().add(jLabel4, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 481;
+        gridBagConstraints.insets = new java.awt.Insets(5, 20, 5, 20);
+        getContentPane().add(Texto_Busqueda, gridBagConstraints);
 
         Buscar.setText("Buscar");
         Buscar.addActionListener(new java.awt.event.ActionListener() {
@@ -78,13 +101,41 @@ public class GUIBusqueda extends javax.swing.JFrame {
                 BuscarActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
+        getContentPane().add(Buscar, gridBagConstraints);
 
         jLabel1.setText("Introduzca cualquier metadato que conozca del documento que desea");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 0);
+        getContentPane().add(jLabel1, gridBagConstraints);
 
         jLabel2.setText("buscar, como una parte del nombre, el autor o una palabra clave");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 6;
+        getContentPane().add(jLabel2, gridBagConstraints);
 
-        jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
-        jLabel5.setText("Biblioteca Digital");
+        Cambiar.setText("Busqueda Avanzada");
+        Cambiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CambiarActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 20, 20);
+        getContentPane().add(Cambiar, gridBagConstraints);
 
         Archivo.setMnemonic('a');
         Archivo.setText("Archivo");
@@ -188,60 +239,6 @@ public class GUIBusqueda extends javax.swing.JFrame {
         jMenuBar1.add(Cerrar_Sesion);
 
         setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel5)
-                                .addContainerGap())
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Texto_Busqueda, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(136, 136, 136)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(10, 10, 10)
-                                                .addComponent(jLabel2))
-                                            .addComponent(jLabel1)))
-                                    .addComponent(Cambiar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(23, 23, 23)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jLabel4)
-                            .addGap(190, 190, 190)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(Buscar)
-                        .addGap(262, 262, 262))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel3))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addGap(11, 11, 11)
-                .addComponent(Texto_Busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Buscar)
-                .addGap(20, 20, 20)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addGap(11, 11, 11)
-                .addComponent(Cambiar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
