@@ -10,15 +10,18 @@
  */
 package biblioteca.gui;
 
+import biblioteca.database2.beans.Autor;
 import biblioteca.database2.controladores.ControladorDocumento;
 import javax.swing.JOptionPane;
 import biblioteca.database2.controladores.ControladorUsuario;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author alejandro
  */
 public class GUIBusqueda extends javax.swing.JFrame {
+    ArrayList<String> resultados;
     /** Creates new form GUIBusqueda */
     public GUIBusqueda() {
         initComponents();
@@ -36,6 +39,15 @@ public class GUIBusqueda extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        Resultados = new javax.swing.JTable();
+        Consultar = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(300, 0), new java.awt.Dimension(300, 0), new java.awt.Dimension(300, 32767));
+        filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(300, 0), new java.awt.Dimension(300, 0), new java.awt.Dimension(300, 32767));
+        jTextField1 = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -44,6 +56,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         Cambiar = new javax.swing.JButton();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(300, 0), new java.awt.Dimension(300, 0), new java.awt.Dimension(300, 32767));
         jMenuBar1 = new javax.swing.JMenuBar();
         Archivo = new javax.swing.JMenu();
         Agregar_Documento = new javax.swing.JMenuItem();
@@ -57,17 +70,64 @@ public class GUIBusqueda extends javax.swing.JFrame {
         Iniciar_Sesion = new javax.swing.JMenu();
         Cerrar_Sesion = new javax.swing.JMenu();
 
+        jPanel2.setLayout(new java.awt.GridBagLayout());
+
+        jScrollPane2.setMinimumSize(new java.awt.Dimension(800, 400));
+        jScrollPane2.setPreferredSize(new java.awt.Dimension(800, 400));
+        jScrollPane2.setViewportView(Resultados);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 10, 20);
+        jPanel2.add(jScrollPane2, gridBagConstraints);
+
+        Consultar.setText("Consultar Documento Seleccionado");
+        Consultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultarActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 20, 20);
+        jPanel2.add(Consultar, gridBagConstraints);
+
+        jLabel6.setFont(new java.awt.Font("Ubuntu", 1, 24));
+        jLabel6.setText("Resultados de Busqueda");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(20, 10, 10, 10);
+        jPanel2.add(jLabel6, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        jPanel2.add(filler2, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        jPanel2.add(filler3, gridBagConstraints);
+
+        jTextField1.setText("jTextField1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Biblioteca Digital");
         setMinimumSize(new java.awt.Dimension(600, 300));
-        getContentPane().setLayout(new java.awt.GridBagLayout());
+
+        jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biblioteca/gui/resources/logo.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        getContentPane().add(jLabel3, gridBagConstraints);
+        jPanel1.add(jLabel3, gridBagConstraints);
 
         jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
         jLabel5.setText("Biblioteca Digital");
@@ -76,7 +136,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 20);
-        getContentPane().add(jLabel5, gridBagConstraints);
+        jPanel1.add(jLabel5, gridBagConstraints);
 
         jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
         jLabel4.setText("Busqueda Normal");
@@ -85,7 +145,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 0);
-        getContentPane().add(jLabel4, gridBagConstraints);
+        jPanel1.add(jLabel4, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -93,7 +153,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 481;
         gridBagConstraints.insets = new java.awt.Insets(5, 20, 5, 20);
-        getContentPane().add(Texto_Busqueda, gridBagConstraints);
+        jPanel1.add(Texto_Busqueda, gridBagConstraints);
 
         Buscar.setText("Buscar");
         Buscar.addActionListener(new java.awt.event.ActionListener() {
@@ -106,7 +166,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
-        getContentPane().add(Buscar, gridBagConstraints);
+        jPanel1.add(Buscar, gridBagConstraints);
 
         jLabel1.setText("Introduzca cualquier metadato que conozca del documento que desea");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -114,14 +174,14 @@ public class GUIBusqueda extends javax.swing.JFrame {
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 0);
-        getContentPane().add(jLabel1, gridBagConstraints);
+        jPanel1.add(jLabel1, gridBagConstraints);
 
         jLabel2.setText("buscar, como una parte del nombre, el autor o una palabra clave");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 6;
-        getContentPane().add(jLabel2, gridBagConstraints);
+        jPanel1.add(jLabel2, gridBagConstraints);
 
         Cambiar.setText("Busqueda Avanzada");
         Cambiar.addActionListener(new java.awt.event.ActionListener() {
@@ -135,7 +195,13 @@ public class GUIBusqueda extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 20, 20);
-        getContentPane().add(Cambiar, gridBagConstraints);
+        jPanel1.add(Cambiar, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        jPanel1.add(filler1, gridBagConstraints);
+
+        getContentPane().add(jPanel1, java.awt.BorderLayout.NORTH);
 
         Archivo.setMnemonic('a');
         Archivo.setText("Archivo");
@@ -246,7 +312,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
     private void Agregar_DocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_DocumentoActionPerformed
         if(new ControladorUsuario().verificarTipoUsuario("2", biblioteca.Main.BibliotecaDigital.LOGGED_USER) ||
                 new ControladorUsuario().verificarTipoUsuario("1", biblioteca.Main.BibliotecaDigital.LOGGED_USER)){
-            this.setVisible(false);
+            
             new biblioteca.gui.GUICatalogacion(this).setVisible(true);
         }
         else{
@@ -257,7 +323,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
     private void Modificar_DocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modificar_DocumentoActionPerformed
          if(new ControladorUsuario().verificarTipoUsuario("2", biblioteca.Main.BibliotecaDigital.LOGGED_USER) ||
                 new ControladorUsuario().verificarTipoUsuario("1", biblioteca.Main.BibliotecaDigital.LOGGED_USER)){
-            this.setVisible(false);
+            
             new biblioteca.gui.GUIModificacionDocumento(this).setVisible(true);
         }
         else{
@@ -266,14 +332,12 @@ public class GUIBusqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_Modificar_DocumentoActionPerformed
 
     private void EstadisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstadisticasActionPerformed
-        this.setVisible(false);
-        new biblioteca.gui.GUIEstadisticas(this).setVisible(true);
+       new biblioteca.gui.GUIEstadisticas(this).setVisible(true);
     }//GEN-LAST:event_EstadisticasActionPerformed
 
     private void RegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarseActionPerformed
         if(biblioteca.Main.BibliotecaDigital.LOGGED_USER.equals("dummyuser")){
-            this.setVisible(false);
-            new biblioteca.gui.GUIRegistroUsuarios(this).setVisible(true);
+           new biblioteca.gui.GUIRegistroUsuarios(this).setVisible(true);
         }
         else{
             JOptionPane.showMessageDialog(this, "Usted ya está registrado", "Error", JOptionPane.ERROR_MESSAGE);
@@ -282,8 +346,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
 
     private void Modificar_DatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modificar_DatosActionPerformed
         if(!biblioteca.Main.BibliotecaDigital.LOGGED_USER.equals("dummyuser")){
-            this.setVisible(false);
-        new biblioteca.gui.GUIModificarUsuario(this, false).setVisible(true);
+            new biblioteca.gui.GUIModificarUsuario(this, false).setVisible(true);
         }
         else{
            JOptionPane.showMessageDialog(this, "Tiene que autenticarse para modificar sus datos", "Error", JOptionPane.ERROR_MESSAGE);
@@ -292,7 +355,6 @@ public class GUIBusqueda extends javax.swing.JFrame {
 
     private void GestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GestionActionPerformed
         if(new ControladorUsuario().verificarTipoUsuario("1", biblioteca.Main.BibliotecaDigital.LOGGED_USER)){
-            this.setVisible(false);
             new biblioteca.gui.GUIModificarUsuario(this, true).setVisible(true);
         }
         else{
@@ -308,10 +370,30 @@ public class GUIBusqueda extends javax.swing.JFrame {
         if(Texto_Busqueda.getText().equals("")|| Texto_Busqueda.getText() ==null){
             JOptionPane.showMessageDialog(this, "El texto de busqueda no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
         } else{
-            ArrayList<String> resultados = new ControladorDocumento().consultaDocumentoGeneral(Texto_Busqueda.getText());
+            resultados = new ControladorDocumento().consultaDocumentoGeneral(Texto_Busqueda.getText());
             if(!resultados.isEmpty()){
-                new GUIResultados(resultados, this).setVisible(true);
-                this.setVisible(false);
+                DefaultTableModel modelo =new DefaultTableModel();
+                modelo.addColumn("Titulo");
+            modelo.addColumn("Autores");
+            for(int i=0;i<(int) resultados.size()/2;i++){
+                String[] row = new String[2];
+                row[0] =resultados.get(i*2+1);
+                String autores="";
+                ArrayList<Autor> obtenerAutores = new ControladorDocumento().obtenerAutores(resultados.get(i*2));
+                for(int j=0;j<obtenerAutores.size();j++){
+                    autores+=obtenerAutores.get(j).getNombre()+" "+obtenerAutores.get(j).getApellido();
+                    if(j!=(obtenerAutores.size()-1))
+                        autores+=", ";
+                }
+                row[1]=autores;
+                modelo.addRow(row);
+            }
+            Resultados.setModel(modelo);
+            this.getContentPane().add(jPanel2, "Center");
+            this.getContentPane().invalidate();
+            this.getContentPane().repaint();
+            this.pack();
+            this.setExtendedState(this.MAXIMIZED_BOTH);        
             }
                 
             else
@@ -326,7 +408,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
 
     private void Iniciar_SesionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Iniciar_SesionMousePressed
         if(Iniciar_Sesion.isEnabled()){
-            this.setVisible(false);
+            
         new biblioteca.gui.GUIAutenticacion(this).setVisible(true);
         }
     }//GEN-LAST:event_Iniciar_SesionMousePressed
@@ -340,6 +422,16 @@ public class GUIBusqueda extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Cerrar_SesionMousePressed
 
+    private void ConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarActionPerformed
+        int numeroSelecc=Resultados.getSelectedRow();
+        if(numeroSelecc==-1){
+            JOptionPane.showMessageDialog(this, "Debe seleccionar una fila", "Error", JOptionPane.ERROR_MESSAGE);
+        } else{
+            
+            new biblioteca.gui.GUIInformacionDocumento(this, resultados.get(numeroSelecc*2)).setVisible(true);
+        }
+}//GEN-LAST:event_ConsultarActionPerformed
+
     public void habilitarBotones(boolean b){
         Iniciar_Sesion.setEnabled(b);
         Cerrar_Sesion.setEnabled(!b);
@@ -352,19 +444,29 @@ public class GUIBusqueda extends javax.swing.JFrame {
     private javax.swing.JButton Buscar;
     private javax.swing.JButton Cambiar;
     private javax.swing.JMenu Cerrar_Sesion;
+    private javax.swing.JButton Consultar;
     private javax.swing.JMenuItem Estadisticas;
     private javax.swing.JMenuItem Gestion;
     private javax.swing.JMenu Iniciar_Sesion;
     private javax.swing.JMenuItem Modificar_Datos;
     private javax.swing.JMenuItem Modificar_Documento;
     private javax.swing.JMenuItem Registrarse;
+    private javax.swing.JTable Resultados;
     private javax.swing.JMenuItem Salir;
     private javax.swing.JTextField Texto_Busqueda;
+    private javax.swing.Box.Filler filler1;
+    private javax.swing.Box.Filler filler2;
+    private javax.swing.Box.Filler filler3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

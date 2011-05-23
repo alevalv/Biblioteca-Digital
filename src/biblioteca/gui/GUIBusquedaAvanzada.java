@@ -12,6 +12,7 @@
 package biblioteca.gui;
 
 import biblioteca.database2.beans.Area;
+import biblioteca.database2.beans.Autor;
 import biblioteca.database2.beans.TipoDocumento;
 import biblioteca.database2.controladores.ControladorArea;
 import biblioteca.database2.controladores.ControladorDocumento;
@@ -19,6 +20,7 @@ import biblioteca.database2.controladores.ControladorTipoDocumento;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -27,6 +29,7 @@ import javax.swing.JOptionPane;
 public class GUIBusquedaAvanzada extends javax.swing.JFrame {
     biblioteca.gui.GUIBusqueda parent;
     ArrayList<Area> areasExistentes;
+     ArrayList<String> resultados;
     /** Creates new form GUIBusquedaAvanzada */
     public GUIBusquedaAvanzada(biblioteca.gui.GUIBusqueda parent) {
         this.parent=parent;
@@ -35,7 +38,7 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
         initComboBoxArea();
         initComboBoxTipoMaterial();
         this.setLocationRelativeTo(parent);
-        this.setResizable(false);
+        this.setExtendedState(this.MAXIMIZED_BOTH);   
     }
 
 
@@ -70,7 +73,15 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
+        jPanel6 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        Resultados = new javax.swing.JTable();
+        Consultar = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(300, 0), new java.awt.Dimension(300, 0), new java.awt.Dimension(300, 32767));
+        filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(300, 0), new java.awt.Dimension(300, 0), new java.awt.Dimension(300, 32767));
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -101,6 +112,51 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
         BuscarButton = new javax.swing.JButton();
         CancelarButton = new javax.swing.JButton();
 
+        jPanel6.setLayout(new java.awt.GridBagLayout());
+
+        jScrollPane2.setMinimumSize(new java.awt.Dimension(800, 200));
+        jScrollPane2.setPreferredSize(new java.awt.Dimension(800, 200));
+        jScrollPane2.setRequestFocusEnabled(false);
+        jScrollPane2.setViewportView(Resultados);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 10, 20);
+        jPanel6.add(jScrollPane2, gridBagConstraints);
+
+        Consultar.setText("Consultar Documento Seleccionado");
+        Consultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultarActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 20, 20);
+        jPanel6.add(Consultar, gridBagConstraints);
+
+        jLabel7.setFont(new java.awt.Font("Ubuntu", 1, 24));
+        jLabel7.setText("Resultados de Busqueda");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(20, 10, 10, 10);
+        jPanel6.add(jLabel7, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        jPanel6.add(filler2, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        jPanel6.add(filler3, gridBagConstraints);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Búsqueda Avanzada");
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -109,14 +165,14 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setPreferredSize(new java.awt.Dimension(300, 300));
+        jPanel1.setPreferredSize(new java.awt.Dimension(300, 450));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biblioteca/gui/resources/logo.png"))); // NOI18N
 
-        titlelabel.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        titlelabel.setFont(new java.awt.Font("Arial", 1, 24));
         titlelabel.setText("Busqueda Avanzada");
 
-        jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 24));
         jLabel5.setText("Biblioteca Digital");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -128,7 +184,7 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 250, Short.MAX_VALUE)
                         .addComponent(jLabel5)
                         .addGap(42, 42, 42))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -164,9 +220,11 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
 
         TituloComboBox.setFont(new java.awt.Font("Arial", 0, 12));
         TituloComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "con todas las palabras", "con la frase exacta", "con alguna de las palabras", "sin las palabras" }));
+        TituloComboBox.setMaximumSize(new java.awt.Dimension(182, 27));
 
         AutorComboBox.setFont(new java.awt.Font("Arial", 0, 12));
         AutorComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "con todas las palabras", "con la frase exacta", "con alguna de las palabras", "sin las palabras" }));
+        AutorComboBox.setMaximumSize(new java.awt.Dimension(182, 27));
         AutorComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AutorComboBoxActionPerformed(evt);
@@ -175,6 +233,7 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
 
         PalabraClaveComboBox.setFont(new java.awt.Font("Arial", 0, 12));
         PalabraClaveComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "con todas las palabras", "con la frase exacta", "con alguna de las palabras", "sin las palabras" }));
+        PalabraClaveComboBox.setMaximumSize(new java.awt.Dimension(182, 27));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -187,15 +246,15 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
                     .addComponent(AutorLabel, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(PalabraClaveLabel, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(PalabraClaveTextField)
-                    .addComponent(AutorTextField)
-                    .addComponent(TituloTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(AutorComboBox, 0, 227, Short.MAX_VALUE)
-                    .addComponent(TituloComboBox, 0, 227, Short.MAX_VALUE)
-                    .addComponent(PalabraClaveComboBox, 0, 227, Short.MAX_VALUE))
+                    .addComponent(PalabraClaveTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
+                    .addComponent(AutorTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
+                    .addComponent(TituloTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(TituloComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(AutorComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PalabraClaveComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -293,7 +352,7 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
                         .addComponent(BuscarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(CancelarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50))
+                .addGap(89, 89, 89))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -363,22 +422,7 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 819, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel1, java.awt.BorderLayout.NORTH);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -419,7 +463,7 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
        
        if(!area.equals("Cualquiera")) area=areasExistentes.get(AreaComboBox.getSelectedIndex()).getID();
        
-       ArrayList<String> resultados = new ControladorDocumento().consultaDocumentoAvanzada( Titulo, Autor,
+       /*ArrayList<String> resultados = new ControladorDocumento().consultaDocumentoAvanzada( Titulo, Autor,
              PalabraClave,  tituloopcion, autoropcion,  pcopcion, area,
             editorial, tipo_material, idioma, fecha);
 
@@ -429,7 +473,37 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
             }
 
             else
+                JOptionPane.showMessageDialog(this, "La busqueda no ha retornado resultados", "Erorr", JOptionPane.ERROR_MESSAGE);*/
+       resultados =new ControladorDocumento().consultaDocumentoAvanzada( Titulo, Autor,
+             PalabraClave,  tituloopcion, autoropcion,  pcopcion, area,
+            editorial, tipo_material, idioma, fecha);
+       if(!resultados.isEmpty()){
+                DefaultTableModel modelo =new DefaultTableModel();
+                modelo.addColumn("Titulo");
+            modelo.addColumn("Autores");
+            for(int i=0;i<(int) resultados.size()/2;i++){
+                String[] row = new String[2];
+                row[0] =resultados.get(i*2+1);
+                String autores="";
+                ArrayList<Autor> obtenerAutores = new ControladorDocumento().obtenerAutores(resultados.get(i*2));
+                for(int j=0;j<obtenerAutores.size();j++){
+                    autores+=obtenerAutores.get(j).getNombre()+" "+obtenerAutores.get(j).getApellido();
+                    if(j!=(obtenerAutores.size()-1))
+                        autores+=", ";
+                }
+                row[1]=autores;
+                modelo.addRow(row);
+            }
+            Resultados.setModel(modelo);
+            this.getContentPane().add(jPanel6, "Center");
+            //this.getContentPane().invalidate();
+            this.getContentPane().repaint();
+            this.pack();
+            this.setExtendedState(this.MAXIMIZED_BOTH);        
+            }
+          else
                 JOptionPane.showMessageDialog(this, "La busqueda no ha retornado resultados", "Erorr", JOptionPane.ERROR_MESSAGE);
+        
     }//GEN-LAST:event_BuscarButtonActionPerformed
 
 
@@ -449,6 +523,16 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
 
     }//GEN-LAST:event_CancelarButtonActionPerformed
 
+    private void ConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarActionPerformed
+        int numeroSelecc=Resultados.getSelectedRow();
+        if(numeroSelecc==-1){
+            JOptionPane.showMessageDialog(this, "Debe seleccionar una fila", "Error", JOptionPane.ERROR_MESSAGE);
+        } else{
+            
+            new biblioteca.gui.GUIInformacionDocumento(this, resultados.get(numeroSelecc*2)).setVisible(true);
+        }
+}//GEN-LAST:event_ConsultarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox AreaComboBox;
     private javax.swing.JLabel AreaLabel;
@@ -457,6 +541,7 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
     private javax.swing.JTextField AutorTextField;
     private javax.swing.JButton BuscarButton;
     private javax.swing.JButton CancelarButton;
+    private javax.swing.JButton Consultar;
     private javax.swing.JLabel EditorialLabel;
     private javax.swing.JTextField EditorialTextField;
     private javax.swing.JComboBox FechaComboBox;
@@ -466,18 +551,24 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
     private javax.swing.JComboBox PalabraClaveComboBox;
     private javax.swing.JLabel PalabraClaveLabel;
     private javax.swing.JTextField PalabraClaveTextField;
+    private javax.swing.JTable Resultados;
     private javax.swing.JComboBox TipoMaterialComboBox;
     private javax.swing.JComboBox TituloComboBox;
     private javax.swing.JLabel TituloLabel;
     private javax.swing.JTextField TituloTextField;
+    private javax.swing.Box.Filler filler2;
+    private javax.swing.Box.Filler filler3;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel titlelabel;
     // End of variables declaration//GEN-END:variables
 

@@ -30,9 +30,9 @@ public class GUIInformacionDocumento extends javax.swing.JFrame {
     private String documento_id;
     private Documento documento;
     private ControladorDocumento controlador;
-    biblioteca.gui.GUIResultados parent;
+    javax.swing.JFrame parent;
     /** Creates new form GUIInformacionDocumento */
-    public GUIInformacionDocumento(biblioteca.gui.GUIResultados parent, String documento_id) {
+    public GUIInformacionDocumento(javax.swing.JFrame parent, String documento_id) {
         this.documento_id=documento_id;
         this.parent=parent;
         this.setLocationRelativeTo(parent);
