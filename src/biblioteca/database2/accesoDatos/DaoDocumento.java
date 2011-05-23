@@ -422,7 +422,7 @@ public class DaoDocumento {
     }
     
     public ArrayList<String> consultarDocumento(ArrayList<String> metadatos) {
-        String sql_consultar = "(SELECT DISTINCT documentos.doc_id, titulo_principal"
+        String sql_consultar = "SELECT DISTINCT documentos.doc_id, titulo_principal"
                 + " FROM ((((areas_computacion NATURAL JOIN "
                 + "documento_areas_computacion) JOIN documentos ON "
                 + "documento_areas_computacion.doc_id=documentos.doc_id) "
@@ -435,29 +435,21 @@ public class DaoDocumento {
         sql_consultar += "autor.nombre ILIKE '%" + metadatos.get(0) + "%' OR ";
         sql_consultar += "autor.apellido ILIKE '%" + metadatos.get(0) + "%' OR ";
         sql_consultar += "areas_computacion.nombre ILIKE '%" + metadatos.get(0) + "%' OR ";
-        sql_consultar += "documento_palabras_clave.nombre ILIKE '%" + metadatos.get(0) + "%')";
+        sql_consultar += "documento_palabras_clave.nombre ILIKE '%" + metadatos.get(0) + "%'";
 
         for (int i = 1; i < metadatos.size(); i++) {
-            sql_consultar = "(" + sql_consultar + " UNION ";
-            String temporal;
-            temporal = "(SELECT DISTINCT documentos.doc_id, titulo_principal "
-                + "FROM ((((areas_computacion NATURAL JOIN "
-                + "documento_areas_computacion) JOIN documentos ON "
-                + "documento_areas_computacion.doc_id=documentos.doc_id) "
-                + "JOIN documento_autor ON documentos.doc_id=documento_autor.doc_id "
-                + "JOIN autor ON documento_autor.autor_correo=autor.autor_correo) "
-                + "JOIN documento_palabras_clave ON documentos.doc_id="
-                + "documento_palabras_clave.doc_id) WHERE ";
-            temporal += "titulo_principal ILIKE '%" + metadatos.get(i) + "%' OR ";
+            String temporal="";
+            temporal += "OR titulo_principal ILIKE '%" + metadatos.get(i) + "%' OR ";
             temporal += "titulo_secundario ILIKE '%" + metadatos.get(i) + "%' OR ";
             temporal += "autor.nombre ILIKE '%" + metadatos.get(i) + "%' OR ";
             temporal += "autor.apellido ILIKE '%" + metadatos.get(i) + "%' OR ";
             temporal += "areas_computacion.nombre ILIKE '%" + metadatos.get(i) + "%' OR ";
-            temporal += "documento_palabras_clave.nombre ILIKE '%" + metadatos.get(i) + "%')";
-            sql_consultar+=temporal+")";
+            temporal += "documento_palabras_clave.nombre ILIKE '%" + metadatos.get(i) + "%'";
+            sql_consultar+=temporal;
         }
+        sql_consultar+=";";
         ArrayList<String> resultados = null;
-        
+        System.err.println(sql_consultar);
         try {
             Connection conn = Fachada.conectar();
             java.sql.Statement sentencia = conn.createStatement();
