@@ -88,8 +88,8 @@ public class GUIResultados extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biblioteca/gui/resources/logo.png"))); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 24));
-        jLabel4.setText("Resultados de Busqueda");
+        jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel4.setText("Recomendaciones Nuevas");
 
         Resultados.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -115,7 +115,7 @@ public class GUIResultados extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(204, 204, 204)
                         .addComponent(jLabel4)))
-                .addContainerGap(245, Short.MAX_VALUE))
+                .addContainerGap(229, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(462, Short.MAX_VALUE)
                 .addComponent(Consultar)

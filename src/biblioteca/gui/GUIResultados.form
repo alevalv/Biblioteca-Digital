@@ -56,7 +56,7 @@
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="245" max="32767" attributes="0"/>
+              <EmptySpace pref="229" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace pref="462" max="32767" attributes="0"/>
@@ -98,7 +98,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Ubuntu" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Resultados de Busqueda"/>
+        <Property name="text" type="java.lang.String" value="Recomendaciones Nuevas"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
