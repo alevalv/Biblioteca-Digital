@@ -4,7 +4,7 @@
  */
 
 /*
- * GUIResultados.java
+ * GUIRecomendaciones.java
  *
  * Created on 14/05/2011, 10:58:38 PM
  */
@@ -19,12 +19,12 @@ import biblioteca.database2.controladores.ControladorDocumento;
  *
  * @author Alejandro
  */
-public class GUIResultados extends javax.swing.JFrame {
-    /** Creates new form GUIResultados */
+public class GUIRecomendaciones extends javax.swing.JFrame {
+    /** Creates new form GUIRecomendaciones */
     javax.swing.JFrame parent;
     ArrayList<String> resultados;
 
-    public GUIResultados(ArrayList<String> resultados, javax.swing.JFrame parent) {
+    public GUIRecomendaciones(ArrayList<String> resultados, javax.swing.JFrame parent) {
             this.resultados=resultados;
             initComponents();
             NoEditableTableModel modelo =new NoEditableTableModel();
