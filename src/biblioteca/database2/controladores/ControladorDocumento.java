@@ -167,7 +167,15 @@ public class ControladorDocumento {
             editorial,  tipo_material, idioma, fecha);
     }
 
-
+    public ArrayList<String> consultarRecomendaciones(String username){
+        ControladorUsuario controlador = new ControladorUsuario();
+        ArrayList<Area> usuarioAreas = new ControladorArea().consultarAreasporUsuario(username);
+        ArrayList<String> codigoAreasUsuario = new ArrayList<String>(usuarioAreas.size());
+        for(int i=0;i<usuarioAreas.size();i++){
+            codigoAreasUsuario.add(usuarioAreas.get(i).getID());
+        }
+        return new DaoDocumento().consultarRecomendacionesDocumentos(username, controlador.obtenerUltimoAcceso(username), codigoAreasUsuario);
+    }
     
     
 }

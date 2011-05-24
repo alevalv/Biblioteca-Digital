@@ -309,5 +309,25 @@ public class DaoUsuario {
         return -1;
                 
     }
+    
+    public String obtenerUltimoAcceso(String username){
+        String ultimoAcceso= null;
+        String sql_consultar;
+        sql_consultar="SELECT ultimo_acceso FROM usuarios WHERE username= '"+username+"';";
+         try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_consultar);
+            ultimoAcceso="";
+            if(tabla.next()){
+                ultimoAcceso=tabla.getString(1);
+            }
+             conn.close();
+         }
+         catch(SQLException e){ System.out.println(e); }
+         catch(Exception e){ System.out.println(e); }
+
+        return ultimoAcceso;
+    }
 
 }

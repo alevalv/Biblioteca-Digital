@@ -449,7 +449,6 @@ public class DaoDocumento {
         }
         sql_consultar+=";";
         ArrayList<String> resultados = null;
-        System.err.println(sql_consultar);
         try {
             Connection conn = Fachada.conectar();
             java.sql.Statement sentencia = conn.createStatement();
@@ -753,6 +752,37 @@ public class DaoDocumento {
          return SQL_Avanzado;
         }
     }
+   
+   public ArrayList<String> consultarRecomendacionesDocumentos(String username, String fecha_registro, ArrayList<String> Areas){
+       String sql_consultar = "SELECT DISTINCT documentos.doc_id, titulo_principal"
+                + " FROM documento_areas_computacion NATURAL JOIN documentos WHERE ";
+        sql_consultar += "fecha_catalogacion > " + fecha_registro+ " AND ( ";
+
+        for (int i = 0; i < Areas.size(); i++) {
+            sql_consultar+="area_id='"+Areas.get(i)+"' ";
+            if(i!=(Areas.size()-1))
+                sql_consultar+="OR ";
+        }
+        sql_consultar+=");";
+        ArrayList<String> resultados = null;
+        System.err.println(sql_consultar);
+        try {
+            Connection conn = Fachada.conectar();
+            java.sql.Statement sentencia = conn.createStatement();
+            ResultSet salida = sentencia.executeQuery(sql_consultar);
+            resultados = new ArrayList<String>();
+            while (salida.next()) {
+                resultados.add(salida.getString(1));
+                resultados.add(salida.getString(2));
+            }
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println(e);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return resultados;
+   }
 
 }
 

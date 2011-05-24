@@ -117,6 +117,10 @@ public class ControladorUsuario {
         java.sql.Timestamp fechaderegistro=new java.sql.Timestamp(actual.getTime());
         return new DaoUsuario().cambiarUltimoAcceso(username, fechaderegistro.toString());
     }
+    
+    public String obtenerUltimoAcceso(String username){
+        return new DaoUsuario().obtenerUltimoAcceso(username);
+    }
 
 
 }
