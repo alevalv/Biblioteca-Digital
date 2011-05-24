@@ -24,12 +24,12 @@ public class GUIRecomendaciones extends javax.swing.JFrame {
     javax.swing.JFrame parent;
     ArrayList<String> resultados;
 
-    public GUIRecomendaciones(ArrayList<String> resultados, javax.swing.JFrame parent) {
-            this.resultados=resultados;
+    public GUIRecomendaciones(javax.swing.JFrame parent) {
             initComponents();
             NoEditableTableModel modelo =new NoEditableTableModel();
             modelo.addColumn("Titulo");
             modelo.addColumn("Autores");
+            resultados = new ControladorDocumento().consultarRecomendaciones(biblioteca.Main.BibliotecaDigital.LOGGED_USER);
             for(int i=0;i<(int) resultados.size()/2;i++){
                 String[] row = new String[2];
                 row[0] =resultados.get(i*2+1);
