@@ -46,7 +46,6 @@ public class GUIBusqueda extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(300, 0), new java.awt.Dimension(300, 0), new java.awt.Dimension(300, 32767));
         filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(300, 0), new java.awt.Dimension(300, 0), new java.awt.Dimension(300, 32767));
-        jTextField1 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -74,6 +73,12 @@ public class GUIBusqueda extends javax.swing.JFrame {
 
         jScrollPane2.setMinimumSize(new java.awt.Dimension(800, 400));
         jScrollPane2.setPreferredSize(new java.awt.Dimension(800, 400));
+
+        Resultados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ResultadosMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(Resultados);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -114,8 +119,6 @@ public class GUIBusqueda extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         jPanel2.add(filler3, gridBagConstraints);
 
-        jTextField1.setText("jTextField1");
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Biblioteca Digital");
         setMinimumSize(new java.awt.Dimension(600, 300));
@@ -129,7 +132,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel3, gridBagConstraints);
 
-        jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 24));
         jLabel5.setText("Biblioteca Digital");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
@@ -138,7 +141,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 20);
         jPanel1.add(jLabel5, gridBagConstraints);
 
-        jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 24));
         jLabel4.setText("Busqueda Normal");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -372,7 +375,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
         } else{
             resultados = new ControladorDocumento().consultaDocumentoGeneral(Texto_Busqueda.getText());
             if(!resultados.isEmpty()){
-                DefaultTableModel modelo =new DefaultTableModel();
+                NoEditableTableModel modelo =new NoEditableTableModel();
                 modelo.addColumn("Titulo");
             modelo.addColumn("Autores");
             for(int i=0;i<(int) resultados.size()/2;i++){
@@ -432,6 +435,13 @@ public class GUIBusqueda extends javax.swing.JFrame {
         }
 }//GEN-LAST:event_ConsultarActionPerformed
 
+    private void ResultadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResultadosMouseClicked
+        if(evt.getClickCount()==2){
+            int numeroSelecc=Resultados.getSelectedRow();
+            new biblioteca.gui.GUIInformacionDocumento(this, resultados.get(numeroSelecc*2)).setVisible(true);
+        }
+    }//GEN-LAST:event_ResultadosMouseClicked
+
     public void habilitarBotones(boolean b){
         Iniciar_Sesion.setEnabled(b);
         Cerrar_Sesion.setEnabled(!b);
@@ -467,6 +477,16 @@ public class GUIBusqueda extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+}
+
+
+class NoEditableTableModel extends DefaultTableModel {
+    NoEditableTableModel(){
+        super();
+    }
+    @Override
+    public boolean isCellEditable(int row, int cols){
+        return false;
+    }
 }

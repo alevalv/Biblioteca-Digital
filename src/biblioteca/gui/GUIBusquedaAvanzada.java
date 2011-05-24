@@ -117,6 +117,12 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
         jScrollPane2.setMinimumSize(new java.awt.Dimension(800, 200));
         jScrollPane2.setPreferredSize(new java.awt.Dimension(800, 200));
         jScrollPane2.setRequestFocusEnabled(false);
+
+        Resultados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ResultadosMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(Resultados);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -214,7 +220,7 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
 
         TituloTextField.setFont(new java.awt.Font("Arial", 0, 12));
 
-        AutorTextField.setFont(new java.awt.Font("Arial", 0, 12));
+        AutorTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         PalabraClaveTextField.setFont(new java.awt.Font("Arial", 0, 12));
 
@@ -478,7 +484,7 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
              PalabraClave,  tituloopcion, autoropcion,  pcopcion, area,
             editorial, tipo_material, idioma, fecha);
        if(!resultados.isEmpty()){
-                DefaultTableModel modelo =new DefaultTableModel();
+                NoEditableTableModel modelo =new NoEditableTableModel();
                 modelo.addColumn("Titulo");
             modelo.addColumn("Autores");
             for(int i=0;i<(int) resultados.size()/2;i++){
@@ -532,6 +538,13 @@ public class GUIBusquedaAvanzada extends javax.swing.JFrame {
             new biblioteca.gui.GUIInformacionDocumento(this, resultados.get(numeroSelecc*2)).setVisible(true);
         }
 }//GEN-LAST:event_ConsultarActionPerformed
+
+    private void ResultadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResultadosMouseClicked
+        if(evt.getClickCount()==2){
+            int numeroSelecc=Resultados.getSelectedRow();
+            new biblioteca.gui.GUIInformacionDocumento(this, resultados.get(numeroSelecc*2)).setVisible(true);
+        }
+    }//GEN-LAST:event_ResultadosMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox AreaComboBox;
