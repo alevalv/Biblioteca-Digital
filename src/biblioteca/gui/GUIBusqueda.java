@@ -66,6 +66,8 @@ public class GUIBusqueda extends javax.swing.JFrame {
         Registrarse = new javax.swing.JMenuItem();
         Modificar_Datos = new javax.swing.JMenuItem();
         Gestion = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        RecomendacionesDocumentos = new javax.swing.JMenuItem();
         Iniciar_Sesion = new javax.swing.JMenu();
         Cerrar_Sesion = new javax.swing.JMenu();
 
@@ -209,7 +211,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
         Archivo.setMnemonic('a');
         Archivo.setText("Archivo");
 
-        Agregar_Documento.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
+        Agregar_Documento.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
         Agregar_Documento.setMnemonic('o');
         Agregar_Documento.setText("Agregar un Documento");
         Agregar_Documento.addActionListener(new java.awt.event.ActionListener() {
@@ -285,6 +287,20 @@ public class GUIBusqueda extends javax.swing.JFrame {
         Autenticarse.add(Gestion);
 
         jMenuBar1.add(Autenticarse);
+
+        jMenu1.setMnemonic('v');
+        jMenu1.setText("Ver");
+
+        RecomendacionesDocumentos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
+        RecomendacionesDocumentos.setText("Recomendaciones de documentos");
+        RecomendacionesDocumentos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RecomendacionesDocumentosActionPerformed(evt);
+            }
+        });
+        jMenu1.add(RecomendacionesDocumentos);
+
+        jMenuBar1.add(jMenu1);
 
         Iniciar_Sesion.setText("Iniciar Sesión");
         Iniciar_Sesion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -442,6 +458,16 @@ public class GUIBusqueda extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ResultadosMouseClicked
 
+    private void RecomendacionesDocumentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecomendacionesDocumentosActionPerformed
+        if(!biblioteca.Main.BibliotecaDigital.LOGGED_USER.equals("dummyuser")){
+            new GUIRecomendaciones(this).setVisible(true);
+            this.setVisible(false);
+        }
+        else
+            JOptionPane.showMessageDialog(this, "Debe ingresar al sistema para obtener sus recomendaciones", "Error", JOptionPane.ERROR_MESSAGE);
+            
+    }//GEN-LAST:event_RecomendacionesDocumentosActionPerformed
+
     public void habilitarBotones(boolean b){
         Iniciar_Sesion.setEnabled(b);
         Cerrar_Sesion.setEnabled(!b);
@@ -460,6 +486,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
     private javax.swing.JMenu Iniciar_Sesion;
     private javax.swing.JMenuItem Modificar_Datos;
     private javax.swing.JMenuItem Modificar_Documento;
+    private javax.swing.JMenuItem RecomendacionesDocumentos;
     private javax.swing.JMenuItem Registrarse;
     private javax.swing.JTable Resultados;
     private javax.swing.JMenuItem Salir;
@@ -473,6 +500,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
