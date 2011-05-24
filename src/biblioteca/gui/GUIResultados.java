@@ -14,7 +14,6 @@ import biblioteca.database2.beans.Autor;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import biblioteca.database2.controladores.ControladorDocumento;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -22,14 +21,13 @@ import javax.swing.table.DefaultTableModel;
  */
 public class GUIResultados extends javax.swing.JFrame {
     /** Creates new form GUIResultados */
-    biblioteca.gui.GUIBusqueda parent;
-    biblioteca.gui.GUIBusquedaAvanzada parent2;
+    javax.swing.JFrame parent;
     ArrayList<String> resultados;
 
-    public GUIResultados(ArrayList<String> resultados, biblioteca.gui.GUIBusqueda parent) {
+    public GUIResultados(ArrayList<String> resultados, javax.swing.JFrame parent) {
             this.resultados=resultados;
             initComponents();
-            DefaultTableModel modelo =new DefaultTableModel();
+            NoEditableTableModel modelo =new NoEditableTableModel();
             modelo.addColumn("Titulo");
             modelo.addColumn("Autores");
             for(int i=0;i<(int) resultados.size()/2;i++){
@@ -48,31 +46,6 @@ public class GUIResultados extends javax.swing.JFrame {
             Resultados.setModel(modelo);
             this.parent=parent;
             this.setLocationRelativeTo(parent);
-            this.setResizable(false);
-    }
-
-    GUIResultados(ArrayList<String> resultados, GUIBusquedaAvanzada aThis) {
-            initComponents();
-            this.resultados=resultados;
-            DefaultTableModel modelo =new DefaultTableModel();
-            modelo.addColumn("Titulo");
-            modelo.addColumn("Autores");
-            for(int i=0;i<(int) resultados.size()/2;i++){
-                String[] row = new String[2];
-                row[0] =resultados.get(i*2+1);
-                String autores="";
-                ArrayList<Autor> obtenerAutores = new ControladorDocumento().obtenerAutores(resultados.get(i*2));
-                for(int j=0;j<obtenerAutores.size();j++){
-                    autores+=obtenerAutores.get(j).getNombre()+" "+obtenerAutores.get(j).getApellido();
-                    if(j!=(obtenerAutores.size()-1))
-                        autores+=", ";
-                }
-                row[1]=autores;
-                modelo.addRow(row);
-            }
-            Resultados.setModel(modelo);
-            this.parent2=aThis;
-            this.setLocationRelativeTo(parent2);
             this.setResizable(false);
     }
 
@@ -118,6 +91,11 @@ public class GUIResultados extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 24));
         jLabel4.setText("Resultados de Busqueda");
 
+        Resultados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ResultadosMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(Resultados);
 
         Consultar.setText("Consultar Documento Seleccionado");
@@ -137,7 +115,7 @@ public class GUIResultados extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(204, 204, 204)
                         .addComponent(jLabel4)))
-                .addContainerGap(182, Short.MAX_VALUE))
+                .addContainerGap(245, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(462, Short.MAX_VALUE)
                 .addComponent(Consultar)
@@ -145,7 +123,7 @@ public class GUIResultados extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 653, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,11 +153,16 @@ public class GUIResultados extends javax.swing.JFrame {
     }//GEN-LAST:event_ConsultarActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        if(parent!=null)
-            parent.setVisible(true);
-        else parent2.setVisible(true);
+        parent.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_formWindowClosing
+
+    private void ResultadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResultadosMouseClicked
+        if(evt.getClickCount()==2){
+            int numeroSelecc=Resultados.getSelectedRow();
+            new biblioteca.gui.GUIInformacionDocumento(this, resultados.get(numeroSelecc*2)).setVisible(true);
+        }
+    }//GEN-LAST:event_ResultadosMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Consultar;
