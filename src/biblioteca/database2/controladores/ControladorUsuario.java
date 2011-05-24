@@ -111,6 +111,12 @@ public class ControladorUsuario {
         DaoUsuario daoUsuario= new DaoUsuario();
         daoUsuario.desactivarUsuario(username);
     }
+    
+    public int actualizarUltimoAcceso(String username){
+        java.util.Date actual=new java.util.Date();
+        java.sql.Timestamp fechaderegistro=new java.sql.Timestamp(actual.getTime());
+        return new DaoUsuario().cambiarUltimoAcceso(username, fechaderegistro.toString());
+    }
 
 
 }

@@ -293,6 +293,21 @@ public class DaoUsuario {
         return -1;
     }
 
+    public int cambiarUltimoAcceso(String username, String ultimo_acceso){
+        String sql_update;
+        sql_update="UPDATE usuarios SET ultimo_acceso='"+ultimo_acceso+"' WHERE "
+                + "username='"+username+"';";
+        try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            int numFilas = sentencia.executeUpdate(sql_update);
+            conn.close();
+            return numFilas;
+        }
+        catch(SQLException e){ System.out.println(e); }
 
+        return -1;
+                
+    }
 
 }
