@@ -427,13 +427,13 @@ public class GUIBusqueda extends javax.swing.JFrame {
 
     private void Iniciar_SesionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Iniciar_SesionMousePressed
         if(Iniciar_Sesion.isEnabled()){
-            
-        new biblioteca.gui.GUIAutenticacion(this).setVisible(true);
+            new biblioteca.gui.GUIAutenticacion(this).setVisible(true);
         }
     }//GEN-LAST:event_Iniciar_SesionMousePressed
 
     private void Cerrar_SesionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Cerrar_SesionMousePressed
         if(Cerrar_Sesion.isEnabled()){
+            new ControladorUsuario().actualizarUltimoAcceso(biblioteca.Main.BibliotecaDigital.LOGGED_USER);
             biblioteca.Main.BibliotecaDigital.LOGGED_USER="dummyuser";
             habilitarBotones(true);
             this.setTitle("Biblioteca Digital");
