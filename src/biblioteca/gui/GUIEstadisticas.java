@@ -417,7 +417,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 10);
         Panel_Documentos1.add(jComboBox67, gridBagConstraints);
 
-        jLabel51.setFont(new java.awt.Font("Ubuntu", 1, 11)); // NOI18N
+        jLabel51.setFont(new java.awt.Font("Ubuntu", 1, 11));
         jLabel51.setText("Reporte de Usuarios existentes: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -434,7 +434,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         Panel_Documentos1.add(jLabel11, gridBagConstraints);
 
-        jLabel12.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Ubuntu", 1, 24));
         jLabel12.setText("Reportes y Estadisticas");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -644,7 +644,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         Panel_Documentos2.add(jLabel9, gridBagConstraints);
 
-        jLabel10.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Ubuntu", 1, 24));
         jLabel10.setText("Reportes y Estadisticas");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -653,7 +653,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         Panel_Documentos2.add(jLabel10, gridBagConstraints);
 
-        jLabel79.setFont(new java.awt.Font("Ubuntu", 1, 11)); // NOI18N
+        jLabel79.setFont(new java.awt.Font("Ubuntu", 1, 11));
         jLabel79.setText("Reporte de Documentos Existentes: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -905,7 +905,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
         Panel_Documentos_Catalogados1.add(jCheckBox38, gridBagConstraints);
 
-        jLabel62.setFont(new java.awt.Font("Ubuntu", 1, 11)); // NOI18N
+        jLabel62.setFont(new java.awt.Font("Ubuntu", 1, 11));
         jLabel62.setText("Reporte de Documentos Consultados: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -923,7 +923,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         Panel_Documentos_Catalogados1.add(jLabel7, gridBagConstraints);
 
-        jLabel8.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Ubuntu", 1, 24));
         jLabel8.setText("Reportes y Estadisticas");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1176,7 +1176,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
         Panel_Documentos_Descargados1.add(jCheckBox46, gridBagConstraints);
 
-        jLabel78.setFont(new java.awt.Font("Ubuntu", 1, 11)); // NOI18N
+        jLabel78.setFont(new java.awt.Font("Ubuntu", 1, 11));
         jLabel78.setText("Reporte de Documentos Descargados: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1185,7 +1185,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 5);
         Panel_Documentos_Descargados1.add(jLabel78, gridBagConstraints);
 
-        jLabel6.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Ubuntu", 1, 24));
         jLabel6.setText("Reportes y Estadisticas");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1210,14 +1210,11 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 596, Short.MAX_VALUE)
         );
 
         pack();
