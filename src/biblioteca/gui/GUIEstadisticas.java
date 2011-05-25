@@ -116,8 +116,6 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         jComboBox18 = new javax.swing.JComboBox();
         jComboBox19 = new javax.swing.JComboBox();
         jComboBox20 = new javax.swing.JComboBox();
-        jComboBox21 = new javax.swing.JComboBox();
-        jComboBox22 = new javax.swing.JComboBox();
         jLabel28 = new javax.swing.JLabel();
         jComboBox23 = new javax.swing.JComboBox();
         jLabel29 = new javax.swing.JLabel();
@@ -267,11 +265,6 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         Panel_Usuarios.add(jCheckBox3, gridBagConstraints);
 
         jCheckBox4.setText("Por dia de la Semana:");
-        jCheckBox4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox4ActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -308,24 +301,31 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
         Panel_Usuarios.add(jCheckBox7, gridBagConstraints);
 
+        jComboBox9.setMaximumRowCount(7);
+        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo" }));
         jComboBox9.setPreferredSize(new java.awt.Dimension(56, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
         Panel_Usuarios.add(jComboBox9, gridBagConstraints);
 
+        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         jComboBox10.setPreferredSize(new java.awt.Dimension(56, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
         Panel_Usuarios.add(jComboBox10, gridBagConstraints);
 
+        jComboBox11.setMaximumRowCount(12);
+        jComboBox11.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
         jComboBox11.setPreferredSize(new java.awt.Dimension(56, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
         Panel_Usuarios.add(jComboBox11, gridBagConstraints);
 
+        jComboBox12.setMaximumRowCount(3);
+        jComboBox12.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2010", "2009" }));
         jComboBox12.setPreferredSize(new java.awt.Dimension(56, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -350,14 +350,18 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.gridy = 9;
         Panel_Usuarios.add(jLabel25, gridBagConstraints);
 
-        jComboBox13.setPreferredSize(new java.awt.Dimension(50, 20));
+        jComboBox13.setMaximumRowCount(12);
+        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00" }));
+        jComboBox13.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 5);
         Panel_Usuarios.add(jComboBox13, gridBagConstraints);
 
-        jComboBox14.setPreferredSize(new java.awt.Dimension(50, 20));
+        jComboBox14.setMaximumRowCount(12);
+        jComboBox14.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00" }));
+        jComboBox14.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 9;
@@ -387,34 +391,43 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.gridy = 10;
         Panel_Usuarios.add(jCheckBox9, gridBagConstraints);
 
-        jComboBox15.setPreferredSize(new java.awt.Dimension(50, 20));
+        jComboBox15.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        jComboBox15.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 10;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 2);
         Panel_Usuarios.add(jComboBox15, gridBagConstraints);
 
-        jComboBox16.setPreferredSize(new java.awt.Dimension(50, 20));
+        jComboBox16.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        jComboBox16.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 11;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 2);
         Panel_Usuarios.add(jComboBox16, gridBagConstraints);
 
-        jComboBox17.setPreferredSize(new java.awt.Dimension(50, 20));
+        jComboBox17.setMaximumRowCount(12);
+        jComboBox17.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        jComboBox17.setPreferredSize(new java.awt.Dimension(70, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 5);
         Panel_Usuarios.add(jComboBox17, gridBagConstraints);
 
-        jComboBox18.setPreferredSize(new java.awt.Dimension(50, 20));
+        jComboBox18.setMaximumRowCount(12);
+        jComboBox18.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        jComboBox18.setPreferredSize(new java.awt.Dimension(70, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 11;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 5);
         Panel_Usuarios.add(jComboBox18, gridBagConstraints);
 
+        jComboBox19.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2010", "2009" }));
         jComboBox19.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
@@ -422,26 +435,13 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 5);
         Panel_Usuarios.add(jComboBox19, gridBagConstraints);
 
+        jComboBox20.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2010", "2009" }));
         jComboBox20.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 11;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 5);
         Panel_Usuarios.add(jComboBox20, gridBagConstraints);
-
-        jComboBox21.setPreferredSize(new java.awt.Dimension(50, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 5);
-        Panel_Usuarios.add(jComboBox21, gridBagConstraints);
-
-        jComboBox22.setPreferredSize(new java.awt.Dimension(50, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 5);
-        Panel_Usuarios.add(jComboBox22, gridBagConstraints);
 
         jLabel28.setText("Por Tipo de Usuario");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -451,7 +451,8 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
         Panel_Usuarios.add(jLabel28, gridBagConstraints);
 
-        jComboBox23.setPreferredSize(new java.awt.Dimension(70, 20));
+        jComboBox23.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cualquiera", "Usuario Normal", "Usuario Catalogador" }));
+        jComboBox23.setPreferredSize(new java.awt.Dimension(100, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 12;
@@ -466,7 +467,8 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
         Panel_Usuarios.add(jLabel29, gridBagConstraints);
 
-        jComboBox24.setPreferredSize(new java.awt.Dimension(70, 20));
+        jComboBox24.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cualquiera", "Activa", "Inactiva" }));
+        jComboBox24.setPreferredSize(new java.awt.Dimension(100, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 15;
@@ -481,7 +483,8 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
         Panel_Usuarios.add(jLabel30, gridBagConstraints);
 
-        jComboBox25.setPreferredSize(new java.awt.Dimension(70, 20));
+        jComboBox25.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cualquiera", "Menores de 18 años", "Entre 18 y 25 años", "Entre 25 y 35 años", "Mayores de 35 años" }));
+        jComboBox25.setPreferredSize(new java.awt.Dimension(100, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 14;
@@ -496,18 +499,19 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
         Panel_Usuarios.add(jLabel13, gridBagConstraints);
 
-        jComboBox26.setPreferredSize(new java.awt.Dimension(70, 20));
+        jComboBox26.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cualquiera", "Masculino", "Femenino" }));
+        jComboBox26.setPreferredSize(new java.awt.Dimension(100, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 13;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
         Panel_Usuarios.add(jComboBox26, gridBagConstraints);
 
-        jComboBox27.setPreferredSize(new java.awt.Dimension(80, 20));
+        jComboBox27.setPreferredSize(new java.awt.Dimension(180, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 16;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
         Panel_Usuarios.add(jComboBox27, gridBagConstraints);
@@ -670,6 +674,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         Panel_Documentos2.add(jLabel59, gridBagConstraints);
 
+        jComboBox69.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         jComboBox69.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -678,28 +683,32 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         Panel_Documentos2.add(jComboBox69, gridBagConstraints);
 
+        jComboBox70.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         jComboBox70.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 11;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         Panel_Documentos2.add(jComboBox70, gridBagConstraints);
 
-        jComboBox71.setPreferredSize(new java.awt.Dimension(50, 20));
+        jComboBox71.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        jComboBox71.setPreferredSize(new java.awt.Dimension(70, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 10;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         Panel_Documentos2.add(jComboBox71, gridBagConstraints);
 
-        jComboBox72.setPreferredSize(new java.awt.Dimension(50, 20));
+        jComboBox72.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        jComboBox72.setPreferredSize(new java.awt.Dimension(70, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 11;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         Panel_Documentos2.add(jComboBox72, gridBagConstraints);
 
+        jComboBox73.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970", "1969", "1968", "1967", "1966", "1965", "1964", "1963", "1962", "1961", "1960", "1959", "1958", "1957", "1956", "1955", "1954", "1953", "1952", "1951", "1950" }));
         jComboBox73.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -709,10 +718,11 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 10);
         Panel_Documentos2.add(jComboBox73, gridBagConstraints);
 
+        jComboBox74.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970", "1969", "1968", "1967", "1966", "1965", "1964", "1963", "1962", "1961", "1960", "1959", "1958", "1957", "1956", "1955", "1954", "1953", "1952", "1951", "1950" }));
         jComboBox74.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 10);
@@ -721,7 +731,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         jCheckBox30.setText("Intersectar Resultados");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.gridwidth = 2;
         Panel_Documentos2.add(jCheckBox30, gridBagConstraints);
 
@@ -729,9 +739,11 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 5);
         Panel_Documentos2.add(jLabel60, gridBagConstraints);
 
+        jComboBox75.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cualquiera", "Activo", "Inactivo" }));
         jComboBox75.setPreferredSize(new java.awt.Dimension(100, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -783,12 +795,15 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         Panel_Documentos_Catalogados1.add(jCheckBox31, gridBagConstraints);
 
+        jComboBox76.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo" }));
         jComboBox76.setPreferredSize(new java.awt.Dimension(56, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         Panel_Documentos_Catalogados1.add(jComboBox76, gridBagConstraints);
 
         jCheckBox32.setText("Por dia de la Semana:");
@@ -817,10 +832,12 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
         Panel_Documentos_Catalogados1.add(jCheckBox33, gridBagConstraints);
 
+        jComboBox77.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         jComboBox77.setPreferredSize(new java.awt.Dimension(56, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         Panel_Documentos_Catalogados1.add(jComboBox77, gridBagConstraints);
 
         jCheckBox34.setText("Por Mes:");
@@ -831,10 +848,12 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
         Panel_Documentos_Catalogados1.add(jCheckBox34, gridBagConstraints);
 
+        jComboBox78.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
         jComboBox78.setPreferredSize(new java.awt.Dimension(56, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         Panel_Documentos_Catalogados1.add(jComboBox78, gridBagConstraints);
 
         jCheckBox35.setText("Por Año:");
@@ -849,22 +868,29 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 5);
         Panel_Documentos_Catalogados1.add(jCheckBox36, gridBagConstraints);
 
         jLabel63.setText("Desde:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         Panel_Documentos_Catalogados1.add(jLabel63, gridBagConstraints);
 
-        jComboBox79.setPreferredSize(new java.awt.Dimension(50, 20));
+        jComboBox79.setMaximumRowCount(12);
+        jComboBox79.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00" }));
+        jComboBox79.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 5);
         Panel_Documentos_Catalogados1.add(jComboBox79, gridBagConstraints);
 
-        jComboBox80.setPreferredSize(new java.awt.Dimension(50, 20));
+        jComboBox80.setMaximumRowCount(12);
+        jComboBox80.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00" }));
+        jComboBox80.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 9;
@@ -875,12 +901,15 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         Panel_Documentos_Catalogados1.add(jLabel64, gridBagConstraints);
 
+        jComboBox81.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2010", "2009" }));
         jComboBox81.setPreferredSize(new java.awt.Dimension(56, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         Panel_Documentos_Catalogados1.add(jComboBox81, gridBagConstraints);
 
         jCheckBox37.setText("Intervalo de Tiempo");
@@ -892,28 +921,34 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 5);
         Panel_Documentos_Catalogados1.add(jCheckBox37, gridBagConstraints);
 
         jLabel65.setText("Desde:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         Panel_Documentos_Catalogados1.add(jLabel65, gridBagConstraints);
 
-        jComboBox82.setPreferredSize(new java.awt.Dimension(50, 20));
+        jComboBox82.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        jComboBox82.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 10;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 5);
         Panel_Documentos_Catalogados1.add(jComboBox82, gridBagConstraints);
 
-        jComboBox83.setPreferredSize(new java.awt.Dimension(50, 20));
+        jComboBox83.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        jComboBox83.setPreferredSize(new java.awt.Dimension(70, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 10;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 5);
         Panel_Documentos_Catalogados1.add(jComboBox83, gridBagConstraints);
 
+        jComboBox84.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2010", "2009" }));
         jComboBox84.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
@@ -921,6 +956,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 5);
         Panel_Documentos_Catalogados1.add(jComboBox84, gridBagConstraints);
 
+        jComboBox87.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2010", "2009" }));
         jComboBox87.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
@@ -928,14 +964,16 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 5);
         Panel_Documentos_Catalogados1.add(jComboBox87, gridBagConstraints);
 
-        jComboBox88.setPreferredSize(new java.awt.Dimension(50, 20));
+        jComboBox88.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        jComboBox88.setPreferredSize(new java.awt.Dimension(70, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 11;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 5);
         Panel_Documentos_Catalogados1.add(jComboBox88, gridBagConstraints);
 
-        jComboBox89.setPreferredSize(new java.awt.Dimension(50, 20));
+        jComboBox89.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        jComboBox89.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 11;
@@ -946,6 +984,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 11;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         Panel_Documentos_Catalogados1.add(jLabel66, gridBagConstraints);
 
         jLabel67.setText("Por Tipo de Usuario");
@@ -956,9 +995,10 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
         Panel_Documentos_Catalogados1.add(jLabel67, gridBagConstraints);
 
-        jComboBox90.setPreferredSize(new java.awt.Dimension(70, 20));
+        jComboBox90.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cualquiera", "Usuario Normal", "Usuario Catalogador" }));
+        jComboBox90.setPreferredSize(new java.awt.Dimension(100, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 12;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
         Panel_Documentos_Catalogados1.add(jComboBox90, gridBagConstraints);
@@ -972,9 +1012,9 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
         Panel_Documentos_Catalogados1.add(jLabel68, gridBagConstraints);
 
-        jComboBox91.setPreferredSize(new java.awt.Dimension(80, 20));
+        jComboBox91.setPreferredSize(new java.awt.Dimension(180, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 13;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -985,6 +1025,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 14;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
         Panel_Documentos_Catalogados1.add(jLabel69, gridBagConstraints);
 
@@ -993,7 +1034,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         jTextField6.setText("Digite su Username");
         jTextField6.setPreferredSize(new java.awt.Dimension(110, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 14;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -1054,18 +1095,18 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         jTextField7.setText("Digite su Username");
         jTextField7.setPreferredSize(new java.awt.Dimension(110, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 14;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
         Panel_Documentos_Descargados1.add(jTextField7, gridBagConstraints);
 
-        jComboBox92.setPreferredSize(new java.awt.Dimension(80, 20));
+        jComboBox92.setPreferredSize(new java.awt.Dimension(180, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 13;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
         Panel_Documentos_Descargados1.add(jComboBox92, gridBagConstraints);
@@ -1087,27 +1128,31 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
         Panel_Documentos_Descargados1.add(jLabel72, gridBagConstraints);
 
-        jComboBox93.setPreferredSize(new java.awt.Dimension(70, 20));
+        jComboBox93.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cualquiera", "Usuario Normal", "Usuario Catalogador" }));
+        jComboBox93.setPreferredSize(new java.awt.Dimension(100, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 12;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
         Panel_Documentos_Descargados1.add(jComboBox93, gridBagConstraints);
 
-        jComboBox94.setPreferredSize(new java.awt.Dimension(50, 20));
+        jComboBox94.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        jComboBox94.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 11;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 5);
         Panel_Documentos_Descargados1.add(jComboBox94, gridBagConstraints);
 
-        jComboBox95.setPreferredSize(new java.awt.Dimension(50, 20));
+        jComboBox95.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        jComboBox95.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 11;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 5);
         Panel_Documentos_Descargados1.add(jComboBox95, gridBagConstraints);
 
+        jComboBox96.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2010", "2009" }));
         jComboBox96.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
@@ -1115,6 +1160,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 5);
         Panel_Documentos_Descargados1.add(jComboBox96, gridBagConstraints);
 
+        jComboBox98.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2010", "2009" }));
         jComboBox98.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
@@ -1122,14 +1168,16 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 5);
         Panel_Documentos_Descargados1.add(jComboBox98, gridBagConstraints);
 
-        jComboBox100.setPreferredSize(new java.awt.Dimension(50, 20));
+        jComboBox100.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        jComboBox100.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 10;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 5);
         Panel_Documentos_Descargados1.add(jComboBox100, gridBagConstraints);
 
-        jComboBox101.setPreferredSize(new java.awt.Dimension(50, 20));
+        jComboBox101.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        jComboBox101.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 10;
@@ -1165,14 +1213,18 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.gridy = 9;
         Panel_Documentos_Descargados1.add(jLabel75, gridBagConstraints);
 
-        jComboBox102.setPreferredSize(new java.awt.Dimension(50, 20));
+        jComboBox102.setMaximumRowCount(12);
+        jComboBox102.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00" }));
+        jComboBox102.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 9;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 5);
         Panel_Documentos_Descargados1.add(jComboBox102, gridBagConstraints);
 
-        jComboBox103.setPreferredSize(new java.awt.Dimension(50, 20));
+        jComboBox103.setMaximumRowCount(12);
+        jComboBox103.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00" }));
+        jComboBox103.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 8;
@@ -1199,12 +1251,14 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
         Panel_Documentos_Descargados1.add(jCheckBox41, gridBagConstraints);
 
+        jComboBox104.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2010", "2009" }));
         jComboBox104.setPreferredSize(new java.awt.Dimension(56, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 7;
         Panel_Documentos_Descargados1.add(jComboBox104, gridBagConstraints);
 
+        jComboBox105.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
         jComboBox105.setPreferredSize(new java.awt.Dimension(56, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -1232,12 +1286,14 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
         Panel_Documentos_Descargados1.add(jCheckBox43, gridBagConstraints);
 
+        jComboBox106.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         jComboBox106.setPreferredSize(new java.awt.Dimension(56, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
         Panel_Documentos_Descargados1.add(jComboBox106, gridBagConstraints);
 
+        jComboBox107.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo" }));
         jComboBox107.setPreferredSize(new java.awt.Dimension(56, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -1352,10 +1408,6 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox44ActionPerformed
 
-    private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_jCheckBox4ActionPerformed
-
     private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
         // TODO add your handling code here:
 }//GEN-LAST:event_jCheckBox5ActionPerformed
@@ -1421,8 +1473,6 @@ public class GUIEstadisticas extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBox18;
     private javax.swing.JComboBox jComboBox19;
     private javax.swing.JComboBox jComboBox20;
-    private javax.swing.JComboBox jComboBox21;
-    private javax.swing.JComboBox jComboBox22;
     private javax.swing.JComboBox jComboBox23;
     private javax.swing.JComboBox jComboBox24;
     private javax.swing.JComboBox jComboBox25;
