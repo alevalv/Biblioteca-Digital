@@ -15,6 +15,7 @@ import biblioteca.database2.beans.Autor;
 import biblioteca.database2.beans.TipoDocumento;
 import biblioteca.database2.controladores.ControladorArea;
 import biblioteca.database2.controladores.ControladorAutor;
+import biblioteca.database2.controladores.ControladorReportesEstadisticas;
 import biblioteca.database2.controladores.ControladorTipoDocumento;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -155,6 +156,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel80 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         Panel_Documentos2 = new javax.swing.JPanel();
         jLabel52 = new javax.swing.JLabel();
@@ -452,10 +454,8 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         jComboBox17.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
         jComboBox17.setPreferredSize(new java.awt.Dimension(70, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 10;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 5);
         Panel_Usuarios.add(jComboBox17, gridBagConstraints);
 
@@ -566,7 +566,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         Panel_Usuarios.add(jLabel14, gridBagConstraints);
 
         jLabel15.setFont(new java.awt.Font("Ubuntu", 1, 24));
-        jLabel15.setText("Reportes y Estadisticas");
+        jLabel15.setText("Reportes ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -582,6 +582,19 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 5);
         Panel_Usuarios.add(jLabel80, gridBagConstraints);
+
+        jButton1.setText("Generar Reportes");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        Panel_Usuarios.add(jButton1, gridBagConstraints);
 
         jPanel1.add(Panel_Usuarios);
 
@@ -799,7 +812,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         Panel_Documentos2.add(jLabel9, gridBagConstraints);
 
         jLabel10.setFont(new java.awt.Font("Ubuntu", 1, 24));
-        jLabel10.setText("Reportes y Estadisticas");
+        jLabel10.setText("Reportes ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -1099,7 +1112,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         Panel_Documentos_Catalogados1.add(jLabel7, gridBagConstraints);
 
         jLabel8.setFont(new java.awt.Font("Ubuntu", 1, 24));
-        jLabel8.setText("Reportes y Estadisticas");
+        jLabel8.setText("Reportes ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -1415,7 +1428,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         Panel_Documentos_Descargados1.add(jLabel78, gridBagConstraints);
 
         jLabel6.setFont(new java.awt.Font("Ubuntu", 1, 24));
-        jLabel6.setText("Reportes y Estadisticas");
+        jLabel6.setText("Reportes ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -1484,7 +1497,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-       // parent.setVisible(true);
+        parent.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_formWindowClosing
 
@@ -1708,6 +1721,41 @@ public class GUIEstadisticas extends javax.swing.JFrame {
          }
     }//GEN-LAST:event_jCheckBox31ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      String dow = null, dom = null, month = null, year = null, tipo = null, genero = null, Estado = null;
+      String area = null;
+      String[] franja = null, desde = null, Hasta = null;
+      
+      if(!jCheckBox3.isSelected()){
+          if(jCheckBox4.isSelected()) dow=jComboBox9.getSelectedIndex()+"";
+          if(jCheckBox5.isSelected()) dom=jComboBox10.getSelectedItem()+"";
+          if(jCheckBox6.isSelected()) month=(jComboBox11.getSelectedIndex()+1)+"";
+          if(jCheckBox7.isSelected()) year=jComboBox12.getSelectedItem()+"";
+          
+          if(jCheckBox8.isSelected()){
+          franja=new String[2];
+          franja[0]=jComboBox13.getSelectedIndex()+"";
+          franja[1]=jComboBox14.getSelectedIndex()+"";
+          }
+          
+          if(jCheckBox9.isSelected()){
+          desde=new String[3];
+          desde[0]=jComboBox15.getSelectedItem()+"";
+          desde[1]=jComboBox17.getSelectedIndex()+"";
+          desde[2]=jComboBox19.getSelectedItem()+"";
+          Hasta=new String[3];
+          Hasta[0]=jComboBox16.getSelectedItem()+"";
+          Hasta[1]=jComboBox18.getSelectedIndex()+"";
+          Hasta[2]=jComboBox20.getSelectedItem()+"";
+          }
+          
+      }
+      
+        
+        new ControladorReportesEstadisticas().ConsultarListaUsuario(dow, dom, month, year, franja, desde, Hasta, tipo,
+             genero, Estado, area);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private void unsupportedOperation(){
         JOptionPane.showMessageDialog(this, "Esta operación aún no ha sido implementada", "Error", JOptionPane.ERROR_MESSAGE);
     }
@@ -1727,6 +1775,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_Documentos_Catalogados1;
     private javax.swing.JPanel Panel_Documentos_Descargados1;
     private javax.swing.JPanel Panel_Usuarios;
+    private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox29;
     private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JCheckBox jCheckBox30;
