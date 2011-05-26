@@ -185,6 +185,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel79 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         Panel_Documentos_Catalogados1 = new javax.swing.JPanel();
         jLabel61 = new javax.swing.JLabel();
@@ -330,6 +331,11 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         Panel_Usuarios.add(jCheckBox5, gridBagConstraints);
 
         jCheckBox6.setText("Por Mes:");
+        jCheckBox6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox6ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
@@ -338,6 +344,11 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         Panel_Usuarios.add(jCheckBox6, gridBagConstraints);
 
         jCheckBox7.setText("Por Año:");
+        jCheckBox7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox7ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
@@ -427,6 +438,11 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         Panel_Usuarios.add(jLabel27, gridBagConstraints);
 
         jCheckBox9.setText("Intervalo de Tiempo");
+        jCheckBox9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox9ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 10;
@@ -783,7 +799,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         jCheckBox30.setText("Intersectar Resultados");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.gridwidth = 2;
         Panel_Documentos2.add(jCheckBox30, gridBagConstraints);
 
@@ -811,7 +827,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         Panel_Documentos2.add(jLabel9, gridBagConstraints);
 
-        jLabel10.setFont(new java.awt.Font("Ubuntu", 1, 24));
+        jLabel10.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
         jLabel10.setText("Reportes ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -828,6 +844,19 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 5);
         Panel_Documentos2.add(jLabel79, gridBagConstraints);
+
+        jButton2.setText("Generar Reportes");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        Panel_Documentos2.add(jButton2, gridBagConstraints);
 
         jPanel2.add(Panel_Documentos2);
 
@@ -1564,9 +1593,31 @@ public class GUIEstadisticas extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox3ActionPerformed
 
     private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
-       if(jCheckBox5.isSelected())
+       if(jCheckBox5.isSelected()){
           jCheckBox4.setEnabled(false);
-      else jCheckBox4.setEnabled(true);
+          jCheckBox9.setEnabled(false);
+          jComboBox15.setEnabled(false);
+          jComboBox16.setEnabled(false);
+          jComboBox17.setEnabled(false);
+          jComboBox18.setEnabled(false);
+          jComboBox19.setEnabled(false);
+          jComboBox20.setEnabled(false);
+          jLabel26.setEnabled(false);
+          jLabel27.setEnabled(false);
+       }
+      else if(!jCheckBox7.isSelected() && !jCheckBox6.isSelected() && !jCheckBox5.isSelected()){
+           jCheckBox4.setEnabled(true);
+          jCheckBox9.setEnabled(true);
+          jComboBox15.setEnabled(true);
+          jComboBox16.setEnabled(true);
+          jComboBox17.setEnabled(true);
+          jComboBox18.setEnabled(true);
+          jComboBox19.setEnabled(true);
+          jComboBox20.setEnabled(true);
+          jLabel26.setEnabled(true);
+          jLabel27.setEnabled(true);
+       
+       }
     }//GEN-LAST:event_jCheckBox5ActionPerformed
 
     private void jCheckBox29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox29ActionPerformed
@@ -1761,6 +1812,79 @@ public class GUIEstadisticas extends javax.swing.JFrame {
              genero, Estado, area);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jCheckBox9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox9ActionPerformed
+        if(jCheckBox9.isSelected()){
+            jCheckBox5.setEnabled(false);
+            jCheckBox6.setEnabled(false);
+            jCheckBox7.setEnabled(false);
+            jComboBox10.setEnabled(false);
+            jComboBox11.setEnabled(false);
+            jComboBox12.setEnabled(false);
+        }
+        else{
+             jCheckBox5.setEnabled(true);
+            jCheckBox6.setEnabled(true);
+            jCheckBox7.setEnabled(true);
+            jComboBox10.setEnabled(true);
+          jComboBox11.setEnabled(true);
+          jComboBox12.setEnabled(true);
+        }
+    }//GEN-LAST:event_jCheckBox9ActionPerformed
+
+    private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
+        if(jCheckBox6.isSelected()){
+             jCheckBox9.setEnabled(false);
+          jComboBox15.setEnabled(false);
+          jComboBox16.setEnabled(false);
+          jComboBox17.setEnabled(false);
+          jComboBox18.setEnabled(false);
+          jComboBox19.setEnabled(false);
+          jComboBox20.setEnabled(false);
+          jLabel26.setEnabled(false);
+          jLabel27.setEnabled(false);
+        }
+    else if(!jCheckBox7.isSelected() && !jCheckBox6.isSelected() && !jCheckBox5.isSelected()){
+            jCheckBox9.setEnabled(true);
+          jComboBox15.setEnabled(true);
+          jComboBox16.setEnabled(true);
+          jComboBox17.setEnabled(true);
+          jComboBox18.setEnabled(true);
+          jComboBox19.setEnabled(true);
+          jComboBox20.setEnabled(true);
+          jLabel26.setEnabled(true);
+          jLabel27.setEnabled(true);
+        }
+    }//GEN-LAST:event_jCheckBox6ActionPerformed
+
+    private void jCheckBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox7ActionPerformed
+        if(jCheckBox7.isSelected()){
+          jCheckBox9.setEnabled(false);
+          jComboBox15.setEnabled(false);
+          jComboBox16.setEnabled(false);
+          jComboBox17.setEnabled(false);
+          jComboBox18.setEnabled(false);
+          jComboBox19.setEnabled(false);
+          jComboBox20.setEnabled(false);
+          jLabel26.setEnabled(false);
+          jLabel27.setEnabled(false);
+        }
+        else if(!jCheckBox7.isSelected() && !jCheckBox6.isSelected() && !jCheckBox5.isSelected()){
+            jCheckBox9.setEnabled(true);
+          jComboBox15.setEnabled(true);
+          jComboBox16.setEnabled(true);
+          jComboBox17.setEnabled(true);
+          jComboBox18.setEnabled(true);
+          jComboBox19.setEnabled(true);
+          jComboBox20.setEnabled(true);
+          jLabel26.setEnabled(true);
+          jLabel27.setEnabled(true);
+        }
+    }//GEN-LAST:event_jCheckBox7ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       String area=null, autor=null, tipo=null;
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     private void unsupportedOperation(){
         JOptionPane.showMessageDialog(this, "Esta operación aún no ha sido implementada", "Error", JOptionPane.ERROR_MESSAGE);
     }
@@ -1781,6 +1905,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_Documentos_Descargados1;
     private javax.swing.JPanel Panel_Usuarios;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JCheckBox jCheckBox29;
     private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JCheckBox jCheckBox30;
