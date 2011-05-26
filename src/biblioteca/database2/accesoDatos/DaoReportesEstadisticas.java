@@ -41,6 +41,9 @@ public class DaoReportesEstadisticas {
       sql_consultar+=ConsultarMonthUsuarios(month);
       sql_consultar+=ConsultarYearUsuarios(year);
       sql_consultar+=ConsultarIntervaloUsuarios(desde,Hasta);
+      sql_consultar+=ConsultarTipoUsuarios(tipo);
+      sql_consultar+=ConsultarGeneroUsuarios(genero);
+      sql_consultar+=ConsultarEstadoUsuarios(Estado);
       sql_consultar+=";";
       
       System.out.println(sql_consultar);
@@ -80,6 +83,33 @@ public class DaoReportesEstadisticas {
         String consultar="";
         if(year != null){
             consultar="date_part('year',fecha_registro)="+year+" "; }
+        return consultar;
+    }
+     public String ConsultarTipoUsuarios(String tipo){
+        String consultar="";
+        if(tipo != null){
+            if(tipo.equals("1"))
+            consultar="tipo_usuario='3' ";
+            else  consultar="tipo_usuario='"+tipo+"' ";
+        }
+        return consultar;
+    }
+      public String ConsultarGeneroUsuarios(String genero){
+        String consultar="";
+        if(genero != null){
+            if(genero.equals("1"))
+            consultar="genero='M' ";
+            else  consultar="genero='F' ";
+        }
+        return consultar;
+    }
+      public String ConsultarEstadoUsuarios(String Estado){
+        String consultar="";
+        if(Estado != null){
+            if(Estado.equals("1"))
+            consultar="activo='t' ";
+            else  consultar="activo='f' ";
+        }
         return consultar;
     }
     /*public String ConsultarFranjaUsuarios(String[] franja){

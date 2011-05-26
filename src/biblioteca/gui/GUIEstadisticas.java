@@ -1749,7 +1749,12 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           Hasta[2]=jComboBox20.getSelectedItem()+"";
           }
           
-      }
+          if(jComboBox23.getSelectedIndex()!=0) tipo=jComboBox23.getSelectedIndex()+"";
+          if(jComboBox26.getSelectedIndex()!=0) genero=jComboBox26.getSelectedIndex()+"";
+          if(jComboBox24.getSelectedIndex()!=0) Estado=jComboBox24.getSelectedIndex()+"";
+          if(AreasComboBoxPU.getSelectedIndex()!=0) area=areasExistentes.get(AreasComboBoxPU.getSelectedIndex()-1).getID();
+      }   
+      
       
         
         new ControladorReportesEstadisticas().ConsultarListaUsuario(dow, dom, month, year, franja, desde, Hasta, tipo,
