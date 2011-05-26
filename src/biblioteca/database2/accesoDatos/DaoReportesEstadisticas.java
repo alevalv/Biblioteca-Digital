@@ -71,12 +71,17 @@ public class DaoReportesEstadisticas {
           cont++;
       sql_consultar+=ConsultarGeneroUsuarios(genero);}
        
-        if(!ConsultarGeneroUsuarios(genero).isEmpty())  {
+        if(!ConsultarEstadoUsuarios(Estado).isEmpty())  {
           if(cont>0) sql_consultar+=inter;
           cont++;
       sql_consultar+=ConsultarEstadoUsuarios(Estado);}
         
-      sql_consultar+=";";
+        if(!ConsultarAreasUsuarios(area).isEmpty())  {
+          if(cont>0) sql_consultar+=inter;
+          cont++;
+      sql_consultar+=ConsultarAreasUsuarios(area);}
+           
+      if(cont>0) sql_consultar+=";";
       
       System.out.println(sql_consultar);
       try {
@@ -158,7 +163,12 @@ public class DaoReportesEstadisticas {
         }
         return consultar;
     }
-    
+    public String ConsultarAreasUsuarios(String id_area){
+        String consultar="";
+        if(id_area != null){
+            consultar="Select username, nombres, apellidos, fecha_registro from usuarios natural join usuario_areas_computacion where area_id='"+id_area+"' ";}
+        return consultar;
+    }
     
    
 }
