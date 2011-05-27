@@ -7,7 +7,6 @@ package biblioteca.database2.controladores;
 import biblioteca.database2.accesoDatos.DaoEstadisticas;
 import com.itextpdf.text.pdf.PdfPTable;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**

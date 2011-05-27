@@ -140,7 +140,6 @@ public class GUIStatistics extends javax.swing.JFrame {
         Reporte_Descargados = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         Num_Doc1 = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
         Panel_Documentos_Catalogados1 = new javax.swing.JPanel();
         jLabel61 = new javax.swing.JLabel();
         jCheckBox31 = new javax.swing.JCheckBox();
@@ -561,7 +560,6 @@ public class GUIStatistics extends javax.swing.JFrame {
         jPanel1.add(Num_Doc1, gridBagConstraints);
 
         jTabbedPane1.addTab("Documentos más descargados", jPanel1);
-        jTabbedPane1.addTab("tab2", jPanel2);
 
         Panel_Documentos_Catalogados1.setLayout(new java.awt.GridBagLayout());
 
@@ -915,29 +913,85 @@ public class GUIStatistics extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBox45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox45ActionPerformed
-        jCheckBox40.setSelected(false);
-    }//GEN-LAST:event_jCheckBox45ActionPerformed
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        this.dispose();
+        parent.setVisible(true);
+    }//GEN-LAST:event_formWindowClosing
 
-    private void jCheckBox44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox44ActionPerformed
-        jCheckBox40.setSelected(false);
-    }//GEN-LAST:event_jCheckBox44ActionPerformed
+    private void Reporte_ConsultadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reporte_ConsultadosActionPerformed
+        String dow = null, dom = null, month = null, year = null, tipo_usuario = null;
+        String[] franja = null, desde = null, Hasta = null;
+        String area = null, autor=null, doc_tipo=null, usuario=null;
+        
+        
+        if(jCheckBox32.isSelected()) dow=jComboBox76.getSelectedIndex()+"";
+        if(jCheckBox33.isSelected()) dom=jComboBox77.getSelectedItem()+"";
+        if(jCheckBox34.isSelected()) month=(jComboBox78.getSelectedIndex()+1)+"";
+        if(jCheckBox35.isSelected()) year=jComboBox81.getSelectedItem()+"";
+        if(jCheckBox36.isSelected()){
+            franja=new String[2];
+            franja[0]=jComboBox79.getSelectedIndex()+"";
+            franja[1]=jComboBox80.getSelectedIndex()+"";
+        }
+        if(jCheckBox37.isSelected()){
+            desde=new String[3];
+            desde[0]=jComboBox82.getSelectedItem()+"";
+            desde[1]=jComboBox83.getSelectedIndex()+"";
+            desde[2]=jComboBox84.getSelectedItem()+"";
+            Hasta=new String[3];
+            Hasta[0]=jComboBox89.getSelectedItem()+"";
+            Hasta[1]=jComboBox88.getSelectedIndex()+"";
+            Hasta[2]=jComboBox87.getSelectedItem()+"";
+        }
+        if(jComboBox90.getSelectedIndex()!=0) tipo_usuario=jComboBox90.getSelectedIndex()+"";
+        if(AreasComboBoxPDC.getSelectedIndex()!=0) area=areasExistentes.get(AreasComboBoxPDC.getSelectedIndex()-1).getID();
+        if(AutorComboBoxPDC.getSelectedIndex()!=0) autor=autoresExistentes.get(AutorComboBoxPDC.getSelectedIndex()-1).getCorreo();
+        if(DocTipoComboBoxPDC.getSelectedIndex()!=0) doc_tipo=tdExistentes.get(DocTipoComboBoxPDC.getSelectedIndex()-1).getTipoDocumento();
+        usuario=jTextField6.getText();
+        int salida=Integer.parseInt(Num_Doc.getText());
+        biblioteca.Main.PdfCreator.createPdf("documentosMásConsultados.pdf", "Reporte de Documentos Más Consultados",
+                "Total de documentos en este reporte: ",new ControladorEstadisticas().estadisticasDocumentosConsultados(dow, dom, month, year, tipo_usuario,
+                franja, desde,Hasta,area, autor, doc_tipo, usuario, jCheckBox31.isSelected(), salida));
+}//GEN-LAST:event_Reporte_ConsultadosActionPerformed
 
-    private void jCheckBox43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox43ActionPerformed
-        jCheckBox40.setSelected(false);
-    }//GEN-LAST:event_jCheckBox43ActionPerformed
-
-    private void jCheckBox42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox42ActionPerformed
-        jCheckBox40.setSelected(false);
-    }//GEN-LAST:event_jCheckBox42ActionPerformed
-
-    private void jCheckBox41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox41ActionPerformed
-        jCheckBox40.setSelected(false);
-    }//GEN-LAST:event_jCheckBox41ActionPerformed
+    private void Reporte_DescargadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reporte_DescargadosActionPerformed
+        String dow = null, dom = null, month = null, year = null, tipo_usuario = null;
+        String[] franja = null, desde = null, Hasta = null;
+        String area = null, autor=null, doc_tipo=null, usuario=null;
+        
+        if(jCheckBox44.isSelected()) dow=jComboBox107.getSelectedIndex()+"";
+        if(jCheckBox43.isSelected()) dom=jComboBox106.getSelectedItem()+"";
+        if(jCheckBox42.isSelected()) month=(jComboBox105.getSelectedIndex()+1)+"";
+        if(jCheckBox41.isSelected()) year=jComboBox104.getSelectedItem()+"";
+        if(jCheckBox40.isSelected()){
+            franja=new String[2];
+            franja[0]=jComboBox103.getSelectedIndex()+"";
+            franja[1]=jComboBox104.getSelectedIndex()+"";
+        }
+        if(jCheckBox39.isSelected()){
+            desde=new String[3];
+            desde[0]=jComboBox101.getSelectedItem()+"";
+            desde[1]=jComboBox100.getSelectedIndex()+"";
+            desde[2]=jComboBox98.getSelectedItem()+"";
+            Hasta=new String[3];
+            Hasta[0]=jComboBox94.getSelectedItem()+"";
+            Hasta[1]=jComboBox95.getSelectedIndex()+"";
+            Hasta[2]=jComboBox96.getSelectedItem()+"";
+        }
+        if(jComboBox93.getSelectedIndex()!=0) tipo_usuario=jComboBox93.getSelectedIndex()+"";
+        if(AreasComboBoxPDD.getSelectedIndex()!=0) area=areasExistentes.get(AreasComboBoxPDD.getSelectedIndex()-1).getID();
+        if(AutorComboBoxPDD.getSelectedIndex()!=0) autor=autoresExistentes.get(AutorComboBoxPDD.getSelectedIndex()-1).getCorreo();
+        if(DocTipoComboBoxPDD.getSelectedIndex()!=0) doc_tipo=tdExistentes.get(DocTipoComboBoxPDD.getSelectedIndex()-1).getTipoDocumento();
+        if(jTextField7.isCursorSet() && !jTextField7.getText().isEmpty()) usuario=jTextField7.getText();
+        int salida=Integer.parseInt(Num_Doc1.getText());
+        biblioteca.Main.PdfCreator.createPdf("documentosMásDescargados.pdf", "Reporte de Documentos Más Descargados",
+                "Total de documentos en este reporte: ",new ControladorEstadisticas().estadisticasDocumentosDescargados(dow, dom, month, year, tipo_usuario,
+                franja, desde,Hasta,area, autor, doc_tipo, usuario, jCheckBox45.isSelected(), salida));
+}//GEN-LAST:event_Reporte_DescargadosActionPerformed
 
     private void jCheckBox39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox39ActionPerformed
         jCheckBox40.setSelected(false);
-    }//GEN-LAST:event_jCheckBox39ActionPerformed
+}//GEN-LAST:event_jCheckBox39ActionPerformed
 
     private void jCheckBox40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox40ActionPerformed
         jCheckBox45.setSelected(false);
@@ -946,83 +1000,27 @@ public class GUIStatistics extends javax.swing.JFrame {
         jCheckBox42.setSelected(false);
         jCheckBox41.setSelected(false);
         jCheckBox39.setSelected(false);
-    }//GEN-LAST:event_jCheckBox40ActionPerformed
+}//GEN-LAST:event_jCheckBox40ActionPerformed
 
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        this.dispose();
-        parent.setVisible(true);
-    }//GEN-LAST:event_formWindowClosing
+    private void jCheckBox41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox41ActionPerformed
+        jCheckBox40.setSelected(false);
+}//GEN-LAST:event_jCheckBox41ActionPerformed
 
-    private void Reporte_DescargadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reporte_DescargadosActionPerformed
-        String dow = null, dom = null, month = null, year = null, tipo_usuario = null;
-        String[] franja = null, desde = null, Hasta = null;
-        String area = null, autor=null, doc_tipo=null, usuario=null;
-      
-          if(jCheckBox44.isSelected()) dow=jComboBox107.getSelectedIndex()+"";
-          if(jCheckBox43.isSelected()) dom=jComboBox106.getSelectedItem()+"";
-          if(jCheckBox42.isSelected()) month=(jComboBox105.getSelectedIndex()+1)+"";
-          if(jCheckBox41.isSelected()) year=jComboBox104.getSelectedItem()+"";
-          if(jCheckBox40.isSelected()){
-          franja=new String[2];
-          franja[0]=jComboBox103.getSelectedIndex()+"";
-          franja[1]=jComboBox104.getSelectedIndex()+"";
-          }
-          if(jCheckBox39.isSelected()){
-          desde=new String[3];
-          desde[0]=jComboBox101.getSelectedItem()+"";
-          desde[1]=jComboBox100.getSelectedIndex()+"";
-          desde[2]=jComboBox98.getSelectedItem()+"";
-          Hasta=new String[3];
-          Hasta[0]=jComboBox94.getSelectedItem()+"";
-          Hasta[1]=jComboBox95.getSelectedIndex()+"";
-          Hasta[2]=jComboBox96.getSelectedItem()+"";
-          }
-          if(jComboBox93.getSelectedIndex()!=0) tipo_usuario=jComboBox93.getSelectedIndex()+"";
-          if(AreasComboBoxPDD.getSelectedIndex()!=0) area=areasExistentes.get(AreasComboBoxPDD.getSelectedIndex()-1).getID();
-          if(AutorComboBoxPDD.getSelectedIndex()!=0) autor=autoresExistentes.get(AutorComboBoxPDD.getSelectedIndex()-1).getCorreo();
-          if(DocTipoComboBoxPDD.getSelectedIndex()!=0) doc_tipo=tdExistentes.get(DocTipoComboBoxPDD.getSelectedIndex()-1).getTipoDocumento();
-          if(jTextField7.isCursorSet() && !jTextField7.getText().isEmpty()) usuario=jTextField7.getText();
-          int salida=Integer.parseInt(Num_Doc1.getText());
-          biblioteca.Main.PdfCreator.createPdf("documentosMásDescargados.pdf", "Reporte de Documentos Más Descargados", 
-                  "Total de documentos en este reporte: ",new ControladorEstadisticas().estadisticasDocumentosDescargados(dow, dom, month, year, tipo_usuario,
-               franja, desde,Hasta,area, autor, doc_tipo, usuario, jCheckBox45.isSelected(), salida));
-    }//GEN-LAST:event_Reporte_DescargadosActionPerformed
+    private void jCheckBox42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox42ActionPerformed
+        jCheckBox40.setSelected(false);
+}//GEN-LAST:event_jCheckBox42ActionPerformed
 
-    private void Reporte_ConsultadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reporte_ConsultadosActionPerformed
-        String dow = null, dom = null, month = null, year = null, tipo_usuario = null;
-        String[] franja = null, desde = null, Hasta = null;
-        String area = null, autor=null, doc_tipo=null, usuario=null;
-      
-      
-          if(jCheckBox32.isSelected()) dow=jComboBox76.getSelectedIndex()+"";
-          if(jCheckBox33.isSelected()) dom=jComboBox77.getSelectedItem()+"";
-          if(jCheckBox34.isSelected()) month=(jComboBox78.getSelectedIndex()+1)+"";
-          if(jCheckBox35.isSelected()) year=jComboBox81.getSelectedItem()+"";
-          if(jCheckBox36.isSelected()){
-          franja=new String[2];
-          franja[0]=jComboBox79.getSelectedIndex()+"";
-          franja[1]=jComboBox80.getSelectedIndex()+"";
-          }
-          if(jCheckBox37.isSelected()){
-          desde=new String[3];
-          desde[0]=jComboBox82.getSelectedItem()+"";
-          desde[1]=jComboBox83.getSelectedIndex()+"";
-          desde[2]=jComboBox84.getSelectedItem()+"";
-          Hasta=new String[3];
-          Hasta[0]=jComboBox89.getSelectedItem()+"";
-          Hasta[1]=jComboBox88.getSelectedIndex()+"";
-          Hasta[2]=jComboBox87.getSelectedItem()+"";
-          }      
-          if(jComboBox90.getSelectedIndex()!=0) tipo_usuario=jComboBox90.getSelectedIndex()+"";
-          if(AreasComboBoxPDC.getSelectedIndex()!=0) area=areasExistentes.get(AreasComboBoxPDC.getSelectedIndex()-1).getID();
-          if(AutorComboBoxPDC.getSelectedIndex()!=0) autor=autoresExistentes.get(AutorComboBoxPDC.getSelectedIndex()-1).getCorreo();
-          if(DocTipoComboBoxPDC.getSelectedIndex()!=0) doc_tipo=tdExistentes.get(DocTipoComboBoxPDC.getSelectedIndex()-1).getTipoDocumento();
-          usuario=jTextField6.getText();
-          int salida=Integer.parseInt(Num_Doc.getText());
-          biblioteca.Main.PdfCreator.createPdf("documentosMásConsultados.pdf", "Reporte de Documentos Más Consultados", 
-                  "Total de documentos en este reporte: ",new ControladorEstadisticas().estadisticasDocumentosConsultados(dow, dom, month, year, tipo_usuario,
-               franja, desde,Hasta,area, autor, doc_tipo, usuario, jCheckBox31.isSelected(), salida));
-    }//GEN-LAST:event_Reporte_ConsultadosActionPerformed
+    private void jCheckBox43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox43ActionPerformed
+        jCheckBox40.setSelected(false);
+}//GEN-LAST:event_jCheckBox43ActionPerformed
+
+    private void jCheckBox44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox44ActionPerformed
+        jCheckBox40.setSelected(false);
+}//GEN-LAST:event_jCheckBox44ActionPerformed
+
+    private void jCheckBox45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox45ActionPerformed
+        jCheckBox40.setSelected(false);
+}//GEN-LAST:event_jCheckBox45ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox AreasComboBoxPDC;
@@ -1107,7 +1105,6 @@ public class GUIStatistics extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
