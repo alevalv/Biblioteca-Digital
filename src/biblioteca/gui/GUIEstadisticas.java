@@ -17,13 +17,6 @@ import biblioteca.database2.controladores.ControladorArea;
 import biblioteca.database2.controladores.ControladorAutor;
 import biblioteca.database2.controladores.ControladorReportesEstadisticas;
 import biblioteca.database2.controladores.ControladorTipoDocumento;
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Font;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.PdfWriter;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -373,7 +366,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         jComboBox9.setMaximumRowCount(7);
         jComboBox9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo" }));
         jComboBox9.setEnabled(false);
-        jComboBox9.setPreferredSize(new java.awt.Dimension(56, 20));
+        jComboBox9.setPreferredSize(new java.awt.Dimension(70, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
@@ -381,7 +374,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
 
         jComboBox10.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         jComboBox10.setEnabled(false);
-        jComboBox10.setPreferredSize(new java.awt.Dimension(56, 20));
+        jComboBox10.setPreferredSize(new java.awt.Dimension(70, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
@@ -390,7 +383,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         jComboBox11.setMaximumRowCount(12);
         jComboBox11.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
         jComboBox11.setEnabled(false);
-        jComboBox11.setPreferredSize(new java.awt.Dimension(56, 20));
+        jComboBox11.setPreferredSize(new java.awt.Dimension(70, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
@@ -399,7 +392,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         jComboBox12.setMaximumRowCount(3);
         jComboBox12.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2010", "2009" }));
         jComboBox12.setEnabled(false);
-        jComboBox12.setPreferredSize(new java.awt.Dimension(56, 20));
+        jComboBox12.setPreferredSize(new java.awt.Dimension(70, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 7;
@@ -928,7 +921,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
 
         jComboBox76.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo" }));
         jComboBox76.setEnabled(false);
-        jComboBox76.setPreferredSize(new java.awt.Dimension(56, 20));
+        jComboBox76.setPreferredSize(new java.awt.Dimension(70, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
@@ -965,7 +958,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
 
         jComboBox77.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         jComboBox77.setEnabled(false);
-        jComboBox77.setPreferredSize(new java.awt.Dimension(56, 20));
+        jComboBox77.setPreferredSize(new java.awt.Dimension(70, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
@@ -983,7 +976,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
 
         jComboBox78.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
         jComboBox78.setEnabled(false);
-        jComboBox78.setPreferredSize(new java.awt.Dimension(56, 20));
+        jComboBox78.setPreferredSize(new java.awt.Dimension(70, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
@@ -1046,7 +1039,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
 
         jComboBox81.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2010", "2009" }));
         jComboBox81.setEnabled(false);
-        jComboBox81.setPreferredSize(new java.awt.Dimension(56, 20));
+        jComboBox81.setPreferredSize(new java.awt.Dimension(70, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 7;
@@ -1471,7 +1464,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
 
         jComboBox104.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2010", "2009" }));
         jComboBox104.setEnabled(false);
-        jComboBox104.setPreferredSize(new java.awt.Dimension(56, 20));
+        jComboBox104.setPreferredSize(new java.awt.Dimension(70, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 7;
@@ -1479,7 +1472,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
 
         jComboBox105.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
         jComboBox105.setEnabled(false);
-        jComboBox105.setPreferredSize(new java.awt.Dimension(56, 20));
+        jComboBox105.setPreferredSize(new java.awt.Dimension(70, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
@@ -1510,7 +1503,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
 
         jComboBox106.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         jComboBox106.setEnabled(false);
-        jComboBox106.setPreferredSize(new java.awt.Dimension(56, 20));
+        jComboBox106.setPreferredSize(new java.awt.Dimension(70, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
@@ -1518,7 +1511,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
 
         jComboBox107.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo" }));
         jComboBox107.setEnabled(false);
-        jComboBox107.setPreferredSize(new java.awt.Dimension(56, 20));
+        jComboBox107.setPreferredSize(new java.awt.Dimension(70, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
@@ -2094,8 +2087,8 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           if(DocTipoComboBoxPDD.getSelectedIndex()!=0) doc_tipo=tdExistentes.get(DocTipoComboBoxPDD.getSelectedIndex()-1).getTipoDocumento();
           if(jTextField7.isCursorSet() && !jTextField7.getText().isEmpty()) usuario=jTextField7.getText();
           
-          new ControladorReportesEstadisticas().ConsultarListaDocumentosDescargados(dow, dom, month, year, tipo_usuario,
-               franja, desde,Hasta,area, autor, doc_tipo, usuario);
+          biblioteca.Main.PdfCreator.createPdf("documentosDescargados.pdf", "Reporte de Documentos Descargados", "Total de documentos consultados en este reporte: ",new ControladorReportesEstadisticas().ConsultarListaDocumentosDescargados(dow, dom, month, year, tipo_usuario,
+               franja, desde,Hasta,area, autor, doc_tipo, usuario));
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jTextField6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField6MouseClicked
