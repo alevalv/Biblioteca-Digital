@@ -232,6 +232,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         AutorComboBoxPDC = new javax.swing.JComboBox();
         DocTipoComboBoxPDC = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         Panel_Documentos_Descargados1 = new javax.swing.JPanel();
         jLabel70 = new javax.swing.JLabel();
@@ -271,6 +272,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         AutorComboBoxPDD = new javax.swing.JComboBox();
         DocTipoComboBoxPDD = new javax.swing.JComboBox();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -1199,6 +1201,19 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
         Panel_Documentos_Catalogados1.add(jLabel4, gridBagConstraints);
 
+        jButton3.setText("Generar Reportes");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        Panel_Documentos_Catalogados1.add(jButton3, gridBagConstraints);
+
         jPanel3.add(Panel_Documentos_Catalogados1);
 
         jTabbedPane1.addTab("Documentos Consultados", jPanel3);
@@ -1522,6 +1537,19 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
         Panel_Documentos_Descargados1.add(DocTipoComboBoxPDD, gridBagConstraints);
+
+        jButton4.setText("Generar Reportes");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        Panel_Documentos_Descargados1.add(jButton4, gridBagConstraints);
 
         jPanel4.add(Panel_Documentos_Descargados1);
 
@@ -1937,6 +1965,14 @@ public class GUIEstadisticas extends javax.swing.JFrame {
        desde, hasta);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     private void unsupportedOperation(){
         JOptionPane.showMessageDialog(this, "Esta operación aún no ha sido implementada", "Error", JOptionPane.ERROR_MESSAGE);
     }
@@ -1958,6 +1994,8 @@ public class GUIEstadisticas extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_Usuarios;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JCheckBox jCheckBox29;
     private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JCheckBox jCheckBox30;
