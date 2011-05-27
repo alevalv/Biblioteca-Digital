@@ -29,6 +29,7 @@ public class PdfCreator {
             for(int i=1;i<=rsmd.getColumnCount();i++){
                 salida.addCell(rsmd.getColumnName(i));
             }
+            salida.setHeaderRows(1);
             while(entrada.next()){
                 for(int i=1;i<=rsmd.getColumnCount();i++){
                     salida.addCell(entrada.getString(i));
@@ -54,7 +55,9 @@ public class PdfCreator {
         document.open();
         // step 4
         document.add(pTitulo);        
-        document.add(new Paragraph(encabezado+tabla.getRows().size()+"\n"));
+        document.add(new Paragraph("\r\n"));
+        document.add(new Paragraph(encabezado+tabla.getRows().size()));
+        document.add(new Paragraph("\r\n"));
         document.add(tabla);
         // step 5
         document.close();
