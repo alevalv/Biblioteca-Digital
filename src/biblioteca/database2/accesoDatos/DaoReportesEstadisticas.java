@@ -412,8 +412,8 @@ public class DaoReportesEstadisticas {
     private String ConsultarTipoDocConsultados(String tipo) {
        String consultar="";
         if(tipo != null){
-            consultar="Select documentos.doc_id, titulo_principal from documentos natural join usuario_consulta_documento inner join "
-                    + "usuario on usuario_consulta_documento.username=usuario.username where tipo_documento='"+tipo+"' ";}
+            consultar="Select documentos.doc_id, titulo_principal from documentos natural join usuario_consulta_documento  "
+                    + "where tipo_documento='"+tipo+"' ";}
         return consultar;
     }
 
