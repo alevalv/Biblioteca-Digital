@@ -1968,13 +1968,16 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           Hasta[1]=jComboBox88.getSelectedIndex()+"";
           Hasta[2]=jComboBox87.getSelectedItem()+"";
           }
+      }
           if(jComboBox90.getSelectedIndex()!=0) tipo_usuario=jComboBox90.getSelectedIndex()+"";
           if(AreasComboBoxPDC.getSelectedIndex()!=0) area=areasExistentes.get(AreasComboBoxPDC.getSelectedIndex()-1).getID();
           if(AutorComboBoxPDC.getSelectedIndex()!=0) autor=autoresExistentes.get(AutorComboBoxPDC.getSelectedIndex()-1).getCorreo();
           if(DocTipoComboBoxPDC.getSelectedIndex()!=0) doc_tipo=tdExistentes.get(DocTipoComboBoxPDC.getSelectedIndex()-1).getTipoDocumento();
           usuario=jTextField6.getText();
+          new ControladorReportesEstadisticas().ConsultarListaDocumentosConsultados(dow, dom, month, year, tipo_usuario,
+               franja, desde,Hasta,area, autor, doc_tipo, usuario);
           
-      } 
+      
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

@@ -25,6 +25,10 @@ public class ControladorReportesEstadisticas {
     public void ConsultarListaDocumentosExistentes(String area, String autor, String tipo, String editorial, String idioma, String estado, String[] desde, String[] hasta) {
        new DaoReportesEstadisticas().ConsultarListaDocumentosExistentes(area, autor, tipo, editorial, idioma, estado, desde, hasta);
     }
+
+    public void ConsultarListaDocumentosConsultados(String dow, String dom, String month, String year, String tipo_usuario, String[] franja, String[] desde, String[] Hasta, String area, String autor, String doc_tipo, String usuario) {
+       new DaoReportesEstadisticas().ConsultarListaDocumentosConsultados(dow, dom, month, year, tipo_usuario, franja, desde, Hasta, area, autor, doc_tipo, usuario);
+    }
    
    
 }

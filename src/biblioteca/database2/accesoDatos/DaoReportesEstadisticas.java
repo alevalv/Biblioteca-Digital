@@ -18,16 +18,16 @@ public class DaoReportesEstadisticas {
         Fachada = new Fachada();
     }
     
-//    public void printResultSet(ResultSet salida) throws SQLException{
-//      ResultSetMetaData rs=salida.getMetaData();
-//      int Cols=rs.getColumnCount();
-//      while(salida.next()){
-//      for(int i=1; i<=Cols;i++){
-//          System.out.print(salida.getString(i)+"  ");
-//      }
-//        System.out.println();
-//      }
-//    }
+    public void printResultSet(ResultSet salida) throws SQLException{
+      ResultSetMetaData rs=salida.getMetaData();
+      int Cols=rs.getColumnCount();
+      while(salida.next()){
+     for(int i=1; i<=Cols;i++){
+          System.out.print(salida.getString(i)+"  ");
+    }
+       System.out.println();
+    }
+    }
     
     ///Para panel usuarios
     public ResultSet ConsultarListaUsuario(String dow, String dom, String month, String year, String[] franja, String[] desde, String[] Hasta, String tipo,
@@ -281,7 +281,7 @@ public class DaoReportesEstadisticas {
    
    
    
-   public ResultSet ConsultarListaDocumentosConsultados(String dow,String dom,String month,String year,String tipo_usuario,
+   public void ConsultarListaDocumentosConsultados(String dow,String dom,String month,String year,String tipo_usuario,
        String[] franja,String[] desde,String[] Hasta,String area,String autor,String doc_tipo,String usuario){
        String sql_consultar="", inter=" intersect ";
       int cont=0;
@@ -338,16 +338,16 @@ public class DaoReportesEstadisticas {
             Connection conn = Fachada.conectar();
             java.sql.Statement sentencia = conn.createStatement();
             ResultSet salida = sentencia.executeQuery(sql_consultar);
-            //printResultSet(salida);
+            printResultSet(salida);
             conn.close();
-            return salida;
+            //return salida;
       }        
         catch (SQLException e) {
             System.out.println(e);
         } catch (Exception e) {
             System.out.println(e);
         }
-       return null;
+       //return null;
    }
     private String ConsultarDowDocConsultados(String dow) {
          String consultar="";
