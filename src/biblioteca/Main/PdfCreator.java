@@ -15,6 +15,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
+import java.util.ArrayList;
 
 
 public class PdfCreator {
@@ -35,6 +36,53 @@ public class PdfCreator {
                 for(int i=1;i<=rsmd.getColumnCount();i++){
                     salida.addCell(entrada.getString(i));
                 }
+            }
+        }catch(java.sql.SQLException sqlex){
+            System.err.println(sqlex);
+        }
+        return salida;
+    }
+    
+    static public PdfPTable arrayListToStatisticTable(ArrayList<ArrayList<String>> entrada, int total, int rows){
+        PdfPTable salida = null;
+        
+        salida = new PdfPTable(entrada.get(0).size() +1);
+        for(int i=0;i<entrada.get(0).size();i++){
+            salida.addCell(entrada.get(0).get(i));
+        }
+        salida.addCell("Porcentaje");
+        salida.setHeaderRows(1);
+        int counter=0;
+        for(int j=1;j<entrada.size()&&counter<rows;j++){
+            for(int i=0;i<entrada.get(j).size();i++){
+                salida.addCell(entrada.get(j).get(i));
+                if(i==entrada.size()-1){
+                    int porcentaje=(int) (Integer.parseInt(entrada.get(j).get(i))*100)/total;
+                    salida.addCell(porcentaje+"%");
+                }
+            }
+            counter++;
+        }
+        return salida;
+    }
+    
+    static public ArrayList<ArrayList<String>> resultSetToArrayList(ResultSet entrada){
+        ArrayList<ArrayList<String>> salida = null;
+        try{
+            ResultSetMetaData rsmd = entrada.getMetaData();
+            salida=new ArrayList<ArrayList<String>>();
+            ArrayList<String> titulos = new ArrayList<String>(rsmd.getColumnCount());
+            for(int i=1;i<=rsmd.getColumnCount();i++){
+                titulos.add(rsmd.getColumnName(i));
+            }
+            salida.add(titulos);
+            while(entrada.next()){
+                ArrayList<String> temporal = new ArrayList<String>(rsmd.getColumnCount());
+                for(int i=1;i<=rsmd.getColumnCount();i++){
+                    temporal.add(entrada.getString(i));
+                }
+                salida.add(temporal);
+                
             }
         }catch(java.sql.SQLException sqlex){
             System.err.println(sqlex);

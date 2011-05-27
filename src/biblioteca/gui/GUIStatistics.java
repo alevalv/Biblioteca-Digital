@@ -15,6 +15,7 @@ import biblioteca.database2.beans.Autor;
 import biblioteca.database2.beans.TipoDocumento;
 import biblioteca.database2.controladores.ControladorArea;
 import biblioteca.database2.controladores.ControladorAutor;
+import biblioteca.database2.controladores.ControladorEstadisticas;
 import biblioteca.database2.controladores.ControladorTipoDocumento;
 import java.util.ArrayList;
 
@@ -137,6 +138,8 @@ public class GUIStatistics extends javax.swing.JFrame {
         jTextField7 = new javax.swing.JTextField();
         jLabel77 = new javax.swing.JLabel();
         Reporte_Descargados = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        Num_Doc1 = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         Panel_Documentos_Catalogados1 = new javax.swing.JPanel();
         jLabel61 = new javax.swing.JLabel();
@@ -542,6 +545,21 @@ public class GUIStatistics extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 10);
         jPanel1.add(Reporte_Descargados, gridBagConstraints);
 
+        jLabel10.setText("N° de documentos: ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        jPanel1.add(jLabel10, gridBagConstraints);
+
+        Num_Doc1.setText("10");
+        Num_Doc1.setPreferredSize(new java.awt.Dimension(60, 28));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        jPanel1.add(Num_Doc1, gridBagConstraints);
+
         jTabbedPane1.addTab("Documentos más descargados", jPanel1);
         jTabbedPane1.addTab("tab2", jPanel2);
 
@@ -881,6 +899,7 @@ public class GUIStatistics extends javax.swing.JFrame {
         gridBagConstraints.gridy = 2;
         Panel_Documentos_Catalogados1.add(jLabel9, gridBagConstraints);
 
+        Num_Doc.setText("10");
         Num_Doc.setPreferredSize(new java.awt.Dimension(60, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
@@ -938,7 +957,35 @@ public class GUIStatistics extends javax.swing.JFrame {
         String dow = null, dom = null, month = null, year = null, tipo_usuario = null;
         String[] franja = null, desde = null, Hasta = null;
         String area = null, autor=null, doc_tipo=null, usuario=null;
-        
+      
+          if(jCheckBox44.isSelected()) dow=jComboBox107.getSelectedIndex()+"";
+          if(jCheckBox43.isSelected()) dom=jComboBox106.getSelectedItem()+"";
+          if(jCheckBox42.isSelected()) month=(jComboBox105.getSelectedIndex()+1)+"";
+          if(jCheckBox41.isSelected()) year=jComboBox104.getSelectedItem()+"";
+          if(jCheckBox40.isSelected()){
+          franja=new String[2];
+          franja[0]=jComboBox103.getSelectedIndex()+"";
+          franja[1]=jComboBox104.getSelectedIndex()+"";
+          }
+          if(jCheckBox39.isSelected()){
+          desde=new String[3];
+          desde[0]=jComboBox101.getSelectedItem()+"";
+          desde[1]=jComboBox100.getSelectedIndex()+"";
+          desde[2]=jComboBox98.getSelectedItem()+"";
+          Hasta=new String[3];
+          Hasta[0]=jComboBox94.getSelectedItem()+"";
+          Hasta[1]=jComboBox95.getSelectedIndex()+"";
+          Hasta[2]=jComboBox96.getSelectedItem()+"";
+          }
+          if(jComboBox93.getSelectedIndex()!=0) tipo_usuario=jComboBox93.getSelectedIndex()+"";
+          if(AreasComboBoxPDD.getSelectedIndex()!=0) area=areasExistentes.get(AreasComboBoxPDD.getSelectedIndex()-1).getID();
+          if(AutorComboBoxPDD.getSelectedIndex()!=0) autor=autoresExistentes.get(AutorComboBoxPDD.getSelectedIndex()-1).getCorreo();
+          if(DocTipoComboBoxPDD.getSelectedIndex()!=0) doc_tipo=tdExistentes.get(DocTipoComboBoxPDD.getSelectedIndex()-1).getTipoDocumento();
+          if(jTextField7.isCursorSet() && !jTextField7.getText().isEmpty()) usuario=jTextField7.getText();
+          int salida=Integer.parseInt(Num_Doc1.getText());
+          biblioteca.Main.PdfCreator.createPdf("documentosMásDescargados.pdf", "Reporte de Documentos Más Descargados", 
+                  "Total de documentos en este reporte: ",new ControladorEstadisticas().estadisticasDocumentosDescargados(dow, dom, month, year, tipo_usuario,
+               franja, desde,Hasta,area, autor, doc_tipo, usuario, jCheckBox45.isSelected(), salida));
     }//GEN-LAST:event_Reporte_DescargadosActionPerformed
 
     private void Reporte_ConsultadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reporte_ConsultadosActionPerformed
@@ -986,6 +1033,7 @@ public class GUIStatistics extends javax.swing.JFrame {
     private javax.swing.JComboBox DocTipoComboBoxPDC;
     private javax.swing.JComboBox DocTipoComboBoxPDD;
     private javax.swing.JTextField Num_Doc;
+    private javax.swing.JTextField Num_Doc1;
     private javax.swing.JPanel Panel_Documentos_Catalogados1;
     private javax.swing.JButton Reporte_Consultados;
     private javax.swing.JButton Reporte_Descargados;
@@ -1032,6 +1080,7 @@ public class GUIStatistics extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBox96;
     private javax.swing.JComboBox jComboBox98;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
