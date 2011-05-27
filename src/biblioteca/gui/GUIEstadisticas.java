@@ -2063,7 +2063,39 @@ public class GUIEstadisticas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        String dow = null, dom = null, month = null, year = null, tipo_usuario = null;
+        String[] franja = null, desde = null, Hasta = null;
+        String area = null, autor=null, doc_tipo=null, usuario=null;
+      
+      if(!jCheckBox45.isSelected()){
+          if(jCheckBox44.isSelected()) dow=jComboBox107.getSelectedIndex()+"";
+          if(jCheckBox43.isSelected()) dom=jComboBox106.getSelectedItem()+"";
+          if(jCheckBox42.isSelected()) month=(jComboBox105.getSelectedIndex()+1)+"";
+          if(jCheckBox41.isSelected()) year=jComboBox104.getSelectedItem()+"";
+          if(jCheckBox40.isSelected()){
+          franja=new String[2];
+          franja[0]=jComboBox103.getSelectedIndex()+"";
+          franja[1]=jComboBox104.getSelectedIndex()+"";
+          }
+          if(jCheckBox39.isSelected()){
+          desde=new String[3];
+          desde[0]=jComboBox101.getSelectedItem()+"";
+          desde[1]=jComboBox100.getSelectedIndex()+"";
+          desde[2]=jComboBox98.getSelectedItem()+"";
+          Hasta=new String[3];
+          Hasta[0]=jComboBox94.getSelectedItem()+"";
+          Hasta[1]=jComboBox95.getSelectedIndex()+"";
+          Hasta[2]=jComboBox96.getSelectedItem()+"";
+          }
+      }
+          if(jComboBox93.getSelectedIndex()!=0) tipo_usuario=jComboBox93.getSelectedIndex()+"";
+          if(AreasComboBoxPDD.getSelectedIndex()!=0) area=areasExistentes.get(AreasComboBoxPDD.getSelectedIndex()-1).getID();
+          if(AutorComboBoxPDD.getSelectedIndex()!=0) autor=autoresExistentes.get(AutorComboBoxPDD.getSelectedIndex()-1).getCorreo();
+          if(DocTipoComboBoxPDD.getSelectedIndex()!=0) doc_tipo=tdExistentes.get(DocTipoComboBoxPDD.getSelectedIndex()-1).getTipoDocumento();
+          if(jTextField7.isCursorSet() && !jTextField7.getText().isEmpty()) usuario=jTextField7.getText();
+          
+          new ControladorReportesEstadisticas().ConsultarListaDocumentosDescargados(dow, dom, month, year, tipo_usuario,
+               franja, desde,Hasta,area, autor, doc_tipo, usuario);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jTextField6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField6MouseClicked

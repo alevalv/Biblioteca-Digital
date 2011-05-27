@@ -29,6 +29,10 @@ public class ControladorReportesEstadisticas {
     public PdfPTable ConsultarListaDocumentosConsultados(String dow, String dom, String month, String year, String tipo_usuario, String[] franja, String[] desde, String[] Hasta, String area, String autor, String doc_tipo, String usuario) {
        return biblioteca.Main.PdfCreator.resultSetToTable(new DaoReportesEstadisticas().ConsultarListaDocumentosConsultados(dow, dom, month, year, tipo_usuario, franja, desde, Hasta, area, autor, doc_tipo, usuario));
     }
+
+    public void ConsultarListaDocumentosDescargados(String dow, String dom, String month, String year, String tipo_usuario, String[] franja, String[] desde, String[] Hasta, String area, String autor, String doc_tipo, String usuario) {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
    
    
 }
