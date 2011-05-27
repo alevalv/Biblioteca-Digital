@@ -129,7 +129,7 @@ public class DaoReportesEstadisticas {
         if(tipo != null){
             if(tipo.equals("1"))
             consultar="Select username, nombres, apellidos, fecha_registro from usuarios where tipo_usuario='3' ";
-            else  consultar="tipo_usuario='"+tipo+"' ";
+            else  consultar="Select username, nombres, apellidos, fecha_registro from usuarios where tipo_usuario='"+tipo+"' ";
         }
         return consultar;
     }
@@ -281,7 +281,7 @@ public class DaoReportesEstadisticas {
    
    
    
-   public void ConsultarListaDocumentosConsultados(String dow,String dom,String month,String year,String tipo_usuario,
+   public ResultSet ConsultarListaDocumentosConsultados(String dow,String dom,String month,String year,String tipo_usuario,
        String[] franja,String[] desde,String[] Hasta,String area,String autor,String doc_tipo,String usuario){
        String sql_consultar="", inter=" intersect ";
       int cont=0;
@@ -340,14 +340,14 @@ public class DaoReportesEstadisticas {
             ResultSet salida = sentencia.executeQuery(sql_consultar);
             printResultSet(salida);
             conn.close();
-            //return salida;
+            return salida;
       }        
         catch (SQLException e) {
             System.out.println(e);
         } catch (Exception e) {
             System.out.println(e);
         }
-       //return null;
+       return null;
    }
     private String ConsultarDowDocConsultados(String dow) {
          String consultar="";
@@ -389,29 +389,30 @@ public class DaoReportesEstadisticas {
        String consultar="";
         if(tipo != null){
             if(tipo.equals("1"))
-            consultar="Select doc_id, titulo_principal from documentos natural join usuario_consulta_documento where tipo_usuario='3' ";
-            else  consultar="tipo_usuario='"+tipo+"' ";
+            consultar="Select doc_id, titulo_principal from documentos natural join usuario_consulta_documento inner join usuario "
+                    + "usuario_consulta_documento.username=usuario.username where tipo_usuario='3' ";
+            else  consultar="Select doc_id, titulo_principal from documentos natural join usuario_consulta_documento where tipo_usuario='"+tipo+"' ";
         }
         return consultar;
     }
     private String ConsultarAreasDocConsultados(String area) {
       String consultar="";
         if(area != null){
-            consultar="Select doc_id, titulo_principal from documentos natural join usuario_consulta_documento inner join documento_areas_computacion"
+            consultar="Select documentos.doc_id, titulo_principal from documentos natural join usuario_consulta_documento inner join documento_areas_computacion"
                     + " on documentos.doc_id=documento_areas_computacion.doc_id where area_id='"+area+"' ";}
         return consultar;
     }
     private String ConsultarAutorDocConsultados(String correo) {
         String consultar="";
         if(correo != null){
-            consultar="Select doc_id, titulo_principal from documentos natural join usuario_consulta_documento inner join documento_autor"
+            consultar="Select documentos.doc_id, titulo_principal from documentos natural join usuario_consulta_documento inner join documento_autor"
                     + " on documentos.doc_id=documento_autor.doc_id where autor_correo='"+correo+"' ";}
         return consultar;
     }
     private String ConsultarTipoDocConsultados(String tipo) {
        String consultar="";
         if(tipo != null){
-            consultar="Select doc_id, titulo_principal from documentos natural join usuario_consulta_documento inner join "
+            consultar="Select documentos.doc_id, titulo_principal from documentos natural join usuario_consulta_documento inner join "
                     + "usuario on usuario_consulta_documento.username=usuario.username where tipo_documento='"+tipo+"' ";}
         return consultar;
     }
