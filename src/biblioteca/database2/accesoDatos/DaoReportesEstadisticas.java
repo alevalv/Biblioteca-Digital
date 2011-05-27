@@ -279,6 +279,8 @@ public class DaoReportesEstadisticas {
         return consultar;
     }
    
+   
+   
    public ResultSet ConsultarListaDocumentosConsultados(String dow,String dom,String month,String year,String tipo_usuario,
        String[] franja,String[] desde,String[] Hasta,String area,String autor,String doc_tipo,String usuario){
        String sql_consultar="", inter=" intersect ";
@@ -311,37 +313,90 @@ public class DaoReportesEstadisticas {
           cont++;
       sql_consultar+=ConsultarIntervaloDocConsultados(desde,Hasta);}
       
-      if(!ConsultarTipoDocConsultados(tipo_usuario).isEmpty())  {
+      if(!ConsultarTipoUserDocConsultados(tipo_usuario).isEmpty())  {
           if(cont>0) sql_consultar+=inter;
           cont++;
-      sql_consultar+=ConsultarTipoDocConsultados(tipo_usuario);}
+      sql_consultar+=ConsultarTipoUserDocConsultados(tipo_usuario);}
+      
+      
+      if(!ConsultarAreasDocConsultados(area).isEmpty())  {
+          cont++;
+      sql_consultar+=ConsultarAreasDocConsultados(area);}
+           
+      if(!ConsultarAutorDocConsultados(autor).isEmpty())  {
+          if(cont>0) sql_consultar+=inter;
+          cont++;
+      sql_consultar+=ConsultarAutorDocConsultados(autor);}
+       
+      if(!ConsultarTipoDocConsultados(doc_tipo).isEmpty())  {
+          if(cont>0) sql_consultar+=inter;
+          cont++;
+      sql_consultar+=ConsultarTipoDocConsultados(doc_tipo);}
        return null;
    }
     private String ConsultarDowDocConsultados(String dow) {
-        throw new UnsupportedOperationException("Not yet implemented");
+         String consultar="";
+        if(dow != null){
+            consultar="Select doc_id, titulo_principal from documentos natural join usuario_consulta_documento where date_part('dow',fecha_hora)="+dow+" "; }
+        return consultar;
     }
-
     private String ConsultarDomDocConsultados(String dom) {
-        throw new UnsupportedOperationException("Not yet implemented");
+        String consultar="";
+        if(dom != null){
+            consultar="Select doc_id, titulo_principal from documentos natural join usuario_consulta_documento where date_part('day',fecha_hora)="+dom+" "; }
+        return consultar;
     }
-
     private String ConsultarMonthDocConsultados(String month) {
-        throw new UnsupportedOperationException("Not yet implemented");
+         String consultar="";
+        if(month != null){
+            consultar="Select doc_id, titulo_principal from documentos natural join usuario_consulta_documento where date_part('month',fecha_hora)="+month+" "; }
+        return consultar;
     }
-
-    private String ConsultarYearDocConsultados(String year) {
-        throw new UnsupportedOperationException("Not yet implemented");
+    private String ConsultarYearDocConsultados(String year) {String consultar="";
+        if(year != null){
+            consultar="Select doc_id, titulo_principal from documentos natural join usuario_consulta_documento where date_part('year',fecha_hora)="+year+" "; }
+        return consultar;
     }
-
-    private String ConsultarFranjaDocConsultados(String[] franja) {
-        throw new UnsupportedOperationException("Not yet implemented");
+    private String ConsultarFranjaDocConsultados(String[] franja) {String consultar="";
+        if(franja != null){
+            consultar="Select doc_id, titulo_principal from documentos natural join usuario_consulta_documento where date_part('hour',fecha_hora)>="+franja[0]+" and date_part('hour',fecha_hora)<="+franja[1]+" "; }
+        return consultar;
     }
-
     private String ConsultarIntervaloDocConsultados(String[] desde, String[] Hasta) {
-        throw new UnsupportedOperationException("Not yet implemented");
+           String consultar="";
+        if(desde != null && Hasta != null){
+            consultar="Select doc_id, titulo_principal from documentos natural join usuario_consulta_documento where fecha_hora between '"+desde[0]+"-"+desde[1]+"-"+desde[2]+"' AND '"
+                    +Hasta[0]+"-"+Hasta[1]+"-"+Hasta[2]+"' ";
+        }
+        return consultar;
+    }
+    private String ConsultarTipoUserDocConsultados(String tipo) {
+       String consultar="";
+        if(tipo != null){
+            if(tipo.equals("1"))
+            consultar="Select doc_id, titulo_principal from documentos natural join usuario_consulta_documento where tipo_usuario='3' ";
+            else  consultar="tipo_usuario='"+tipo+"' ";
+        }
+        return consultar;
+    }
+    private String ConsultarAreasDocConsultados(String area) {
+      String consultar="";
+        if(area != null){
+            consultar="Select doc_id, titulo_principal from documentos natural join documento_areas_computacion where area_id='"+area+"' ";}
+        return consultar;
+    }
+    private String ConsultarAutorDocConsultados(String correo) {
+        String consultar="";
+        if(correo != null){
+            consultar="Select doc_id, titulo_principal from documentos natural join documento_autor where autor_correo='"+correo+"' ";}
+        return consultar;
+    }
+    private String ConsultarTipoDocConsultados(String tipo) {
+       String consultar="";
+        if(tipo != null){
+            consultar="Select doc_id, titulo_principal from documentos where tipo_documento='"+tipo+"' ";}
+        return consultar;
     }
 
-    private String ConsultarTipoDocConsultados(String tipo_usuario) {
-        throw new UnsupportedOperationException("Not yet implemented");
-    }
+
 }
