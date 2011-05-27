@@ -18,16 +18,16 @@ public class DaoReportesEstadisticas {
         Fachada = new Fachada();
     }
     
-    public void printResultSet(ResultSet salida) throws SQLException{
-      ResultSetMetaData rs=salida.getMetaData();
-      int Cols=rs.getColumnCount();
-      while(salida.next()){
-      for(int i=1; i<=Cols;i++){
-          System.out.print(salida.getString(i)+"  ");
-      }
-        System.out.println();
-      }
-    }
+//    public void printResultSet(ResultSet salida) throws SQLException{
+//      ResultSetMetaData rs=salida.getMetaData();
+//      int Cols=rs.getColumnCount();
+//      while(salida.next()){
+//      for(int i=1; i<=Cols;i++){
+//          System.out.print(salida.getString(i)+"  ");
+//      }
+//        System.out.println();
+//      }
+//    }
     
     ///Para panel usuarios
     public ResultSet ConsultarListaUsuario(String dow, String dom, String month, String year, String[] franja, String[] desde, String[] Hasta, String tipo,
@@ -88,7 +88,7 @@ public class DaoReportesEstadisticas {
             Connection conn = Fachada.conectar();
             java.sql.Statement sentencia = conn.createStatement();
             ResultSet salida = sentencia.executeQuery(sql_consultar);
-            printResultSet(salida);
+            //printResultSet(salida);
             conn.close();
             return salida;
       }        
@@ -218,7 +218,7 @@ public class DaoReportesEstadisticas {
             Connection conn = Fachada.conectar();
             java.sql.Statement sentencia = conn.createStatement();
             ResultSet salida = sentencia.executeQuery(sql_consultar);
-            printResultSet(salida);
+            //printResultSet(salida);
             conn.close();
             return salida;
       }        
