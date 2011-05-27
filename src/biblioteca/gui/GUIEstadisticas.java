@@ -1937,9 +1937,9 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           hasta[1]=(jComboBox72.getSelectedIndex()+1)+"";
           hasta[2]=jComboBox74.getSelectedItem()+"";
           }
-       
-       new ControladorReportesEstadisticas().ConsultarListaDocumentosExistentes(area, autor, tipo, editorial, idioma, estado,
-       desde, hasta);
+       biblioteca.Main.PdfCreator.createPdf("documentosExistentes.pdf", "Reporte de Documentos Existentes", "Total de documentos existentes en este reporte: ", 
+                new ControladorReportesEstadisticas().ConsultarListaDocumentosExistentes(area, autor, tipo, editorial, idioma, estado,
+       desde, hasta));
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -1974,8 +1974,9 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           if(AutorComboBoxPDC.getSelectedIndex()!=0) autor=autoresExistentes.get(AutorComboBoxPDC.getSelectedIndex()-1).getCorreo();
           if(DocTipoComboBoxPDC.getSelectedIndex()!=0) doc_tipo=tdExistentes.get(DocTipoComboBoxPDC.getSelectedIndex()-1).getTipoDocumento();
           usuario=jTextField6.getText();
-          new ControladorReportesEstadisticas().ConsultarListaDocumentosConsultados(dow, dom, month, year, tipo_usuario,
-               franja, desde,Hasta,area, autor, doc_tipo, usuario);
+          biblioteca.Main.PdfCreator.createPdf("documentosConsultados.pdf", "Reporte de Documentos Consultados", "Total de documentos consultados en este reporte: ", 
+                new ControladorReportesEstadisticas().ConsultarListaDocumentosConsultados(dow, dom, month, year, tipo_usuario,
+               franja, desde,Hasta,area, autor, doc_tipo, usuario));
           
       
     }//GEN-LAST:event_jButton3ActionPerformed
