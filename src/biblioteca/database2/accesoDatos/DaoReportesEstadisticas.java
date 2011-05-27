@@ -30,7 +30,7 @@ public class DaoReportesEstadisticas {
     }
     
     ///Para panel usuarios
-    public void ConsultarListaUsuario(String dow, String dom, String month, String year, String[] franja, String[] desde, String[] Hasta, String tipo,
+    public ResultSet ConsultarListaUsuario(String dow, String dom, String month, String year, String[] franja, String[] desde, String[] Hasta, String tipo,
             String genero, String Estado, String area){
       
       String sql_consultar="", inter=" intersect ";
@@ -90,12 +90,14 @@ public class DaoReportesEstadisticas {
             ResultSet salida = sentencia.executeQuery(sql_consultar);
             printResultSet(salida);
             conn.close();
+            return salida;
       }        
         catch (SQLException e) {
             System.out.println(e);
         } catch (Exception e) {
             System.out.println(e);
         }
+      return null;
     }
     
     public String ConsultarDowUsuarios(String dow){
@@ -169,6 +171,98 @@ public class DaoReportesEstadisticas {
             consultar="Select username, nombres, apellidos, fecha_registro from usuarios natural join usuario_areas_computacion where area_id='"+id_area+"' ";}
         return consultar;
     }
+
+    public void ConsultarListaDocumentosExistentes(String area, String autor, String tipo, String editorial, String idioma, String estado, String[] desde, String[] hasta) {
+     String sql_consultar="", inter=" intersect ";
+      int cont=0;
+      
+      if(!ConsultarAreasDocumentosExistentes(area).isEmpty())  {
+          cont++;
+      sql_consultar+=ConsultarAreasDocumentosExistentes(area);}
+           
+      if(!ConsultarAutorDocumentosExistentes(autor).isEmpty())  {
+          if(cont>0) sql_consultar+=inter;
+          cont++;
+      sql_consultar+=ConsultarAutorDocumentosExistentes(autor);}
+       
+      if(!ConsultarTipoDocumentosExistentes(tipo).isEmpty())  {
+          if(cont>0) sql_consultar+=inter;
+          cont++;
+      sql_consultar+=ConsultarTipoDocumentosExistentes(tipo);}
+       
+      if(!ConsultarIdiomaDocumentosExistentes(idioma).isEmpty())  {
+          if(cont>0) sql_consultar+=inter;
+          cont++;
+      sql_consultar+=ConsultarIdiomaDocumentosExistentes(idioma);}
+      
+      if(!ConsultarEstadoDocumentosExistentes(estado).isEmpty())  {
+          if(cont>0) sql_consultar+=inter;
+          cont++;
+      sql_consultar+=ConsultarEstadoDocumentosExistentes(estado);}
+     
+      
+      if(!ConsultarIntervaloDocumentosExistentes(desde,hasta).isEmpty())  {
+          if(cont>0) sql_consultar+=inter;
+          cont++;
+      sql_consultar+=ConsultarIntervaloDocumentosExistentes(desde,hasta);}
+      
+      if(cont>0) sql_consultar+=";";
+      
+      System.out.println(sql_consultar);
+      try {
+            Connection conn = Fachada.conectar();
+            java.sql.Statement sentencia = conn.createStatement();
+            ResultSet salida = sentencia.executeQuery(sql_consultar);
+            printResultSet(salida);
+            conn.close();
+      }        
+        catch (SQLException e) {
+            System.out.println(e);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+     
+    }
     
-   
+    public String ConsultarAreasDocumentosExistentes(String id_area){
+        String consultar="";
+        if(id_area != null){
+            consultar="Select doc_id, titulo_principal from documentos natural join documento_areas_computacion where area_id='"+id_area+"' ";}
+        return consultar;
+    }
+    public String ConsultarAutorDocumentosExistentes(String correo){
+        String consultar="";
+        if(correo != null){
+            consultar="Select doc_id, titulo_principal from documentos natural join documento_autor where autor_correo='"+correo+"' ";}
+        return consultar;
+    }
+   public String ConsultarTipoDocumentosExistentes(String tipo){
+        String consultar="";
+        if(tipo != null){
+            consultar="Select doc_id, titulo_principal from documentos where tipo_documento='"+tipo+"' ";}
+        return consultar;
+    }
+   public String ConsultarIdiomaDocumentosExistentes(String idioma){
+        String consultar="";
+        if(idioma != null){
+            consultar="Select doc_id, titulo_principal from documentos where idioma='"+idioma+"' ";}
+        return consultar;
+    }
+   public String ConsultarEstadoDocumentosExistentes(String estado){
+        String consultar="";
+        if(estado != null){
+            if(estado.equals("1"))
+            consultar="Select doc_id, titulo_principal from documentos where activo='t' ";
+            else  consultar="Select doc_id, titulo_principal from documentoswhere activo='f' ";
+        }
+        return consultar;
+    }
+   public String ConsultarIntervaloDocumentosExistentes(String[] desde, String[] Hasta){
+        String consultar="";
+        if(desde != null && Hasta != null){
+            consultar="Select doc_id, titulo_principal from documentos where fecha_publicacion between '"+desde[0]+"-"+desde[1]+"-"+desde[2]+"' AND '"
+                    +Hasta[0]+"-"+Hasta[1]+"-"+Hasta[2]+"' ";
+        }
+        return consultar;
+    }
 }
