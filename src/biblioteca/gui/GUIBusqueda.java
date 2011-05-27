@@ -60,7 +60,6 @@ public class GUIBusqueda extends javax.swing.JFrame {
         Archivo = new javax.swing.JMenu();
         Agregar_Documento = new javax.swing.JMenuItem();
         Modificar_Documento = new javax.swing.JMenuItem();
-        Estadisticas = new javax.swing.JMenuItem();
         Salir = new javax.swing.JMenuItem();
         Autenticarse = new javax.swing.JMenu();
         Registrarse = new javax.swing.JMenuItem();
@@ -68,6 +67,8 @@ public class GUIBusqueda extends javax.swing.JFrame {
         Gestion = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         RecomendacionesDocumentos = new javax.swing.JMenuItem();
+        Estadisticas = new javax.swing.JMenuItem();
+        Reportes = new javax.swing.JMenuItem();
         Iniciar_Sesion = new javax.swing.JMenu();
         Cerrar_Sesion = new javax.swing.JMenu();
 
@@ -231,16 +232,6 @@ public class GUIBusqueda extends javax.swing.JFrame {
         });
         Archivo.add(Modificar_Documento);
 
-        Estadisticas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
-        Estadisticas.setMnemonic('e');
-        Estadisticas.setText("Reportes y Estadisticas");
-        Estadisticas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EstadisticasActionPerformed(evt);
-            }
-        });
-        Archivo.add(Estadisticas);
-
         Salir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_MASK));
         Salir.setMnemonic('s');
         Salir.setText("Salir");
@@ -292,6 +283,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
         jMenu1.setText("Ver");
 
         RecomendacionesDocumentos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
+        RecomendacionesDocumentos.setMnemonic('d');
         RecomendacionesDocumentos.setText("Recomendaciones de documentos");
         RecomendacionesDocumentos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -299,6 +291,25 @@ public class GUIBusqueda extends javax.swing.JFrame {
             }
         });
         jMenu1.add(RecomendacionesDocumentos);
+
+        Estadisticas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        Estadisticas.setText("Estadisticas");
+        Estadisticas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EstadisticasActionPerformed(evt);
+            }
+        });
+        jMenu1.add(Estadisticas);
+
+        Reportes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
+        Reportes.setMnemonic('r');
+        Reportes.setText("Reportes");
+        Reportes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ReportesActionPerformed(evt);
+            }
+        });
+        jMenu1.add(Reportes);
 
         jMenuBar1.add(jMenu1);
 
@@ -350,9 +361,9 @@ public class GUIBusqueda extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Modificar_DocumentoActionPerformed
 
-    private void EstadisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstadisticasActionPerformed
+    private void ReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReportesActionPerformed
        new biblioteca.gui.GUIEstadisticas(this).setVisible(true);
-    }//GEN-LAST:event_EstadisticasActionPerformed
+    }//GEN-LAST:event_ReportesActionPerformed
 
     private void RegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarseActionPerformed
         if(biblioteca.Main.BibliotecaDigital.LOGGED_USER.equals("dummyuser")){
@@ -468,6 +479,10 @@ public class GUIBusqueda extends javax.swing.JFrame {
             
     }//GEN-LAST:event_RecomendacionesDocumentosActionPerformed
 
+    private void EstadisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstadisticasActionPerformed
+        new GUIStatistics(this).setVisible(true);
+    }//GEN-LAST:event_EstadisticasActionPerformed
+
     public void habilitarBotones(boolean b){
         Iniciar_Sesion.setEnabled(b);
         Cerrar_Sesion.setEnabled(!b);
@@ -488,6 +503,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
     private javax.swing.JMenuItem Modificar_Documento;
     private javax.swing.JMenuItem RecomendacionesDocumentos;
     private javax.swing.JMenuItem Registrarse;
+    private javax.swing.JMenuItem Reportes;
     private javax.swing.JTable Resultados;
     private javax.swing.JMenuItem Salir;
     private javax.swing.JTextField Texto_Busqueda;
