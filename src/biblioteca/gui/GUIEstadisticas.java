@@ -783,7 +783,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         Panel_Documentos2.add(jComboBox72, gridBagConstraints);
 
-        jComboBox73.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970", "1969", "1968", "1967", "1966", "1965", "1964", "1963", "1962", "1961", "1960", "1959", "1958", "1957", "1956", "1955", "1954", "1953", "1952", "1951", "1950" }));
+        jComboBox73.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2010. 2009", "2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970", "1969", "1968", "1967", "1966", "1965", "1964", "1963", "1962", "1961", "1960", "1959", "1958", "1957", "1956", "1955", "1954", "1953", "1952", "1951", "1950" }));
         jComboBox73.setEnabled(false);
         jComboBox73.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -794,7 +794,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 10);
         Panel_Documentos2.add(jComboBox73, gridBagConstraints);
 
-        jComboBox74.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970", "1969", "1968", "1967", "1966", "1965", "1964", "1963", "1962", "1961", "1960", "1959", "1958", "1957", "1956", "1955", "1954", "1953", "1952", "1951", "1950" }));
+        jComboBox74.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2010. 2009", "2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970", "1969", "1968", "1967", "1966", "1965", "1964", "1963", "1962", "1961", "1960", "1959", "1958", "1957", "1956", "1955", "1954", "1953", "1952", "1951", "1950" }));
         jComboBox74.setEnabled(false);
         jComboBox74.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1895,8 +1895,8 @@ public class GUIEstadisticas extends javax.swing.JFrame {
        String[] desde=null, hasta=null;
        
        if(AreasComboBoxPDE.getSelectedIndex()!=0) area=areasExistentes.get(AreasComboBoxPDE.getSelectedIndex()-1).getID(); 
-       if(AutorComboBoxPDE.getSelectedIndex()!=0) area=autoresExistentes.get(AutorComboBoxPDE.getSelectedIndex()-1).getCorreo();
-       if(DocTipoComboBoxPDE.getSelectedIndex()!=0) area=tdExistentes.get(DocTipoComboBoxPDE.getSelectedIndex()-1).getTipoDocumento(); 
+       if(AutorComboBoxPDE.getSelectedIndex()!=0) autor=autoresExistentes.get(AutorComboBoxPDE.getSelectedIndex()-1).getCorreo();
+       if(DocTipoComboBoxPDE.getSelectedIndex()!=0) tipo=tdExistentes.get(DocTipoComboBoxPDE.getSelectedIndex()-1).getTipoDocumento(); 
        if(!jTextField5.getText().isEmpty()) editorial=jTextField5.getText();
        if(jComboBox68.getSelectedIndex()!=0) idioma=jComboBox68.getSelectedItem()+"";
        if(jComboBox75.getSelectedIndex()!=0) estado=jComboBox75.getSelectedIndex()+"";
