@@ -172,7 +172,7 @@ public class DaoReportesEstadisticas {
         return consultar;
     }
 
-    public Resulset ConsultarListaDocumentosExistentes(String area, String autor, String tipo, String editorial, String idioma, String estado, String[] desde, String[] hasta) {
+    public ResultSet ConsultarListaDocumentosExistentes(String area, String autor, String tipo, String editorial, String idioma, String estado, String[] desde, String[] hasta) {
      String sql_consultar="", inter=" intersect ";
       int cont=0;
       
