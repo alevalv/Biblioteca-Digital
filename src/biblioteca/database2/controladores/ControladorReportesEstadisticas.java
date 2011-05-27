@@ -6,6 +6,7 @@ package biblioteca.database2.controladores;
 
 import biblioteca.database2.accesoDatos.DaoReportesEstadisticas;
 import biblioteca.database2.beans.Area;
+import java.sql.ResultSet;
 
 /**
  *
@@ -23,7 +24,8 @@ public class ControladorReportesEstadisticas {
     
    public void ConsultarListaUsuario(String dow, String dom, String month, String year, String[] franja, String[] desde, String[] Hasta, String tipo,
             String genero, String Estado, String area){
-        new DaoReportesEstadisticas().ConsultarListaUsuario(dow, dom, month, year, franja, desde, Hasta, tipo, genero, Estado, area);
+       ///Esto debe retornar una result set!!
+       ResultSet salida= new DaoReportesEstadisticas().ConsultarListaUsuario(dow, dom, month, year, franja, desde, Hasta, tipo, genero, Estado, area);
     }
 
     public void ConsultarListaDocumentosExistentes(String area, String autor, String tipo, String editorial, String idioma, String estado, String[] desde, String[] hasta) {
