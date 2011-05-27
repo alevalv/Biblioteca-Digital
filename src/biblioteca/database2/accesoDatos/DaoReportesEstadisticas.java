@@ -88,7 +88,6 @@ public class DaoReportesEstadisticas {
             Connection conn = Fachada.conectar();
             java.sql.Statement sentencia = conn.createStatement();
             ResultSet salida = sentencia.executeQuery(sql_consultar);
-            //printResultSet(salida);
             conn.close();
             return salida;
       }        
@@ -129,7 +128,7 @@ public class DaoReportesEstadisticas {
         if(tipo != null){
             if(tipo.equals("1"))
             consultar="Select username, nombres, apellidos, fecha_registro from usuarios where tipo_usuario='3' ";
-            else  consultar="Select username, nombres, apellidos, fecha_registro from usuarios where tipo_usuario='"+tipo+"' ";
+            else  consultar="Select username, nombres, apellidos, fecha_registro from usuarios where tipo_usuario='2' ";
         }
         return consultar;
     }
@@ -703,7 +702,7 @@ public class DaoReportesEstadisticas {
     private String ConsultarTipoDocCatalogados(String tipo) {
        String consultar="";
         if(tipo != null){
-            consultar="Select documentos.doc_id, titulo_principal "
+            consultar="Select documentos.doc_id, titulo_principal from documentos "
                     + "where tipo_documento='"+tipo+"' ";}
         return consultar;
     }
