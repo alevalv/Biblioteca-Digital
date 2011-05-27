@@ -2603,7 +2603,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           if(DocTipoComboBoxPDC1.getSelectedIndex()!=0) doc_tipo=tdExistentes.get(DocTipoComboBoxPDC1.getSelectedIndex()-1).getTipoDocumento();
           if(jTextField8.isCursorSet() && !jTextField8.getText().isEmpty()) usuario=jTextField8.getText();
           
-          new ControladorReportesEstadisticas().ConsultarListaDocumentosCatalogados(dow, dom, month, year, franja, desde, Hasta, area, autor, doc_tipo, usuario);
+          biblioteca.Main.PdfCreator.createPdf("documentosDescargados.pdf", "Reporte de Documentos Descargados", "Total de documentos consultados en este reporte: ",new ControladorReportesEstadisticas().ConsultarListaDocumentosCatalogados(dow, dom, month, year, franja, desde, Hasta, area, autor, doc_tipo, usuario));
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void unsupportedOperation(){

@@ -582,7 +582,137 @@ public class DaoReportesEstadisticas {
         return consultar;
     }
 
-    public void ConsultarListaDocumentosCatalogados(String dow, String dom, String month, String year, String[] franja, String[] desde, String[] Hasta, String area, String autor, String doc_tipo, String usuario) {
-        throw new UnsupportedOperationException("Not yet implemented");
+    public ResultSet ConsultarListaDocumentosCatalogados(String dow, String dom, String month, String year, String[] franja, String[] desde, String[] Hasta, String area, String autor, String doc_tipo, String usuario) {
+      
+       String sql_consultar="", inter=" intersect ";
+      int cont=0;
+      
+      if(!ConsultarDowDocCatalogados(dow).isEmpty())  {
+          cont++;
+      sql_consultar+=ConsultarDowDocCatalogados(dow);}
+      if(!ConsultarDomDocCatalogados(dom).isEmpty())  {
+          cont++;
+      sql_consultar+=ConsultarDomDocCatalogados(dom);}
+      
+      if(!ConsultarMonthDocCatalogados(month).isEmpty())  {
+          if(cont>0) sql_consultar+=inter;
+          cont++;
+      sql_consultar+=ConsultarMonthDocCatalogados(month);}
+      
+      if(!ConsultarYearDocCatalogados(year).isEmpty())  {
+          if(cont>0) sql_consultar+=inter;
+          cont++;
+      sql_consultar+=ConsultarYearDocCatalogados(year);}
+      
+      if(!ConsultarFranjaDocCatalogados(franja).isEmpty())  {
+          if(cont>0) sql_consultar+=inter;
+          cont++;
+      sql_consultar+=ConsultarFranjaDocCatalogados(franja);}
+      
+      if(!ConsultarIntervaloDocCatalogados(desde,Hasta).isEmpty())  {
+         if(cont>0)  sql_consultar+=inter;
+          cont++;
+      sql_consultar+=ConsultarIntervaloDocCatalogados(desde,Hasta);}
+      
+      if(!ConsultarAreasDocCatalogados(area).isEmpty())  {
+          cont++;
+      sql_consultar+=ConsultarAreasDocCatalogados(area);}
+           
+      if(!ConsultarAutorDocCatalogados(autor).isEmpty())  {
+          if(cont>0) sql_consultar+=inter;
+          cont++;
+      sql_consultar+=ConsultarAutorDocCatalogados(autor);}
+       
+      if(!ConsultarTipoDocCatalogados(doc_tipo).isEmpty())  {
+          if(cont>0) sql_consultar+=inter;
+          cont++;
+      sql_consultar+=ConsultarTipoDocCatalogados(doc_tipo);}
+      
+      if(!ConsultarUsuarioDocCatalogados(usuario).isEmpty())  {
+          if(cont>0) sql_consultar+=inter;
+          cont++;
+      sql_consultar+=ConsultarUsuarioDocCatalogados(usuario);}
+      
+      sql_consultar+=";";
+      System.out.println(sql_consultar);
+      try {
+            Connection conn = Fachada.conectar();
+            java.sql.Statement sentencia = conn.createStatement();
+            ResultSet salida = sentencia.executeQuery(sql_consultar);
+            conn.close();
+            return salida;
+      }        
+        catch (SQLException e) {
+            System.out.println(e);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+       return null;
     }
+    private String ConsultarDowDocCatalogados(String dow) {
+         String consultar="";
+        if(dow != null){
+            consultar="Select doc_id, titulo_principal from documentos where date_part('dow',fecha_catalogacion)="+dow+" "; }
+        return consultar;
+    }
+    private String ConsultarDomDocCatalogados(String dom) {
+        String consultar="";
+        if(dom != null){
+            consultar="Select doc_id, titulo_principal from documentos where date_part('day',fecha_catalogacion)="+dom+" "; }
+        return consultar;
+    }
+    private String ConsultarMonthDocCatalogados(String month) {
+         String consultar="";
+        if(month != null){
+            consultar="Select doc_id, titulo_principal from documentos where date_part('month',fecha_catalogacion)="+month+" "; }
+        return consultar;
+    }
+    private String ConsultarYearDocCatalogados(String year) {String consultar="";
+        if(year != null){
+            consultar="Select doc_id, titulo_principal from documentos where date_part('year',fecha_catalogacion)="+year+" "; }
+        return consultar;
+    }
+    private String ConsultarFranjaDocCatalogados(String[] franja) {String consultar="";
+        if(franja != null){
+            consultar="Select doc_id, titulo_principal from documentos where date_part('hour',fecha_catalogacion)>="+franja[0]+" and date_part('hour',fecha_catalogacion)<="+franja[1]+" "; }
+        return consultar;
+    }
+    private String ConsultarIntervaloDocCatalogados(String[] desde, String[] Hasta) {
+           String consultar="";
+        if(desde != null && Hasta != null){
+            consultar="Select doc_id, titulo_principal from documentos where fecha_catalogacion between '"+desde[0]+"-"+desde[1]+"-"+desde[2]+"' AND '"
+                    +Hasta[0]+"-"+Hasta[1]+"-"+Hasta[2]+"' ";
+        }
+        return consultar;
+    }
+  
+    private String ConsultarAreasDocCatalogados(String area) {
+      String consultar="";
+        if(area != null){
+            consultar="Select documentos.doc_id, titulo_principal from documentos natural join documento_areas_computacion"
+                    + " where area_id='"+area+"' ";}
+        return consultar;
+    }
+    private String ConsultarAutorDocCatalogados(String correo) {
+        String consultar="";
+        if(correo != null){
+            consultar="Select documentos.doc_id, titulo_principal from documentos natural join documento_autor"
+                    + " where autor_correo='"+correo+"' ";}
+        return consultar;
+    }
+    private String ConsultarTipoDocCatalogados(String tipo) {
+       String consultar="";
+        if(tipo != null){
+            consultar="Select documentos.doc_id, titulo_principal "
+                    + "where tipo_documento='"+tipo+"' ";}
+        return consultar;
+    }
+    private String ConsultarUsuarioDocCatalogados(String usuario) {
+       String consultar="";
+        if(usuario != null)
+            consultar="Select doc_id, titulo_principal from documentos"
+                    + " where catalogador='"+usuario+"' ";
+        return consultar;
+    }
+
 }

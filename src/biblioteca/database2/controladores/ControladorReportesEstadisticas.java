@@ -34,8 +34,8 @@ public class ControladorReportesEstadisticas {
        return biblioteca.Main.PdfCreator.resultSetToTable(new DaoReportesEstadisticas().ConsultarListaDocumentosDescargados(dow, dom, month, year, tipo_usuario, franja, desde, Hasta, area, autor, doc_tipo, usuario));
     }
 
-    public void ConsultarListaDocumentosCatalogados(String dow, String dom, String month, String year, String[] franja, String[] desde, String[] Hasta, String area, String autor, String doc_tipo, String usuario) {
-        new DaoReportesEstadisticas().ConsultarListaDocumentosCatalogados(dow, dom, month, year, franja, desde, Hasta, area, autor, doc_tipo, usuario);
+    public PdfPTable ConsultarListaDocumentosCatalogados(String dow, String dom, String month, String year, String[] franja, String[] desde, String[] Hasta, String area, String autor, String doc_tipo, String usuario) {
+        return biblioteca.Main.PdfCreator.resultSetToTable(new DaoReportesEstadisticas().ConsultarListaDocumentosCatalogados(dow, dom, month, year, franja, desde, Hasta, area, autor, doc_tipo, usuario));
     }
    
    
