@@ -124,7 +124,7 @@ public class DaoReportesEstadisticas {
             consultar="Select username, nombres, apellidos, fecha_registro from usuarios where date_part('year',fecha_registro)="+year+" "; }
         return consultar;
     }
-     public String ConsultarTipoUsuarios(String tipo){
+    public String ConsultarTipoUsuarios(String tipo){
         String consultar="";
         if(tipo != null){
             if(tipo.equals("1"))
@@ -133,7 +133,7 @@ public class DaoReportesEstadisticas {
         }
         return consultar;
     }
-      public String ConsultarGeneroUsuarios(String genero){
+    public String ConsultarGeneroUsuarios(String genero){
         String consultar="";
         if(genero != null){
             if(genero.equals("1"))
@@ -142,7 +142,7 @@ public class DaoReportesEstadisticas {
         }
         return consultar;
     }
-      public String ConsultarEstadoUsuarios(String Estado){
+    public String ConsultarEstadoUsuarios(String Estado){
         String consultar="";
         if(Estado != null){
             if(Estado.equals("1"))
@@ -172,7 +172,7 @@ public class DaoReportesEstadisticas {
         return consultar;
     }
 
-    public void ConsultarListaDocumentosExistentes(String area, String autor, String tipo, String editorial, String idioma, String estado, String[] desde, String[] hasta) {
+    public Resulset ConsultarListaDocumentosExistentes(String area, String autor, String tipo, String editorial, String idioma, String estado, String[] desde, String[] hasta) {
      String sql_consultar="", inter=" intersect ";
       int cont=0;
       
@@ -190,6 +190,11 @@ public class DaoReportesEstadisticas {
           cont++;
       sql_consultar+=ConsultarTipoDocumentosExistentes(tipo);}
        
+      if(!ConsultarEditorialDocumentosExistentes(editorial).isEmpty())  {
+          if(cont>0) sql_consultar+=inter;
+          cont++;
+      sql_consultar+=ConsultarEditorialDocumentosExistentes(editorial);}
+      
       if(!ConsultarIdiomaDocumentosExistentes(idioma).isEmpty())  {
           if(cont>0) sql_consultar+=inter;
           cont++;
@@ -215,13 +220,14 @@ public class DaoReportesEstadisticas {
             ResultSet salida = sentencia.executeQuery(sql_consultar);
             printResultSet(salida);
             conn.close();
+            return salida;
       }        
         catch (SQLException e) {
             System.out.println(e);
         } catch (Exception e) {
             System.out.println(e);
         }
-     
+       return null;
     }
     
     public String ConsultarAreasDocumentosExistentes(String id_area){
@@ -240,6 +246,12 @@ public class DaoReportesEstadisticas {
         String consultar="";
         if(tipo != null){
             consultar="Select doc_id, titulo_principal from documentos where tipo_documento='"+tipo+"' ";}
+        return consultar;
+    }
+   public String ConsultarEditorialDocumentosExistentes(String editorial){
+        String consultar="";
+        if(editorial != null){
+            consultar="Select doc_id, titulo_principal from documentos where editorial ilike '"+editorial+"' ";}
         return consultar;
     }
    public String ConsultarIdiomaDocumentosExistentes(String idioma){
