@@ -431,4 +431,154 @@ public class DaoReportesEstadisticas {
     }
 
 
+    /////////////////////////////////////////////////////////////////////////
+    //para el panel de documentos descargados
+    public ResultSet ConsultarListaDocumentosDescargados(String dow,String dom,String month,String year,String tipo_usuario,
+       String[] franja,String[] desde,String[] Hasta,String area,String autor,String doc_tipo,String usuario){
+       String sql_consultar="", inter=" intersect ";
+      int cont=0;
+      
+      if(!ConsultarDowDocDescargados(dow).isEmpty())  {
+          cont++;
+      sql_consultar+=ConsultarDowDocDescargados(dow);}
+      if(!ConsultarDomDocDescargados(dom).isEmpty())  {
+          cont++;
+      sql_consultar+=ConsultarDomDocDescargados(dom);}
+      
+      if(!ConsultarMonthDocDescargados(month).isEmpty())  {
+          if(cont>0) sql_consultar+=inter;
+          cont++;
+      sql_consultar+=ConsultarMonthDocDescargados(month);}
+      
+      if(!ConsultarYearDocDescargados(year).isEmpty())  {
+          if(cont>0) sql_consultar+=inter;
+          cont++;
+      sql_consultar+=ConsultarYearDocDescargados(year);}
+      
+      if(!ConsultarFranjaDocDescargados(franja).isEmpty())  {
+          if(cont>0) sql_consultar+=inter;
+          cont++;
+      sql_consultar+=ConsultarFranjaDocDescargados(franja);}
+      
+      if(!ConsultarIntervaloDocDescargados(desde,Hasta).isEmpty())  {
+         if(cont>0)  sql_consultar+=inter;
+          cont++;
+      sql_consultar+=ConsultarIntervaloDocDescargados(desde,Hasta);}
+      
+      if(!ConsultarTipoUserDocDescargados(tipo_usuario).isEmpty())  {
+          if(cont>0) sql_consultar+=inter;
+          cont++;
+      sql_consultar+=ConsultarTipoUserDocDescargados(tipo_usuario);}
+      
+      
+      if(!ConsultarAreasDocDescargados(area).isEmpty())  {
+          cont++;
+      sql_consultar+=ConsultarAreasDocDescargados(area);}
+           
+      if(!ConsultarAutorDocDescargados(autor).isEmpty())  {
+          if(cont>0) sql_consultar+=inter;
+          cont++;
+      sql_consultar+=ConsultarAutorDocDescargados(autor);}
+       
+      if(!ConsultarTipoDocDescargados(doc_tipo).isEmpty())  {
+          if(cont>0) sql_consultar+=inter;
+          cont++;
+      sql_consultar+=ConsultarTipoDocDescargados(doc_tipo);}
+      
+      if(!ConsultarUsuarioDocDescargados(usuario).isEmpty())  {
+          if(cont>0) sql_consultar+=inter;
+          cont++;
+      sql_consultar+=ConsultarUsuarioDocDescargados(usuario);}
+      
+      sql_consultar+=";";
+      System.out.println(sql_consultar);
+      try {
+            Connection conn = Fachada.conectar();
+            java.sql.Statement sentencia = conn.createStatement();
+            ResultSet salida = sentencia.executeQuery(sql_consultar);
+            conn.close();
+            return salida;
+      }        
+        catch (SQLException e) {
+            System.out.println(e);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+       return null;
+   }
+    private String ConsultarDowDocDescargados(String dow) {
+         String consultar="";
+        if(dow != null){
+            consultar="Select doc_id, titulo_principal from documentos natural join usuario_descarga_documento where date_part('dow',fecha_hora)="+dow+" "; }
+        return consultar;
+    }
+    private String ConsultarDomDocDescargados(String dom) {
+        String consultar="";
+        if(dom != null){
+            consultar="Select doc_id, titulo_principal from documentos natural join usuario_descarga_documento where date_part('day',fecha_hora)="+dom+" "; }
+        return consultar;
+    }
+    private String ConsultarMonthDocDescargados(String month) {
+         String consultar="";
+        if(month != null){
+            consultar="Select doc_id, titulo_principal from documentos natural join usuario_descarga_documento where date_part('month',fecha_hora)="+month+" "; }
+        return consultar;
+    }
+    private String ConsultarYearDocDescargados(String year) {String consultar="";
+        if(year != null){
+            consultar="Select doc_id, titulo_principal from documentos natural join usuario_descarga_documento where date_part('year',fecha_hora)="+year+" "; }
+        return consultar;
+    }
+    private String ConsultarFranjaDocDescargados(String[] franja) {String consultar="";
+        if(franja != null){
+            consultar="Select doc_id, titulo_principal from documentos natural join usuario_descarga_documento where date_part('hour',fecha_hora)>="+franja[0]+" and date_part('hour',fecha_hora)<="+franja[1]+" "; }
+        return consultar;
+    }
+    private String ConsultarIntervaloDocDescargados(String[] desde, String[] Hasta) {
+           String consultar="";
+        if(desde != null && Hasta != null){
+            consultar="Select doc_id, titulo_principal from documentos natural join usuario_descarga_documento where fecha_hora between '"+desde[0]+"-"+desde[1]+"-"+desde[2]+"' AND '"
+                    +Hasta[0]+"-"+Hasta[1]+"-"+Hasta[2]+"' ";
+        }
+        return consultar;
+    }
+    private String ConsultarTipoUserDocDescargados(String tipo) {
+       String consultar="";
+        if(tipo != null){
+            if(tipo.equals("1"))
+            consultar="Select doc_id, titulo_principal from documentos natural join usuario_descarga_documento inner join usuarios on "
+                    + "usuario_descarga_documento.username=usuarios.username where tipo_usuario='3' ";
+            else  consultar="Select doc_id, titulo_principal from documentos natural join usuario_descarga_documento inner join usuarios on "
+                    + "usuario_descarga_documento.username=usuarios.username where tipo_usuario='2' ";
+        }
+        return consultar;
+    }
+    private String ConsultarAreasDocDescargados(String area) {
+      String consultar="";
+        if(area != null){
+            consultar="Select documentos.doc_id, titulo_principal from documentos natural join usuario_descarga_documento inner join documento_areas_computacion"
+                    + " on documentos.doc_id=documento_areas_computacion.doc_id where area_id='"+area+"' ";}
+        return consultar;
+    }
+    private String ConsultarAutorDocDescargados(String correo) {
+        String consultar="";
+        if(correo != null){
+            consultar="Select documentos.doc_id, titulo_principal from documentos natural join usuario_descarga_documento inner join documento_autor"
+                    + " on documentos.doc_id=documento_autor.doc_id where autor_correo='"+correo+"' ";}
+        return consultar;
+    }
+    private String ConsultarTipoDocDescargados(String tipo) {
+       String consultar="";
+        if(tipo != null){
+            consultar="Select documentos.doc_id, titulo_principal from documentos natural join usuario_descarga_documento  "
+                    + "where tipo_documento='"+tipo+"' ";}
+        return consultar;
+    }
+    private String ConsultarUsuarioDocDescargados(String usuario) {
+        String consultar="";
+        if(usuario != null)
+            consultar="Select doc_id, titulo_principal from documentos natural join usuario_descarga_documento inner join usuarios on "
+                    + "usuario_descarga_documento.username=usuarios.username where usuario_descarga_documento.username='"+usuario+"' ";
+        return consultar;
+    }
 }
