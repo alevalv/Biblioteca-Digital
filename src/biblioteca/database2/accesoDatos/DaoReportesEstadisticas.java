@@ -172,6 +172,7 @@ public class DaoReportesEstadisticas {
         return consultar;
     }
 
+    //Para el panel de documentos existentes
     public ResultSet ConsultarListaDocumentosExistentes(String area, String autor, String tipo, String editorial, String idioma, String estado, String[] desde, String[] hasta) {
      String sql_consultar="", inter=" intersect ";
       int cont=0;
@@ -230,13 +231,13 @@ public class DaoReportesEstadisticas {
        return null;
     }
     
-    public String ConsultarAreasDocumentosExistentes(String id_area){
+   public String ConsultarAreasDocumentosExistentes(String id_area){
         String consultar="";
         if(id_area != null){
             consultar="Select doc_id, titulo_principal from documentos natural join documento_areas_computacion where area_id='"+id_area+"' ";}
         return consultar;
     }
-    public String ConsultarAutorDocumentosExistentes(String correo){
+   public String ConsultarAutorDocumentosExistentes(String correo){
         String consultar="";
         if(correo != null){
             consultar="Select doc_id, titulo_principal from documentos natural join documento_autor where autor_correo='"+correo+"' ";}
@@ -276,5 +277,71 @@ public class DaoReportesEstadisticas {
                     +Hasta[0]+"-"+Hasta[1]+"-"+Hasta[2]+"' ";
         }
         return consultar;
+    }
+   
+   public ResultSet ConsultarListaDocumentosConsultados(String dow,String dom,String month,String year,String tipo_usuario,
+       String[] franja,String[] desde,String[] Hasta,String area,String autor,String doc_tipo,String usuario){
+       String sql_consultar="", inter=" intersect ";
+      int cont=0;
+      
+      if(!ConsultarDowDocConsultados(dow).isEmpty())  {
+          cont++;
+      sql_consultar+=ConsultarDowDocConsultados(dow);}
+      if(!ConsultarDomDocConsultados(dom).isEmpty())  {
+          cont++;
+      sql_consultar+=ConsultarDomDocConsultados(dom);}
+      
+      if(!ConsultarMonthDocConsultados(month).isEmpty())  {
+          if(cont>0) sql_consultar+=inter;
+          cont++;
+      sql_consultar+=ConsultarMonthDocConsultados(month);}
+      
+      if(!ConsultarYearDocConsultados(year).isEmpty())  {
+          if(cont>0) sql_consultar+=inter;
+          cont++;
+      sql_consultar+=ConsultarYearDocConsultados(year);}
+      
+      if(!ConsultarFranjaDocConsultados(franja).isEmpty())  {
+          if(cont>0) sql_consultar+=inter;
+          cont++;
+      sql_consultar+=ConsultarFranjaDocConsultados(franja);}
+      
+      if(!ConsultarIntervaloDocConsultados(desde,Hasta).isEmpty())  {
+         if(cont>0)  sql_consultar+=inter;
+          cont++;
+      sql_consultar+=ConsultarIntervaloDocConsultados(desde,Hasta);}
+      
+      if(!ConsultarTipoDocConsultados(tipo_usuario).isEmpty())  {
+          if(cont>0) sql_consultar+=inter;
+          cont++;
+      sql_consultar+=ConsultarTipoDocConsultados(tipo_usuario);}
+       return null;
+   }
+    private String ConsultarDowDocConsultados(String dow) {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
+
+    private String ConsultarDomDocConsultados(String dom) {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
+
+    private String ConsultarMonthDocConsultados(String month) {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
+
+    private String ConsultarYearDocConsultados(String year) {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
+
+    private String ConsultarFranjaDocConsultados(String[] franja) {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
+
+    private String ConsultarIntervaloDocConsultados(String[] desde, String[] Hasta) {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
+
+    private String ConsultarTipoDocConsultados(String tipo_usuario) {
+        throw new UnsupportedOperationException("Not yet implemented");
     }
 }

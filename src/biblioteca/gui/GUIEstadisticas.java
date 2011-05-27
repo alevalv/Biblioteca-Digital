@@ -1966,7 +1966,38 @@ public class GUIEstadisticas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        String dow = null, dom = null, month = null, year = null, tipo_usuario = null;
+        String[] franja = null, desde = null, Hasta = null;
+        String area = null, autor=null, doc_tipo=null, usuario=null;
+      
+      
+      if(!jCheckBox31.isSelected()){
+          if(jCheckBox32.isSelected()) dow=jComboBox76.getSelectedIndex()+"";
+          if(jCheckBox33.isSelected()) dom=jComboBox77.getSelectedItem()+"";
+          if(jCheckBox34.isSelected()) month=(jComboBox78.getSelectedIndex()+1)+"";
+          if(jCheckBox35.isSelected()) year=jComboBox81.getSelectedItem()+"";
+          if(jCheckBox36.isSelected()){
+          franja=new String[2];
+          franja[0]=jComboBox79.getSelectedIndex()+"";
+          franja[1]=jComboBox80.getSelectedIndex()+"";
+          }
+          if(jCheckBox37.isSelected()){
+          desde=new String[3];
+          desde[0]=jComboBox82.getSelectedItem()+"";
+          desde[1]=jComboBox83.getSelectedIndex()+"";
+          desde[2]=jComboBox84.getSelectedItem()+"";
+          Hasta=new String[3];
+          Hasta[0]=jComboBox89.getSelectedItem()+"";
+          Hasta[1]=jComboBox88.getSelectedIndex()+"";
+          Hasta[2]=jComboBox87.getSelectedItem()+"";
+          }
+          if(jComboBox90.getSelectedIndex()!=0) tipo_usuario=jComboBox90.getSelectedIndex()+"";
+          if(AreasComboBoxPDC.getSelectedIndex()!=0) area=areasExistentes.get(AreasComboBoxPDC.getSelectedIndex()-1).getID();
+          if(AutorComboBoxPDC.getSelectedIndex()!=0) autor=autoresExistentes.get(AutorComboBoxPDC.getSelectedIndex()-1).getCorreo();
+          if(DocTipoComboBoxPDC.getSelectedIndex()!=0) doc_tipo=tdExistentes.get(DocTipoComboBoxPDC.getSelectedIndex()-1).getTipoDocumento();
+          usuario=jTextField6.getText();
+          
+      } 
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
