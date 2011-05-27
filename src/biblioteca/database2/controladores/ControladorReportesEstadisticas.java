@@ -22,12 +22,12 @@ public class ControladorReportesEstadisticas {
        return biblioteca.Main.PdfCreator.resultSetToTable(new DaoReportesEstadisticas().ConsultarListaUsuario(dow, dom, month, year, franja, desde, Hasta, tipo, genero, Estado, area));
     }
 
-    public void ConsultarListaDocumentosExistentes(String area, String autor, String tipo, String editorial, String idioma, String estado, String[] desde, String[] hasta) {
-       new DaoReportesEstadisticas().ConsultarListaDocumentosExistentes(area, autor, tipo, editorial, idioma, estado, desde, hasta);
+    public PdfPTable ConsultarListaDocumentosExistentes(String area, String autor, String tipo, String editorial, String idioma, String estado, String[] desde, String[] hasta) {
+       return biblioteca.Main.PdfCreator.resultSetToTable(new DaoReportesEstadisticas().ConsultarListaDocumentosExistentes(area, autor, tipo, editorial, idioma, estado, desde, hasta));
     }
 
-    public void ConsultarListaDocumentosConsultados(String dow, String dom, String month, String year, String tipo_usuario, String[] franja, String[] desde, String[] Hasta, String area, String autor, String doc_tipo, String usuario) {
-       new DaoReportesEstadisticas().ConsultarListaDocumentosConsultados(dow, dom, month, year, tipo_usuario, franja, desde, Hasta, area, autor, doc_tipo, usuario);
+    public PdfPTable ConsultarListaDocumentosConsultados(String dow, String dom, String month, String year, String tipo_usuario, String[] franja, String[] desde, String[] Hasta, String area, String autor, String doc_tipo, String usuario) {
+       return biblioteca.Main.PdfCreator.resultSetToTable(new DaoReportesEstadisticas().ConsultarListaDocumentosConsultados(dow, dom, month, year, tipo_usuario, franja, desde, Hasta, area, autor, doc_tipo, usuario));
     }
    
    
