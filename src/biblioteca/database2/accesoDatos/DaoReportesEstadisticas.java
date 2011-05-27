@@ -581,4 +581,8 @@ public class DaoReportesEstadisticas {
                     + "usuario_descarga_documento.username=usuarios.username where usuario_descarga_documento.username='"+usuario+"' ";
         return consultar;
     }
+
+    public void ConsultarListaDocumentosCatalogados(String dow, String dom, String month, String year, String[] franja, String[] desde, String[] Hasta, String area, String autor, String doc_tipo, String usuario) {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
 }
