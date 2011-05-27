@@ -17,6 +17,13 @@ import biblioteca.database2.controladores.ControladorArea;
 import biblioteca.database2.controladores.ControladorAutor;
 import biblioteca.database2.controladores.ControladorReportesEstadisticas;
 import biblioteca.database2.controladores.ControladorTipoDocumento;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -37,7 +44,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         initTipoDocumento();
         this.parent=parent;
         this.setLocationRelativeTo(parent);
-        this.setResizable(false);
+        //this.setResizable(false);
     }
     
   private void initAreas() {
@@ -836,7 +843,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         Panel_Documentos2.add(jLabel9, gridBagConstraints);
 
-        jLabel10.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Ubuntu", 1, 24));
         jLabel10.setText("Reportes ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1520,16 +1527,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Documentos Descargados", jPanel4);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 664, Short.MAX_VALUE)
-        );
+        getContentPane().add(jTabbedPane1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1816,9 +1814,33 @@ public class GUIEstadisticas extends javax.swing.JFrame {
       }   
       
       
+        Document document = new Document();
+        // step 2
+        try{
+        PdfWriter.getInstance(document, new FileOutputStream("prueba1.pdf"));
+        Font myFont = new Font();
+        myFont.setFamily("Arial");
+        myFont.setStyle(Font.BOLD);
+        myFont.setSize(10);
+        Paragraph titulo = new Paragraph("Reportes y Estadisticas", myFont);
+        titulo.setAlignment(Paragraph.ALIGN_CENTER);
+        document.open();
+        // step 4
+        document.add(titulo);
         
-        new ControladorReportesEstadisticas().ConsultarListaUsuario(dow, dom, month, year, franja, desde, Hasta, tipo,
-             genero, Estado, area);
+        document.add(new Paragraph("Tablejere"));
+        document.add(new ControladorReportesEstadisticas().ConsultarListaUsuario(dow, dom, month, year, franja, desde, Hasta, tipo,
+             genero, Estado, area));
+        // step 5
+        document.close();
+        }
+        catch(DocumentException de){
+            System.err.println(de);
+        }
+        catch(IOException ioex){
+            System.err.println(ioex);
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jCheckBox9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox9ActionPerformed
