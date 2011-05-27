@@ -54,7 +54,7 @@ public class PdfCreator {
         document.open();
         // step 4
         document.add(pTitulo);        
-        document.add(new Paragraph(encabezado+"\n"));
+        document.add(new Paragraph(encabezado+tabla.getRows().size()+"\n"));
         document.add(tabla);
         // step 5
         document.close();

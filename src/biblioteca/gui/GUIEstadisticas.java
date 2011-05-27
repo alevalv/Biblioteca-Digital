@@ -1842,32 +1842,9 @@ public class GUIEstadisticas extends javax.swing.JFrame {
       }   
       
       
-        Document document = new Document();
-        // step 2
-        try{
-        PdfWriter.getInstance(document, new FileOutputStream("prueba1.pdf"));
-        Font myFont = new Font();
-        myFont.setFamily("Arial");
-        myFont.setStyle(Font.BOLD);
-        myFont.setSize(10);
-        Paragraph titulo = new Paragraph("Reportes y Estadisticas", myFont);
-        titulo.setAlignment(Paragraph.ALIGN_CENTER);
-        document.open();
-        // step 4
-        document.add(titulo);
-        
-        document.add(new Paragraph("Tablejere"));
-        document.add(new ControladorReportesEstadisticas().ConsultarListaUsuario(dow, dom, month, year, franja, desde, Hasta, tipo,
+        biblioteca.Main.PdfCreator.createPdf("usuarios.pdf", "Reporte de Usuarios Registrados", "Total de usuarios registrados: ", 
+                new ControladorReportesEstadisticas().ConsultarListaUsuario(dow, dom, month, year, franja, desde, Hasta, tipo,
              genero, Estado, area));
-        // step 5
-        document.close();
-        }
-        catch(DocumentException de){
-            System.err.println(de);
-        }
-        catch(IOException ioex){
-            System.err.println(ioex);
-        }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
