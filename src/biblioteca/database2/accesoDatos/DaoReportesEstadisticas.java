@@ -171,7 +171,7 @@ public class DaoReportesEstadisticas {
             consultar="Select username, nombres, apellidos, fecha_registro from usuarios natural join usuario_areas_computacion where area_id='"+id_area+"' ";}
         return consultar;
     }
-
+ //////////////////////////////////////////////////////////////////
     //Para el panel de documentos existentes
     public ResultSet ConsultarListaDocumentosExistentes(String area, String autor, String tipo, String editorial, String idioma, String estado, String[] desde, String[] hasta) {
      String sql_consultar="", inter=" intersect ";
@@ -279,8 +279,8 @@ public class DaoReportesEstadisticas {
         return consultar;
     }
    
-   
-   
+   //////////////////////////////////////////////////////////////////
+   //Para el panel de documentos consultados
    public ResultSet ConsultarListaDocumentosConsultados(String dow,String dom,String month,String year,String tipo_usuario,
        String[] franja,String[] desde,String[] Hasta,String area,String autor,String doc_tipo,String usuario){
        String sql_consultar="", inter=" intersect ";
@@ -344,7 +344,6 @@ public class DaoReportesEstadisticas {
             Connection conn = Fachada.conectar();
             java.sql.Statement sentencia = conn.createStatement();
             ResultSet salida = sentencia.executeQuery(sql_consultar);
-            printResultSet(salida);
             conn.close();
             return salida;
       }        
