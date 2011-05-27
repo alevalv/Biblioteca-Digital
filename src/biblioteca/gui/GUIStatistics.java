@@ -994,7 +994,6 @@ public class GUIStatistics extends javax.swing.JFrame {
         String area = null, autor=null, doc_tipo=null, usuario=null;
       
       
-      if(!jCheckBox31.isSelected()){
           if(jCheckBox32.isSelected()) dow=jComboBox76.getSelectedIndex()+"";
           if(jCheckBox33.isSelected()) dom=jComboBox77.getSelectedItem()+"";
           if(jCheckBox34.isSelected()) month=(jComboBox78.getSelectedIndex()+1)+"";
@@ -1013,16 +1012,16 @@ public class GUIStatistics extends javax.swing.JFrame {
           Hasta[0]=jComboBox89.getSelectedItem()+"";
           Hasta[1]=jComboBox88.getSelectedIndex()+"";
           Hasta[2]=jComboBox87.getSelectedItem()+"";
-          }
-      }
+          }      
           if(jComboBox90.getSelectedIndex()!=0) tipo_usuario=jComboBox90.getSelectedIndex()+"";
           if(AreasComboBoxPDC.getSelectedIndex()!=0) area=areasExistentes.get(AreasComboBoxPDC.getSelectedIndex()-1).getID();
           if(AutorComboBoxPDC.getSelectedIndex()!=0) autor=autoresExistentes.get(AutorComboBoxPDC.getSelectedIndex()-1).getCorreo();
           if(DocTipoComboBoxPDC.getSelectedIndex()!=0) doc_tipo=tdExistentes.get(DocTipoComboBoxPDC.getSelectedIndex()-1).getTipoDocumento();
           usuario=jTextField6.getText();
-          //biblioteca.Main.PdfCreator.createPdf("documentosConsultados.pdf", "Reporte de Documentos Consultados", "Total de documentos consultados en este reporte: ", 
-          //      new ControladorReportesEstadisticas().ConsultarListaDocumentosConsultados(dow, dom, month, year, tipo_usuario,
-          //     franja, desde,Hasta,area, autor, doc_tipo, usuario));
+          int salida=Integer.parseInt(Num_Doc.getText());
+          biblioteca.Main.PdfCreator.createPdf("documentosMásConsultados.pdf", "Reporte de Documentos Más Consultados", 
+                  "Total de documentos en este reporte: ",new ControladorEstadisticas().estadisticasDocumentosConsultados(dow, dom, month, year, tipo_usuario,
+               franja, desde,Hasta,area, autor, doc_tipo, usuario, jCheckBox31.isSelected(), salida));
     }//GEN-LAST:event_Reporte_ConsultadosActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
