@@ -332,6 +332,21 @@ public class DaoReportesEstadisticas {
           if(cont>0) sql_consultar+=inter;
           cont++;
       sql_consultar+=ConsultarTipoDocConsultados(doc_tipo);}
+      
+      System.out.println(sql_consultar);
+      try {
+            Connection conn = Fachada.conectar();
+            java.sql.Statement sentencia = conn.createStatement();
+            ResultSet salida = sentencia.executeQuery(sql_consultar);
+            //printResultSet(salida);
+            conn.close();
+            return salida;
+      }        
+        catch (SQLException e) {
+            System.out.println(e);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
        return null;
    }
     private String ConsultarDowDocConsultados(String dow) {
@@ -382,19 +397,22 @@ public class DaoReportesEstadisticas {
     private String ConsultarAreasDocConsultados(String area) {
       String consultar="";
         if(area != null){
-            consultar="Select doc_id, titulo_principal from documentos natural join documento_areas_computacion where area_id='"+area+"' ";}
+            consultar="Select doc_id, titulo_principal from documentos natural join usuario_consulta_documento inner join documento_areas_computacion"
+                    + " on documentos.doc_id=documento_areas_computacion.doc_id where area_id='"+area+"' ";}
         return consultar;
     }
     private String ConsultarAutorDocConsultados(String correo) {
         String consultar="";
         if(correo != null){
-            consultar="Select doc_id, titulo_principal from documentos natural join documento_autor where autor_correo='"+correo+"' ";}
+            consultar="Select doc_id, titulo_principal from documentos natural join usuario_consulta_documento inner join documento_autor"
+                    + " on documentos.doc_id=documento_autor.doc_id where autor_correo='"+correo+"' ";}
         return consultar;
     }
     private String ConsultarTipoDocConsultados(String tipo) {
        String consultar="";
         if(tipo != null){
-            consultar="Select doc_id, titulo_principal from documentos where tipo_documento='"+tipo+"' ";}
+            consultar="Select doc_id, titulo_principal from documentos natural join usuario_consulta_documento inner join "
+                    + "usuario on usuario_consulta_documento.username=usuario.username where tipo_documento='"+tipo+"' ";}
         return consultar;
     }
 
