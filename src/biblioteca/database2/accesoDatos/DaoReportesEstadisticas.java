@@ -333,6 +333,12 @@ public class DaoReportesEstadisticas {
           cont++;
       sql_consultar+=ConsultarTipoDocConsultados(doc_tipo);}
       
+      if(!ConsultarUsuarioDocConsultados(usuario).isEmpty())  {
+          if(cont>0) sql_consultar+=inter;
+          cont++;
+      sql_consultar+=ConsultarUsuarioDocConsultados(usuario);}
+      
+      sql_consultar+=";";
       System.out.println(sql_consultar);
       try {
             Connection conn = Fachada.conectar();
@@ -389,9 +395,10 @@ public class DaoReportesEstadisticas {
        String consultar="";
         if(tipo != null){
             if(tipo.equals("1"))
-            consultar="Select doc_id, titulo_principal from documentos natural join usuario_consulta_documento inner join usuario "
-                    + "usuario_consulta_documento.username=usuario.username where tipo_usuario='3' ";
-            else  consultar="Select doc_id, titulo_principal from documentos natural join usuario_consulta_documento where tipo_usuario='"+tipo+"' ";
+            consultar="Select doc_id, titulo_principal from documentos natural join usuario_consulta_documento inner join usuarios on "
+                    + "usuario_consulta_documento.username=usuarios.username where tipo_usuario='3' ";
+            else  consultar="Select doc_id, titulo_principal from documentos natural join usuario_consulta_documento inner join usuarios on "
+                    + "usuario_consulta_documento.username=usuarios.username where tipo_usuario='2' ";
         }
         return consultar;
     }
@@ -414,6 +421,13 @@ public class DaoReportesEstadisticas {
         if(tipo != null){
             consultar="Select documentos.doc_id, titulo_principal from documentos natural join usuario_consulta_documento  "
                     + "where tipo_documento='"+tipo+"' ";}
+        return consultar;
+    }
+    private String ConsultarUsuarioDocConsultados(String usuario) {
+       String consultar="";
+        if(usuario != null)
+            consultar="Select doc_id, titulo_principal from documentos natural join usuario_consulta_documento inner join usuarios on "
+                    + "usuario_consulta_documento.username=usuarios.username where usuario_consulta_documento.username='"+usuario+"' ";
         return consultar;
     }
 

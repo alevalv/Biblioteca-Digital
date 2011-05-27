@@ -1175,8 +1175,8 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         Panel_Documentos_Catalogados1.add(jLabel69, gridBagConstraints);
 
         jTextField6.setEditable(false);
-        jTextField6.setForeground(new java.awt.Color(102, 102, 102));
         jTextField6.setText("Digite su Username");
+        jTextField6.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jTextField6.setEnabled(false);
         jTextField6.setPreferredSize(new java.awt.Dimension(110, 20));
         jTextField6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1281,8 +1281,8 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         Panel_Documentos_Descargados1.add(jLabel70, gridBagConstraints);
 
         jTextField7.setEditable(false);
-        jTextField7.setForeground(new java.awt.Color(102, 102, 102));
         jTextField7.setText("Digite su Username");
+        jTextField7.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jTextField7.setPreferredSize(new java.awt.Dimension(110, 20));
         jTextField7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -2053,7 +2053,8 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           if(AreasComboBoxPDC.getSelectedIndex()!=0) area=areasExistentes.get(AreasComboBoxPDC.getSelectedIndex()-1).getID();
           if(AutorComboBoxPDC.getSelectedIndex()!=0) autor=autoresExistentes.get(AutorComboBoxPDC.getSelectedIndex()-1).getCorreo();
           if(DocTipoComboBoxPDC.getSelectedIndex()!=0) doc_tipo=tdExistentes.get(DocTipoComboBoxPDC.getSelectedIndex()-1).getTipoDocumento();
-          usuario=jTextField6.getText();
+          if(jTextField6.isCursorSet() && !jTextField6.getText().isEmpty()) usuario=jTextField6.getText();
+          
           biblioteca.Main.PdfCreator.createPdf("documentosConsultados.pdf", "Reporte de Documentos Consultados", "Total de documentos consultados en este reporte: ", 
                 new ControladorReportesEstadisticas().ConsultarListaDocumentosConsultados(dow, dom, month, year, tipo_usuario,
                franja, desde,Hasta,area, autor, doc_tipo, usuario));
@@ -2066,13 +2067,16 @@ public class GUIEstadisticas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jTextField6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField6MouseClicked
+        jTextField6.setEnabled(true);
         jTextField6.setEditable(true);
         jTextField6.setText("");
     }//GEN-LAST:event_jTextField6MouseClicked
 
     private void jTextField7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField7MouseClicked
+        jTextField7.setEnabled(true);
         jTextField7.setEditable(true);
         jTextField7.setText("");
+        
     }//GEN-LAST:event_jTextField7MouseClicked
 
     private void unsupportedOperation(){
