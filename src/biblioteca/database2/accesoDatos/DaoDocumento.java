@@ -39,9 +39,9 @@ public class DaoDocumento {
             conn.close();
             return num_filas;
         } catch (SQLException e) {
-            System.out.println(e);
+            System.err.println(e);
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println(e);
         }
 
         return -1;
@@ -75,9 +75,9 @@ public class DaoDocumento {
             conn.close();
 
         } catch (SQLException e) {
-            System.out.println(e);
+            System.err.println(e);
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println(e);
         }
         return documento;
     }
@@ -102,9 +102,9 @@ public class DaoDocumento {
             }
             conn.close();
         } catch (SQLException e) {
-            System.out.println(e);
+            System.err.println(e);
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println(e);
         }
         return id;
     }
@@ -121,9 +121,9 @@ public class DaoDocumento {
             return num_filas;
 
         } catch (SQLException e) {
-            System.out.println(e);
+            System.err.println(e);
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println(e);
         }
         return -1;
     }
@@ -140,9 +140,9 @@ public class DaoDocumento {
             return num_filas;
 
         } catch (SQLException e) {
-            System.out.println(e);
+            System.err.println(e);
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println(e);
         }
         return -1;
     }
@@ -168,9 +168,9 @@ public class DaoDocumento {
             conn.close();
             return num_filas;
         } catch (SQLException e) {
-            System.out.println(e);
+            System.err.println(e);
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println(e);
         }
 
         return -1;
@@ -194,9 +194,9 @@ public class DaoDocumento {
                 }
             }
         } catch (SQLException e) {
-            System.out.println(e);
+            System.err.println(e);
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println(e);
         }
         return false;
     }
@@ -224,9 +224,9 @@ public class DaoDocumento {
             conn.close();
             return num_filas;
         } catch (SQLException e) {
-            System.out.println(e);
+            System.err.println(e);
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println(e);
         }
 
         return -1;
@@ -244,9 +244,9 @@ public class DaoDocumento {
             }
             sentencia.executeBatch();
         } catch (SQLException e) {
-            System.out.println(e);
+            System.err.println(e);
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println(e);
         }
     }
 
@@ -262,9 +262,9 @@ public class DaoDocumento {
             }
             sentencia.executeBatch();
         } catch (SQLException e) {
-            System.out.println(e);
+            System.err.println(e);
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println(e);
         }
     }
 
@@ -280,9 +280,9 @@ public class DaoDocumento {
             }
             sentencia.executeBatch();
         } catch (SQLException e) {
-            System.out.println(e);
+            System.err.println(e);
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println(e);
         }
     }
 
@@ -298,9 +298,9 @@ public class DaoDocumento {
             }
             sentencia.executeBatch();
         } catch (SQLException e) {
-            System.out.println(e);
+            System.err.println(e);
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println(e);
         }
     }
 
@@ -316,9 +316,9 @@ public class DaoDocumento {
             }
             sentencia.executeBatch();
         } catch (SQLException e) {
-            System.out.println(e);
+            System.err.println(e);
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println(e);
         }
     }
 
@@ -334,9 +334,9 @@ public class DaoDocumento {
             }
             sentencia.executeBatch();
         } catch (SQLException e) {
-            System.out.println(e);
+            System.err.println(e);
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println(e);
         }
     }
 
@@ -358,9 +358,9 @@ public class DaoDocumento {
             }
             conn.close();
         } catch (SQLException e) {
-            System.out.println(e);
+            System.err.println(e);
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println(e);
         }
         return palabrasClave;
     }
@@ -386,9 +386,9 @@ public class DaoDocumento {
             }
             conn.close();
         } catch (SQLException e) {
-            System.out.println(e);
+            System.err.println(e);
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println(e);
         }
         return Autores;
     }
@@ -414,9 +414,9 @@ public class DaoDocumento {
             }
             conn.close();
         } catch (SQLException e) {
-            System.out.println(e);
+            System.err.println(e);
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println(e);
         }
         return Areas;
     }
@@ -460,9 +460,9 @@ public class DaoDocumento {
             }
             conn.close();
         } catch (SQLException e) {
-            System.out.println(e);
+            System.err.println(e);
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println(e);
         }
         return resultados;
         
@@ -478,9 +478,9 @@ public class DaoDocumento {
             sentencia.execute(sql_insertar);
             conn.close();
         } catch (SQLException e) {
-            System.out.println(e);
+            System.err.println(e);
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println(e);
         }
     }
 
@@ -494,9 +494,9 @@ public class DaoDocumento {
             sentencia.executeUpdate(sql_insertar);
             conn.close();
         } catch (SQLException e) {
-            System.out.println(e);
+            System.err.println(e);
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println(e);
         }
     }
 
@@ -542,9 +542,9 @@ public class DaoDocumento {
             }
             conn.close();
         } catch (SQLException e) {
-            System.out.println(e);
+            System.err.println(e);
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println(e);
         }
 
         return resultados;
@@ -777,9 +777,9 @@ public class DaoDocumento {
             }
             conn.close();
         } catch (SQLException e) {
-            System.out.println(e);
+            System.err.println(e);
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println(e);
         }
         return resultados;
    }

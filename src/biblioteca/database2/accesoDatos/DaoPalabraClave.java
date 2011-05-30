@@ -32,8 +32,8 @@ public class DaoPalabraClave {
             conect.close();
             return numFilas;
         }
-        catch(SQLException e){ System.out.println(e); }
-        catch(Exception e){ System.out.println(e); }
+        catch(SQLException e){ System.err.println(e); }
+        catch(Exception e){ System.err.println(e); }
         return -1;
     }
 
@@ -51,8 +51,8 @@ public class DaoPalabraClave {
             }
             conn.close();
          }
-         catch(SQLException e){ System.out.println(e); }
-         catch(Exception e){ System.out.println(e); }
+         catch(SQLException e){ System.err.println(e); }
+         catch(Exception e){ System.err.println(e); }
         return palabra;
     }
 
@@ -73,8 +73,8 @@ public class DaoPalabraClave {
             }
             conn.close();
          }
-         catch(SQLException e){ System.out.println(e); }
-         catch(Exception e){ System.out.println(e); }
+         catch(SQLException e){ System.err.println(e); }
+         catch(Exception e){ System.err.println(e); }
         return Palabras;
     }
     
@@ -91,7 +91,7 @@ public class DaoPalabraClave {
             conn.close();
             return numFilas;
         }
-        catch(SQLException e){ System.out.println(e); }
+        catch(SQLException e){ System.err.println(e); }
 
         return -1;
     }
@@ -108,7 +108,7 @@ public class DaoPalabraClave {
             conn.close();
             return numFilas;
         }
-        catch(SQLException e){ System.out.println(e); }
+        catch(SQLException e){ System.err.println(e); }
 
         return -1;
     }
@@ -128,8 +128,8 @@ public class DaoPalabraClave {
              conn.close();
 
          }
-         catch(SQLException e){ System.out.println(e); }
-         catch(Exception e){ System.out.println(e); }
+         catch(SQLException e){ System.err.println(e); }
+         catch(Exception e){ System.err.println(e); }
 
         if(nombre.equals(nombreRecibido))
         {

@@ -44,7 +44,7 @@ public class DaoUsuario {
             return numFilas;
         }
         catch(SQLException e){ System.out.println("SQL EXception"); }
-        catch(Exception e){ System.out.println(e); }
+        catch(Exception e){ System.err.println(e); }
         return -1;
     }
 
@@ -77,8 +77,8 @@ public class DaoUsuario {
             conn.close();
 
          }
-         catch(SQLException e){ System.out.println(e); }
-         catch(Exception e){ System.out.println(e); }
+         catch(SQLException e){ System.err.println(e); }
+         catch(Exception e){ System.err.println(e); }
         return usuario;
     }
 
@@ -107,7 +107,7 @@ public class DaoUsuario {
             conn.close();
             return numFilas;
         }
-        catch(SQLException e){ System.out.println(e); }
+        catch(SQLException e){ System.err.println(e); }
 
         return -1;
     }
@@ -124,7 +124,7 @@ public class DaoUsuario {
             conn.close();
             return numFilas;
         }
-        catch(SQLException e){ System.out.println(e); }
+        catch(SQLException e){ System.err.println(e); }
 
         return -1;
     }
@@ -142,7 +142,7 @@ public class DaoUsuario {
             conn.close();
             return numFilas;
         }
-        catch(SQLException e){ System.out.println(e); }
+        catch(SQLException e){ System.err.println(e); }
 
         return -1;
     }
@@ -159,7 +159,7 @@ public class DaoUsuario {
             conn.close();
             return numFilas;
         }
-        catch(SQLException e){ System.out.println(e); }
+        catch(SQLException e){ System.err.println(e); }
 
         return -1;
     }
@@ -184,8 +184,8 @@ public class DaoUsuario {
             }
              conn.close();
          }
-         catch(SQLException e){ System.out.println(e); }
-         catch(Exception e){ System.out.println(e); }
+         catch(SQLException e){ System.err.println(e); }
+         catch(Exception e){ System.err.println(e); }
 
         if(contrasena.equals(passwordRecibido))
         {
@@ -210,8 +210,8 @@ public class DaoUsuario {
             }
              conn.close();
          }
-         catch(SQLException e){ System.out.println(e); }
-         catch(Exception e){ System.out.println(e); }
+         catch(SQLException e){ System.err.println(e); }
+         catch(Exception e){ System.err.println(e); }
 
         if(login.equals(loginRecibido))
         {
@@ -235,8 +235,8 @@ public class DaoUsuario {
             }
              conn.close();
          }
-         catch(SQLException e){ System.out.println(e); }
-         catch(Exception e){ System.out.println(e); }
+         catch(SQLException e){ System.err.println(e); }
+         catch(Exception e){ System.err.println(e); }
 
         return tipoRecibido;
     }
@@ -255,8 +255,8 @@ public class DaoUsuario {
             }
              conn.close();
          }
-         catch(SQLException e){ System.out.println(e); }
-         catch(Exception e){ System.out.println(e); }
+         catch(SQLException e){ System.err.println(e); }
+         catch(Exception e){ System.err.println(e); }
 
         return activoRecibido;
     }
@@ -272,7 +272,7 @@ public class DaoUsuario {
             conn.close();
             return numFilas;
         }
-        catch(SQLException e){ System.out.println(e); }
+        catch(SQLException e){ System.err.println(e); }
 
         return -1;
     }
@@ -288,7 +288,7 @@ public class DaoUsuario {
             conn.close();
             return numFilas;
         }
-        catch(SQLException e){ System.out.println(e); }
+        catch(SQLException e){ System.err.println(e); }
 
         return -1;
     }
@@ -304,7 +304,7 @@ public class DaoUsuario {
             conn.close();
             return numFilas;
         }
-        catch(SQLException e){ System.out.println(e); }
+        catch(SQLException e){ System.err.println(e); }
 
         return -1;
                 
@@ -324,8 +324,8 @@ public class DaoUsuario {
             }
              conn.close();
          }
-         catch(SQLException e){ System.out.println(e); }
-         catch(Exception e){ System.out.println(e); }
+         catch(SQLException e){ System.err.println(e); }
+         catch(Exception e){ System.err.println(e); }
 
         return ultimoAcceso;
     }

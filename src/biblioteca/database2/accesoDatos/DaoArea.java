@@ -32,8 +32,8 @@ public class DaoArea {
             conect.close();            
             return numFilas;
         }
-        catch(SQLException e){ System.out.println(e); }
-        catch(Exception e){ System.out.println(e); }
+        catch(SQLException e){ System.err.println(e); }
+        catch(Exception e){ System.err.println(e); }
         return -1;
     }
 
@@ -56,8 +56,8 @@ public class DaoArea {
             conn.close();
 
          }
-         catch(SQLException e){ System.out.println(e); }
-         catch(Exception e){ System.out.println(e); }
+         catch(SQLException e){ System.err.println(e); }
+         catch(Exception e){ System.err.println(e); }
         return a;
     }
     
@@ -81,8 +81,8 @@ public class DaoArea {
             conn.close();
 
          }
-         catch(SQLException e){ System.out.println(e); }
-         catch(Exception e){ System.out.println(e); }
+         catch(SQLException e){ System.err.println(e); }
+         catch(Exception e){ System.err.println(e); }
         return Areas;
     }
 
@@ -99,7 +99,7 @@ public class DaoArea {
             conn.close();
             return numFilas;
         }
-        catch(SQLException e){ System.out.println(e); }
+        catch(SQLException e){ System.err.println(e); }
 
         return -1;
     }
@@ -118,7 +118,7 @@ public class DaoArea {
 //            System.out.println("Conexion cerrada");
 //            return numFilas;
 //        }
-//        catch(SQLException e){ System.out.println(e); }
+//        catch(SQLException e){ System.err.println(e); }
 //
 //        return -1;
 //    }
@@ -137,8 +137,8 @@ public class DaoArea {
             }
              conn.close();
          }
-         catch(SQLException e){ System.out.println(e); }
-         catch(Exception e){ System.out.println(e); }
+         catch(SQLException e){ System.err.println(e); }
+         catch(Exception e){ System.err.println(e); }
 
         if(id_area.equals(id_areaRecibido))
         {
@@ -167,8 +167,8 @@ public class DaoArea {
             conn.close();
 
          }
-         catch(SQLException e){ System.out.println(e); }
-         catch(Exception e){ System.out.println(e); }
+         catch(SQLException e){ System.err.println(e); }
+         catch(Exception e){ System.err.println(e); }
         return Areas;
     }
 
@@ -186,8 +186,8 @@ public class DaoArea {
             conect.close();
             return numFilas;
         }
-        catch(SQLException e){ System.out.println(e); }
-        catch(Exception e){ System.out.println(e); }
+        catch(SQLException e){ System.err.println(e); }
+        catch(Exception e){ System.err.println(e); }
         return -1;
     }
 
@@ -205,8 +205,8 @@ public class DaoArea {
             conect.close();
             return numFilas;
         }
-        catch(SQLException e){ System.out.println(e); }
-        catch(Exception e){ System.out.println(e); }
+        catch(SQLException e){ System.err.println(e); }
+        catch(Exception e){ System.err.println(e); }
         return -1;
     }
 }

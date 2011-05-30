@@ -80,10 +80,10 @@ public class DaoEstadisticas {
             return salida;
         }
         catch (SQLException e) {
-            System.out.println(e);
+            System.err.println(e);
         } 
         catch (Exception e) {
-            System.out.println(e);
+            System.err.println(e);
         }
         return null;
        
@@ -147,10 +147,10 @@ public class DaoEstadisticas {
             return salida;
         }
         catch (SQLException e) {
-            System.out.println(e);
+            System.err.println(e);
         } 
         catch (Exception e) {
-            System.out.println(e);
+            System.err.println(e);
         }
         return null;
        

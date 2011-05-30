@@ -35,8 +35,8 @@ public class DaoTipoDocumento {
             conn.close();
             return numFilas;
         }
-        catch(SQLException e){ System.out.println(e); }
-        catch(Exception e){ System.out.println(e); }
+        catch(SQLException e){ System.err.println(e); }
+        catch(Exception e){ System.err.println(e); }
 
        return -1;
     }
@@ -54,8 +54,8 @@ public class DaoTipoDocumento {
             return numFilas;
 
         }
-        catch(SQLException e){ System.out.println(e); }
-        catch(Exception e){ System.out.println(e); }
+        catch(SQLException e){ System.err.println(e); }
+        catch(Exception e){ System.err.println(e); }
         return -1;
     }
     
@@ -77,8 +77,8 @@ public class DaoTipoDocumento {
             return tipoDocumento;
 
         }
-        catch(SQLException e){ System.out.println(e); }
-        catch(Exception e){ System.out.println(e); }
+        catch(SQLException e){ System.err.println(e); }
+        catch(Exception e){ System.err.println(e); }
         return null;
     }
     
@@ -102,8 +102,8 @@ public class DaoTipoDocumento {
             return Tipos;
 
         }
-        catch(SQLException e){ System.out.println(e); }
-        catch(Exception e){ System.out.println(e); }
+        catch(SQLException e){ System.err.println(e); }
+        catch(Exception e){ System.err.println(e); }
         return null;
     }
 }

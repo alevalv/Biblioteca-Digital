@@ -34,8 +34,8 @@ public class DaoAutor {
             conect.close();
             return numFilas;
         }
-        catch(SQLException e){ System.out.println(e); }
-        catch(Exception e){ System.out.println(e); }
+        catch(SQLException e){ System.err.println(e); }
+        catch(Exception e){ System.err.println(e); }
         return -1;
     }
 
@@ -56,8 +56,8 @@ public class DaoAutor {
             conn.close();
 
          }
-         catch(SQLException e){ System.out.println(e); }
-         catch(Exception e){ System.out.println(e); }
+         catch(SQLException e){ System.err.println(e); }
+         catch(Exception e){ System.err.println(e); }
         return autor;
     }
     
@@ -81,8 +81,8 @@ public class DaoAutor {
             conn.close();
 
          }
-         catch(SQLException e){ System.out.println(e); }
-         catch(Exception e){ System.out.println(e); }
+         catch(SQLException e){ System.err.println(e); }
+         catch(Exception e){ System.err.println(e); }
         return autores;
     }
 
@@ -98,7 +98,7 @@ public class DaoAutor {
             conn.close();            
             return numFilas;
         }
-        catch(SQLException e){ System.out.println(e); }
+        catch(SQLException e){ System.err.println(e); }
 
         return -1;
     }
@@ -117,7 +117,7 @@ public class DaoAutor {
 //            System.out.println("Conexion cerrada");
 //            return numFilas;
 //        }
-//        catch(SQLException e){ System.out.println(e); }
+//        catch(SQLException e){ System.err.println(e); }
 //
 //        return -1;
 //    }
@@ -138,8 +138,8 @@ public class DaoAutor {
              conn.close();
 
          }
-         catch(SQLException e){ System.out.println(e); }
-         catch(Exception e){ System.out.println(e); }
+         catch(SQLException e){ System.err.println(e); }
+         catch(Exception e){ System.err.println(e); }
 
         if(correo.equals(correoRecibido))
         {
