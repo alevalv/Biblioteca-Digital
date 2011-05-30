@@ -18,18 +18,18 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="31" max="32767" attributes="0"/>
+              <EmptySpace pref="78" max="32767" attributes="0"/>
               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="Estado" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="298" max="32767" attributes="0"/>
+              <EmptySpace pref="339" max="32767" attributes="0"/>
               <Component id="Siguiente" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="529" max="32767" attributes="0"/>
+              <EmptySpace pref="559" max="32767" attributes="0"/>
               <Component id="Editar" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -39,7 +39,7 @@
                       <EmptySpace min="22" pref="22" max="22" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="Titulo_Principal" pref="471" max="32767" attributes="0"/>
+                      <Component id="Titulo_Principal" pref="477" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="1">
                       <EmptySpace min="11" pref="11" max="11" attributes="0"/>
@@ -48,7 +48,7 @@
                       <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="DiaComboBox" min="-2" pref="68" max="-2" attributes="0"/>
-                      <EmptySpace pref="66" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="MesComboBox" min="-2" pref="98" max="-2" attributes="0"/>
@@ -97,7 +97,7 @@
                               <Component id="Idioma" min="-2" pref="136" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="297" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="Derechos_Autor" alignment="0" pref="468" max="32767" attributes="0"/>
+                          <Component id="Derechos_Autor" alignment="0" pref="469" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>

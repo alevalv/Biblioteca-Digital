@@ -53,7 +53,6 @@ public class Informacion_Basica extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         Editorial = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        Fecha_Publicacion = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         Derechos_Autor = new javax.swing.JTextField();
         Estado = new javax.swing.JLabel();
@@ -62,6 +61,12 @@ public class Informacion_Basica extends javax.swing.JPanel {
         Consultar = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         id_Documento = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        DiaComboBox = new javax.swing.JComboBox();
+        jLabel11 = new javax.swing.JLabel();
+        MesComboBox = new javax.swing.JComboBox();
+        jLabel13 = new javax.swing.JLabel();
+        AnoComboBox = new javax.swing.JComboBox();
 
         jLabel1.setText("Titulo Principal: ");
 
@@ -73,7 +78,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biblioteca/gui/resources/logo.png"))); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 24));
+        jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
         jLabel4.setText("Información Basica");
 
         jLabel5.setText("Descripción:");
@@ -91,15 +96,13 @@ public class Informacion_Basica extends javax.swing.JPanel {
 
         jLabel8.setText("Fecha Publicación: ");
 
-        Fecha_Publicacion.setText("YYYYMMDD");
-
         jLabel9.setText("Derechos de Autor: ");
 
         Estado.setFont(new java.awt.Font("Ubuntu", 0, 24));
         Estado.setForeground(new java.awt.Color(255, 0, 0));
         Estado.setText("[Sin Guardar]");
 
-        Siguiente.setFont(new java.awt.Font("Ubuntu", 1, 15));
+        Siguiente.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         Siguiente.setText("Siguiente Paso");
         Siguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,7 +125,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
             }
         });
 
-        jLabel10.setText("Identificador:");
+        jLabel10.setText("Identificador: ");
 
         id_Documento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,20 +133,28 @@ public class Informacion_Basica extends javax.swing.JPanel {
             }
         });
 
+        jLabel12.setText("Día:");
+
+        DiaComboBox.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        DiaComboBox.setMaximumRowCount(31);
+        DiaComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+
+        jLabel11.setText("Mes: ");
+
+        MesComboBox.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        MesComboBox.setMaximumRowCount(12);
+        MesComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+
+        jLabel13.setText("Año: ");
+
+        AnoComboBox.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        AnoComboBox.setMaximumRowCount(60);
+        AnoComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970", "1969", "1968", "1967", "1966", "1965", "1964", "1963", "1962", "1961", "1960", "1959", "1958", "1957", "1956", "1955", "1954", "1953", "1952", "1951", "1950", "1949", "1948", "1947", "1946", "1945", "1944", "1943", "1942", "1941", "1940" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
-                .addComponent(jLabel4))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Estado)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 320, Short.MAX_VALUE)
-                .addComponent(Siguiente)
-                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -152,68 +163,92 @@ public class Informacion_Basica extends javax.swing.JPanel {
                         .addGap(102, 102, 102)
                         .addComponent(Idioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Editar)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(id_Documento, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Consultar))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Titulo_Principal, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(Estado)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Siguiente))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(11, 11, 11)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(jLabel5)
+                                                    .addGap(24, 24, 24))
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(jLabel2)
+                                                    .addGap(18, 18, 18))))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel8)
+                                            .addComponent(jLabel9)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel7)
+                                        .addGap(18, 18, 18)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(Editorial)
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
+                                        .addComponent(Derechos_Autor)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(Titulo_Secundario, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(12, 12, 12)
+                                        .addComponent(jLabel12)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(DiaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel11)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(MesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel13)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(AnoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                        .addComponent(jLabel4))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(512, Short.MAX_VALUE)
+                        .addComponent(Editar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(11, 11, 11)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(26, 26, 26)
-                                            .addComponent(jLabel5)
-                                            .addGap(24, 24, 24))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel2)
-                                            .addGap(18, 18, 18))))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel8)
-                                        .addComponent(jLabel9))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(18, 18, 18)))
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel10))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Derechos_Autor, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE))
-                            .addComponent(Fecha_Publicacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
-                            .addComponent(Editorial, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Titulo_Secundario, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)))))
-                .addGap(76, 76, 76))
+                                .addGap(244, 244, 244)
+                                .addComponent(Consultar))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(id_Documento)
+                                        .addGap(199, 199, 199))
+                                    .addComponent(Titulo_Principal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel4))
-                .addGap(25, 25, 25)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel4)))
+                .addGap(17, 17, 17)
                 .addComponent(Editar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Consultar)
                     .addComponent(id_Documento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Titulo_Principal, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -221,7 +256,6 @@ public class Informacion_Basica extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Titulo_Secundario, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(52, 52, 52)
@@ -235,8 +269,13 @@ public class Informacion_Basica extends javax.swing.JPanel {
                     .addComponent(jLabel7))
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Fecha_Publicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
+                    .addComponent(jLabel8)
+                    .addComponent(DiaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel11)
+                    .addComponent(MesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13)
+                    .addComponent(AnoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Derechos_Autor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -249,8 +288,8 @@ public class Informacion_Basica extends javax.swing.JPanel {
                     .addComponent(Idioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Siguiente)
-                    .addComponent(Estado))
+                    .addComponent(Estado)
+                    .addComponent(Siguiente))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -281,9 +320,11 @@ public class Informacion_Basica extends javax.swing.JPanel {
         
         Descripcion.setText(documento.getTituloPrincipal());
        
-        Editorial.setText(documento.getEditorial());
+        DiaComboBox.setSelectedItem(documento.getFechaPublicacion().substring(8, 10));
+        MesComboBox.setSelectedItem(documento.getFechaPublicacion().substring(5, 7));
+        AnoComboBox.setSelectedItem(documento.getFechaPublicacion().substring(0, 4));
         
-        Fecha_Publicacion.setText(documento.getFechaPublicacion());
+        Editorial.setText(documento.getEditorial());
         Derechos_Autor.setText(documento.getDerechosAutor());
         Idioma.setSelectedItem(documento.getIdioma());
         
@@ -312,10 +353,6 @@ public class Informacion_Basica extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "El campo Editorial no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
-        else if(Fecha_Publicacion.getText()==null || Fecha_Publicacion.getText().equals("") || Fecha_Publicacion.getText().equals("YYYYMMDD")){
-            JOptionPane.showMessageDialog(this, "El campo Fecha Publicacion no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
         else if(Derechos_Autor.getText()==null || Derechos_Autor.getText().equals("")){
             JOptionPane.showMessageDialog(this, "El campo Derechos de Autor no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
@@ -328,7 +365,10 @@ public class Informacion_Basica extends javax.swing.JPanel {
         documento.setTituloSecundario(Titulo_Secundario.getText());
         documento.setDescripcion(Descripcion.getText());
         documento.setEditorial(Editorial.getText());
-        documento.setFechaPublicacion(Fecha_Publicacion.getText());
+        String fechaPub= (String) AnoComboBox.getSelectedItem();
+        fechaPub+=(String) MesComboBox.getSelectedItem();
+        fechaPub+=(String) DiaComboBox.getSelectedItem();
+        documento.setFechaPublicacion(fechaPub);
         documento.setDerechosAutor(Derechos_Autor.getText());
         System.out.println(Idioma.getItemAt(Idioma.getSelectedIndex()));
         documento.setIdioma((String)Idioma.getItemAt(Idioma.getSelectedIndex()));
@@ -347,8 +387,9 @@ public class Informacion_Basica extends javax.swing.JPanel {
         Descripcion.setEnabled(b);
         Editorial.setEditable(b);
         Editorial.setEnabled(b);
-        Fecha_Publicacion.setEditable(b);
-        Fecha_Publicacion.setEnabled(b);
+        AnoComboBox.setEnabled(b);
+        DiaComboBox.setEnabled(b);
+        MesComboBox.setEnabled(b);
         Derechos_Autor.setEditable(b);
         Derechos_Autor.setEnabled(b);
         Idioma.setEnabled(b);
@@ -360,20 +401,25 @@ public class Informacion_Basica extends javax.swing.JPanel {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox AnoComboBox;
     private javax.swing.JButton Consultar;
     private javax.swing.JTextField Derechos_Autor;
     private javax.swing.JTextArea Descripcion;
+    private javax.swing.JComboBox DiaComboBox;
     private javax.swing.JButton Editar;
     private javax.swing.JTextField Editorial;
     private javax.swing.JLabel Estado;
-    private javax.swing.JTextField Fecha_Publicacion;
     private javax.swing.JComboBox Idioma;
+    private javax.swing.JComboBox MesComboBox;
     private javax.swing.JButton Siguiente;
     private javax.swing.JTextField Titulo_Principal;
     private javax.swing.JTextField Titulo_Secundario;
     private javax.swing.JTextField id_Documento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
