@@ -5,9 +5,19 @@
 package biblioteca.database2.beans;
 
 /**
+ *  Esta clase forma parte de los beans creados para cumplir con el Patrón
+ * de diseño DAO.
+ * 
+ * TipoDocumento representa la relación tipo_documento de la base de datos.
  *
- * @author Julián David Rodríguez
+ * Es una clase de getters y setters.
+ * 
+ * @see <a href="http://www.proactiva-calidad.com/java/patrones/DAO.html">Patrón "Data Access Object"</a>
+ * 
+ * @author María Cristina Bustos Rodríguez
+ * @author Alejandro Valdés Villada
  */
+
 public class TipoDocumento {
         String tipoDocumento;
         String descripcion;

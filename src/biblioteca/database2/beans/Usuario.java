@@ -3,12 +3,21 @@
  * and open the template in the editor.
  */
 package biblioteca.database2.beans;
-import java.sql.Timestamp;
-import java.sql.Date;
+
 /**
+ *  Esta clase forma parte de los beans creados para cumplir con el Patrón
+ * de diseño DAO.
+ * 
+ * Usuario representa la relación usuarios de la base de datos.
  *
- * @author Eduardo
+ * Es una clase de getters y setters.
+ * 
+ * @see <a href="http://www.proactiva-calidad.com/java/patrones/DAO.html">Patrón "Data Access Object"</a>
+ * 
+ * @author María Cristina Bustos Rodríguez
+ * @author Alejandro Valdés Villada
  */
+
 public class Usuario {
 
     String login;
