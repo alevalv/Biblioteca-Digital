@@ -17,7 +17,6 @@ package biblioteca.database2.beans;
  * @author María Cristina Bustos Rodríguez
  * @author Alejandro Valdés Villada
  */
-
 public class Autor {
 
     String nombre;
@@ -25,41 +24,80 @@ public class Autor {
     String acronimo;
     String apellido;
 
+    /**
+     * Construye un objeto vacio de tipo Autor
+     */
     public Autor(){}
 
-
+    /**
+     * Modifica el campo nombre del objeto Autor
+     * @param nombre El nombre del Autor
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    /**
+     * Modifica el campo correo del objeto Autor
+     * @param correo El correo del autor
+     */
     public void setCorreo(String correo) {
         this.correo = correo;
     }
 
+    /**
+     * Modifica el acronimo del objeto Autor
+     * @param acronimo El acronimo del autor
+     */
     public void setAcronimo(String acronimo) {
         this.acronimo = acronimo;
     }
 
+    /**
+     * Modifica el apellido del objeto autor
+     * @param apellido Los apellido(s) del autor
+     */
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
 
+    /**
+     * Obtiene el nombre del objeto Autor seleccionado
+     * @return el nombre del Autor
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     * Obtiene el correo del objeto Autor seleccionado
+     * @return el correo del autor
+     */
     public String getCorreo() {
         return correo;
     }
 
+    /**
+     * Obtiene el acronimo del objeto Autor selccionado
+     * @return el acronimo del autor
+     */
     public String getAcronimo() {
         return acronimo;
     }
 
+    /**
+     * Obtiene el apellido del objeto Autor seleccionado
+     * @return el apellido del autor
+     */
     public String getApellido() {
         return apellido;
     }
     
+    /**
+     * Muestra una representación en String del objeto String
+     * @see java.lang.String
+     * @return una representación en cadena de caracteres del Objeto Autor
+     */
     @Override
     public String toString(){
         return correo+" - "+nombre+" "+apellido+" - "+acronimo;
