@@ -86,7 +86,7 @@ public class Area {
 
     /**
      * Obtiene el id del area Seleccionada
-     * @return el String que representa el id (numerico)
+     * @return String que representa el id (numerico)
      */
     public String getID() {
         return area_id;
@@ -94,7 +94,7 @@ public class Area {
 
     /**
      * Obtiene el id del area padre. Si el area no tiene padre, el id será 0
-     * @return el String que representa el id del area padre
+     * @return String que representa el id del area padre
      */
     public String getAreaPadre() {
         return Area_Padre;
@@ -102,7 +102,7 @@ public class Area {
 
     /**
      * Obtiene la descripción del area seleccionada
-     * @return la descripción del area
+     * @return String con la descripción del area
      */
     public String getDescripcion() {
         return descripcion;
@@ -110,7 +110,7 @@ public class Area {
 
     /**
      * Obtiene una representación en String de un objeto Area
-     * @return un String con los atributos del Area
+     * @return String con los atributos del Area
      */
     @Override
     public String toString(){

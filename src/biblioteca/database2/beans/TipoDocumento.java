@@ -39,21 +39,37 @@ public class TipoDocumento {
         */
         public TipoDocumento(){}
 
+        /**
+         * Modifica el nombre del objeto TipoDocumento seleccionado
+         * @param tipoDocumento String que contiene el nombre del objeto TipoDocumento seleccionado
+         */
         public void setTipoDocumento(String tipoDocumento)
         {
             this.tipoDocumento = tipoDocumento;
         }
 
+        /**
+         * Modifica la descripción del objeto TipoDocumento seleccionado
+         * @param descripcion String que contiene la descripción del objeto TipoDocumento seleccionado
+         */
         public void setDescripcion(String descripcion)
         {
             this.descripcion = descripcion;
         }
         
+        /**
+         * Obtiene el nombre del objeto TipoDocumento seleccionado
+         * @return String que contiene el nombre del objeto TipoDocumento seleccionado
+         */
         public String getTipoDocumento()
         {
             return tipoDocumento;
         }
 
+        /**
+         * Obtiene la descripción del objeto TipoDocumento seleccionado
+         * @return String que contiene la descripción del objeto TipoDocumento seleccionado
+         */
         public String getDescripcion()
         {
             return descripcion;
