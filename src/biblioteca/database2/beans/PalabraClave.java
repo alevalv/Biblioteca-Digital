@@ -40,18 +40,34 @@ public class PalabraClave {
      */
     public PalabraClave(){}
 
-     public void setNombre(String nombre) {
+    /**
+     * Cambia el nombre del objeto PalabraClave seleccionado
+     * @param nombre el String con el nuevo nombre de la palabra clave
+     */
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    /**
+     * Cambia la descripción del objeto PalabraClave seleccionado
+     * @param descripcion el String con la nueva descripción de la palabra clave
+     */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
+    /**
+     * Obtiene el nombre del objeto PalabraClave seleccionado
+     * @return el String que contiene el nombre del objeto PalabraClave seleccionado
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     * Obtiene la descripción del objeto PalabraClave seleccionado
+     * @return el String que contiene la descripción del objeto PalabraClave seleccionado
+     */
     public String getDescripcion() {
         return descripcion;
     }
