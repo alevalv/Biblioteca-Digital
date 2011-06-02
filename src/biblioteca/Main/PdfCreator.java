@@ -33,7 +33,7 @@ import java.util.ArrayList;
 /**
  * Esta clase provee una interfaz entre los resultados de las consultas de la base
  * de datos para los reportes y estadisticas, y el módulo para la creación de pdf
- * (iText)
+ * (iText), provee metodos estaticos para crear tablas y pdf.
  * 
  * @author Alejandro Valdés Villada
  * @author María Cristina Bustos Rodríguez
@@ -42,6 +42,15 @@ public class PdfCreator {
     
     static java.util.Date actual=new java.util.Date();
     static java.sql.Timestamp fecha=new java.sql.Timestamp(actual.getTime());
+    /**
+     * Dado un resultSet obtenido de una consulta, esta función convierte los datos
+     * internos de este en una tabla que puede ser insertada en un Document de iText
+     * esta PdfPTable tiene en su primera linea los nombres de las columnas del ResultSet
+     * @param entrada ResultSet El resultado de una consulta a la base de datos
+     * @return una PdfPTable para insertar en un documento de iText
+     * @see com.itextpdf.text.pdf.PdfPTable;
+     * @see java.sql.ResultSet;
+     */
     static public PdfPTable resultSetToTable(ResultSet entrada){
         PdfPTable salida = null;
         try{
@@ -63,6 +72,15 @@ public class PdfCreator {
         return salida;
     }
     
+    /**
+     * Esta función convierte un arrayList en una PdfPTable y, agrega una columna
+     * de estadisticas a esta. Funcionará si el arrayList tiene en su ultima columna
+     * numeros
+     * @param entrada Matriz con los datos estadisticos de la base de datos
+     * @param total La suma de todos los datos de la ultima columna
+     * @param rows El numero de columnas que se mostrarán en la PdfPTable
+     * @return PdfPTable Contiene los datos del ArrayList más los porcentajes.
+     */
     static public PdfPTable arrayListToStatisticTable(ArrayList<ArrayList<String>> entrada, int total, int rows){
         PdfPTable salida = null;
         
@@ -86,6 +104,13 @@ public class PdfCreator {
         return salida;
     }
     
+    /**
+     * Dado un resultSet, se transforma en un ArrayList de ArrayList de String,
+     * manteniendo la misma estructura de tabla que tenia el resultSet original,
+     * y en su primera linea teniendo los nombres de las columnas del resultSet
+     * @param entrada Un ResultSet obtenido de una consulta SQL
+     * @return ArrayList<ArrayList<String>> que contiene los datos del ResultSet más los nombres de la columna
+     */
     static public ArrayList<ArrayList<String>> resultSetToArrayList(ResultSet entrada){
         ArrayList<ArrayList<String>> salida = null;
         try{
@@ -110,6 +135,14 @@ public class PdfCreator {
         return salida;
     }
     
+    /**
+     * createPdf es una función estatica que funciona como plantilla para generar
+     * reportes dinamicos, según la necesidad del usuario.
+     * @param path La dirección del archivo donde se guardará el pdf
+     * @param titulo El Título que llevará el pdf
+     * @param encabezado Un texto que se mostrará bajo el título
+     * @param tabla La tabla de resultados que mostrará el pdf
+     */
     static public void createPdf(String path, String titulo, String encabezado, PdfPTable tabla){
         Document document = new Document();
         // step 2
