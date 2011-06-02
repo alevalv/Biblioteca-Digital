@@ -30,7 +30,14 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
 
-
+/**
+ * Esta clase provee una interfaz entre los resultados de las consultas de la base
+ * de datos para los reportes y estadisticas, y el módulo para la creación de pdf
+ * (iText)
+ * 
+ * @author Alejandro Valdés Villada
+ * @author María Cristina Bustos Rodríguez
+ */
 public class PdfCreator {
     
     static java.util.Date actual=new java.util.Date();
