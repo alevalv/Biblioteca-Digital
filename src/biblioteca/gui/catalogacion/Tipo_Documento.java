@@ -267,11 +267,15 @@ public class Tipo_Documento extends javax.swing.JPanel {
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
         if(checkEmptyFieldsTipo()){
-            new ControladorTipoDocumento().agregarTipoDocumento(Tipo_Nombre.getText(), Tipo_Descripcion.getText());
-            JOptionPane.showMessageDialog(this, "El Tipo con nombre "+Tipo_Nombre.getText()+" ha sido agregado", "Notificaición", JOptionPane.INFORMATION_MESSAGE);
-            Tipo_Nombre.setText("");
-            Tipo_Descripcion.setText("");
-            initComboBox();
+            if(new ControladorTipoDocumento().agregarTipoDocumento(Tipo_Nombre.getText().toLowerCase(), Tipo_Descripcion.getText())!=-1){
+                JOptionPane.showMessageDialog(this, Tipo_Nombre.getText()+" ha sido agregado", "Notificación", JOptionPane.INFORMATION_MESSAGE);
+                Tipo_Nombre.setText("");
+                Tipo_Descripcion.setText("");
+                initComboBox();
+            }
+            else{
+                JOptionPane.showMessageDialog(this, Tipo_Nombre.getText()+" ya existe en la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }//GEN-LAST:event_AgregarActionPerformed
 
