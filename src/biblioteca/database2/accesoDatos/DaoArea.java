@@ -117,24 +117,25 @@ public class DaoArea {
         return -1;
     }
 
-//    public int eliminarArea(String idArea)
-//    {
-//        String sql_eliminar;
-//        sql_eliminar="DELETE FROM area WHERE id_area = '"+idArea+"';";
-//
-//        try{
-//            Connection conn= fachada.conectar();
-//            Statement sentencia = conn.createStatement();
-//            int numFilas = sentencia.executeUpdate(sql_eliminar);
-//            System.out.println("se elimino exitosamente!!!!");
-//            conn.close();
-//            System.out.println("Conexion cerrada");
-//            return numFilas;
-//        }
-//        catch(SQLException e){ System.err.println(e); }
-//
-//        return -1;
-//    }
+    @Deprecated
+    public int eliminarArea(String idArea)
+    {
+        String sql_eliminar;
+        sql_eliminar="DELETE FROM area WHERE id_area = '"+idArea+"';";
+
+       try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            int numFilas = sentencia.executeUpdate(sql_eliminar);
+            System.out.println("se elimino exitosamente!!!!");
+            conn.close();
+            System.out.println("Conexion cerrada");
+            return numFilas;
+        }
+        catch(SQLException e){ System.err.println(e); }
+
+        return -1;
+    }
 
      public boolean comprobarExistenciaArea(String id_area)
     {

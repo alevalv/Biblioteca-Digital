@@ -116,24 +116,25 @@ public class DaoAutor {
         return -1;
     }
 
-//    public int eliminarAutor(String correo)
-//    {
-//        String sql_eliminar;
-//        sql_eliminar="DELETE FROM autor WHERE correo = '"+correo+"';";
-//
-//        try{
-//            Connection conn= fachada.conectar();
-//            Statement sentencia = conn.createStatement();
-//            int numFilas = sentencia.executeUpdate(sql_eliminar);
-//            System.out.println("se elimino exitosamente!!!!");
-//            conn.close();
-//            System.out.println("Conexion cerrada");
-//            return numFilas;
-//        }
-//        catch(SQLException e){ System.err.println(e); }
-//
-//        return -1;
-//    }
+    @Deprecated
+    public int eliminarAutor(String correo)
+    {
+        String sql_eliminar;
+        sql_eliminar="DELETE FROM autor WHERE correo = '"+correo+"';";
+
+        try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            int numFilas = sentencia.executeUpdate(sql_eliminar);
+            System.out.println("se elimino exitosamente!!!!");
+            conn.close();
+            System.out.println("Conexion cerrada");
+            return numFilas;
+        }
+        catch(SQLException e){ System.err.println(e); }
+
+        return -1;
+    }
 
 
     public boolean comprobarExistenciaAutor(String correo)

@@ -22,30 +22,54 @@ import biblioteca.database2.beans.Area;
 import java.util.ArrayList;
 
 /**
+ *  Esta clase forma parte de los controladores creados para cumplir con el Patrón
+ * de diseño DAO.
+ * 
+ * ControladorArea es una de las interfaces entre los Dao y las GUI de la aplicación.
+ * Se incluyeron manejadores para la relación usuario_areas_computacion que indica
+ * las áreas de interes de un usuario particular. Las identificaciones de las áreas
+ * están dadas por un entero consecutivo, que la base de datos lo asigna automaticamente
+ * 
+ * @see <a href="http://www.proactiva-calidad.com/java/patrones/DAO.html">Patrón "Data Access Object"</a>
  *
- * @author Eduardo
+ * @author María Cristina Bustos Rodríguez
+ * @author Alejandro Valdés Villada
  */
 public class ControladorArea {
-
-
-     public void insertarArea(String descrpcion, String nombre, String Area_Padre)
-    {
+    
+    /**
+     * inserta un área en la base de datos recibiendo 3 Strings que representan los datos
+     * del área a insertar; está función utiliza el DaoArea para acceder a la base de datos
+     * @param descripcion La descripción del área a insertar
+     * @param nombre El nombre de la nueva área de computación
+     * @param Area_Padre El identificador del área padre. Por defecto deberá ser "0"
+     */
+    public void insertarArea(String descripcion, String nombre, String Area_Padre){
         Area area= new Area();
         DaoArea daoArea= new DaoArea();
-        area.setDescripcion(descrpcion);
+        area.setDescripcion(descripcion);
         area.setNombre(nombre);
         area.setAreaPadre(Area_Padre);
 
         daoArea.guardarArea(area);
     }
 
-    public void modificarArea(String idArea, String descrpcion, String nombre, String Area_Padre)
+    /**
+     * Modifica los datos de un área especifica seleccionada por medio del idArea
+     * , modificando su descripción, nombre y Área_Padre; está función utiliza 
+     * el DaoArea para acceder a la base de datos
+     * @param idArea String que contiene el identificador de la base de datos
+     * @param descripcion La descripción del área a insertar
+     * @param nombre El nombre de la nueva área de computación
+     * @param Area_Padre El identificador del área padre. Por defecto deberá ser "0"
+     */
+    public void modificarArea(String idArea, String descripcion, String nombre, String Area_Padre)
     {
         Area area= new Area();
         DaoArea daoArea= new DaoArea();
 
         area.setID(idArea);
-        area.setDescripcion(descrpcion);
+        area.setDescripcion(descripcion);
         area.setNombre(nombre);
         area.setAreaPadre(Area_Padre);
 
@@ -53,6 +77,12 @@ public class ControladorArea {
 
     }
 
+    /**
+     * Obtiene los datos de un area especifica por medio de idArea. Se retorna
+     * un bean de tipo Area
+     * @param idArea String con el identificador del Area Seleccionada
+     * @return un Area con los datos del área que se obtuvo con el idArea
+     */
     public Area consultarArea(String idArea)
     {
         Area area= new Area();
@@ -61,16 +91,32 @@ public class ControladorArea {
         return area;
     }
     
+    /**
+     * Obtiene todas las áreas existentes en la base de datos, esto con el fin de
+     * ayudar en los procesos de catalogación y modificación de documentos
+     * @return ArrayList de Area con todas las áreas de la computación de la base de datos
+     */
     public ArrayList<Area> consultarTodasLasAreas(){
         return new DaoArea().consultarTodasLasAreas();
     }
 
-//    public void eliminarArea(String idArea)
-//    {
-//        DaoArea daoArea= new DaoArea();
-//        daoArea.eliminarArea(idArea);
-//    }
+    /**
+     * Elimina de la base de datos el Area que tiene el idArea seleccionado
+     * @param idArea String con el identificador de Área a eliminar
+     * @deprecated Por motivos de conservación de información, no se recomienda eliminar Áreas
+     */
+    @Deprecated
+    public void eliminarArea(String idArea)
+    {
+        DaoArea daoArea= new DaoArea();
+        daoArea.eliminarArea(idArea);
+    }
 
+    /**
+     * Comprueba si el Área con id_area existe en la base de datos
+     * @param id_area String con el identificador de Área a comprobar
+     * @return boolean reportando si el área existe o no
+     */
     public boolean comprobarExistenciaArea(String id_area) {
          boolean respuesta;
          DaoArea daoArea= new DaoArea();
@@ -78,15 +124,31 @@ public class ControladorArea {
          return respuesta;
     }
 
-    ///para la relacion usuarios con area
+    /**
+     * Obtiene todas las áreas que tiene seleccionadas un usuario con Username
+     * @param Username String con el login(username) del usuario a consultar
+     * @return ArrayList de Area con las áreas que tiene un usuario particular
+     */
      public ArrayList<Area> consultarAreasporUsuario(String Username){
         return new DaoArea().consultarAreasporUsuario(Username);
     }
 
+     /**
+      * Agrega un conjunto de áreas a un usuario particular
+      * @param Username String con el login(username) del usuario a modificar
+      * @param areas ArrayList de Area que contiene las areas a insertar al usuario
+      * @return int indicando las filas modificadas, si la consulta es erronea, será -1
+      */
      public int agregarAreasporUsuario(String Username, ArrayList<Area> areas){
          return new DaoArea().agregarAreasporUsuario(Username,areas);
      }
 
+     /**
+      * Elimina un conjunto de áreas de un usuario seleccionado
+      * @param Username String con el login(username) del usuario a modificar
+      * @param areas ArrayList de Area que contiene las areas a eliminar del usuario
+      * @return int indicando las filas modificadas, si la consulta es erronea, será -1
+      */
      public int eliminarAreasporUsuario(String Username, ArrayList<Area> areas){
          return new DaoArea().eliminarAreasporUsuario(Username, areas);
      }
