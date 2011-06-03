@@ -25,7 +25,6 @@ package biblioteca.gui.modificacion;
 
 
 import biblioteca.database2.beans.Autor;
-import biblioteca.database2.beans.Documento;
 import biblioteca.database2.controladores.ControladorAutor;
 import biblioteca.database2.controladores.ControladorDocumento;
 import java.awt.Color;
@@ -324,14 +323,17 @@ public class Autores extends javax.swing.JPanel {
 
     private void Agregar_AutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_AutorActionPerformed
         if(checkEmptyFieldsAuthor()){
-            ControladorAutor CA = new ControladorAutor();
-            CA.insertarAutor(Autor_Nombre.getText(), Autor_Apellido.getText(), Autor_Correo.getText(), Autor_Acronimo.getText());
-            JOptionPane.showMessageDialog(this, "El autor con correo "+Autor_Correo.getText()+ " ha sido agregado", "Notificaición", JOptionPane.INFORMATION_MESSAGE);
-            Autor_Correo.setText("");
-            Autor_Apellido.setText("");
-            Autor_Acronimo.setText("");
-            Autor_Nombre.setText("");
-            initAuthorComboBox();
+            if(new ControladorAutor().insertarAutor(Autor_Nombre.getText(), Autor_Apellido.getText(), Autor_Correo.getText().toLowerCase(), Autor_Acronimo.getText())!=-1){
+                JOptionPane.showMessageDialog(this, "El autor con correo "+Autor_Correo.getText()+ " ha sido agregado", "Notificación", JOptionPane.INFORMATION_MESSAGE);
+                Autor_Correo.setText("");
+                Autor_Apellido.setText("");
+                Autor_Acronimo.setText("");
+                Autor_Nombre.setText("");
+                initAuthorComboBox();
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "El autor con correo "+Autor_Correo.getText()+ " ya existe en la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }//GEN-LAST:event_Agregar_AutorActionPerformed
 
