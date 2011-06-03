@@ -26,14 +26,36 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+/**
+ *  Esta clase forma parte de los controladores creados para cumplir con el Patrón
+ * de diseño DAO.
+ * 
+ * <br>DaoDocumento crea el sql que se ejecutará a través de una conexión de una Fachada,
+ * este dao tiene que ver con todo lo relacionado con la administración de documentos
+ * en la aplicación
+ * 
+ * @see <a href="http://www.proactiva-calidad.com/java/patrones/DAO.html">Patrón "Data Access Object"</a>
+ *
+ * @author María Cristina Bustos Rodríguez
+ * @author Alejandro Valdés Villada
+ */
 public class DaoDocumento {
 
     Fachada Fachada;
 
+    /**
+     * Crea un nuevo DaoDocumento, inicializando la Fachada
+     */
     public DaoDocumento() {
         Fachada = new Fachada();
     }
 
+    /**
+     * Inserta un nuevo documento a la base de datos
+     * @param documento Documento con los datos del documento a insertar
+     * @param usuario El username del catalogador
+     * @return -1 si hubo algún error en la ejecución de la consulta
+     */
     public int insertarDocumento(Documento documento, String usuario) {
         String sql_agregar;
         sql_agregar = "INSERT INTO documentos(activo, titulo_principal, "
@@ -60,6 +82,11 @@ public class DaoDocumento {
         return -1;
     }
 
+    /**
+     * Consulta en la base de datos el documento con el identificador especificado
+     * @param id_documento String con el identificador del documento a consultar
+     * @return Documento con los datos relacionados al identificador
+     */
     public Documento consultarDocumento(String id_documento) {
         String sql_consultar;
         sql_consultar = "SELECT doc_id, activo, titulo_principal, titulo_secundario,"
@@ -95,6 +122,12 @@ public class DaoDocumento {
         return documento;
     }
 
+    /**
+     * Obtiene el identificador de un documento especificando varios datos de este
+     * @param documento Documento con los datos conocidos del documento
+     * @param catalogador String con el username del catalogador del documento
+     * @return String indicando el identificador del documento
+     */
     public String obtenerDocumentoID(Documento documento, String catalogador) {
         String sql_consultar;
         sql_consultar = "SELECT doc_id FROM documentos WHERE titulo_principal='"
@@ -104,7 +137,8 @@ public class DaoDocumento {
                 + documento.getEditorial() + "'AND idioma='"
                 + documento.getIdioma() + "'AND fecha_publicacion='"
                 + documento.getFechaPublicacion() + "'AND derechos_autor='"
-                + documento.getDerechosAutor() + "'AND catalogador='" + catalogador + "'";
+                + documento.getDerechosAutor() + "'AND catalogador='" + catalogador + "'"
+                + "AND ubicacion=null";
         String id = null;
         try {
             Connection conn = Fachada.conectar();
@@ -122,6 +156,12 @@ public class DaoDocumento {
         return id;
     }
 
+    /**
+     * Inserta la ubicación (el path del archivo del documento) a un documento especificado por el identificador
+     * @param id_documento String con el identificador del documento a modificar
+     * @param ubicacion String con la ubicación(path) del documento
+     * @return -1 si la operación no se pudo realizar
+     */
     public int insertarUbicacion(String id_documento, String ubicacion) {
         String sql_modificar;
         sql_modificar = "UPDATE documentos SET ubicacion ='" + ubicacion + "' WHERE doc_id = '"
@@ -141,6 +181,11 @@ public class DaoDocumento {
         return -1;
     }
 
+    /**
+     * Deshabilita un documento de la base de datos
+     * @param id_documento String con el identificador del documento
+     * @return -1 si la operación de deshabilitación no se pudo realizar
+     */
     public int deshabilitarDocumento(String id_documento) {
         String sql_modificar;
         sql_modificar = "UPDATE documentos SET activo = 'false' WHERE doc_id = '"
@@ -160,6 +205,12 @@ public class DaoDocumento {
         return -1;
     }
 
+    /**
+     * Modifica un documento en la base de datos, este se selecciona por medio del 
+     * identificador que viene incluido en el parametro
+     * @param documento Documento con los datos a modificar
+     * @return -1 si la operación no se pudo realizar
+     */
     public int modificarDocumento(Documento documento) {
         String sql_modificar;
         sql_modificar = "UPDATE documentos SET activo ='" + documento.getActivo() + "',"
@@ -188,8 +239,13 @@ public class DaoDocumento {
 
         return -1;
     }
-    //no le veo sentido a esta función.
 
+    /**
+     * Verifica si un documento existe en la base de datos a través de su identificador unico
+     * @param id_documento String con el identificador del documento
+     * @return boolean indicando si el documento existe o no
+     * @deprecated Use consultarDocumento, y comprobar si lo que retorna es null
+     */
     @Deprecated
     public boolean verificarExistencia(String id_documento) {
         String sql_verificar;
@@ -214,7 +270,13 @@ public class DaoDocumento {
         return false;
     }
     
-    //identica a modificar documento
+    /**
+     * Modifica un documento en la base de datos, este se selecciona por medio del 
+     * identificador que viene incluido en el parametro
+     * @param documento Documento con los datos a modificar
+     * @return -1 si la operación no se pudo realizar
+     * @deprecated Use modificarDocumento(Documento) en vez de esta
+     */
     @Deprecated
     public int actualizarDocumento(Documento documento) {
         String sql_modificar;
@@ -245,6 +307,11 @@ public class DaoDocumento {
         return -1;
     }
 
+    /**
+     * Inserta un conjunto de áreas al documento seleccionado
+     * @param areas ArrayList de Area con las áreas a insertar
+     * @param id_documento String con el identificador del documento a modificar
+     */
     public void insertarAreas(ArrayList<Area> areas, String id_documento) {
         try {
             Connection conn = Fachada.conectar();
@@ -263,6 +330,11 @@ public class DaoDocumento {
         }
     }
 
+    /**
+     * Inserta un conjunto de palabras clave al documento seleccionado
+     * @param PC ArrayList de PalabraClave con las palabras claves a insertar
+     * @param id_documento String con el identificador del documento a modificar
+     */
     public void insertarPalabrasClave(ArrayList<PalabraClave> PC, String id_documento) {
         try {
             Connection conn = Fachada.conectar();
@@ -281,14 +353,19 @@ public class DaoDocumento {
         }
     }
 
-    public void insertarAutores(ArrayList<Autor> emails, String id_documento) {
+    /**
+     * Inserta un conjunto de autores al documento seleccionado
+     * @param autores ArrayList de Autor con los autores a insertar al documento
+     * @param id_documento String con el identificador del documento a modificar
+     */
+    public void insertarAutores(ArrayList<Autor> autores, String id_documento) {
         try {
             Connection conn = Fachada.conectar();
             Statement sentencia = conn.createStatement();
             String sql_insertar;
-            for (int i = 0; i < emails.size(); i++) {
+            for (int i = 0; i < autores.size(); i++) {
                 sql_insertar = "INSERT INTO documento_autor VALUES ('"
-                        + id_documento + "','" + emails.get(i).getCorreo() + "');";
+                        + id_documento + "','" + autores.get(i).getCorreo() + "');";
                 sentencia.addBatch(sql_insertar);
             }
             sentencia.executeBatch();
@@ -299,6 +376,11 @@ public class DaoDocumento {
         }
     }
 
+    /**
+     * Elimina un conjunto de áreas del documento seleccionado
+     * @param areas ArrayList de Area con las áreas a eliminar
+     * @param id_documento String con el identificador del documento a modificar
+     */
     public void eliminarAreas(ArrayList<Area> areas, String id_documento) {
         try {
             Connection conn = Fachada.conectar();
@@ -317,6 +399,11 @@ public class DaoDocumento {
         }
     }
 
+    /**
+     * Elimina un conjunto de palabras clave del documento seleccionado
+     * @param PC ArrayList de PalabraClave con las palabras claves a eliminar
+     * @param id_documento String con el identificador del documento a modificar
+     */
     public void eliminarPalabrasClave(ArrayList<PalabraClave> PC, String id_documento) {
         try {
             Connection conn = Fachada.conectar();
@@ -335,14 +422,19 @@ public class DaoDocumento {
         }
     }
 
-    public void eliminarAutores(ArrayList<Autor> emails, String id_documento) {
+    /**
+     * Elimina un conjunto de autores del documento seleccionado
+     * @param autores ArrayList de Autor con los autores a eliminar
+     * @param id_documento String con el identificador del documento a modificar
+     */
+    public void eliminarAutores(ArrayList<Autor> autores, String id_documento) {
         try {
             Connection conn = Fachada.conectar();
             Statement sentencia = conn.createStatement();
             String sql_eliminar;
-            for (int i = 0; i < emails.size(); i++) {
+            for (int i = 0; i < autores.size(); i++) {
                 sql_eliminar = "DELETE FROM documento_autor WHERE doc_id='"
-                        + id_documento + "' AND autor_correo='" + emails.get(i).getCorreo() + "';";
+                        + id_documento + "' AND autor_correo='" + autores.get(i).getCorreo() + "';";
                 sentencia.addBatch(sql_eliminar);
             }
             sentencia.executeBatch();
@@ -353,6 +445,11 @@ public class DaoDocumento {
         }
     }
 
+    /**
+     * Consulta las palabras claves relacionadas con el documento seleccionado
+     * @param id_documento String con el identificador del documento a consultar
+     * @return ArrayList de PalabraClave con las palabras relacionadas al documento
+     */
     public ArrayList<PalabraClave> consultarPalabrasClaveDocumento(String id_documento) {
         String sql_consultar;
         sql_consultar = "SELECT nombre, descripcion FROM documento_palabras_clave"
@@ -378,6 +475,11 @@ public class DaoDocumento {
         return palabrasClave;
     }
 
+    /**
+     * Consulta los autores relacionados con el documento especificado
+     * @param id_documento String con el identificador del documento a consultar
+     * @return ArrayList de Autor con los autores relacionados
+     */
     public ArrayList<Autor> consultarAutoresDocumento(String id_documento) {
         String sql_consultar;
         sql_consultar = "SELECT autor_correo, acronimo, nombre, apellido FROM "
@@ -406,6 +508,11 @@ public class DaoDocumento {
         return Autores;
     }
 
+    /**
+     * Consulta las áreas relacionadas con el documento seleccionado
+     String con el identificador del documento a consultar
+     * @return ArrayList de Area con las áreas relacionadas
+     */
     public ArrayList<Area> consultarAreasDocumento(String id_documento) {
         String sql_consultar;
         sql_consultar = "SELECT area_id, nombre, descripcion, area_padre FROM "
@@ -434,6 +541,18 @@ public class DaoDocumento {
         return Areas;
     }
     
+    /**
+     * Consulta en la base de datos si un documento contiene alguno de los metadatos
+     * especificados en la entrada. Esta función consulta en los campos de:
+     * <br> Áreas
+     * <br> Autores
+     * <br> Palabras Clave
+     * <br> Titulo Principal
+     * <br> Titulo Secundario
+     * <br><br> La salida de esta función es el identificador del documento y el título principal de este
+     * @param metadatos ArrayList de String con las palabras (metadatos) a consultar
+     * @return ArrayList de String con los datos de los documentos encontrados 
+     */
     public ArrayList<String> consultarDocumento(ArrayList<String> metadatos) {
         String sql_consultar = "SELECT DISTINCT documentos.doc_id, titulo_principal"
                 + " FROM ((((areas_computacion NATURAL JOIN "
@@ -481,6 +600,12 @@ public class DaoDocumento {
         
     }
 
+    /**
+     * Inserta en la base de datos una nueva tupla con la información referente
+     * a la consulta de un documento por parte de un usuario
+     * @param id_documento String con el identificador del documento a consultar
+     * @param usuario String con el login(username) del usuario que consulta
+     */
     public void UsuarioConsultaDocumento(String id_documento, String usuario) {
         String sql_insertar;
         sql_insertar = "INSERT INTO usuario_consulta_documento (doc_id, username)"
@@ -497,6 +622,12 @@ public class DaoDocumento {
         }
     }
 
+    /**
+     * Inserta en la base de datos una nueva tupla con la información referente a
+     * la descarga de un documento por parte de un usuario <b>registrado</b>
+     * @param id_documento String con el identificador del documento a descargar
+     * @param usuario String con el login(username) del usuario que va a descargar el documento
+     */
     public void UsuarioDescargaDocumento(String id_documento, String usuario) {
         String sql_insertar;
         sql_insertar = "INSERT INTO usuario_descarga_documento (doc_id, username)"
@@ -513,6 +644,22 @@ public class DaoDocumento {
         }
     }
 
+    /**
+     * Consulta en la base de datos si existen documentos con los parametros espeficados
+     * <br><br> La salida de esta función es el identificador del documento y el título principal de este
+     * @param titulo
+     * @param autor
+     * @param pc
+     * @param tituloopcion
+     * @param autoropcion
+     * @param pcopcion
+     * @param area
+     * @param editorial
+     * @param tipo_material
+     * @param idioma
+     * @param fecha
+     * @return 
+     */
     public ArrayList<String>  consultaAvanzada(ArrayList<String> titulo, ArrayList<String> autor, ArrayList<String> pc, int tituloopcion, int autoropcion, int pcopcion, String area, String editorial, String tipo_material, String idioma, int fecha) {
 
       ArrayList<String> resultados = new ArrayList<String>();
@@ -766,6 +913,15 @@ public class DaoDocumento {
         }
     }
    
+   /**
+    * Consulta las recomendaciones de documento para un usuario registrado, estas
+    * se basan en la ultima fecha de entrada del usuario, se entregan todos los
+    * documentos que han sido catalogados después de esa fecha del usuario
+    * <br><br> La salida de esta función es el identificador del documento y el título principal de este
+    * @param fecha_registro String con la fecha de ultimo acceso del usuario, debe estar en formato SQL
+    * @param Areas ArrayList de Area con las areas relacionadas al usuario que esta buscando las recomendaciones
+    * @return ArrayList de String con los datos relacionados de los documentos encontrados
+    */
    public ArrayList<String> consultarRecomendacionesDocumentos(String username, String fecha_registro, ArrayList<String> Areas){
        String sql_consultar = "SELECT DISTINCT documentos.doc_id, titulo_principal"
                 + " FROM documento_areas_computacion NATURAL JOIN documentos WHERE ";
