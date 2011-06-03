@@ -45,7 +45,7 @@ public class ControladorAutor {
      * @param correo_e String con el correo electronico del autor (unico)
      * @param acronimo String con el acronimo del autor
      */
-      public void insertarAutor(String nombre, String apellido, String correo_e, String acronimo)
+      public int insertarAutor(String nombre, String apellido, String correo_e, String acronimo)
     {
         DaoAutor daoAutor= new DaoAutor();
         Autor autor= new Autor();
@@ -55,7 +55,7 @@ public class ControladorAutor {
         autor.setCorreo(correo_e);
         autor.setNombre(nombre);
 
-        daoAutor.guardarAutor(autor);
+        return daoAutor.guardarAutor(autor);
     }
 
       /**
