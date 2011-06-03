@@ -311,6 +311,21 @@ public class ControladorDocumento {
         return new DaoDocumento().consultarDocumento(metadatos);
     }
     
+    /**
+     * Consulta en la base de datos los documentos que cumplan con los parametros dados
+     * @param titulo
+     * @param autor
+     * @param pc
+     * @param tituloopcion
+     * @param autoropcion
+     * @param pcopcion
+     * @param area
+     * @param editorial
+     * @param tipo_material
+     * @param idioma
+     * @param fecha
+     * @return 
+     */
     public ArrayList<String> consultaDocumentoAvanzada(ArrayList<String> titulo, ArrayList<String> autor,
             ArrayList<String> pc, int tituloopcion, int autoropcion, int pcopcion, String area,
             String editorial, String tipo_material, String idioma, int fecha){
@@ -319,6 +334,13 @@ public class ControladorDocumento {
             editorial,  tipo_material, idioma, fecha);
     }
 
+    /**
+     * Consulta los documentos agregados recientemente que tengan las áreas de la computación
+     * del usuario con login username. El resultado es un ArrayList donde se guardan dos Strings
+     * de cada uno de los documentos resultantes, el identificador y el titulo principal
+     * @param username String con el login(username) del usuario
+     * @return ArrayList con los documentos consultados.
+     */
     public ArrayList<String> consultarRecomendaciones(String username){
         ControladorUsuario controlador = new ControladorUsuario();
         ArrayList<Area> usuarioAreas = new ControladorArea().consultarAreasporUsuario(username);
