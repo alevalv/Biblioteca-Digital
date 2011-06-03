@@ -287,11 +287,16 @@ public class Selecc_Pal_Clave extends javax.swing.JPanel {
 
     private void Agregar_Palabra_ClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_Palabra_ClaveActionPerformed
         if(checkEmptyFieldsPC()){
-            new ControladorPalabraClave().InsertarPalabraClave(PC_Nombre.getText(), PC_Descripcion.getText());
-            JOptionPane.showMessageDialog(this, "La Palabra Clave con nombre "+PC_Nombre.getText()+ " ha sido agregada", "Notificaición", JOptionPane.INFORMATION_MESSAGE);
-            PC_Nombre.setText("");
-            PC_Descripcion.setText("");
-            initComboBox();
+            if(new ControladorPalabraClave().InsertarPalabraClave(PC_Nombre.getText().toLowerCase(), PC_Descripcion.getText())!=-1){
+                JOptionPane.showMessageDialog(this, PC_Nombre.getText()+ " ha sido agregada", "Notificaición", JOptionPane.INFORMATION_MESSAGE);
+                PC_Nombre.setText("");
+                PC_Descripcion.setText("");
+                initComboBox();
+            }
+            else{
+                JOptionPane.showMessageDialog(this, PC_Nombre.getText()+ " ya existe en la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            
         }
     }//GEN-LAST:event_Agregar_Palabra_ClaveActionPerformed
 
