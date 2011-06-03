@@ -20,16 +20,11 @@ package biblioteca.database2.controladores;
 import biblioteca.database2.accesoDatos.DaoReportesEstadisticas;
 import com.itextpdf.text.pdf.PdfPTable;
 
-/**
- *
- * @author alejandro
- */
 
 public class ControladorReportesEstadisticas {
         
    public PdfPTable ConsultarListaUsuario(String dow, String dom, String month, String year, String[] franja, String[] desde, String[] Hasta, String tipo,
             String genero, String Estado, String area){
-       ///Esto debe retornar una result set!!
        return biblioteca.Main.PdfCreator.resultSetToTable(new DaoReportesEstadisticas().ConsultarListaUsuario(dow, dom, month, year, franja, desde, Hasta, tipo, genero, Estado, area));
     }
 

@@ -22,10 +22,7 @@ import com.itextpdf.text.pdf.PdfPTable;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-/**
- *
- * @author alejandro
- */
+
 public class ControladorEstadisticas {
 
     public ControladorEstadisticas() {
