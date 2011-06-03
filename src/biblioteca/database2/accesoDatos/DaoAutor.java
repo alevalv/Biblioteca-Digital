@@ -23,7 +23,15 @@ import java.sql.*;
 import java.util.ArrayList;
 
 /**
+ *  Esta clase forma parte de los controladores creados para cumplir con el Patrón
+ * de diseño DAO.
+ * 
+ * <br>DaoAutor crea el sql que se ejecutará a través de una conexión de una Fachada,
+ * este dao administra todo lo relacionado con los autores de los documentos de la aplicación
+ * 
+ * @see <a href="http://www.proactiva-calidad.com/java/patrones/DAO.html">Patrón "Data Access Object"</a>
  *
+ * @author María Cristina Bustos Rodríguez
  * @author Alejandro Valdés Villada
  */
 public class DaoAutor {
@@ -31,10 +39,18 @@ public class DaoAutor {
 
     Fachada fachada;
 
+    /**
+     * Crea un nuevo objeto DaoAutor, inicializando la fachada
+     */
     public DaoAutor(){
         fachada= new Fachada();
     }
 
+    /**
+     * Inserta un nuevo autor a la base de datos
+     * @param autor Autor con los datos a insertar a la base de datos
+     * @return -1 si la consulta no fue exitosa
+     */
      public int guardarAutor(Autor autor){
         String sql_guardar;
         sql_guardar="INSERT INTO autor(autor_correo, nombre, apellido, acronimo) VALUES ('" +
@@ -52,6 +68,11 @@ public class DaoAutor {
         return -1;
     }
 
+     /**
+      * Consulta un autor basandose en la dirección de correo electronico
+      * @param correo String con el correo electronico del autor a consultar
+      * @return Autor con los datos del autor encontrado
+      */
     public Autor consultarAutor(String correo){
         Autor autor= new Autor();
         String sql_consultar;
@@ -74,6 +95,10 @@ public class DaoAutor {
         return autor;
     }
     
+    /**
+     * Consulta todos los autores existentes en la base de datos
+     * @return ArrayList de Autor que contiene a todos autores
+     */
     public ArrayList<Autor> consultarTodos(){
         ArrayList<Autor> autores = null;
         String sql_consultar;
@@ -99,6 +124,11 @@ public class DaoAutor {
         return autores;
     }
 
+    /**
+     * Modifica un autor según su correo electronico
+     * @param autor Autor con los datos a modificar y el correo
+     * @return -1 si la consulta no fue exitosa
+     */
     public int modificarAutor(Autor autor)
     {
         String sql_modificar;
@@ -116,6 +146,12 @@ public class DaoAutor {
         return -1;
     }
 
+    /**
+     * Elimina un autor de la base de datos
+     * @param correo String con el correo electronico del autor a eliminar
+     * @return -1 si la consulta no fue exitosa
+     * @deprecated No es recomendable eliminar autores de la base de datos, genera perdida de información
+     */
     @Deprecated
     public int eliminarAutor(String correo)
     {
@@ -136,7 +172,13 @@ public class DaoAutor {
         return -1;
     }
 
-
+    /**
+     * Consulta si el autor con el correo electronico dado existe en la base de datos
+     * @param correo String con el correo electronico del autor a consultar
+     * @return boolean indicando si el autor existe en la base de datos
+     * @deprecated Use consultarAutor(String) y verifique si es nulo lo que retorna
+     */
+    @Deprecated
     public boolean comprobarExistenciaAutor(String correo)
     {
         String correoRecibido= new String();
