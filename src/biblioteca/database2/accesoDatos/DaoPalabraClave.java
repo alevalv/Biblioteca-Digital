@@ -109,6 +109,7 @@ public class DaoPalabraClave {
         return -1;
     }
 
+    @Deprecated
     public int eliminarPalabraClave(String nombre_pal)
     {
         String sql_eliminar;
@@ -126,7 +127,8 @@ public class DaoPalabraClave {
         return -1;
     }
 
-     public boolean comprobarExistenciaPalabraClave(String nombre)
+    @Deprecated
+    public boolean comprobarExistenciaPalabraClave(String nombre)
     {
         String nombreRecibido= new String();
         String sql_comprobar;

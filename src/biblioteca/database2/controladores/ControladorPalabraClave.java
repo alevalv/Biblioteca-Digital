@@ -23,21 +23,41 @@ import biblioteca.database2.beans.PalabraClave;
 import java.util.ArrayList;
 
 /**
+ *  Esta clase forma parte de los controladores creados para cumplir con el Patrón
+ * de diseño DAO.
+ * 
+ * ControladorPalabraClave es una de las interfaces entre los Dao y las GUI de la aplicación.
+ * ControladorPalabraClave se encarga de administrar los autores existentes, agregar nuevos,
+ * consultarlos, etc.
+ * La llave primaria de las palabras clave es el nombre de estas.
+ * 
+ * @see <a href="http://www.proactiva-calidad.com/java/patrones/DAO.html">Patrón "Data Access Object"</a>
  *
- * @author Eduardo
+ * @author María Cristina Bustos Rodríguez
+ * @author Alejandro Valdés Villada
  */
 public class ControladorPalabraClave {
 
-     public void InsertarPalabraClave(String nombre, String descripcion)
+    /**
+     * Inserta una nueva palabra clave en la base de datos con el nombre y la descripción dada
+     * @param nombre String con el nombre de la palabra clave
+     * @param descripcion String con la descripción de la palabra clave
+     */
+     public int InsertarPalabraClave(String nombre, String descripcion)
     {
         DaoPalabraClave daoPalabraClave = new DaoPalabraClave();
         PalabraClave palabra= new PalabraClave();
         palabra.setNombre(nombre);
         palabra.setDescripcion(descripcion);
 
-        daoPalabraClave.guardarPalabraClave(palabra);
+        return daoPalabraClave.guardarPalabraClave(palabra);
     }
 
+     /**
+      * Modifica la palabra clave con el nombre dado
+      * @param nombre String con el nombre de la palabra clave
+      * @param descripcion String con la descripción de la palabra clave
+      */
     public void modificarPalabra(String nombre, String descripcion)
     {
         DaoPalabraClave daoPalabraClave = new DaoPalabraClave();
@@ -48,6 +68,11 @@ public class ControladorPalabraClave {
         daoPalabraClave.modificarPalabraClave(palabra);
     }
 
+    /**
+     * Consulta la palabra clave con el nombre especificado
+     * @param nombre String con el nombre de la palabra clave
+     * @return Un objeto PalabraClave con el nombre y la descripción de esta
+     */
     public PalabraClave consultarPalabra(String nombre)
     {
         DaoPalabraClave daoPalabraClave = new DaoPalabraClave();
@@ -56,17 +81,34 @@ public class ControladorPalabraClave {
         return palabra;
     }
     
+    /**
+     * Consulta todas las palabras clave existentes en la base de datos
+     * @return ArrayList de PalabraClave con todas las palabras clave existentes
+     */
     public ArrayList<PalabraClave> consultarTodasLasPalabrasClaves(){
         return new DaoPalabraClave().consultarTodasLasPalabraClave();
     }
 
+    /**
+     * Elimina una palabra clave de la base de datos,
+     * @param nombre String con el nombre de la palabra clave a eliminar
+     * @deprecated Para conservar la integridad de la información de la base de datos, no se recomienda eliminar palabras clave
+     */
+    @Deprecated
     public void eliminarPalabraClave(String nombre)
     {
         DaoPalabraClave daoPalabraClave = new DaoPalabraClave();
         daoPalabraClave.eliminarPalabraClave(nombre);
     }
 
-      public boolean comprobarExistenciaPalabraClave(String nombre) {
+    /**
+     * Comprueba si la palabra clave con el nombre dado, existe en la base de datos
+     * @param nombre String con el nombre de la palabra clave a comprobar
+     * @return boolean indicando si la palabra clave existe en la base de datos
+     * @deprecated Se puede usar consultarPalabra y comprobar si lo retornado es null
+     */
+    @Deprecated
+    public boolean comprobarExistenciaPalabraClave(String nombre) {
          boolean respuesta;
          DaoPalabraClave daoPalabraClave= new DaoPalabraClave();
          respuesta= daoPalabraClave.comprobarExistenciaPalabraClave(nombre);
