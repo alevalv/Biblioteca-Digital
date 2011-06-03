@@ -23,17 +23,33 @@ import java.sql.*;
 import java.util.ArrayList;
 
 /**
+ *  Esta clase forma parte de los controladores creados para cumplir con el Patrón
+ * de diseño DAO.
+ * 
+ * <br>DaoPalabraClave crea el sql que se ejecutará a través de una conexión de una Fachada,
+ * este dao administra todo lo relacionado con los palabras claves de la base de datos
+ * 
+ * @see <a href="http://www.proactiva-calidad.com/java/patrones/DAO.html">Patrón "Data Access Object"</a>
  *
+ * @author María Cristina Bustos Rodríguez
  * @author Alejandro Valdés Villada
  */
 public class DaoPalabraClave {
 
       Fachada fachada;
 
+      /**
+       * Crea un objeto DaoPalabraClave, inicializando fachada
+       */
    public DaoPalabraClave(){
         fachada= new Fachada();
     }
 
+   /**
+    * Inserta una nueva palabra clave a la base de datos
+    * @param palabra PalabraClave con los datos de la nueva palabra clave
+    * @return -1 si la consulta no fue exitosa
+    */
      public int guardarPalabraClave(PalabraClave palabra){
         String sql_guardar;
         sql_guardar="INSERT INTO palabras_clave(nombre, descripcion) VALUES ('" +
@@ -50,6 +66,11 @@ public class DaoPalabraClave {
         return -1;
     }
 
+     /**
+      * Consulta los datos relacionados con el nombre de la palabra clave dado
+      * @param nombre_pal String con el nombre de la palabra clave a consultar
+      * @return PalabraClave con los datos relacionados al nombre
+      */
     public PalabraClave consultarPalabraClave(String nombre_pal){
         PalabraClave palabra= new PalabraClave();
         String sql_consultar;
@@ -69,6 +90,10 @@ public class DaoPalabraClave {
         return palabra;
     }
 
+    /**
+     * Consulta todas las palabras claves existentes en la base de datos
+     * @return ArrayList de PalabraClave con todas las palabras clave
+     */
     public ArrayList<PalabraClave> consultarTodasLasPalabraClave(){
         ArrayList<PalabraClave> Palabras = null;
         String sql_consultar;
@@ -91,7 +116,11 @@ public class DaoPalabraClave {
         return Palabras;
     }
     
-
+    /**
+     * Modifica la palabra clave, según el nombre dado.
+     * @param palabra PalabraClave con el nombre y la descripcion de la palabra clave
+     * @return -1 si la consulta no fue exitosa
+     */
     public int modificarPalabraClave(PalabraClave palabra)
     {
         String sql_modificar;
@@ -109,6 +138,12 @@ public class DaoPalabraClave {
         return -1;
     }
 
+    /**
+     * Elimina la palabra clave con el nombre especificado
+     * @param nombre_pal String con el nombre de la palabra clave a eliminar
+     * @return -1 si la operación no fue exitosa
+     * @deprecated No se recomienda eliminar palabras clave de la base de datos, genera perdida de información
+     */
     @Deprecated
     public int eliminarPalabraClave(String nombre_pal)
     {
@@ -127,6 +162,12 @@ public class DaoPalabraClave {
         return -1;
     }
 
+    /**
+     * Comprueba si la palabra clave con el nombre dado, existe en la base de datos
+     * @param nombre String con el nombre de la palabra clave a consultar
+     * @return boolean indicando si la palabra clave existe o no
+     * @deprecated Use consultarPalabraClave(String) verificando si lo retornado es nulo
+     */
     @Deprecated
     public boolean comprobarExistenciaPalabraClave(String nombre)
     {
