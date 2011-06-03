@@ -23,11 +23,36 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 /**
+ *  Esta clase forma parte de los controladores creados para cumplir con el Patrón
+ * de diseño DAO.
+ * 
+ * ControladorDocumento es una de las interfaces entre los Dao y las GUI de la aplicación.
+ * ControladorAutor se encarga de administrar todo lo relacionado con los documentos en la base
+ * agregar autores a estos, palabras clave y áreas de la computación; se pueden agregar, modificar,
+ * activar o desactivar documentos de la base de datos
+ * 
+ * La llave primaria de los documentos es un id único asignado por la base de datos en
+ * el momento de agregar un nuevo documento a esta.
+ * 
+ * @see <a href="http://www.proactiva-calidad.com/java/patrones/DAO.html">Patrón "Data Access Object"</a>
  *
+ * @author María Cristina Bustos Rodríguez
  * @author Alejandro Valdés Villada
  */
 public class ControladorDocumento {
     
+    /**
+     * inserta un documento en la base de datos, con los datos dados.
+     * @param tituloPrincipal String con el título principal del documento
+     * @param tituloSecundario String con el título secundario del documento
+     * @param editorial String con la editorial del documento
+     * @param derechosAutor String con los derechos de autor del documento
+     * @param idioma String con el idioma del documento
+     * @param descripcion String con la descripción(resumen) del documento
+     * @param tipoMaterial String con el tipo de Material del documento
+     * @param fechaPublicacion String con la fecha de publicación del documento en formato SQL
+     * @param catalogador String con el login(username) del catalogador del documento
+     */
     public void insertarDocumento(String tituloPrincipal, String tituloSecundario,
              String editorial, String derechosAutor, String idioma, String descripcion,
              String tipoMaterial,String fechaPublicacion, String catalogador){
@@ -49,19 +74,46 @@ public class ControladorDocumento {
         documento= null;
     }
     
+    /**
+     * Deshabilita un documento de la base de datos según su identificador unico (numerico)
+     * @param id_documento String con el identificador del documento
+     */
     public void deshabilitarDocumento(String id_documento){
         DaoDocumento daoDocumento = new DaoDocumento();
         daoDocumento.deshabilitarDocumento(id_documento);
     }
     
+    /** 
+     * Consulta los datos de un documento de la base de datos con el identificador de este
+     * @param id_documento String con el identificador del documento
+     * @return Documento con todos los datos del documento obtenidos de la base de datos
+     */
     public Documento consultarDocumento(String id_documento){
         return new DaoDocumento().consultarDocumento(id_documento);
     }
     
+    /**
+     * Inserta al documento con identificación id_documento, la ubicación de su archivo.
+     * @param id_documento String con el identificador unico de documento
+     * @param ubicacion String con la dirección(path) del archivo del documento
+     */
     public void insertarUbicacion(String id_documento, String ubicacion){
         new DaoDocumento().insertarUbicacion(id_documento, ubicacion);
     }
     
+    /**
+     * Modifica un documento con id_documento, con los parametros dados a la función
+     * @param id_documento String con el identificador del documento a modificar
+     * @param tituloPrincipal String con el título principal del documento
+     * @param tituloSecundario String con el título secundario del documento
+     * @param editorial String con la editorial del documento
+     * @param derechosAutor String con los derechos de autor del documento
+     * @param idioma String con el idioma del documento
+     * @param descripcion String con la descripción(resumen) del documento
+     * @param tipoMaterial String con el tipo de Material del documento
+     * @param fechaPublicacion String con la fecha de publicación del documento en formato SQL
+     * @param activo boolean indicando el estado (activo, inactivo) del documento
+     */
     public void modificarDocumento(String id_documento, String tituloPrincipal, String tituloSecundario,
              String editorial, String derechosAutor, String idioma, String descripcion,
              String tipoMaterial,String fechaPublicacion, boolean activo){
@@ -78,12 +130,25 @@ public class ControladorDocumento {
         documento.setTituloSecundario(tituloSecundario);
         DaoDocumento daoDocumento = new DaoDocumento();
         daoDocumento.modificarDocumento(documento);
-        
-        //seguridad?
-        daoDocumento= null;
-        documento= null;
+
     }
     
+    /**
+     * Obtiene el id de un documento de la base de datos con los parametros dados,
+     * esta función es creada debido a que los identificadores se deben conocer al
+     * momento de crear los documentos para poder insertar en otras tablas el contenido
+     * de autores, palabras claves y áreas, y también, insertar la ubicación de este.
+     * @param tituloPrincipal String con el título principal del documento
+     * @param tituloSecundario String con el título secundario del documento
+     * @param editorial String con la editorial del documento
+     * @param derechosAutor String con los derechos de autor del documento
+     * @param idioma String con el idioma del documento
+     * @param descripcion String con la descripción(resumen) del documento
+     * @param tipoMaterial String con el tipo de Material del documento
+     * @param fechaPublicacion String con la fecha de publicación del documento en formato SQL
+     * @param catalogador String con el login(username) del catalogador del documento
+     * @return String con el identificador unico del documento que cumple esto.
+     */
     public String obtenerId(String tituloPrincipal, String tituloSecundario,
              String editorial, String derechosAutor, String idioma, String descripcion,
              String tipoMaterial,String fechaPublicacion, String catalogador){
@@ -101,18 +166,39 @@ public class ControladorDocumento {
         return daoDocumento.obtenerDocumentoID(documento, catalogador);
     }
     
+    /**
+     * Comprueba si el documento con id_documento existe en la base de datos
+     * @param id_documento String con el identificador unico del documento a verificar
+     * @return boolean indicando si el documento existe en la base de datos o no
+     * @deprecated esto no es necesario, en vez, use la consulta de documento comprobando si el objeto retornado es null
+     */
     @Deprecated
     public boolean verificarExistencia(String id_documento){
         DaoDocumento daoDocumento = new DaoDocumento();
         return daoDocumento.verificarExistencia(id_documento);
     }
     
+    /**
+     * Agrega una nueva tupla a la tabla usuario_consulta_documento cuando un usuario
+     * consulta un documento a través de la interfaz de busqueda, simultaneamente retorna
+     * el documento con el identificador especificado
+     * @param id_documento String con el identificador del documento consultado
+     * @param usuario String con el login(username) del usuario que consultó el documento
+     * @return Documento con los datos obtenidos de la base de datos
+     */
     public Documento usuarioConsultaDocumento(String id_documento, String usuario){
         DaoDocumento daoDocumento = new DaoDocumento();
         daoDocumento.UsuarioConsultaDocumento(id_documento, usuario);
         return daoDocumento.consultarDocumento(id_documento);
     }
     
+    /**
+     * Agrega una nueva tupla a la tabla usuario_descarga_documento cuando un usuario
+     * descarga un documento a través del boton de descarga del la interfaz de información
+     * avanzada
+     * @param documento
+     * @param usuario 
+     */
     public void usuarioDescargaDocumento(String documento, String usuario){
         new DaoDocumento().UsuarioDescargaDocumento(documento, usuario);
     }
