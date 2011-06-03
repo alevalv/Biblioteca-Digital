@@ -22,17 +22,33 @@ import biblioteca.database2.fachada.Fachada;
 import java.sql.*;
 import java.util.ArrayList;
 /**
+ *  Esta clase forma parte de los controladores creados para cumplir con el Patrón
+ * de diseño DAO.
+ * 
+ * <br>DaoArea crea el sql que se ejecutará a través de una conexión de una Fachada,
+ * este dao administra todo lo relacionado con las áreas en la aplicación
+ * 
+ * @see <a href="http://www.proactiva-calidad.com/java/patrones/DAO.html">Patrón "Data Access Object"</a>
  *
+ * @author María Cristina Bustos Rodríguez
  * @author Alejandro Valdés Villada
  */
 public class DaoArea {
 
     Fachada fachada;
 
+    /**
+     * Crea un nuevo objeto DaoArea, inicializando la fachada
+     */
    public DaoArea(){
         fachada= new Fachada();
     }
 
+   /**
+    * Guarda un área en la base de datos
+    * @param are Area con los datos del área a agregar
+    * @return -1 si la operación no se pudo realizar
+    */
      public int guardarArea(Area are){
         String sql_guardar;
         sql_guardar="INSERT INTO areas_computacion(descripcion, nombre, area_padre) VALUES ('" +
@@ -50,6 +66,11 @@ public class DaoArea {
         return -1;
     }
 
+     /**
+      * Consulta en la base de datos el área a través del identificador especificado
+      * @param id String con el identificador del área a consultar
+      * @return Area con los datos del área encontrada
+      */
     public Area consultarArea(String id){
         Area a= new Area();
         String sql_consultar;
@@ -74,6 +95,10 @@ public class DaoArea {
         return a;
     }
     
+    /**
+     * Consulta todas las áreas existentes en la base de datos
+     * @return ArrayList de Area con todas las áreas de la base de datos
+     */
      public ArrayList<Area> consultarTodasLasAreas(){
          String sql_consultar;
          sql_consultar="SELECT * FROM areas_computacion ORDER BY area_id ASC;";
@@ -99,7 +124,11 @@ public class DaoArea {
         return Areas;
     }
 
-
+     /**
+      * Modifica un área de la base de datos, especificando el identificador, que viene en area
+      * @param area Area con los datos nuevos y el identificador
+      * @return -1 si la operación no fue exitosa
+      */
     public int modificarArea(Area area)
     {
         String sql_modificar;
@@ -117,6 +146,12 @@ public class DaoArea {
         return -1;
     }
 
+    /**
+     * Elimina un área de la base de datos
+     * @param idArea String con el identificador del área a eliminar
+     * @return -1 si la operación no fue exitosa
+     * @deprecated No es recomendable eliminar áreas de la base de datos, se pude generar perdida de información
+     */
     @Deprecated
     public int eliminarArea(String idArea)
     {
@@ -137,6 +172,13 @@ public class DaoArea {
         return -1;
     }
 
+    /**
+     * Comprueba la existencia de un área en la base de datos
+     * @param id_area String con el identificador del área a consultar
+     * @return boolean indicando si el área existe o no
+     * @deprecated Use consultarArea(String) y compruebe si lo retornado es null
+     */
+    @Deprecated
      public boolean comprobarExistenciaArea(String id_area)
     {
         String id_areaRecibido= new String();
@@ -161,6 +203,11 @@ public class DaoArea {
         return true;
     }
 
+    /**
+     * Consulta las áreas relacionadas a un usuario particular
+     * @param Username String con el login(username) del usuario a consultar
+     * @return ArrayList de Area con las áreas relacionadas al usuario seleccionado
+     */
     public ArrayList<Area> consultarAreasporUsuario(String Username) {
        String sql_consultar;
          sql_consultar="SELECT area_id,nombre,descripcion,area_padre FROM usuario_areas_computacion natural join areas_computacion where username='"+Username+"';";
@@ -186,6 +233,12 @@ public class DaoArea {
         return Areas;
     }
 
+    /**
+     * Agrega un conjunto de áreas al usuario seleccionado
+     * @param Username String con el login(username) del usuario a modificar
+     * @param areas ArrayList de Area con las a insertar
+     * @return -1 si la operación no fue exitosa
+     */
     public int agregarAreasporUsuario(String Username, ArrayList<Area> areas) {
        String sql_agregar="";
        for(int i=0;i<areas.size();i++){
@@ -205,6 +258,12 @@ public class DaoArea {
         return -1;
     }
 
+    /**
+     * Elimina un conjunto de áreas relacionadas con un usuario
+     * @param Username String con el login(username) del usuario a modificar
+     * @param areas ArrayList de Area con las áreas a modificar
+     * @return -1 si la operación no fue exitosa
+     */
     public int eliminarAreasporUsuario(String Username, ArrayList<Area> areas) {
         String sql_eliminar="";
        for(int i=0;i<areas.size();i++){
