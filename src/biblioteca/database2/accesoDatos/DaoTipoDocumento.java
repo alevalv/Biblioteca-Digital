@@ -18,8 +18,16 @@
 package biblioteca.database2.accesoDatos;
 
 /**
+ *  Esta clase forma parte de los controladores creados para cumplir con el Patrón
+ * de diseño DAO.
+ * 
+ * <br>DaoTipoDocumento crea el sql que se ejecutará a través de una conexión de una Fachada,
+ * este dao administra todo lo relacionado con los tipos de documento de la base de datos
+ * 
+ * @see <a href="http://www.proactiva-calidad.com/java/patrones/DAO.html">Patrón "Data Access Object"</a>
  *
- * @author Julián David Rodríguez
+ * @author María Cristina Bustos Rodríguez
+ * @author Alejandro Valdés Villada
  */
 
 import java.sql.*;
@@ -30,11 +38,19 @@ import java.util.ArrayList;
 public class DaoTipoDocumento {
     Fachada fachada;
 
+    /**
+     * Crea un nuevo DaoTipoDocumento, inicializando la fachada
+     */
     public DaoTipoDocumento()
     {
         fachada = new Fachada();
     }
 
+    /**
+     * Inserta un nuevo tipo de documento, especificando sus datos
+     * @param tipoDocumento TipoDocumento con los datos a insertar
+     * @return -1 si la operación no fue exitosa
+     */
     public int agregarTipoDocumento(TipoDocumento tipoDocumento)
     {
        String sql_agregar;
@@ -54,6 +70,11 @@ public class DaoTipoDocumento {
        return -1;
     }
 
+    /**
+     * Modifica el tipo de documento con el nombre dado
+     * @param tipoDocumento TipoDocumento con el nombre y la nueva descripción
+     * @return -1 Si la operación no fue exitosa
+     */
     public int modificarTipoDocumento(TipoDocumento tipoDocumento){
         String sql_modificar;
         sql_modificar="UPDATE tipo_material SET tipo_documento = '"+ 
@@ -72,6 +93,11 @@ public class DaoTipoDocumento {
         return -1;
     }
     
+    /**
+     * Consulta el tipo de documento según el nombre dado
+     * @param nombre String con el nombre del tipo de documento a consultar
+     * @return TipoDocumento con los datos relacionados
+     */
     public TipoDocumento consultarTipoDocumento(String nombre){
         String sql_consultar;
         sql_consultar="SELECT * FROM  tipo_material WHERE tipo_documento = '" +
@@ -95,6 +121,10 @@ public class DaoTipoDocumento {
         return null;
     }
     
+    /**
+     * Consulta todos los tipos de documento existentes en la base de datos
+     * @return ArrayList de TipoDocumento con todos los tipos de documento existentes
+     */
     public ArrayList<TipoDocumento> consultarTodosLosTipoDocumento(){
         String sql_consultar;
         sql_consultar="SELECT * FROM  tipo_material ORDER BY tipo_documento ASC;";
