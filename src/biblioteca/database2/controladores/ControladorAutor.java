@@ -44,6 +44,7 @@ public class ControladorAutor {
      * @param apellido String con el/los apellido(s) del autor
      * @param correo_e String con el correo electronico del autor (unico)
      * @param acronimo String con el acronimo del autor
+     * @return 1 Si el autor fue insertado correctamente, -1 si no
      */
       public int insertarAutor(String nombre, String apellido, String correo_e, String acronimo)
     {
