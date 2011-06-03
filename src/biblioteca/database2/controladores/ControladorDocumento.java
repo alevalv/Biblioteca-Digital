@@ -196,50 +196,96 @@ public class ControladorDocumento {
      * Agrega una nueva tupla a la tabla usuario_descarga_documento cuando un usuario
      * descarga un documento a través del boton de descarga del la interfaz de información
      * avanzada
-     * @param documento
-     * @param usuario 
+     * @param documento String con el identificador del documento a descargar
+     * @param usuario String con el login(username) del usuario que descargará el documento
      */
     public void usuarioDescargaDocumento(String documento, String usuario){
         new DaoDocumento().UsuarioDescargaDocumento(documento, usuario);
     }
     
+    /**
+     * Agrega un conjunto de palabras claves a un documento especifico
+     * @param id_documento String con el identificador del documento a insertarle palabras claves
+     * @param PC ArrayList de PalabraClave con las palabras claves que se le insertarán al documento
+     */
     public void insertarPalabrasClave(String id_documento, ArrayList<PalabraClave> PC){
         DaoDocumento daoDocumento = new DaoDocumento();
         daoDocumento.insertarPalabrasClave(PC, id_documento);
     }
     
+    /**
+     * Agrega un conjunto de áreas de las ciencias de la computación a un documento
+     * @param id_documento String con el identificador del documento
+     * @param Areas ArrayList de Area con las areas de la computación a insertar al documento
+     */
     public void insertarAreas(String id_documento, ArrayList<Area> Areas){
         DaoDocumento daoDocumento = new DaoDocumento();
         daoDocumento.insertarAreas(Areas, id_documento);
     }
     
+    /**
+     * Agrega un conjunto de autores a un documento en particular
+     * @param id_documento String con el identificador del documento
+     * @param emails ArrayList de Autor con los autores a insertar al documento
+     */
     public void insertarAutores(String id_documento, ArrayList<Autor> emails){
         DaoDocumento daoDocumento = new DaoDocumento();
         daoDocumento.insertarAutores(emails, id_documento);
     }
     
+    /**
+     * Elimina un conjunto de palabras clave de un documento particular
+     * @param id_documento String con el identificador del documento a insertarle palabras claves
+     * @param PC ArrayList de PalabraClave con las palabras claves que se eliminarán del documento 
+     */
     public void eliminarPalabrasClave(String id_documento, ArrayList<PalabraClave> PC){
         DaoDocumento daoDocumento = new DaoDocumento();
         daoDocumento.eliminarPalabrasClave(PC, id_documento);
     }
+    
+    /**
+     * Elimina un conjunto de áreas de la computación de un documento
+     * @param id_documento String con el identificador del documento
+     * @param Areas ArrayList de Area con las areas de la computación a eliminar del documento
+     */
     public void eliminarAreas(String id_documento, ArrayList<Area> Areas){
         DaoDocumento daoDocumento = new DaoDocumento();
         daoDocumento.eliminarAreas(Areas, id_documento);
     }
     
+    /**
+     * Elimina un conjunto de autores de un documento
+     * @param id_documento String con el identificador del documento
+     * @param emails ArrayList de Autor con los autores a eliminar del documento
+     */
     public void eliminarAutores(String id_documento, ArrayList<Autor> emails){
         DaoDocumento daoDocumento = new DaoDocumento();
         daoDocumento.eliminarAutores(emails, id_documento);
     }
     
+    /**
+     * Obtiene las palabras claves asociadas con un documento
+     * @param id_documento String con el identificador del documento a consultar
+     * @return ArrayList de PalabraClave con las palabras claves asociadas a un documento
+     */
     public ArrayList<PalabraClave> obtenerPalabrasClave(String id_documento){
         return new DaoDocumento().consultarPalabrasClaveDocumento(id_documento);
     }
     
+    /**
+     * Obtiene los autores asociados a un documento
+     * @param id_documento String con el identificador del documento a consultar
+     * @return ArrayList de Autor con los autores asociados al documento especificado
+     */
     public ArrayList<Autor> obtenerAutores(String id_documento){
         return new DaoDocumento().consultarAutoresDocumento(id_documento);
     }
     
+    /**
+     * Obtiene las áreas de la computación asociadas a un documento
+     * @param id_documento String con el identificador del documento a consultar
+     * @return ArrayList de Area con las áreas de la computación asociadas al documento especificado
+     */
     public ArrayList<Area> obtenerAreas(String id_documento){
         return new DaoDocumento().consultarAreasDocumento(id_documento);
     }
@@ -249,6 +295,13 @@ public class ControladorDocumento {
      * luego el titulo principal, titulo secundario y autor
      */
     
+    /**
+     * Busca un conjunto de documentos que tengan las palabras contenidas en entrada
+     * separadas por espacios. El resultado es un ArrayList donde se guardan dos Strings
+     * de cada uno de los documentos resultantes, el identificador y el titulo principal
+     * @param entrada ArrayList de String con los resultados
+     * @return 
+     */
     public ArrayList<String> consultaDocumentoGeneral(String entrada){
         StringTokenizer Stk = new StringTokenizer(entrada, " ");
         ArrayList<String> metadatos = new ArrayList<String>();
