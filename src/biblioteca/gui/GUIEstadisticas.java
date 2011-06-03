@@ -2059,20 +2059,28 @@ public class GUIEstadisticas extends javax.swing.JFrame {
     private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
       if(jCheckBox4.isSelected()){
           jCheckBox5.setEnabled(false);
+           jComboBox9.setEnabled(true);
       }
       else{
           jCheckBox5.setEnabled(true);
+           jComboBox9.setEnabled(false);
       }
     }//GEN-LAST:event_jCheckBox4ActionPerformed
 
     private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
       if(jCheckBox3.isSelected()){
           jCheckBox4.setEnabled(false);
+          jCheckBox4.setSelected(false);
           jCheckBox5.setEnabled(false);
+          jCheckBox5.setSelected(false);
           jCheckBox6.setEnabled(false);
+          jCheckBox6.setSelected(false);
           jCheckBox7.setEnabled(false);
+          jCheckBox7.setSelected(false);
           jCheckBox8.setEnabled(false);
+          jCheckBox8.setSelected(false);
           jCheckBox9.setEnabled(false);
+          jCheckBox9.setSelected(false);
           jComboBox9.setEnabled(false);
           jComboBox10.setEnabled(false);
           jComboBox11.setEnabled(false);
@@ -2093,12 +2101,18 @@ public class GUIEstadisticas extends javax.swing.JFrame {
       }
       else {
           jCheckBox4.setEnabled(true);
+          jCheckBox4.setSelected(false);
           jCheckBox5.setEnabled(true);
+          jCheckBox5.setSelected(false);
           jCheckBox6.setEnabled(true);
+          jCheckBox6.setSelected(false);
           jCheckBox7.setEnabled(true);
+          jCheckBox7.setSelected(false);
           jCheckBox8.setEnabled(true);
+          jCheckBox8.setSelected(false);
           jCheckBox9.setEnabled(true);
-          jComboBox9.setEnabled(true);
+          jCheckBox9.setSelected(false);
+       /*   jComboBox9.setEnabled(true);
           jComboBox10.setEnabled(true);
           jComboBox11.setEnabled(true);
           jComboBox12.setEnabled(true);
@@ -2109,7 +2123,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           jComboBox17.setEnabled(true);
           jComboBox18.setEnabled(true);
           jComboBox19.setEnabled(true);
-          jComboBox20.setEnabled(true);
+          jComboBox20.setEnabled(true);*/
           jLabel24.setEnabled(true);
           jLabel25.setEnabled(true);
           jLabel26.setEnabled(true);
