@@ -22,39 +22,61 @@ import biblioteca.database2.beans.TipoDocumento;
 import java.util.ArrayList;
 
 /**
+ *  Esta clase forma parte de los controladores creados para cumplir con el Patrón
+ * de diseño DAO.
+ * 
+ * ControladorTipoDocumento es una de las interfaces entre los Dao y las GUI de la aplicación.
+ * ControladorTipoDocumento se encarga de administrar los tipos de documento de la base de datos
+ * La llave primaria de un tipo de documento es el nombre de este.
+ * 
+ * @see <a href="http://www.proactiva-calidad.com/java/patrones/DAO.html">Patrón "Data Access Object"</a>
  *
- * @author Alejandro Valdés
+ * @author María Cristina Bustos Rodríguez
+ * @author Alejandro Valdés Villada
  */
 public class ControladorTipoDocumento {
-    public void agregarTipoDocumento(String nombre, String descripcion){
+    
+    /**
+     * Inserta un nuevo tipo de documento a la base de datos con los parametros dados
+     * @param nombre String con el nombre del tipo de documento
+     * @param descripcion String con la descripción del tipo de documento
+     */
+    public int agregarTipoDocumento(String nombre, String descripcion){
         TipoDocumento tipoDocumento = new TipoDocumento();
         tipoDocumento.setTipoDocumento(nombre);
         tipoDocumento.setDescripcion(descripcion);
         DaoTipoDocumento daoTipoDocumento = new DaoTipoDocumento();
-        daoTipoDocumento.agregarTipoDocumento(tipoDocumento);
-        
-        //seguridad?
-        tipoDocumento=null;
-        daoTipoDocumento=null;
-    }
-    public void modificarTipoDocumento(String nombre, String descripcion){
-        TipoDocumento tipoDocumento = new TipoDocumento();
-        tipoDocumento.setTipoDocumento(nombre);
-        tipoDocumento.setDescripcion(descripcion);
-        DaoTipoDocumento daoTipoDocumento = new DaoTipoDocumento();
-        daoTipoDocumento.modificarTipoDocumento(tipoDocumento);
-        
-        //seguridad?
-        tipoDocumento=null;
-        daoTipoDocumento=null;
+        return daoTipoDocumento.agregarTipoDocumento(tipoDocumento);
     }
     
+    /**
+     * Modifica un tipo de documento de la base de datos con el nombre especificado
+     * @param nombre String con el nombre del tipo de documento a modificar
+     * @param descripcion String con la nueva descripción para el tipo de documento nuevo
+     */
+    public int modificarTipoDocumento(String nombre, String descripcion){
+        TipoDocumento tipoDocumento = new TipoDocumento();
+        tipoDocumento.setTipoDocumento(nombre);
+        tipoDocumento.setDescripcion(descripcion);
+        DaoTipoDocumento daoTipoDocumento = new DaoTipoDocumento();
+        return daoTipoDocumento.modificarTipoDocumento(tipoDocumento);
+    }
+    
+    /**
+     * Consulta el tipo de documento especificado por el nombre dado
+     * @param nombre String con el nombre del tipo de documento
+     * @return TipoDocumento con los datos encontrados en la base de datos
+     */
     public TipoDocumento consultarTipoDocumento(String nombre){
         DaoTipoDocumento daoTipoDocumento = new DaoTipoDocumento();
         TipoDocumento salida=daoTipoDocumento.consultarTipoDocumento(nombre);
         return salida;
     }
     
+    /**
+     * Consulta todos los tipos de documento existentes en la base de datos
+     * @return ArrayList de TipoDocumento
+     */
     public ArrayList<TipoDocumento> consultarTodosLosTipoDocumento(){
         return new DaoTipoDocumento().consultarTodosLosTipoDocumento();
     }
