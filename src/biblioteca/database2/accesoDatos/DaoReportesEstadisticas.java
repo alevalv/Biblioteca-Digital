@@ -23,6 +23,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class DaoReportesEstadisticas {
     Fachada Fachada;
@@ -32,17 +33,22 @@ public class DaoReportesEstadisticas {
     }
     
     public void printResultSet(ResultSet salida) throws SQLException{
+      if(salida==null){
+          System.out.print("ResultSet Vacia");
+          return;
+      }
       ResultSetMetaData rs=salida.getMetaData();
       int Cols=rs.getColumnCount();
       while(salida.next()){
      for(int i=1; i<=Cols;i++){
           System.out.print(salida.getString(i)+"  ");
-    }
+     }
        System.out.println();
     }
     }
     
     ///Para panel usuarios
+    //para la lista unida
     public ResultSet ConsultarListaUsuario(String dow, String dom, String month, String year, String[] franja, String[] desde, String[] Hasta, String tipo,
             String genero, String Estado, String area){
       
@@ -111,6 +117,43 @@ public class DaoReportesEstadisticas {
         }
       return null;
     }
+    
+    //para la lista separada
+     public void ConsultarListaSeparadaUsuario(String dow, String dom, String month, String year, String[] franja, String[] desde, String[] Hasta, String tipo, String genero, String Estado, String area) throws SQLException {
+  
+      ArrayList<ResultSet> Consultas=new ArrayList<ResultSet>(10);
+      if(!ConsultarDowUsuarios(dow).isEmpty())  Consultas.add(ResultSetConsultarListaSeparadaUsuario(ConsultarDowUsuarios(dow)));
+      if(!ConsultarDomUsuarios(dom).isEmpty())  Consultas.add(ResultSetConsultarListaSeparadaUsuario(ConsultarDomUsuarios(dom)));
+      if(!ConsultarMonthUsuarios(month).isEmpty()) Consultas.add(ResultSetConsultarListaSeparadaUsuario(ConsultarMonthUsuarios(month)));
+      if(!ConsultarYearUsuarios(year).isEmpty()) Consultas.add(ResultSetConsultarListaSeparadaUsuario(ConsultarYearUsuarios(year)));
+      if(!ConsultarFranjaUsuarios(franja).isEmpty())  Consultas.add(ResultSetConsultarListaSeparadaUsuario(ConsultarFranjaUsuarios(franja)));
+      if(!ConsultarIntervaloUsuarios(desde,Hasta).isEmpty()) Consultas.add(ResultSetConsultarListaSeparadaUsuario(ConsultarIntervaloUsuarios(desde,Hasta)));
+      if(!ConsultarTipoUsuarios(tipo).isEmpty()) Consultas.add(ResultSetConsultarListaSeparadaUsuario(ConsultarTipoUsuarios(tipo)));
+      if(!ConsultarGeneroUsuarios(genero).isEmpty())  Consultas.add(ResultSetConsultarListaSeparadaUsuario(ConsultarGeneroUsuarios(genero)));
+      if(!ConsultarEstadoUsuarios(Estado).isEmpty()) Consultas.add(ResultSetConsultarListaSeparadaUsuario(ConsultarEstadoUsuarios(Estado))); 
+      if(!ConsultarAreasUsuarios(area).isEmpty())  Consultas.add(ResultSetConsultarListaSeparadaUsuario(ConsultarAreasUsuarios(area)));
+           
+      for(int i=0;i<Consultas.size();i++){
+       printResultSet(Consultas.get(i));  
+      }
+    
+    }
+     public ResultSet ResultSetConsultarListaSeparadaUsuario(String consultar){
+        System.out.println(consultar);
+         try {
+            Connection conn = Fachada.conectar();
+            java.sql.Statement sentencia = conn.createStatement();
+            ResultSet salida = sentencia.executeQuery(consultar+";");
+            conn.close();
+            return salida;
+      }        
+        catch (SQLException e) {
+            System.err.println(e);
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+         return null;  
+     }
     
     public String ConsultarDowUsuarios(String dow){
         String consultar="";
@@ -726,5 +769,7 @@ public class DaoReportesEstadisticas {
                     + " where catalogador='"+usuario+"' ";
         return consultar;
     }
+
+   
 
 }

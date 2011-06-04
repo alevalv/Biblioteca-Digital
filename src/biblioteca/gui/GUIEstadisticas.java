@@ -30,7 +30,10 @@ import biblioteca.database2.controladores.ControladorArea;
 import biblioteca.database2.controladores.ControladorAutor;
 import biblioteca.database2.controladores.ControladorReportesEstadisticas;
 import biblioteca.database2.controladores.ControladorTipoDocumento;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -2373,11 +2376,16 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           if(jComboBox24.getSelectedIndex()!=0) Estado=jComboBox24.getSelectedIndex()+"";
           if(AreasComboBoxPU.getSelectedIndex()!=0) area=areasExistentes.get(AreasComboBoxPU.getSelectedIndex()-1).getID();
        
-      
-        System.out.println("tipo "+tipo);
+        if(jCheckBox1.isSelected())
         bibioteca.reportes.PdfCreator.createPdf("usuarios.pdf", "Reporte de Usuarios Registrados", "Total de usuarios registrados: ", 
                 new ControladorReportesEstadisticas().ConsultarListaUsuario(dow, dom, month, year, franja, desde, Hasta, tipo,
              genero, Estado, area));
+        else try {
+            new ControladorReportesEstadisticas().ConsultarListaSeparadaUsuario(dow, dom, month, year, franja, desde, Hasta, tipo,
+            genero, Estado, area);
+        } catch (SQLException ex) {
+            Logger.getLogger(GUIEstadisticas.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
