@@ -27,13 +27,20 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 
 /**
- *
- * @author alejandro
+ * Esta es la clase principal de Biblioteca-Digital, aca se comprueba
+ * si el servidor de la base de datos está online y si la carpeta de los
+ * documentos existe. También tiene la variable estatica LOGGED_USER
+ * que tiene el username que está autenticado actualmente. Incluye la 
+ * clase comprobador que es un JFrame con un texto
+ * 
+ * @author Alejandro Valdés Villada
+ * @author María Cristina Bustos Rodríguez
  */
 public class BibliotecaDigital {
 
     static public String LOGGED_USER;
     /**
+     * Metodo main del programa, no recibe parametros por consola
      * @param args the command line arguments
      */
     public static void main(String[] args) {
@@ -90,8 +97,17 @@ public class BibliotecaDigital {
     }
 }
 
+/**
+ * Comprobador es una clase simple que muestra una JFrame con un texto
+ * mientras se comprueba si el servidor que esta especificado en fachada
+ * es accesible.
+ * @author Alejandro Valdés Villada
+ */
 final class Comprobador extends javax.swing.JFrame {
 
+    /**
+     * Crea un clase Comprobador
+     */
     public Comprobador() {
         java.awt.GridBagConstraints gridBagConstraints;
 
