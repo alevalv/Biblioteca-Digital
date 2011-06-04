@@ -2375,7 +2375,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
        
       
         System.out.println("tipo "+tipo);
-        biblioteca.Main.PdfCreator.createPdf("usuarios.pdf", "Reporte de Usuarios Registrados", "Total de usuarios registrados: ", 
+        bibioteca.reportes.PdfCreator.createPdf("usuarios.pdf", "Reporte de Usuarios Registrados", "Total de usuarios registrados: ", 
                 new ControladorReportesEstadisticas().ConsultarListaUsuario(dow, dom, month, year, franja, desde, Hasta, tipo,
              genero, Estado, area));
         
@@ -2431,7 +2431,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           hasta[1]=(jComboBox72.getSelectedIndex()+1)+"";
           hasta[2]=jComboBox74.getSelectedItem()+"";
           }
-       biblioteca.Main.PdfCreator.createPdf("documentosExistentes.pdf", "Reporte de Documentos Existentes", "Total de documentos existentes en este reporte: ", 
+        bibioteca.reportes.PdfCreator.createPdf("documentosExistentes.pdf", "Reporte de Documentos Existentes", "Total de documentos existentes en este reporte: ", 
                 new ControladorReportesEstadisticas().ConsultarListaDocumentosExistentes(area, autor, tipo, editorial, idioma, estado,
        desde, hasta));
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -2469,7 +2469,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           if(DocTipoComboBoxPDC.getSelectedIndex()!=0) doc_tipo=tdExistentes.get(DocTipoComboBoxPDC.getSelectedIndex()-1).getTipoDocumento();
           if(jTextField6.isCursorSet() && !jTextField6.getText().isEmpty()) usuario=jTextField6.getText();
           
-          biblioteca.Main.PdfCreator.createPdf("documentosConsultados.pdf", "Reporte de Documentos Consultados", "Total de documentos consultados en este reporte: ", 
+          bibioteca.reportes.PdfCreator.createPdf("documentosConsultados.pdf", "Reporte de Documentos Consultados", "Total de documentos consultados en este reporte: ", 
                 new ControladorReportesEstadisticas().ConsultarListaDocumentosConsultados(dow, dom, month, year, tipo_usuario,
                franja, desde,Hasta,area, autor, doc_tipo, usuario));
           
@@ -2508,7 +2508,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           if(DocTipoComboBoxPDD.getSelectedIndex()!=0) doc_tipo=tdExistentes.get(DocTipoComboBoxPDD.getSelectedIndex()-1).getTipoDocumento();
           if(jTextField7.isCursorSet() && !jTextField7.getText().isEmpty()) usuario=jTextField7.getText();
           
-          biblioteca.Main.PdfCreator.createPdf("documentosDescargados.pdf", "Reporte de Documentos Descargados", "Total de documentos consultados en este reporte: ",new ControladorReportesEstadisticas().ConsultarListaDocumentosDescargados(dow, dom, month, year, tipo_usuario,
+          bibioteca.reportes.PdfCreator.createPdf("documentosDescargados.pdf", "Reporte de Documentos Descargados", "Total de documentos consultados en este reporte: ",new ControladorReportesEstadisticas().ConsultarListaDocumentosDescargados(dow, dom, month, year, tipo_usuario,
                franja, desde,Hasta,area, autor, doc_tipo, usuario));
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -2617,7 +2617,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           if(DocTipoComboBoxPDC1.getSelectedIndex()!=0) doc_tipo=tdExistentes.get(DocTipoComboBoxPDC1.getSelectedIndex()-1).getTipoDocumento();
           if(jTextField8.isCursorSet() && !jTextField8.getText().isEmpty()) usuario=jTextField8.getText();
           
-          biblioteca.Main.PdfCreator.createPdf("documentosCatalogados.pdf", "Reporte de Documentos Catalogados", "Total de documentos catalogados en este reporte: ",new ControladorReportesEstadisticas().ConsultarListaDocumentosCatalogados(dow, dom, month, year, franja, desde, Hasta, area, autor, doc_tipo, usuario));
+          bibioteca.reportes.PdfCreator.createPdf("documentosCatalogados.pdf", "Reporte de Documentos Catalogados", "Total de documentos catalogados en este reporte: ",new ControladorReportesEstadisticas().ConsultarListaDocumentosCatalogados(dow, dom, month, year, franja, desde, Hasta, area, autor, doc_tipo, usuario));
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jCheckBox34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox34ActionPerformed

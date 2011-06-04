@@ -1028,7 +1028,7 @@ public class GUIStatistics extends javax.swing.JFrame {
         if(DocTipoComboBoxPDC.getSelectedIndex()!=0) doc_tipo=tdExistentes.get(DocTipoComboBoxPDC.getSelectedIndex()-1).getTipoDocumento();
         usuario=jTextField6.getText();
         int salida=Integer.parseInt(Num_Doc.getText());
-        biblioteca.Main.PdfCreator.createPdf("documentosMásConsultados.pdf", "Reporte de Documentos Más Consultados",
+        bibioteca.reportes.PdfCreator.createPdf("documentosMásConsultados.pdf", "Reporte de Documentos Más Consultados",
                 "Total de documentos en este reporte: ",new ControladorEstadisticas().estadisticasDocumentosConsultados(dow, dom, month, year, tipo_usuario,
                 franja, desde,Hasta,area, autor, doc_tipo, usuario, jCheckBox31.isSelected(), salida));
 }//GEN-LAST:event_Reporte_ConsultadosActionPerformed
@@ -1063,7 +1063,7 @@ public class GUIStatistics extends javax.swing.JFrame {
         if(DocTipoComboBoxPDD.getSelectedIndex()!=0) doc_tipo=tdExistentes.get(DocTipoComboBoxPDD.getSelectedIndex()-1).getTipoDocumento();
         if(jTextField7.isCursorSet() && !jTextField7.getText().isEmpty()) usuario=jTextField7.getText();
         int salida=Integer.parseInt(Num_Doc1.getText());
-        biblioteca.Main.PdfCreator.createPdf("documentosMásDescargados.pdf", "Reporte de Documentos Más Descargados",
+        bibioteca.reportes.PdfCreator.createPdf("documentosMásDescargados.pdf", "Reporte de Documentos Más Descargados",
                 "Total de documentos en este reporte: ",new ControladorEstadisticas().estadisticasDocumentosDescargados(dow, dom, month, year, tipo_usuario,
                 franja, desde,Hasta,area, autor, doc_tipo, usuario, jCheckBox45.isSelected(), salida));
 }//GEN-LAST:event_Reporte_DescargadosActionPerformed
