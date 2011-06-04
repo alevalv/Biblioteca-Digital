@@ -180,6 +180,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel80 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jCheckBox1 = new javax.swing.JCheckBox();
         jPanel2 = new javax.swing.JPanel();
         Panel_Documentos2 = new javax.swing.JPanel();
         jLabel52 = new javax.swing.JLabel();
@@ -692,10 +693,18 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         Panel_Usuarios.add(jButton1, gridBagConstraints);
+
+        jCheckBox1.setText("Intersectar");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 17;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        Panel_Usuarios.add(jCheckBox1, gridBagConstraints);
 
         jPanel1.add(Panel_Usuarios);
 
@@ -2365,7 +2374,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           if(AreasComboBoxPU.getSelectedIndex()!=0) area=areasExistentes.get(AreasComboBoxPU.getSelectedIndex()-1).getID();
        
       
-      System.out.println("tipo "+tipo);
+        System.out.println("tipo "+tipo);
         biblioteca.Main.PdfCreator.createPdf("usuarios.pdf", "Reporte de Usuarios Registrados", "Total de usuarios registrados: ", 
                 new ControladorReportesEstadisticas().ConsultarListaUsuario(dow, dom, month, year, franja, desde, Hasta, tipo,
              genero, Estado, area));
@@ -2740,6 +2749,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox29;
     private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JCheckBox jCheckBox31;

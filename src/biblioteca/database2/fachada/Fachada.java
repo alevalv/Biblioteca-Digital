@@ -45,9 +45,9 @@ public class Fachada {
          * Construye un objeto de fachada con los valores definidos.
          */
         public Fachada(){
-            url="jdbc:postgresql://localhost:5432/alevalvi";
+            url="jdbc:postgresql://localhost:5432/pruebas";
             usuario="postgres";
-            password="root";
+            password="evelynromo";
         }
 
         /**
