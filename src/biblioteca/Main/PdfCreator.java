@@ -102,14 +102,16 @@ public class PdfCreator {
             counter++;
         }
         if(entrada.size()-1>rows){
-            int otros=0;
+            int otros=0, otrospor;
             for(int i=counter;i<entrada.size();i++){
                 otros+=Integer.parseInt(entrada.get(i).get(entrada.get(i).size()-1));
             }
-            otros*=100;
-            otros/=total;
+            otrospor=otros*100;
+            otrospor/=total;
+            salida.addCell("-");
             salida.addCell("Otros");
-            salida.addCell(otros+"%");
+            salida.addCell(otros+"");
+            salida.addCell(otrospor+"%");
         }
         return salida;
     }
