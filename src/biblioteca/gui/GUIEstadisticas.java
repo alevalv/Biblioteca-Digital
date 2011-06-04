@@ -1057,6 +1057,11 @@ public class GUIEstadisticas extends javax.swing.JFrame {
 
         jCheckBox36.setText("Por Franja Horaria:");
         jCheckBox36.setEnabled(false);
+        jCheckBox36.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox36ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
@@ -1111,6 +1116,11 @@ public class GUIEstadisticas extends javax.swing.JFrame {
 
         jCheckBox37.setText("Intervalo de Tiempo");
         jCheckBox37.setEnabled(false);
+        jCheckBox37.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox37ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 10;
@@ -2671,6 +2681,36 @@ public class GUIEstadisticas extends javax.swing.JFrame {
            if(jCheckBox49.isSelected()) jComboBox99.setEnabled(true);
           else jComboBox99.setEnabled(false);
     }//GEN-LAST:event_jCheckBox49ActionPerformed
+
+    private void jCheckBox36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox36ActionPerformed
+      if(jCheckBox36.isSelected()){
+          jComboBox79.setEnabled(true);
+          jComboBox80.setEnabled(true);
+      }
+      else{
+          jComboBox79.setEnabled(false);
+          jComboBox80.setEnabled(false);
+      }
+    }//GEN-LAST:event_jCheckBox36ActionPerformed
+
+    private void jCheckBox37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox37ActionPerformed
+        if(jCheckBox37.isSelected()){
+          jComboBox82.setEnabled(true);
+          jComboBox83.setEnabled(true);
+          jComboBox84.setEnabled(true);
+          jComboBox87.setEnabled(true);
+          jComboBox88.setEnabled(true);
+          jComboBox89.setEnabled(true);
+        }
+        else{
+          jComboBox82.setEnabled(false);
+          jComboBox83.setEnabled(false);
+          jComboBox84.setEnabled(false);
+          jComboBox87.setEnabled(false);
+          jComboBox88.setEnabled(false);
+          jComboBox89.setEnabled(false);
+        }
+    }//GEN-LAST:event_jCheckBox37ActionPerformed
 
     private void unsupportedOperation(){
         JOptionPane.showMessageDialog(this, "Esta operación aún no ha sido implementada", "Error", JOptionPane.ERROR_MESSAGE);

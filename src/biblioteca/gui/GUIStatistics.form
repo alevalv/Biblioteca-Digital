@@ -1,12 +1,6 @@
 <?xml version="1.1" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
-  <NonVisualComponents>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
-    </Component>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup2">
-    </Component>
-  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="0"/>
   </Properties>
@@ -91,9 +85,6 @@
             </Component>
             <Component class="javax.swing.JCheckBox" name="jCheckBox45">
               <Properties>
-                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroup1"/>
-                </Property>
                 <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="Todas"/>
               </Properties>
@@ -119,6 +110,7 @@
                     <StringItem index="6" value="Domingo"/>
                   </StringArray>
                 </Property>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[56, 20]"/>
                 </Property>
@@ -166,6 +158,7 @@
                     <StringItem index="30" value="31"/>
                   </StringArray>
                 </Property>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[56, 20]"/>
                 </Property>
@@ -194,6 +187,7 @@
                     <StringItem index="11" value="Diciembre"/>
                   </StringArray>
                 </Property>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[56, 20]"/>
                 </Property>
@@ -213,6 +207,7 @@
                     <StringItem index="2" value="2009"/>
                   </StringArray>
                 </Property>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[56, 20]"/>
                 </Property>
@@ -226,9 +221,10 @@
             <Component class="javax.swing.JCheckBox" name="jCheckBox44">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroup1"/>
+                  <ComponentRef name="default"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Por dia de la Semana:"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox44ActionPerformed"/>
@@ -242,9 +238,10 @@
             <Component class="javax.swing.JCheckBox" name="jCheckBox43">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroup1"/>
+                  <ComponentRef name="default"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Por dia del Mes:"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox43ActionPerformed"/>
@@ -258,9 +255,10 @@
             <Component class="javax.swing.JCheckBox" name="jCheckBox42">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroup1"/>
+                  <ComponentRef name="default"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Por Mes:"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox42ActionPerformed"/>
@@ -274,9 +272,10 @@
             <Component class="javax.swing.JCheckBox" name="jCheckBox41">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroup1"/>
+                  <ComponentRef name="default"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Por A&#xf1;o:"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox41ActionPerformed"/>
@@ -290,6 +289,7 @@
             <Component class="javax.swing.JCheckBox" name="jCheckBox40">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Por Franja Horaria:"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox40ActionPerformed"/>
@@ -303,9 +303,10 @@
             <Component class="javax.swing.JCheckBox" name="jCheckBox39">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroup1"/>
+                  <ComponentRef name="default"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Intervalo de Tiempo:"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox39ActionPerformed"/>
@@ -319,6 +320,7 @@
             <Component class="javax.swing.JLabel" name="jLabel76">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Desde:"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -329,6 +331,7 @@
             <Component class="javax.swing.JLabel" name="jLabel75">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Hasta:"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -339,6 +342,7 @@
             <Component class="javax.swing.JLabel" name="jLabel73">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Desde:"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -377,6 +381,7 @@
                     <StringItem index="23" value="23:00"/>
                   </StringArray>
                 </Property>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[60, 20]"/>
                 </Property>
@@ -418,6 +423,7 @@
                     <StringItem index="23" value="23:00"/>
                   </StringArray>
                 </Property>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[60, 20]"/>
                 </Property>
@@ -431,6 +437,7 @@
             <Component class="javax.swing.JLabel" name="jLabel74">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Hasta:"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -475,6 +482,7 @@
                     <StringItem index="30" value="31"/>
                   </StringArray>
                 </Property>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[60, 20]"/>
                 </Property>
@@ -522,6 +530,7 @@
                     <StringItem index="30" value="31"/>
                   </StringArray>
                 </Property>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[60, 20]"/>
                 </Property>
@@ -550,6 +559,7 @@
                     <StringItem index="11" value="Diciembre"/>
                   </StringArray>
                 </Property>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[60, 20]"/>
                 </Property>
@@ -578,6 +588,7 @@
                     <StringItem index="11" value="Diciembre"/>
                   </StringArray>
                 </Property>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[60, 20]"/>
                 </Property>
@@ -597,6 +608,7 @@
                     <StringItem index="2" value="2009"/>
                   </StringArray>
                 </Property>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[50, 20]"/>
                 </Property>
@@ -616,6 +628,7 @@
                     <StringItem index="2" value="2009"/>
                   </StringArray>
                 </Property>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[50, 20]"/>
                 </Property>
@@ -829,10 +842,13 @@
             <Component class="javax.swing.JCheckBox" name="jCheckBox31">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroup2"/>
+                  <ComponentRef name="default"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cualquiera"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox31ActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="1" gridY="3" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="17" weightX="0.0" weightY="0.0"/>
@@ -865,10 +881,13 @@
             <Component class="javax.swing.JCheckBox" name="jCheckBox32">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroup2"/>
+                  <ComponentRef name="default"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Por dia de la Semana:"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox32ActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="4" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="5" insetsLeft="10" insetsBottom="0" insetsRight="0" anchor="21" weightX="0.0" weightY="0.0"/>
@@ -878,10 +897,13 @@
             <Component class="javax.swing.JCheckBox" name="jCheckBox33">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroup2"/>
+                  <ComponentRef name="default"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Por dia del Mes"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox33ActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="5" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="5" insetsLeft="10" insetsBottom="0" insetsRight="0" anchor="21" weightX="0.0" weightY="0.0"/>
@@ -938,10 +960,13 @@
             <Component class="javax.swing.JCheckBox" name="jCheckBox34">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroup2"/>
+                  <ComponentRef name="default"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Por Mes:"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox34ActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="6" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="5" insetsLeft="10" insetsBottom="0" insetsRight="0" anchor="21" weightX="0.0" weightY="0.0"/>
@@ -979,10 +1004,13 @@
             <Component class="javax.swing.JCheckBox" name="jCheckBox35">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroup2"/>
+                  <ComponentRef name="default"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Por A&#xf1;o:"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox35ActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="7" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="5" insetsLeft="10" insetsBottom="0" insetsRight="0" anchor="21" weightX="0.0" weightY="0.0"/>
@@ -993,6 +1021,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Por Franja Horaria:"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox36ActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="8" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="5" insetsLeft="10" insetsBottom="5" insetsRight="5" anchor="17" weightX="0.0" weightY="0.0"/>
@@ -1123,10 +1154,13 @@
             <Component class="javax.swing.JCheckBox" name="jCheckBox37">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroup2"/>
+                  <ComponentRef name="default"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Intervalo de Tiempo"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox37ActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="10" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="5" insetsLeft="10" insetsBottom="5" insetsRight="5" anchor="17" weightX="0.0" weightY="0.0"/>
