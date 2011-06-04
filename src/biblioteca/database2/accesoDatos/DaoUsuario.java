@@ -21,7 +21,19 @@ import biblioteca.database2.beans.*;
 import biblioteca.database2.fachada.Fachada;
 import java.sql.*;
 
-
+/**
+ *  Esta clase forma parte de los controladores creados para cumplir con el Patrón
+ * de diseño DAO.
+ * 
+ * <br>DaoUsuario crea el sql que se ejecutará a través de una conexión de una Fachada,
+ * este dao tiene que ver con todo lo relacionado con la administración de usuarios
+ * en la aplicación
+ * 
+ * @see <a href="http://www.proactiva-calidad.com/java/patrones/DAO.html">Patrón "Data Access Object"</a>
+ *
+ * @author María Cristina Bustos Rodríguez
+ * @author Alejandro Valdés Villada
+ */
 public class DaoUsuario {
 
     Fachada fachada;
@@ -30,8 +42,12 @@ public class DaoUsuario {
         fachada= new Fachada();
     }
 
+   /**
+    * Inserta un nuevo usuario en la base de datos
+    * @param usuario Usuario con los datos a insertar
+    * @return -1 si la operación no fue exitosa
+    */
      public int guardarUsuario(Usuario usuario){
-        
         String sql_guardar;
         sql_guardar="INSERT INTO usuarios(username, nombres,  apellidos, password, pregunta_secreta, respuesta_secreta, vinculo_con_univalle, tipo_usuario, correo_electronico, nivel_escolaridad, genero, "
                 + "fecha_nacimiento, fecha_registro) VALUES ('" +
@@ -61,6 +77,11 @@ public class DaoUsuario {
         return -1;
     }
 
+     /**
+      * Consulta los datos de un usuario dando su login(username) 
+      * @param login String con el login(username) del usuario a consultar
+      * @return Usuario con los datos del usuario relacionado con el login dado
+      */
     public Usuario consultarUsuario(String login){
         Usuario usuario= new Usuario();
         
@@ -96,6 +117,12 @@ public class DaoUsuario {
     }
 
 
+    /**
+     * Modifica un usuario pasando los datos viejos y nuevos en el Usuario, el 
+     * usuario se busca por el username, que es la primary key de los usuarios
+     * @param usuario Usuario con los datos para modificar
+     * @return -1 si la operación no fue exitosa
+     */
     public int modificarUsuario(Usuario usuario)
     {
         String sql_modificar;
@@ -125,6 +152,13 @@ public class DaoUsuario {
         return -1;
     }
 
+    /**
+     * Desactiva un usuario, dando el username
+     * @param login String con el login(username) del usuario a desactivar
+     * @return -1 si la operación no fue exitosa
+     * @deprecated Use cambiarEstadoCuenta(String, String)
+     */
+    @Deprecated
     public int desactivarUsuario(String login)
     {
         String sql_desactivar;
@@ -142,7 +176,12 @@ public class DaoUsuario {
         return -1;
     }
 
-
+    /**
+     * Agrega un área a un usuario en particular
+     * @param login String con el username del usuario a modificar
+     * @param id_area String con el identificador del área a insertar
+     * @return -1 si la operación no fue exitosa
+     */
     public int agregarAreasComputacion(String login, String id_area)
     {
         String sql_guardar;
@@ -160,6 +199,12 @@ public class DaoUsuario {
         return -1;
     }
 
+    /**
+     * Elimina un área de un usuario en particular
+     * @param login String con el username del usuario a modificar
+     * @param id_area String con el identificador del área a modificar
+     * @return -1 si la operación no fue exitosa
+     */
     public int eliminarAreasComputacion(String login, String id_area)
     {
         String sql_eliminarArea;
@@ -177,9 +222,12 @@ public class DaoUsuario {
         return -1;
     }
 
-  
-    
-
+    /**
+     * Autentica un usuario en la base de datos
+     * @param login String con el login(username) a autenticar
+     * @param contrasena String con la contraseña del usuario a autenticar
+     * @return boolean indicando si la autenticación es correcta
+     */
     public boolean AutenticarUsuario(String login, String contrasena)
     {
         String passwordRecibido="";
@@ -208,7 +256,11 @@ public class DaoUsuario {
         return false;
     }
 
-
+    /**
+     * Verifica si el username pasado está disponible para ser usado
+     * @param login String con el login(username) a comprobar
+     * @return boolean indicando si el login está disponible o no
+     */
     public boolean verificarUsuarioDisponible(String login)
     {
         String loginRecibido= new String();
@@ -234,6 +286,11 @@ public class DaoUsuario {
         return true;
     }
     
+    /**
+     * Obtiene el tipo de un usuario dando su username
+     * @param username String con el login(username) del usuario
+     * @return String con el tipo de usuario
+     */
     public String obtenerTipoUsuario(String username){
         String tipoRecibido= null;
         String sql_verificarUsuario;
@@ -254,6 +311,11 @@ public class DaoUsuario {
         return tipoRecibido;
     }
 
+    /**
+     * Obtiene el valor de activo de un usuario seleccionado
+     * @param username String con el login(username) del usuario a consultar
+     * @return String con el valor de activo del usuario, puede ser "t" o "f"
+     */
     public String obtenerActivoUsuario(String username){
         String activoRecibido= null;
         String sql_verificarUsuario;
@@ -274,6 +336,12 @@ public class DaoUsuario {
         return activoRecibido;
     }
 
+    /**
+     * Cambia el tipo de un usuario por el especificado en el parametro
+     * @param username String con el username del usuario a modificar
+     * @param tipo String con el nuevo tipo del usuario, puede ser "1", "2" o "3"
+     * @return -1 si la operación no fue exitosa
+     */
     public int cambiarTipoUsuario(String username, String tipo) {
         String sql_asignar;
         sql_asignar="UPDATE usuarios SET tipo_usuario='"+tipo+"'  WHERE username= '"+username+"';";
@@ -290,6 +358,12 @@ public class DaoUsuario {
         return -1;
     }
     
+    /**
+     * Cambia el estado de una cuenta al especificado
+     * @param username String con el username del usuario a modificar
+     * @param estado String con el nuevo estado, puede ser "t" o "f"
+     * @return -1 si la operación no fue exitosa
+     */
     public int cambiarEstadoCuenta(String username, String estado) {
         String sql_asignar;
         sql_asignar="UPDATE usuarios SET activo='"+estado+"'  WHERE username= '"+username+"';";
@@ -306,6 +380,12 @@ public class DaoUsuario {
         return -1;
     }
 
+    /**
+     * Cambia la fecha de ultimo acceso por la especificada en los parametos
+     * @param username String con el login(username) del usuario a modificar
+     * @param ultimo_acceso String con la fecha (timestamp) del nuevo ultimo acceso
+     * @return -1 si la operación no fue exitosa
+     */
     public int cambiarUltimoAcceso(String username, String ultimo_acceso){
         String sql_update;
         sql_update="UPDATE usuarios SET ultimo_acceso='"+ultimo_acceso+"' WHERE "
@@ -323,6 +403,11 @@ public class DaoUsuario {
                 
     }
     
+    /**
+     * Obtiene el ultimo acceso de un usuario especificando su username
+     * @param username String con el login(username) del usuario a consultar
+     * @return String con el ultimo acceso en formato timestamp
+     */
     public String obtenerUltimoAcceso(String username){
         String ultimoAcceso= null;
         String sql_consultar;
