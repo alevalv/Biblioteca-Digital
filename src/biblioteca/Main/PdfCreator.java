@@ -94,12 +94,22 @@ public class PdfCreator {
         for(int j=1;j<entrada.size()&&counter<rows;j++){
             for(int i=0;i<entrada.get(j).size();i++){
                 salida.addCell(entrada.get(j).get(i));
-                if(i==entrada.size()-1){
+                if(i==entrada.get(j).size()-1){
                     int porcentaje=(int) (Integer.parseInt(entrada.get(j).get(i))*100)/total;
                     salida.addCell(porcentaje+"%");
                 }
             }
             counter++;
+        }
+        if(entrada.size()-1>rows){
+            int otros=0;
+            for(int i=counter;i<entrada.size();i++){
+                otros+=Integer.parseInt(entrada.get(i).get(entrada.get(i).size()-1));
+            }
+            otros*=100;
+            otros/=total;
+            salida.addCell("Otros");
+            salida.addCell(otros+"%");
         }
         return salida;
     }
