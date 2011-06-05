@@ -24,6 +24,7 @@
 package biblioteca.gui.catalogacion;
 
 import biblioteca.database2.beans.Documento;
+import biblioteca.gui.LimitadorDejTextField;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
@@ -93,6 +94,8 @@ public class Informacion_Basica extends javax.swing.JPanel {
         add(jLabel1, gridBagConstraints);
 
         Titulo_Principal.setPreferredSize(new java.awt.Dimension(200, 28));
+        LimitadorDejTextField Titulo_PrincipalL=new LimitadorDejTextField(200);
+        Titulo_Principal.setDocument(Titulo_PrincipalL);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
@@ -111,6 +114,8 @@ public class Informacion_Basica extends javax.swing.JPanel {
         add(jLabel2, gridBagConstraints);
 
         Titulo_Secundario.setPreferredSize(new java.awt.Dimension(200, 28));
+        LimitadorDejTextField Titulo_SecundarioL=new LimitadorDejTextField(200);
+        Titulo_Secundario.setDocument(Titulo_SecundarioL);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
@@ -147,6 +152,8 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         add(jLabel5, gridBagConstraints);
 
+        LimitadorDejTextField DescripcionL=new LimitadorDejTextField(500);
+        Descripcion.setDocument(DescripcionL);
         Descripcion.setColumns(20);
         Descripcion.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         Descripcion.setRows(5);
@@ -190,6 +197,9 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         add(jLabel7, gridBagConstraints);
+
+        LimitadorDejTextField EditorialL=new LimitadorDejTextField(30);
+        Editorial.setDocument(EditorialL);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 7;
@@ -213,6 +223,9 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         add(jLabel9, gridBagConstraints);
+
+        LimitadorDejTextField Derechos_AutorL=new LimitadorDejTextField(40);
+        Derechos_Autor.setDocument(Derechos_AutorL);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 9;
@@ -234,7 +247,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(24, 12, 10, 0);
         add(Estado, gridBagConstraints);
 
-        Siguiente.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        Siguiente.setFont(new java.awt.Font("Ubuntu", 1, 15));
         Siguiente.setText("Siguiente Paso");
         Siguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

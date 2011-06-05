@@ -25,11 +25,8 @@ package biblioteca.gui;
 
 import biblioteca.database2.controladores.ControladorUsuario;
 import javax.swing.JOptionPane;
+import biblioteca.gui.LimitadorDejTextField;
 
-/**
- *
- * @author alejandro
- */
 class GUIAutenticacion extends javax.swing.JFrame {
     biblioteca.gui.GUIBusqueda parent;
     /** Creates new form GUIAutenticacion */
@@ -74,8 +71,13 @@ class GUIAutenticacion extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biblioteca/gui/resources/logo.png"))); // NOI18N
 
+        LimitadorDejTextField UsernameL=new LimitadorDejTextField(30);
+        Username.setDocument(UsernameL);
+
         jLabel4.setText("Contraseña: ");
 
+        LimitadorDejTextField PasswordL=new LimitadorDejTextField(30);
+        Password.setDocument(PasswordL);
         Password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PasswordActionPerformed(evt);

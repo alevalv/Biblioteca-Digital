@@ -108,6 +108,10 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="Username">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTextField()"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="LimitadorDejTextField UsernameL=new LimitadorDejTextField(30);&#xa;Username.setDocument(UsernameL);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
@@ -118,6 +122,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PasswordActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="LimitadorDejTextField PasswordL=new LimitadorDejTextField(30);&#xa;Password.setDocument(PasswordL);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="Ingresar">
       <Properties>

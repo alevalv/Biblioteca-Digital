@@ -27,15 +27,13 @@ import biblioteca.database2.accesoDatos.DaoTipoDocumento;
 import biblioteca.database2.beans.Documento;
 import biblioteca.database2.beans.TipoDocumento;
 import biblioteca.database2.controladores.ControladorTipoDocumento;
+import biblioteca.gui.LimitadorDejTextField;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 
-/**
- *
- * @author alejandro
- */
+
 public class Tipo_Documento extends javax.swing.JPanel {
     Documento documento;
     ArrayList<TipoDocumento> tiposExistentes;    
@@ -108,6 +106,7 @@ public class Tipo_Documento extends javax.swing.JPanel {
         });
 
         Descripcion.setColumns(20);
+        Descripcion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Descripcion.setRows(5);
         jScrollPane1.setViewportView(Descripcion);
 
@@ -122,10 +121,16 @@ public class Tipo_Documento extends javax.swing.JPanel {
 
         jLabel1.setText("Nombre: ");
 
+        LimitadorDejTextField Tipo_NombreL=new LimitadorDejTextField(20);
+        Tipo_Nombre.setDocument(Tipo_NombreL);
+
         jLabel2.setText("Descripción: ");
 
         Tipo_Descripcion.setColumns(20);
+        Tipo_Descripcion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Tipo_Descripcion.setRows(5);
+        LimitadorDejTextField Tipo_DescripcionL=new LimitadorDejTextField(200);
+        Tipo_Descripcion.setDocument(Tipo_DescripcionL);
         jScrollPane2.setViewportView(Tipo_Descripcion);
 
         Agregar.setText("Agregar");
@@ -161,17 +166,17 @@ public class Tipo_Documento extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(jLabel4))
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jLabel10)
                 .addGap(85, 85, 85)
                 .addComponent(Obtener_Descripcion)
-                .addContainerGap(231, Short.MAX_VALUE))
+                .addContainerGap(278, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(Tipos_Documento, 0, 567, Short.MAX_VALUE)
+                .addComponent(Tipos_Documento, 0, 589, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -182,21 +187,22 @@ public class Tipo_Documento extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 204, Short.MAX_VALUE)
                                 .addComponent(Agregar))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(jLabel1)
-                                .addGap(2, 2, 2)
-                                .addComponent(Tipo_Nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(12, 12, 12)
+                                        .addComponent(jLabel1))
+                                    .addComponent(jLabel2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE)
+                                    .addComponent(Tipo_Nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE))))))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 567, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addComponent(Estado)
@@ -204,14 +210,14 @@ public class Tipo_Documento extends javax.swing.JPanel {
                 .addComponent(Siguiente)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(536, Short.MAX_VALUE)
+                .addContainerGap(550, Short.MAX_VALUE)
                 .addComponent(Editar)
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(32, 32, 32)
                     .addComponent(jLabel11)
-                    .addContainerGap(169, Short.MAX_VALUE)))
+                    .addContainerGap(188, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

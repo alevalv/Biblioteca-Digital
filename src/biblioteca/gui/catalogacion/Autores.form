@@ -28,7 +28,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="165" max="32767" attributes="0"/>
+              <EmptySpace pref="170" max="32767" attributes="0"/>
               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
@@ -38,18 +38,6 @@
           <Group type="102" attributes="0">
               <EmptySpace min="22" pref="22" max="22" attributes="0"/>
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="19" pref="19" max="19" attributes="0"/>
-              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="7" pref="7" max="7" attributes="0"/>
-              <Component id="Autor_Correo" min="-2" pref="413" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="48" pref="48" max="48" attributes="0"/>
-              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="36" pref="36" max="36" attributes="0"/>
-              <Component id="Autor_Nombre" min="-2" pref="413" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace min="48" pref="48" max="48" attributes="0"/>
@@ -101,6 +89,20 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
+          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+              <Group type="102" attributes="1">
+                  <EmptySpace min="19" pref="19" max="19" attributes="0"/>
+                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="Autor_Correo" min="-2" pref="413" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="48" pref="48" max="48" attributes="0"/>
+                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="36" pref="36" max="36" attributes="0"/>
+                  <Component id="Autor_Nombre" min="-2" pref="413" max="-2" attributes="0"/>
+              </Group>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -136,15 +138,12 @@
               <Component id="jSeparator1" min="-2" pref="6" max="-2" attributes="0"/>
               <EmptySpace min="10" pref="10" max="10" attributes="0"/>
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="5" pref="5" max="5" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="5" pref="5" max="5" attributes="0"/>
-                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="Autor_Correo" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Autor_Correo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="10" pref="10" max="10" attributes="0"/>
+              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="5" pref="5" max="5" attributes="0"/>
@@ -263,10 +262,19 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="Autor_Correo">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="LimitadorDejTextField Autor_CorreoL=new LimitadorDejTextField(40);&#xa;Autor_Correo.setDocument(Autor_CorreoL);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="Autor_Nombre">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="LimitadorDejTextField Autor_NombreL=new LimitadorDejTextField(30);&#xa;Autor_Nombre.setDocument(Autor_NombreL);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="Autor_Apellido">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="LimitadorDejTextField Autor_ApellidoL=new LimitadorDejTextField(30);&#xa;Autor_Apellido.setDocument(Autor_ApellidoL);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
       <Properties>
@@ -274,6 +282,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="Autor_Acronimo">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="LimitadorDejTextField Autor_AcronimoL=new LimitadorDejTextField(6);&#xa;Autor_Acronimo.setDocument(Autor_AcronimoL);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="Estado">
       <Properties>
