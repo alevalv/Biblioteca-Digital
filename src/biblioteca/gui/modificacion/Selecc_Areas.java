@@ -288,7 +288,7 @@ public class Selecc_Areas extends javax.swing.JPanel {
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
         if(Areas.getSelectedIndex()!=-1){
-            if(!areasSeleccionadas.contains(areasExistentes.get(Areas.getSelectedIndex()))){
+            if(!areasSeleccionadas.contains(areasExistentes.get(Areas.getSelectedIndex()+1))){
                 areasSeleccionadas.add(areasExistentes.get(Areas.getSelectedIndex()+1));
             }
         }
