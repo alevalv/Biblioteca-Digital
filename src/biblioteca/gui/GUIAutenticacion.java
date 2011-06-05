@@ -67,7 +67,7 @@ class GUIAutenticacion extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 24));
         jLabel1.setText("Autenticación");
 
         jLabel2.setText("Nombre de Usuario: ");
@@ -96,7 +96,7 @@ class GUIAutenticacion extends javax.swing.JFrame {
             }
         });
 
-        jLabel19.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Ubuntu", 1, 24));
         jLabel19.setText("Biblioteca Digital");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -142,12 +142,12 @@ class GUIAutenticacion extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Ingresar)
                     .addComponent(Cancelar))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         pack();
