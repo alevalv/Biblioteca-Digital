@@ -17,6 +17,7 @@
  */
 package biblioteca.reportes;
 
+import biblioteca.database2.accesoDatos.DaoReportesEstadisticas;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -233,6 +234,7 @@ public class PdfCreator {
     
     static public void createArrayListPdf(String path, String titulo, String encabezado, ArrayList<PdfPTable> tablas){
         Document document = new Document();
+        ArrayList<String> NombreTablas=new DaoReportesEstadisticas().getNombreTablas();
        //step 2
         try{
         PdfWriter.getInstance(document, new FileOutputStream(path));
@@ -258,6 +260,7 @@ public class PdfCreator {
         document.add(Fecha);
         document.add(new Paragraph("\r\n"));
         for(int i=0;i<tablas.size();i++){
+        document.add(new Paragraph(NombreTablas.get(i))); 
         document.add(new Paragraph(encabezado+(tablas.get(i).getRows().size()-1)));
         document.add(new Paragraph("\r\n"));
         document.add(tablas.get(i));

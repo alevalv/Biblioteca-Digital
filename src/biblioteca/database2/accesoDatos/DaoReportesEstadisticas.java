@@ -27,6 +27,7 @@ import java.util.ArrayList;
 
 public class DaoReportesEstadisticas {
     Fachada Fachada;
+    static ArrayList<String> NombreTablas;
     
     public DaoReportesEstadisticas(){
         Fachada = new Fachada();
@@ -46,6 +47,7 @@ public class DaoReportesEstadisticas {
        System.out.println();
     }
     }
+    
     public ResultSet ResultSetConsultarLista(String consultar){
         System.out.println(consultar);
          try {
@@ -62,6 +64,10 @@ public class DaoReportesEstadisticas {
         }
          return null;  
      }
+    
+    public ArrayList<String> getNombreTablas(){
+        return NombreTablas;
+    }
     ///Para panel usuarios
     //para la lista unida
     public ResultSet ConsultarListaUsuario(String dow, String dom, String month, String year, String[] franja, String[] desde, String[] Hasta, String tipo,
@@ -137,26 +143,57 @@ public class DaoReportesEstadisticas {
      public ArrayList<ResultSet> ConsultarListaSeparadaUsuario(String dow, String dom, String month, String year, String[] franja, String[] desde, String[] Hasta, String tipo, String genero, String Estado, String area) throws SQLException {
   
       ArrayList<ResultSet> Consultas=new ArrayList<ResultSet>(10);
+      NombreTablas=new ArrayList<String>(10);
       String temp=ConsultarDowUsuarios(dow);
-      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()) {
+          NombreTablas.add("Lista de Usuarios Registrados por dia de la semana");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarDomUsuarios(dom);
-      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()) {
+          NombreTablas.add("Lista de Usuarios Registrados por dia del mes");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarMonthUsuarios(month);
-      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()){
+          NombreTablas.add("Lista de Usuarios Registrados por mes");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarYearUsuarios(year);
-      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()){
+          NombreTablas.add("Lista de Usuarios Registrados por año");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarFranjaUsuarios(franja);
-      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()) {
+          NombreTablas.add("Lista de Usuarios Registrados por franja horaria");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarIntervaloUsuarios(desde,Hasta);
-      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()) {
+          NombreTablas.add("Lista de Usuarios Registrados por intervalo de tiempo");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarTipoUsuarios(tipo);
-      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()){
+          NombreTablas.add("Lista de Usuarios Registrados por tipo de usuario");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarGeneroUsuarios(genero);
-      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty())  {
+          NombreTablas.add("Lista de Usuarios Registrados por genero");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarEstadoUsuarios(Estado);
-      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp)); 
+      if(!temp.isEmpty()) {
+          NombreTablas.add("Lista de Usuarios Registrados por estado");
+          Consultas.add(ResultSetConsultarLista(temp));
+      } 
       temp=ConsultarAreasUsuarios(area);
-      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()) {
+          NombreTablas.add("Lista de Usuarios Registrados por area");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
            
       return Consultas;
     }
@@ -295,20 +332,42 @@ public class DaoReportesEstadisticas {
     
     public ArrayList<ResultSet> ConsultarListaSeparadaDocumentosExistentes(String area, String autor, String tipo, String editorial, String idioma, String estado, String[] desde, String[] hasta) {
       ArrayList<ResultSet> Consultas=new ArrayList<ResultSet>(6); 
+      NombreTablas=new ArrayList<String>(6);
       String temp=ConsultarAreasDocumentosExistentes(area);
-      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()) {
+          NombreTablas.add("Lista de Documentos Existentes por Area");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarAutorDocumentosExistentes(autor);
-      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()) {
+          NombreTablas.add("Lista de Documentos Existentes por Autor");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarTipoDocumentosExistentes(tipo);
-      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()){
+          NombreTablas.add("Lista de Documentos Existentes por Tipo de Documento");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarEditorialDocumentosExistentes(editorial);
-      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()){
+          NombreTablas.add("Lista de Documentos Existentes por editorial");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarIdiomaDocumentosExistentes(idioma);
-      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()) {
+          NombreTablas.add("Lista de Documentos Existentes por Idioma");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarEstadoDocumentosExistentes(estado);
-      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()) {
+          NombreTablas.add("Lista de Documentos Existentes por Estado");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarIntervaloDocumentosExistentes(desde,hasta);
-      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()){
+          NombreTablas.add("Lista de Documentos Existentes por Intervalo");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       return Consultas;
     }
     
