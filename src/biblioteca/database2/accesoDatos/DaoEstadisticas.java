@@ -46,6 +46,26 @@ public class DaoEstadisticas {
         Fachada=new Fachada();
     }
     
+    /**
+     * Genera el sql para obtener la lista de los documento más descargados, según los parametros
+     * seleccionados por el usuario.
+     * <br>Esta función se apoya en crearCondicionesEspecialesDescargados para 
+     * generar consultas aún más especificas usando una subconsulta
+     * @param dow Dia del año seleccionado
+     * @param dom Dia del mes seleccionado
+     * @param month Mes seleccionado
+     * @param year Año seleccionado
+     * @param tipo_usuario Tipo de usuario selccionado
+     * @param franja Franja horaria seleccionada, es un String[] con dos fechas en sql
+     * @param desde fecha de inicio de la franja de descargas
+     * @param hasta fecha de fin de la franja de descargas
+     * @param area id del area seleccionada por el usuario
+     * @param autor correo del autor seleccionado por el usuario
+     * @param doc_tipo Tipo de documento seleccionado por el usuario
+     * @param usuario El username especifico que el usuario selecciona
+     * @param todos Indica si el usuario quiere una consulta general (respecto a fechas) o una consulta más especifica
+     * @return ResultSet con el resultado de la consulta
+     */
     public ResultSet documentosMasDescargados(String dow,String dom,String month,String year,String tipo_usuario,
        String[] franja,String[] desde,String[] hasta,String area,String autor,String doc_tipo,String usuario, boolean todos){
         String sql_descargados="";
@@ -114,6 +134,16 @@ public class DaoEstadisticas {
        
     }
     
+    /**
+     * Crea una subconsulta que se agrega a la consulta creada en documentosMasDescargados
+     * en el caso de que sea necesario para el usuario
+     * @param tipo_usuario String con el tipo de usuario selccionado
+     * @param area String con el id area seleccionada
+     * @param autor String con el autor del documento
+     * @param doc_tipo String con el tipo de documento
+     * @param usuario String con el nombre de usuario a consultar
+     * @return String con la subconsulta para ser agregada a la consulta principal
+     */
     private String crearCondicionesEspecialesDescargados(String tipo_usuario, String area,String autor,String doc_tipo,String usuario){
         String salida="";
         ArrayList condiciones = new ArrayList(5);
@@ -151,6 +181,26 @@ public class DaoEstadisticas {
         return salida;
     }
     
+    /**
+     * Genera el sql para obtener la lista de los documento más consultados, según los parametros
+     * seleccionados por el usuario.
+     * <br>Esta función se apoya en crearCondicionesEspecialesConsultados para 
+     * generar consultas aún más especificas usando una subconsulta
+     * @param dow Dia del año seleccionado
+     * @param dom Dia del mes seleccionado
+     * @param month Mes seleccionado
+     * @param year Año seleccionado
+     * @param tipo_usuario Tipo de usuario selccionado
+     * @param franja Franja horaria seleccionada, es un String[] con dos fechas en sql
+     * @param desde fecha de inicio de la franja de descargas
+     * @param hasta fecha de fin de la franja de descargas
+     * @param area id del area seleccionada por el usuario
+     * @param autor correo del autor seleccionado por el usuario
+     * @param doc_tipo Tipo de documento seleccionado por el usuario
+     * @param usuario El username especifico que el usuario selecciona
+     * @param todos Indica si el usuario quiere una consulta general (respecto a fechas) o una consulta más especifica
+     * @return ResultSet con el resultado de la consulta
+     */
     public ResultSet documentosMasConsultados(String dow,String dom,String month,String year,String tipo_usuario,
        String[] franja,String[] desde,String[] hasta,String area,String autor,String doc_tipo,String usuario, boolean todos){
         String sql_descargados="";
@@ -161,7 +211,6 @@ public class DaoEstadisticas {
             if(franja!=null){
                 sql_descargados+="WHERE date_part('hour',fecha_hora)>="+franja[0]+" and date_part('hour',fecha_hora)<="+franja[1]+" ";
             }
-            sql_descargados+="GROUP BY Identificacion, Titulo ORDER BY  descargas DESC; ";
         }
         else{
             sql_descargados="SELECT doc_id as Identificacion, documentos."
@@ -198,8 +247,9 @@ public class DaoEstadisticas {
             for(int i=0;i<condiciones.size();i++){
                 sql_descargados+=(i!=(condiciones.size()-1)) ? condiciones.get(i)+"AND " : condiciones.get(i);
             }
-            sql_descargados+="GROUP BY Identificacion, Titulo ORDER BY  descargas DESC; ";
         }
+        sql_descargados+=crearCondicionesEspecialesConsultados(tipo_usuario, area, autor, doc_tipo, usuario);
+        sql_descargados+=" GROUP BY Identificacion, Titulo ORDER BY  descargas DESC; ";
         System.out.println(sql_descargados);
         try {
             Connection conn = Fachada.conectar();
@@ -218,4 +268,50 @@ public class DaoEstadisticas {
        
     }
     
+    /**
+     * Crea una subconsulta que se agrega a la consulta creada en documentosMasConsultados
+     * en el caso de que sea necesario para el usuario
+     * @param tipo_usuario String con el tipo de usuario selccionado
+     * @param area String con el id area seleccionada
+     * @param autor String con el autor del documento
+     * @param doc_tipo String con el tipo de documento
+     * @param usuario String con el nombre de usuario a consultar
+     * @return String con la subconsulta para ser agregada a la consulta principal
+     */
+    private String crearCondicionesEspecialesConsultados(String tipo_usuario, String area,String autor,String doc_tipo,String usuario){
+        String salida="";
+        ArrayList condiciones = new ArrayList(5);
+        if(tipo_usuario!=null){
+            String temp;
+            temp="(SELECT DISTINCT doc_id FROM usuario_consulta"
+                    + "_documento NATURAL JOIN usuarios WHERE tipo_usuario="+
+                    ((tipo_usuario.equals("Usuario Normal")) ? "'3'" : "'2'") +
+                    ((usuario!=null) ? " AND username='"+usuario : "")+")";
+            condiciones.add(temp);
+        }
+        if(area!=null){
+            String temp;
+            temp="(SELECT DISTINCT doc_id FROM documento_areas"
+                    + "_computacion WHERE area_id='" + area +"')";
+            condiciones.add(temp);
+        }
+        if(autor!=null){
+            String temp;
+            temp="(SELECT DISTINCT doc_id FROM documento_autor"
+                    +" WHERE autor_correo='"+autor+"')";
+            condiciones.add(temp);
+        }
+        if(doc_tipo!=null){
+            String temp;
+            temp="(SELECT DISTINCT doc_id FROM documentos WHERE "
+                    +"tipo_documento='"+doc_tipo+"')";
+            condiciones.add(temp);
+        }
+        if(!condiciones.isEmpty())
+            salida+=" AND doc_id IN(";
+        for(int i=0;i<condiciones.size();i++){
+            salida+=(i!=(condiciones.size()-1)) ? (condiciones.get(i) + " INTERSECT ") : condiciones.get(i) + ")";
+        }
+        return salida;
+    }
 }
