@@ -30,8 +30,12 @@ import biblioteca.database2.controladores.ControladorArea;
 import biblioteca.database2.controladores.ControladorAutor;
 import biblioteca.database2.controladores.ControladorEstadisticas;
 import biblioteca.database2.controladores.ControladorTipoDocumento;
+import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -1539,29 +1543,29 @@ public class GUIStatistics extends javax.swing.JFrame {
         String[] desde=null, hasta=null, franja=null;
         
         if(jCheckBox49.isSelected()){
-            year=jComboBox97.getSelectedItem()+"";
+            year=jComboBox85.getSelectedItem()+"";
         }
         
         if(jCheckBox50.isSelected()){
             franja=new String[2];
-            franja[0]=jComboBox97.getSelectedItem()+"";
-            franja[1]=jComboBox99.getSelectedItem()+"";
+            franja[0]=jComboBox97.getSelectedIndex()+"";
+            franja[1]=jComboBox99.getSelectedIndex()+"";
         }
         
         if(jCheckBox51.isSelected()){
             desde=new String[3];
             desde[0]=jComboBox108.getSelectedItem()+"";
-            desde[1]=jComboBox111.getSelectedItem()+"";
+            desde[1]=jComboBox111.getSelectedIndex()+"";
             desde[2]=jComboBox112.getSelectedItem()+"";
             hasta=new String[3];
             hasta[0]=jComboBox109.getSelectedItem()+"";
-            hasta[1]=jComboBox110.getSelectedItem()+"";
+            hasta[1]=jComboBox110.getSelectedIndex()+"";
             hasta[2]=jComboBox113.getSelectedItem()+"";
         }
         
         elementosaInsertar=new ControladorEstadisticas().estadisticasUsuariosRegistradosMultiplesTablas(jCheckBox46.isSelected(), jCheckBox47.isSelected(), jCheckBox48.isSelected(), year, franja, desde, hasta);
         biblioteca.reportes.PdfCreator.createDinamicPdf("ReporteUsuariosRegistradosMultiples.pdf", "Reporte de Usuarios Registrados", ":D", elementosaInsertar);
-        
+
     }//GEN-LAST:event_Reporte_UsuariosActionPerformed
 
     private void jCheckBox49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox49ActionPerformed
