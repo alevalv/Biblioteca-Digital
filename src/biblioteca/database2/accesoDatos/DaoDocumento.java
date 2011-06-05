@@ -140,7 +140,7 @@ public class DaoDocumento {
                 + documento.getIdioma() + "'AND fecha_publicacion='"
                 + documento.getFechaPublicacion() + "'AND derechos_autor='"
                 + documento.getDerechosAutor() + "'AND catalogador='" + catalogador + "'"
-                + "AND fecha_catalogacion='"+documento.getFechaCatalogacion();
+                + "AND fecha_catalogacion='"+documento.getFechaCatalogacion()+"'";
         String id = null;
         System.out.println(sql_consultar);
         try {
