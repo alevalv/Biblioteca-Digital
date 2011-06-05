@@ -18,6 +18,8 @@
 package biblioteca.database2.controladores;
 
 import biblioteca.database2.accesoDatos.DaoEstadisticas;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPTable;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -50,6 +52,55 @@ public class ControladorEstadisticas {
         }
         PdfPTable tabla=biblioteca.reportes.PdfCreator.arrayListToStatisticTable(resultadosTabla, total, salida);
         return tabla;
+    }
+    
+    public ArrayList<Element> estadisticasUsuariosRegistradosMultiplesTablas(boolean dow, boolean dom, boolean mes, String Year, String[] franja, String desde[], String[] hasta){
+        ArrayList<Element> salida=  new ArrayList<Element>(24);
+        DaoEstadisticas controlador = new DaoEstadisticas();
+        if(dow){
+            ArrayList<String> tmp= controlador.consultarUsuariosRegistradosPorDoW();
+            salida.add(new Paragraph("Resultados para los días de la semana"));
+            salida.add(new Paragraph("\r\n"));
+            salida.add(biblioteca.reportes.PdfCreator.plainArrayListToPdfPTable(tmp));
+            salida.add(new Paragraph("\r\n"));
+        }
+        if(dom){
+            ArrayList<String> tmp= controlador.consultarUsuariosRegistradosPorDoM();
+            salida.add(new Paragraph("Resultados para los días del mes"));
+            salida.add(new Paragraph("\r\n"));
+            salida.add(biblioteca.reportes.PdfCreator.plainArrayListToPdfPTable(tmp));
+            salida.add(new Paragraph("\r\n"));
+        }
+        if(mes){
+            ArrayList<String> tmp= controlador.consultarUsuariosRegistradosPorMes();
+            salida.add(new Paragraph("Resultados para los meses"));
+            salida.add(new Paragraph("\r\n"));
+            salida.add(biblioteca.reportes.PdfCreator.plainArrayListToPdfPTable(tmp));
+            salida.add(new Paragraph("\r\n"));
+        }
+        if(Year!=null){
+            ArrayList<String> tmp= controlador.consultarUsuariosRegistradosPorYear(Year);
+            salida.add(new Paragraph("Resultados para el año seleccionado"));
+            salida.add(new Paragraph("\r\n"));
+            salida.add(new Paragraph(tmp.get(0)+" "+tmp.get(1)));
+            salida.add(new Paragraph("\r\n"));
+        }
+        if(franja!=null){
+            ArrayList<String> tmp= controlador.consultarUsuariosRegistradosPorFranja(franja[0],franja[1]);
+            salida.add(new Paragraph("Resultados para la franja seleccionada"));
+            salida.add(new Paragraph("\r\n"));
+            salida.add(new Paragraph(tmp.get(0)+" "+tmp.get(1)));
+            salida.add(new Paragraph("\r\n"));
+        }
+        if(desde!=null && hasta !=null){
+            ArrayList<String> tmp= controlador.consultarUsuariosRegistradosPorIntervalo(desde[0]+"-"+desde[1]+"-"+desde[2],
+                    hasta[0]+"-"+hasta[1]+"-"+hasta[2]);
+            salida.add(new Paragraph("Resultados para el intervalo de tiempo seleccionado"));
+            salida.add(new Paragraph("\r\n"));
+            salida.add(new Paragraph(tmp.get(0)+" "+tmp.get(1)));
+            salida.add(new Paragraph("\r\n"));
+        }
+        return salida;
     }
     
 }
