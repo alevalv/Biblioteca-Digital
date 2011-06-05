@@ -1534,7 +1534,7 @@ public class GUIStatistics extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox51ActionPerformed
 
     private void Reporte_UsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reporte_UsuariosActionPerformed
-        ArrayList<Element> elementosaInsertar = new ArrayList<Element>(10);
+        ArrayList<Element> elementosaInsertar = null;
         String year=null;
         String[] desde=null, hasta=null, franja=null;
         
@@ -1558,6 +1558,9 @@ public class GUIStatistics extends javax.swing.JFrame {
             hasta[1]=jComboBox110.getSelectedItem()+"";
             hasta[2]=jComboBox113.getSelectedItem()+"";
         }
+        
+        elementosaInsertar=new ControladorEstadisticas().estadisticasUsuariosRegistradosMultiplesTablas(jCheckBox46.isSelected(), jCheckBox47.isSelected(), jCheckBox48.isSelected(), year, franja, desde, hasta);
+        biblioteca.reportes.PdfCreator.createDinamicPdf("ReporteUsuariosRegistradosMultiples.pdf", "Reporte de Usuarios Registrados", ":D", elementosaInsertar);
         
     }//GEN-LAST:event_Reporte_UsuariosActionPerformed
 
