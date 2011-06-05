@@ -161,7 +161,6 @@ public class DaoEstadisticas {
             if(franja!=null){
                 sql_descargados+="WHERE date_part('hour',fecha_hora)>="+franja[0]+" and date_part('hour',fecha_hora)<="+franja[1]+" ";
             }
-            sql_descargados+="GROUP BY Identificacion, Titulo ORDER BY  descargas DESC; ";
         }
         else{
             sql_descargados="SELECT doc_id as Identificacion, documentos."
@@ -198,8 +197,9 @@ public class DaoEstadisticas {
             for(int i=0;i<condiciones.size();i++){
                 sql_descargados+=(i!=(condiciones.size()-1)) ? condiciones.get(i)+"AND " : condiciones.get(i);
             }
-            sql_descargados+="GROUP BY Identificacion, Titulo ORDER BY  descargas DESC; ";
         }
+        sql_descargados+=crearCondicionesEspecialesConsultados(tipo_usuario, area, autor, doc_tipo, usuario);
+        sql_descargados+=" GROUP BY Identificacion, Titulo ORDER BY  descargas DESC; ";
         System.out.println(sql_descargados);
         try {
             Connection conn = Fachada.conectar();
@@ -218,4 +218,40 @@ public class DaoEstadisticas {
        
     }
     
+    private String crearCondicionesEspecialesConsultados(String tipo_usuario, String area,String autor,String doc_tipo,String usuario){
+        String salida="";
+        ArrayList condiciones = new ArrayList(5);
+        if(tipo_usuario!=null){
+            String temp;
+            temp="(SELECT DISTINCT doc_id FROM usuario_consulta"
+                    + "_documento NATURAL JOIN usuarios WHERE tipo_usuario="+
+                    ((tipo_usuario.equals("Usuario Normal")) ? "'3'" : "'2'") +
+                    ((usuario!=null) ? " AND username='"+usuario : "")+")";
+            condiciones.add(temp);
+        }
+        if(area!=null){
+            String temp;
+            temp="(SELECT DISTINCT doc_id FROM documento_areas"
+                    + "_computacion WHERE area_id='" + area +"')";
+            condiciones.add(temp);
+        }
+        if(autor!=null){
+            String temp;
+            temp="(SELECT DISTINCT doc_id FROM documento_autor"
+                    +" WHERE autor_correo='"+autor+"')";
+            condiciones.add(temp);
+        }
+        if(doc_tipo!=null){
+            String temp;
+            temp="(SELECT DISTINCT doc_id FROM documentos WHERE "
+                    +"tipo_documento='"+doc_tipo+"')";
+            condiciones.add(temp);
+        }
+        if(!condiciones.isEmpty())
+            salida+=" AND doc_id IN(";
+        for(int i=0;i<condiciones.size();i++){
+            salida+=(i!=(condiciones.size()-1)) ? (condiciones.get(i) + " INTERSECT ") : condiciones.get(i) + ")";
+        }
+        return salida;
+    }
 }
