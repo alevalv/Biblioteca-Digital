@@ -143,6 +143,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         add(jLabel5, gridBagConstraints);
 
@@ -233,7 +234,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(24, 12, 10, 0);
         add(Estado, gridBagConstraints);
 
-        Siguiente.setFont(new java.awt.Font("Ubuntu", 1, 15));
+        Siguiente.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         Siguiente.setText("Siguiente Paso");
         Siguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -241,9 +242,9 @@ public class Informacion_Basica extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 20;
+        gridBagConstraints.gridx = 18;
         gridBagConstraints.gridy = 11;
-        gridBagConstraints.gridwidth = 9;
+        gridBagConstraints.gridwidth = 11;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 10);
         add(Siguiente, gridBagConstraints);
@@ -334,6 +335,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridheight = 2;
         add(jLabel15, gridBagConstraints);
 
         jLabel16.setForeground(new java.awt.Color(255, 0, 0));
