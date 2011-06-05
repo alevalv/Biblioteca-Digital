@@ -64,7 +64,7 @@ CREATE TABLE tipo_material(
 tipo_documento varchar(20) PRIMARY KEY,
 descripcion varchar(200));
 
-CREATE SEQUENCE 	Introducción a los sistemas de bases de datos. - 7 ed.documento_indice INCREMENT BY 1 MINVALUE 1;
+CREATE SEQUENCE documento_indice INCREMENT BY 1 MINVALUE 1;
 
 CREATE TABLE documentos(
 doc_id int PRIMARY KEY DEFAULT nextval('documento_indice'::regclass),
