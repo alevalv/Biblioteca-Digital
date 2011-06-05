@@ -314,4 +314,167 @@ public class DaoEstadisticas {
         }
         return salida;
     }
+    
+    /**
+     * Consulta la cantidad de usuarios registrados por el Day of The Week,
+     * retorna un ArrayList de String con el nombre del día y la cantidad de
+     * usuarios registrados por cada día de la semana, son 14 elementos retornados
+     * @return ArrayList de String con los datos de usuarios registrados
+     */
+    public ArrayList<String> consultarUsuariosRegistradosPorDoW(){
+        final String[] dias = {"Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"};
+        final String consulta_base="SELECT count(*) FROM usuarios WHERE date_part('dow', fecha_registro) = '0";
+        ArrayList<String> salida = new ArrayList<String>(7);
+        for(int i=0;i<=6;i++){
+            try {
+                String sql=consulta_base+i+"';";
+                Connection conn = Fachada.conectar();
+                java.sql.Statement sentencia = conn.createStatement();
+                ResultSet tabla = sentencia.executeQuery(sql);
+                salida.add(dias[i]);
+                tabla.next();
+                salida.add(tabla.getString(1));
+                conn.close();
+            }
+            catch (SQLException e) {
+                System.err.println(e);
+            } 
+            catch (Exception e) {
+                System.err.println(e);
+            }
+        }
+        return salida;
+    }
+    
+    /**
+     * Consulta la cantidad de usuarios registrados por el Day of The Month,
+     * retorna un ArrayList de String con el nombre del día y la cantidad de
+     * usuarios registrados por cada día de la semana, son 62 elementos retornados
+     * @return ArrayList de String con los datos de usuarios registrados
+     */
+    public ArrayList<String> consultarUsuariosRegistradosPorDoM(){
+        final String consulta_base="SELECT count(*) FROM usuarios WHERE date_part('day', fecha_registro) = '";
+        ArrayList<String> salida = new ArrayList<String>(7);
+        for(int i=1;i<=31;i++){
+            try {
+                String sql=consulta_base+i+"';";
+                Connection conn = Fachada.conectar();
+                java.sql.Statement sentencia = conn.createStatement();
+                ResultSet tabla = sentencia.executeQuery(sql);
+                salida.add("Día "+i);
+                tabla.next();
+                salida.add(tabla.getString(1));
+                conn.close();
+            }
+            catch (SQLException e) {
+                System.err.println(e);
+            } 
+            catch (Exception e) {
+                System.err.println(e);
+            }
+        }
+        return salida;
+    }
+    
+    /**
+     * Consulta la cantidad de usuarios registrados por el Mes,
+     * retorna un ArrayList de String con el nombre del día y la cantidad de
+     * usuarios registrados por cada día de la semana, son 24 elementos retornados
+     * @return ArrayList de String con los datos de usuarios registrados
+     */
+    public ArrayList<String> consultarUsuariosRegistradosPorMes(){
+        final String[] dias = {"Enero", "Febrero", "Marzo","Abril","Mayo", "Junio",
+            "Julio", "Agosto", "Septiembre", "Octubre", "Nombiembre", "Diciembre"};
+        final String consulta_base="SELECT count(*) FROM usuarios WHERE date_part('month', fecha_registro) = '";
+        ArrayList<String> salida = new ArrayList<String>(7);
+        for(int i=1;i<=12;i++){
+            try {
+                String sql=consulta_base+i+"';";
+                Connection conn = Fachada.conectar();
+                java.sql.Statement sentencia = conn.createStatement();
+                ResultSet tabla = sentencia.executeQuery(sql);
+                salida.add(dias[i-1]);
+                tabla.next();
+                salida.add(tabla.getString(1));
+                conn.close();
+            }
+            catch (SQLException e) {
+                System.err.println(e);
+            } 
+            catch (Exception e) {
+                System.err.println(e);
+            }
+        }
+        return salida;
+    }
+    
+    public ArrayList<String> consultarUsuariosRegistradosPorYear(String Year){
+        ArrayList<String> salida= new ArrayList<String>(2);
+        final String sql="SELECT count(*) FROM usuarios WHERE date_part('year', fecha_registro) = '"+Year+"';";
+        try {
+            Connection conn = Fachada.conectar();
+            java.sql.Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql);
+            salida.add(Year);
+            tabla.next();
+            salida.add(tabla.getString(1));
+            conn.close();
+        }
+        catch (SQLException e) {
+            System.err.println(e);
+        } 
+        catch (Exception e) {
+            System.err.println(e);
+        }
+        return salida;
+    }
+    
+    /**
+     * Consulta la cantidad de usuarios registrados en una franja horaria dada,
+     * retorna un ArrayList de String con dos elementos, la franja y el resultado
+     * @param desde String con el inicio de la franja horaria
+     * @param hasta String con el final de la franja horaria
+     * @return ArrayList de String con los resultados
+     */
+    public ArrayList<String> consultarUsuariosRegistradosPorFranja(String desde, String hasta){
+        final String sql="SELECT count(*) FROM usuarios WHERE date_part('hour',fecha_registro)>="+desde+" and date_part('hour',fecha_registro)<="+hasta+" ";
+        ArrayList<String> salida= new ArrayList<String>(2);
+        try {
+            Connection conn = Fachada.conectar();
+            java.sql.Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql);
+            salida.add("Franja: "+desde+" - "+hasta);
+            tabla.next();
+            salida.add(tabla.getString(1));
+            conn.close();
+        }
+        catch (SQLException e) {
+            System.err.println(e);
+        } 
+        catch (Exception e) {
+            System.err.println(e);
+        }
+        return salida;
+    }
+    
+    public ArrayList<String> consultarUsuariosRegistradosPorIntervalo(String desde, String hasta){
+        final String sql="SELECT count(*) FROM usuarios WHERE fecha_registro between "+desde+" and "+hasta+";";
+        ArrayList<String> salida= new ArrayList<String>(2);
+        try {
+            Connection conn = Fachada.conectar();
+            java.sql.Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql);
+            salida.add("Intervalo: "+desde+" - "+hasta);
+            tabla.next();
+            salida.add(tabla.getString(1));
+            conn.close();
+        }
+        catch (SQLException e) {
+            System.err.println(e);
+        } 
+        catch (Exception e) {
+            System.err.println(e);
+        }
+        return salida;
+    }
 }
