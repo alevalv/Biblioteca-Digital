@@ -318,13 +318,16 @@ public class DaoEstadisticas {
     /**
      * Consulta la cantidad de usuarios registrados por el Day of The Week,
      * retorna un ArrayList de String con el nombre del día y la cantidad de
-     * usuarios registrados por cada día de la semana, son 14 elementos retornados
+     * usuarios registrados por cada día de la semana, son 16 elementos retornados
+     * de los cuales los dos primeros son los nombres de las columnas
      * @return ArrayList de String con los datos de usuarios registrados
      */
     public ArrayList<String> consultarUsuariosRegistradosPorDoW(){
         final String[] dias = {"Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"};
         final String consulta_base="SELECT count(*) FROM usuarios WHERE date_part('dow', fecha_registro) = '0";
-        ArrayList<String> salida = new ArrayList<String>(7);
+        ArrayList<String> salida = new ArrayList<String>(16);
+        salida.add("Días");
+        salida.add("Cantidad");
         for(int i=0;i<=6;i++){
             try {
                 String sql=consulta_base+i+"';";
@@ -349,12 +352,15 @@ public class DaoEstadisticas {
     /**
      * Consulta la cantidad de usuarios registrados por el Day of The Month,
      * retorna un ArrayList de String con el nombre del día y la cantidad de
-     * usuarios registrados por cada día de la semana, son 62 elementos retornados
+     * usuarios registrados por cada día de la semana, son 64 elementos retornados
+     * de los cuales los dos primeros son los nombres de las columnas
      * @return ArrayList de String con los datos de usuarios registrados
      */
     public ArrayList<String> consultarUsuariosRegistradosPorDoM(){
         final String consulta_base="SELECT count(*) FROM usuarios WHERE date_part('day', fecha_registro) = '";
-        ArrayList<String> salida = new ArrayList<String>(7);
+        ArrayList<String> salida = new ArrayList<String>(64);
+        salida.add("Día del mes");
+        salida.add("Cantidad");
         for(int i=1;i<=31;i++){
             try {
                 String sql=consulta_base+i+"';";
@@ -379,14 +385,16 @@ public class DaoEstadisticas {
     /**
      * Consulta la cantidad de usuarios registrados por el Mes,
      * retorna un ArrayList de String con el nombre del día y la cantidad de
-     * usuarios registrados por cada día de la semana, son 24 elementos retornados
+     * usuarios registrados por cada día de la semana, son 26 elementos retornados
      * @return ArrayList de String con los datos de usuarios registrados
      */
     public ArrayList<String> consultarUsuariosRegistradosPorMes(){
         final String[] dias = {"Enero", "Febrero", "Marzo","Abril","Mayo", "Junio",
             "Julio", "Agosto", "Septiembre", "Octubre", "Nombiembre", "Diciembre"};
         final String consulta_base="SELECT count(*) FROM usuarios WHERE date_part('month', fecha_registro) = '";
-        ArrayList<String> salida = new ArrayList<String>(7);
+        ArrayList<String> salida = new ArrayList<String>(26);
+        salida.add("Mes");
+        salida.add("Cantidad");
         for(int i=1;i<=12;i++){
             try {
                 String sql=consulta_base+i+"';";
@@ -408,6 +416,11 @@ public class DaoEstadisticas {
         return salida;
     }
     
+    /**
+     * Consulta la cantidad de usuarios registrados según el parametro dado
+     * @param Year String con el año a consultar
+     * @return ArrayList de String con dos elementos, el año y el conteo
+     */
     public ArrayList<String> consultarUsuariosRegistradosPorYear(String Year){
         ArrayList<String> salida= new ArrayList<String>(2);
         final String sql="SELECT count(*) FROM usuarios WHERE date_part('year', fecha_registro) = '"+Year+"';";
@@ -415,7 +428,7 @@ public class DaoEstadisticas {
             Connection conn = Fachada.conectar();
             java.sql.Statement sentencia = conn.createStatement();
             ResultSet tabla = sentencia.executeQuery(sql);
-            salida.add(Year);
+            salida.add("Año: "+Year);
             tabla.next();
             salida.add(tabla.getString(1));
             conn.close();
