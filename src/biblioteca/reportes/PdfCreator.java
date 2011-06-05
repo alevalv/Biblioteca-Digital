@@ -78,7 +78,7 @@ public class PdfCreator {
         salida.addCell(entrada.get(0));
         salida.addCell(entrada.get(1));
         salida.setHeaderRows(1);
-        for(int i=2;i<salida.size();i++){
+        for(int i=2;i<entrada.size();i++){
             salida.addCell(entrada.get(i));
         }
         return salida;
