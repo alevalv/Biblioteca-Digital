@@ -20,6 +20,7 @@ package biblioteca.reportes;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPTable;
@@ -250,6 +251,51 @@ public class PdfCreator {
         document.add(new Paragraph(encabezado+(tablas.get(i).getRows().size()-1)));
         document.add(new Paragraph("\r\n"));
         document.add(tablas.get(i));
+        }
+        // step 5
+        document.close();
+        }
+        catch(DocumentException de){
+            System.err.println(de);
+        }
+        catch(IOException ioex){
+            System.err.println(ioex);
+        }
+    }
+    
+    static public void createDinamicPdf(String path, String titulo, String encabezado, ArrayList<Element> contenido){
+        Document document = new Document();
+       //step 2
+        try{
+        PdfWriter.getInstance(document, new FileOutputStream(path));
+        Font myFontTitle = new Font();
+        myFontTitle.setFamily("Arial");
+        myFontTitle.setStyle(Font.BOLD);
+        myFontTitle.setSize(10);
+        Font Univallef= new Font();
+        Univallef.setColor(BaseColor.RED);
+        Univallef.setFamily("Arial");
+        Univallef.setSize(18);
+        Paragraph Univalle = new Paragraph("Universidad del Valle", Univallef);
+        Univalle.setAlignment(Paragraph.ALIGN_CENTER);
+        Paragraph pTitulo = new Paragraph(titulo, myFontTitle);
+        pTitulo.setAlignment(Paragraph.ALIGN_CENTER);
+        Paragraph Fecha = new Paragraph("Fecha y Hora de Reporte: "+fecha,myFontTitle);
+        Paragraph Introduccion = new Paragraph("Reporte de usuarios registrados");
+        document.open();
+        // step 4
+        document.add(Univalle);
+        document.add(new Paragraph("\r\n"));
+        document.add(pTitulo);        
+        document.add(new Paragraph("\r\n"));
+        document.add(Fecha);
+        document.add(new Paragraph("\r\n"));
+        document.add(Introduccion);
+        document.add(new Paragraph("\r\n"));
+        for(int i=0;i<contenido.size();i++){
+        document.add(contenido.get(i));
+        document.add(new Paragraph("\r\n"));
+        
         }
         // step 5
         document.close();
