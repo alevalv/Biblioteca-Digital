@@ -73,6 +73,16 @@ public class PdfCreator {
         return salida;
     }
     
+    static public PdfPTable plainArrayListToPdfPTable(ArrayList<String> entrada){
+        PdfPTable salida= new PdfPTable(2);
+        salida.addCell(entrada.get(0));
+        salida.addCell(entrada.get(1));
+        salida.setHeaderRows(1);
+        for(int i=2;i<salida.size();i++){
+            salida.addCell(entrada.get(i));
+        }
+        return salida;
+    }
     
     static public ArrayList<PdfPTable> resultSetsToTables(ArrayList<ResultSet> entrada){
         ArrayList<PdfPTable> Salida = new ArrayList<PdfPTable>(10);
