@@ -32,11 +32,11 @@ public class ControladorEstadisticas {
        String[] franja,String[] desde,String[] hasta,String area,String autor,String doc_tipo,String usuario, boolean todos, int salida){
         ResultSet rs = new DaoEstadisticas().documentosMasDescargados(dow, dom, month, year, tipo_usuario, franja, desde, hasta, area, autor, doc_tipo, usuario, todos);
         int total=0;
-        ArrayList<ArrayList<String>> resultadosTabla = bibioteca.reportes.PdfCreator.resultSetToArrayList(rs);
+        ArrayList<ArrayList<String>> resultadosTabla = biblioteca.reportes.PdfCreator.resultSetToArrayList(rs);
         for(int i=1;i<resultadosTabla.size();i++){
             total+=Integer.parseInt(resultadosTabla.get(i).get(resultadosTabla.get(i).size()-1));
         }
-        PdfPTable tabla=bibioteca.reportes.PdfCreator.arrayListToStatisticTable(resultadosTabla, total, salida);
+        PdfPTable tabla=biblioteca.reportes.PdfCreator.arrayListToStatisticTable(resultadosTabla, total, salida);
         return tabla;
     }
     
@@ -44,11 +44,11 @@ public class ControladorEstadisticas {
        String[] franja,String[] desde,String[] hasta,String area,String autor,String doc_tipo,String usuario, boolean todos, int salida){
         ResultSet rs = new DaoEstadisticas().documentosMasConsultados(dow, dom, month, year, tipo_usuario, franja, desde, hasta, area, autor, doc_tipo, usuario, todos);
         int total=0;
-        ArrayList<ArrayList<String>> resultadosTabla = bibioteca.reportes.PdfCreator.resultSetToArrayList(rs);
+        ArrayList<ArrayList<String>> resultadosTabla = biblioteca.reportes.PdfCreator.resultSetToArrayList(rs);
         for(int i=1;i<resultadosTabla.size();i++){
             total+=Integer.parseInt(resultadosTabla.get(i).get(resultadosTabla.get(i).size()-1));
         }
-        PdfPTable tabla=bibioteca.reportes.PdfCreator.arrayListToStatisticTable(resultadosTabla, total, salida);
+        PdfPTable tabla=biblioteca.reportes.PdfCreator.arrayListToStatisticTable(resultadosTabla, total, salida);
         return tabla;
     }
     

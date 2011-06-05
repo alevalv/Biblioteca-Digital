@@ -2413,12 +2413,12 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           if(AreasComboBoxPU.getSelectedIndex()!=0) area=areasExistentes.get(AreasComboBoxPU.getSelectedIndex()-1).getID();
        
         if(jCheckBox1.isSelected()){
-        bibioteca.reportes.PdfCreator.createPdf("usuarios.pdf", "Reporte de Usuarios Registrados", "Total de usuarios registrados: ", 
+            biblioteca.reportes.PdfCreator.createPdf("usuarios.pdf", "Reporte de Usuarios Registrados", "Total de usuarios registrados: ", 
                 new ControladorReportesEstadisticas().ConsultarListaUsuario(dow, dom, month, year, franja, desde, Hasta, tipo,
              genero, Estado, area));
         }
         else try {
-           bibioteca.reportes.PdfCreator.createArrayListPdf("usuariosLista.pdf", "Reporte de Usuarios Registrados", "Total de usuarios registrados: ", 
+            biblioteca.reportes.PdfCreator.createArrayListPdf("usuariosLista.pdf", "Reporte de Usuarios Registrados", "Total de usuarios registrados: ", 
             new ControladorReportesEstadisticas().ConsultarListaSeparadaUsuario(dow, dom, month, year, franja, desde, Hasta, tipo,
             genero, Estado, area));
         } catch (SQLException ex) {
@@ -2479,11 +2479,11 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           }
        
        if(jCheckBox2.isSelected())
-        bibioteca.reportes.PdfCreator.createPdf("documentosExistentes.pdf", "Reporte de Documentos Existentes", "Total de documentos existentes en este reporte: ", 
+        biblioteca.reportes.PdfCreator.createPdf("documentosExistentes.pdf", "Reporte de Documentos Existentes", "Total de documentos existentes en este reporte: ", 
                 new ControladorReportesEstadisticas().ConsultarListaDocumentosExistentes(area, autor, tipo, editorial, idioma, estado,
        desde, hasta));
         else  
-           bibioteca.reportes.PdfCreator.createArrayListPdf("documentosExistenteslista.pdf", "Reporte de Documentos Existentes", "Total de documentos existentes en este reporte: ", 
+           biblioteca.reportes.PdfCreator.createArrayListPdf("documentosExistenteslista.pdf", "Reporte de Documentos Existentes", "Total de documentos existentes en este reporte: ", 
                 new ControladorReportesEstadisticas().ConsultarListaSeparadaDocumentosExistentes(area, autor, tipo, editorial, idioma, estado, desde, hasta));
         
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -2522,11 +2522,11 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           if(jTextField6.isCursorSet() && !jTextField6.getText().isEmpty()) usuario=jTextField6.getText();
           
           if(jCheckBox10.isSelected())
-          bibioteca.reportes.PdfCreator.createPdf("documentosConsultados.pdf", "Reporte de Documentos Consultados", "Total de documentos consultados en este reporte: ", 
+          biblioteca.reportes.PdfCreator.createPdf("documentosConsultados.pdf", "Reporte de Documentos Consultados", "Total de documentos consultados en este reporte: ", 
                 new ControladorReportesEstadisticas().ConsultarListaDocumentosConsultados(dow, dom, month, year, tipo_usuario,
                franja, desde,Hasta,area, autor, doc_tipo, usuario));
           else 
-             bibioteca.reportes.PdfCreator.createArrayListPdf("documentosConsultadoslista.pdf", "Reporte de Documentos Consultados", "Total de documentos Consultados en este reporte: ", 
+             biblioteca.reportes.PdfCreator.createArrayListPdf("documentosConsultadoslista.pdf", "Reporte de Documentos Consultados", "Total de documentos Consultados en este reporte: ", 
                 new ControladorReportesEstadisticas().ConsultarListaSeparadaDocumentosConsultados(dow, dom, month, year, tipo_usuario, franja, desde, Hasta, area, autor, doc_tipo, usuario));
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -2563,10 +2563,10 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           if(jTextField7.isCursorSet() && !jTextField7.getText().isEmpty()) usuario=jTextField7.getText();
           
           if(jCheckBox11.isSelected())
-          bibioteca.reportes.PdfCreator.createPdf("documentosDescargadosLista.pdf", "Reporte de Documentos Descargados", "Total de documentos consultados en este reporte: ",new ControladorReportesEstadisticas().ConsultarListaDocumentosDescargados(dow, dom, month, year, tipo_usuario,
+          biblioteca.reportes.PdfCreator.createPdf("documentosDescargadosLista.pdf", "Reporte de Documentos Descargados", "Total de documentos consultados en este reporte: ",new ControladorReportesEstadisticas().ConsultarListaDocumentosDescargados(dow, dom, month, year, tipo_usuario,
                franja, desde,Hasta,area, autor, doc_tipo, usuario));
           else
-           bibioteca.reportes.PdfCreator.createArrayListPdf("documentosDescargadosLista.pdf", "Reporte de Documentos Descargados", "Total de documentos consultados en este reporte: ",new ControladorReportesEstadisticas().ConsultarListaSeparadaDocumentosDescargados(dow, dom, month, year, tipo_usuario, franja, desde, Hasta, area, autor, doc_tipo, usuario));
+           biblioteca.reportes.PdfCreator.createArrayListPdf("documentosDescargadosLista.pdf", "Reporte de Documentos Descargados", "Total de documentos consultados en este reporte: ",new ControladorReportesEstadisticas().ConsultarListaSeparadaDocumentosDescargados(dow, dom, month, year, tipo_usuario, franja, desde, Hasta, area, autor, doc_tipo, usuario));
            
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -2676,9 +2676,9 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           if(jTextField8.isCursorSet() && !jTextField8.getText().isEmpty()) usuario=jTextField8.getText();
           
           if(jCheckBox12.isSelected())
-          bibioteca.reportes.PdfCreator.createPdf("documentosCatalogados.pdf", "Reporte de Documentos Catalogados", "Total de documentos catalogados en este reporte: ",new ControladorReportesEstadisticas().ConsultarListaDocumentosCatalogados(dow, dom, month, year, franja, desde, Hasta, area, autor, doc_tipo, usuario));
+          biblioteca.reportes.PdfCreator.createPdf("documentosCatalogados.pdf", "Reporte de Documentos Catalogados", "Total de documentos catalogados en este reporte: ",new ControladorReportesEstadisticas().ConsultarListaDocumentosCatalogados(dow, dom, month, year, franja, desde, Hasta, area, autor, doc_tipo, usuario));
           else
-          bibioteca.reportes.PdfCreator.createArrayListPdf("documentosCatalogadosLista.pdf", "Reporte de Documentos Catalogados", "Total de documentos catalogados en este reporte: ",new ControladorReportesEstadisticas().ConsultarListaSeparadaDocumentosCatalogados(dow, dom, month, year, franja, desde, Hasta, area, autor, doc_tipo, usuario));
+          biblioteca.reportes.PdfCreator.createArrayListPdf("documentosCatalogadosLista.pdf", "Reporte de Documentos Catalogados", "Total de documentos catalogados en este reporte: ",new ControladorReportesEstadisticas().ConsultarListaSeparadaDocumentosCatalogados(dow, dom, month, year, franja, desde, Hasta, area, autor, doc_tipo, usuario));
   
     }//GEN-LAST:event_jButton5ActionPerformed
 
