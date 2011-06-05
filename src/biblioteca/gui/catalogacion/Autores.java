@@ -54,7 +54,7 @@ public class Autores extends javax.swing.JPanel {
         autoresExistentes = new ControladorAutor().obtenerTodosLosAutores();
         if(!(autoresExistentes==null)){
             for(int i=0;i<autoresExistentes.size();i++){
-                Autores.insertItemAt(autoresExistentes.get(i).toString(), i);
+                Autores.insertItemAt(autoresExistentes.get(i), i);
             }        
             Autores.setSelectedIndex(-1);
         }
@@ -291,9 +291,8 @@ public class Autores extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
-        if(!autoresSeleccionados.contains(autoresExistentes.get(Autores.getSelectedIndex()))
-            &&(autoresExistentes.get(Autores.getSelectedIndex()).toString().equals(Autores.getSelectedItem()))){
-            autoresSeleccionados.add(autoresExistentes.get(Autores.getSelectedIndex()));
+        if(!autoresSeleccionados.contains((Autor)Autores.getSelectedItem())){
+            autoresSeleccionados.add((Autor)Autores.getSelectedItem());
             refreshAutoresSeleccionados();
             biblioteca.gui.GUICatalogacion.Autores_Guardado=false;
         }
