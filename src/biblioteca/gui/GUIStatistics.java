@@ -30,6 +30,7 @@ import biblioteca.database2.controladores.ControladorArea;
 import biblioteca.database2.controladores.ControladorAutor;
 import biblioteca.database2.controladores.ControladorEstadisticas;
 import biblioteca.database2.controladores.ControladorTipoDocumento;
+import com.itextpdf.text.Element;
 import java.util.ArrayList;
 
 /**
@@ -1533,7 +1534,31 @@ public class GUIStatistics extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox51ActionPerformed
 
     private void Reporte_UsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reporte_UsuariosActionPerformed
-        // TODO add your handling code here:
+        ArrayList<Element> elementosaInsertar = new ArrayList<Element>(10);
+        String year=null;
+        String[] desde=null, hasta=null, franja=null;
+        
+        if(jCheckBox49.isSelected()){
+            year=jComboBox97.getSelectedItem()+"";
+        }
+        
+        if(jCheckBox50.isSelected()){
+            franja=new String[2];
+            franja[0]=jComboBox97.getSelectedItem()+"";
+            franja[1]=jComboBox99.getSelectedItem()+"";
+        }
+        
+        if(jCheckBox51.isSelected()){
+            desde=new String[3];
+            desde[0]=jComboBox108.getSelectedItem()+"";
+            desde[1]=jComboBox111.getSelectedItem()+"";
+            desde[2]=jComboBox112.getSelectedItem()+"";
+            hasta=new String[3];
+            hasta[0]=jComboBox109.getSelectedItem()+"";
+            hasta[1]=jComboBox110.getSelectedItem()+"";
+            hasta[2]=jComboBox113.getSelectedItem()+"";
+        }
+        
     }//GEN-LAST:event_Reporte_UsuariosActionPerformed
 
     private void jCheckBox49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox49ActionPerformed
