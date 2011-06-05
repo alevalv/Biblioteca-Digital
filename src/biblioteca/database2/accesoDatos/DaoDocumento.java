@@ -68,6 +68,7 @@ public class DaoDocumento {
                 + documento.getTipoMaterial() + "','" + documento.getFechaCatalogacion()+"','"
                 + usuario + "');";
 
+        System.out.println(sql_agregar);
         try {
             Connection conn = Fachada.conectar();
             java.sql.Statement sentencia = conn.createStatement();
@@ -141,6 +142,7 @@ public class DaoDocumento {
                 + documento.getDerechosAutor() + "'AND catalogador='" + catalogador + "'"
                 + "AND fecha_catalogacion='"+documento.getFechaCatalogacion();
         String id = null;
+        System.out.println(sql_consultar);
         try {
             Connection conn = Fachada.conectar();
             java.sql.Statement sentencia = conn.createStatement();
