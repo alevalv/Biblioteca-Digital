@@ -107,7 +107,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 393;
+        gridBagConstraints.ipadx = 350;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(Titulo_Principal, gridBagConstraints);
@@ -160,7 +160,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         LimitadorDejTextField DescripcionL=new LimitadorDejTextField(500);
         Descripcion.setDocument(DescripcionL);
         Descripcion.setColumns(20);
-        Descripcion.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        Descripcion.setFont(new java.awt.Font("Tahoma", 0, 11));
         Descripcion.setRows(5);
         Descripcion.setMargin(new java.awt.Insets(5, 5, 5, 5));
         jScrollPane1.setViewportView(Descripcion);
@@ -171,7 +171,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 18;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 393;
+        gridBagConstraints.ipadx = 350;
         gridBagConstraints.ipady = 81;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -211,7 +211,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.gridy = 8;
         gridBagConstraints.gridwidth = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 393;
+        gridBagConstraints.ipadx = 350;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(Editorial, gridBagConstraints);
@@ -261,8 +261,9 @@ public class Informacion_Basica extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 19;
+        gridBagConstraints.gridx = 16;
         gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LAST_LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 10);
         add(Siguiente, gridBagConstraints);
@@ -315,7 +316,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
 
         jLabel12.setText("Día:");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         add(jLabel12, gridBagConstraints);
@@ -324,7 +325,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         DiaComboBox.setMaximumRowCount(31);
         DiaComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 9;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.ipadx = 30;
@@ -335,7 +336,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
 
         jLabel11.setText("Mes: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridx = 11;
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         add(jLabel11, gridBagConstraints);
@@ -344,7 +345,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         MesComboBox.setMaximumRowCount(12);
         MesComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridx = 12;
         gridBagConstraints.gridy = 9;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.ipadx = 26;
@@ -355,20 +356,19 @@ public class Informacion_Basica extends javax.swing.JPanel {
 
         jLabel13.setText("Año: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 15;
+        gridBagConstraints.gridx = 17;
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(16, 4, 0, 0);
         add(jLabel13, gridBagConstraints);
 
-        AnoComboBox.setFont(new java.awt.Font("Arial", 0, 11));
+        AnoComboBox.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         AnoComboBox.setMaximumRowCount(60);
         AnoComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970", "1969", "1968", "1967", "1966", "1965", "1964", "1963", "1962", "1961", "1960", "1959", "1958", "1957", "1956", "1955", "1954", "1953", "1952", "1951", "1950", "1949", "1948", "1947", "1946", "1945", "1944", "1943", "1942", "1941", "1940" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 16;
+        gridBagConstraints.gridx = 18;
         gridBagConstraints.gridy = 9;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.ipadx = 14;
+        gridBagConstraints.ipadx = 18;
         gridBagConstraints.ipady = 2;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(AnoComboBox, gridBagConstraints);
