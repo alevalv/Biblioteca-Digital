@@ -46,7 +46,22 @@ public class DaoReportesEstadisticas {
        System.out.println();
     }
     }
-    
+    public ResultSet ResultSetConsultarLista(String consultar){
+        System.out.println(consultar);
+         try {
+            Connection conn = Fachada.conectar();
+            java.sql.Statement sentencia = conn.createStatement();
+            ResultSet salida = sentencia.executeQuery(consultar+";");
+            conn.close();
+            return salida;
+      }        
+        catch (SQLException e) {
+            System.err.println(e);
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+         return null;  
+     }
     ///Para panel usuarios
     //para la lista unida
     public ResultSet ConsultarListaUsuario(String dow, String dom, String month, String year, String[] franja, String[] desde, String[] Hasta, String tipo,
@@ -123,70 +138,55 @@ public class DaoReportesEstadisticas {
   
       ArrayList<ResultSet> Consultas=new ArrayList<ResultSet>(10);
       String temp=ConsultarDowUsuarios(dow);
-      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarListaSeparadaUsuario(temp));
+      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
       temp=ConsultarDomUsuarios(dom);
-      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarListaSeparadaUsuario(temp));
+      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
       temp=ConsultarMonthUsuarios(month);
-      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarListaSeparadaUsuario(temp));
+      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
       temp=ConsultarYearUsuarios(year);
-      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarListaSeparadaUsuario(temp));
+      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
       temp=ConsultarFranjaUsuarios(franja);
-      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarListaSeparadaUsuario(temp));
+      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
       temp=ConsultarIntervaloUsuarios(desde,Hasta);
-      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarListaSeparadaUsuario(temp));
+      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
       temp=ConsultarTipoUsuarios(tipo);
-      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarListaSeparadaUsuario(temp));
+      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
       temp=ConsultarGeneroUsuarios(genero);
-      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarListaSeparadaUsuario(temp));
+      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
       temp=ConsultarEstadoUsuarios(Estado);
-      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarListaSeparadaUsuario(temp)); 
+      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp)); 
       temp=ConsultarAreasUsuarios(area);
-      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarListaSeparadaUsuario(temp));
+      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
            
       return Consultas;
     }
-     public ResultSet ResultSetConsultarListaSeparadaUsuario(String consultar){
-        System.out.println(consultar);
-         try {
-            Connection conn = Fachada.conectar();
-            java.sql.Statement sentencia = conn.createStatement();
-            ResultSet salida = sentencia.executeQuery(consultar+";");
-            conn.close();
-            return salida;
-      }        
-        catch (SQLException e) {
-            System.err.println(e);
-        } catch (Exception e) {
-            System.err.println(e);
-        }
-         return null;  
-     }
+     
     
-    public String ConsultarDowUsuarios(String dow){
+    private String ConsultarDowUsuarios(String dow){
         String consultar="";
         if(dow != null){
             consultar="Select username, nombres, apellidos, fecha_registro from usuarios where date_part('dow',fecha_registro)="+dow+" "; }
         return consultar;
     }
-    public String ConsultarDomUsuarios(String dom){
+    private String ConsultarDomUsuarios(String dom){
         String consultar="";
         if(dom != null){
             consultar="Select username, nombres, apellidos, fecha_registro from usuarios where date_part('day',fecha_registro)="+dom+" "; }
         return consultar;
     }
-    public String ConsultarMonthUsuarios(String month){
+    private String ConsultarMonthUsuarios(String month){
         String consultar="";
         if(month != null){
             consultar="Select username, nombres, apellidos, fecha_registro from usuarios where date_part('month',fecha_registro)="+month+" "; }
         return consultar;
     }
-    public String ConsultarYearUsuarios(String year){
+    private String ConsultarYearUsuarios(String year){
         String consultar="";
         if(year != null){
             consultar="Select username, nombres, apellidos, fecha_registro from usuarios where date_part('year',fecha_registro)="+year+" "; }
         return consultar;
     }
-    public String ConsultarTipoUsuarios(String tipo){
+    private String ConsultarTipoUsuarios(String tipo){
         String consultar="";
         if(tipo != null){
             if(tipo.equals("1"))
@@ -195,7 +195,7 @@ public class DaoReportesEstadisticas {
         }
         return consultar;
     }
-    public String ConsultarGeneroUsuarios(String genero){
+    private String ConsultarGeneroUsuarios(String genero){
         String consultar="";
         if(genero != null){
             if(genero.equals("1"))
@@ -204,7 +204,7 @@ public class DaoReportesEstadisticas {
         }
         return consultar;
     }
-    public String ConsultarEstadoUsuarios(String Estado){
+    private String ConsultarEstadoUsuarios(String Estado){
         String consultar="";
         if(Estado != null){
             if(Estado.equals("1"))
@@ -213,13 +213,13 @@ public class DaoReportesEstadisticas {
         }
         return consultar;
     }
-    public String ConsultarFranjaUsuarios(String[] franja){
+    private String ConsultarFranjaUsuarios(String[] franja){
         String consultar="";
         if(franja != null){
             consultar="Select username, nombres, apellidos, fecha_registro from usuarios where date_part('hour',fecha_registro)>="+franja[0]+" and date_part('hour',fecha_registro)<="+franja[1]+" "; }
         return consultar;
     }
-    public String ConsultarIntervaloUsuarios(String[] desde, String[] Hasta){
+    private String ConsultarIntervaloUsuarios(String[] desde, String[] Hasta){
         String consultar="";
         if(desde != null && Hasta != null){
             consultar="Select username, nombres, apellidos, fecha_registro from usuarios where fecha_registro between '"+desde[0]+"-"+desde[1]+"-"+desde[2]+"' AND '"
@@ -227,7 +227,7 @@ public class DaoReportesEstadisticas {
         }
         return consultar;
     }
-    public String ConsultarAreasUsuarios(String id_area){
+    private String ConsultarAreasUsuarios(String id_area){
         String consultar="";
         if(id_area != null){
             consultar="Select username, nombres, apellidos, fecha_registro from usuarios natural join usuario_areas_computacion where area_id='"+id_area+"' ";}
@@ -293,37 +293,56 @@ public class DaoReportesEstadisticas {
        return null;
     }
     
-   public String ConsultarAreasDocumentosExistentes(String id_area){
+    public ArrayList<ResultSet> ConsultarListaSeparadaDocumentosExistentes(String area, String autor, String tipo, String editorial, String idioma, String estado, String[] desde, String[] hasta) {
+      ArrayList<ResultSet> Consultas=new ArrayList<ResultSet>(6); 
+      String temp=ConsultarAreasDocumentosExistentes(area);
+      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarAutorDocumentosExistentes(autor);
+      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarTipoDocumentosExistentes(tipo);
+      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarEditorialDocumentosExistentes(editorial);
+      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarIdiomaDocumentosExistentes(idioma);
+      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarEstadoDocumentosExistentes(estado);
+      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarIntervaloDocumentosExistentes(desde,hasta);
+      return Consultas;
+    }
+    
+    
+   private String ConsultarAreasDocumentosExistentes(String id_area){
         String consultar="";
         if(id_area != null){
             consultar="Select doc_id, titulo_principal from documentos natural join documento_areas_computacion where area_id='"+id_area+"' ";}
         return consultar;
     }
-   public String ConsultarAutorDocumentosExistentes(String correo){
+   private String ConsultarAutorDocumentosExistentes(String correo){
         String consultar="";
         if(correo != null){
             consultar="Select doc_id, titulo_principal from documentos natural join documento_autor where autor_correo='"+correo+"' ";}
         return consultar;
     }
-   public String ConsultarTipoDocumentosExistentes(String tipo){
+   private String ConsultarTipoDocumentosExistentes(String tipo){
         String consultar="";
         if(tipo != null){
             consultar="Select doc_id, titulo_principal from documentos where tipo_documento='"+tipo+"' ";}
         return consultar;
     }
-   public String ConsultarEditorialDocumentosExistentes(String editorial){
+   private String ConsultarEditorialDocumentosExistentes(String editorial){
         String consultar="";
         if(editorial != null){
             consultar="Select doc_id, titulo_principal from documentos where editorial ilike '"+editorial+"' ";}
         return consultar;
     }
-   public String ConsultarIdiomaDocumentosExistentes(String idioma){
+   private String ConsultarIdiomaDocumentosExistentes(String idioma){
         String consultar="";
         if(idioma != null){
             consultar="Select doc_id, titulo_principal from documentos where idioma='"+idioma+"' ";}
         return consultar;
     }
-   public String ConsultarEstadoDocumentosExistentes(String estado){
+   private String ConsultarEstadoDocumentosExistentes(String estado){
         String consultar="";
         if(estado != null){
             if(estado.equals("1"))
@@ -332,7 +351,7 @@ public class DaoReportesEstadisticas {
         }
         return consultar;
     }
-   public String ConsultarIntervaloDocumentosExistentes(String[] desde, String[] Hasta){
+   private String ConsultarIntervaloDocumentosExistentes(String[] desde, String[] Hasta){
         String consultar="";
         if(desde != null && Hasta != null){
             consultar="Select doc_id, titulo_principal from documentos where fecha_publicacion between '"+desde[0]+"-"+desde[1]+"-"+desde[2]+"' AND '"
@@ -416,6 +435,36 @@ public class DaoReportesEstadisticas {
         }
        return null;
    }
+   //para las listas separadas panel de documentos consultados
+  public ArrayList<ResultSet> ConsultarListaSeparadaDocumentosConsultados(String dow,String dom,String month,String year,String tipo_usuario,
+       String[] franja,String[] desde,String[] Hasta,String area,String autor,String doc_tipo,String usuario){
+      
+      ArrayList<ResultSet> Consultas=new ArrayList<ResultSet>(10); 
+      String temp=ConsultarDowDocConsultados(dow);
+      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarDomDocConsultados(dom);
+      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarMonthDocConsultados(month);
+      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarYearDocConsultados(year);
+      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarFranjaDocConsultados(franja);
+      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarIntervaloDocConsultados(desde,Hasta);
+      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarTipoUserDocConsultados(tipo_usuario);
+      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarAreasDocConsultados(area);
+      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarAutorDocConsultados(autor);
+      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarTipoDocConsultados(doc_tipo);
+      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarUsuarioDocConsultados(usuario);
+      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      return Consultas;
+   }
+  
     private String ConsultarDowDocConsultados(String dow) {
          String consultar="";
         if(dow != null){
@@ -568,6 +617,36 @@ public class DaoReportesEstadisticas {
         }
        return null;
    }
+    //para las listas separadas panel documentos descargados
+    public ArrayList<ResultSet> ConsultarListaSeparadasDocumentosDescargados(String dow,String dom,String month,String year,String tipo_usuario,
+       String[] franja,String[] desde,String[] Hasta,String area,String autor,String doc_tipo,String usuario){
+       
+      ArrayList<ResultSet> Consultas=new ArrayList<ResultSet>(11);
+      String temp=ConsultarDowDocDescargados(dow);
+      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarDomDocDescargados(dom);
+      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarMonthDocDescargados(month);
+      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarYearDocDescargados(year);
+      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarFranjaDocDescargados(franja);
+      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarIntervaloDocDescargados(desde,Hasta);
+      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarTipoUserDocDescargados(tipo_usuario);
+      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarAreasDocDescargados(area);
+      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarAutorDocDescargados(autor);
+      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp)); 
+      temp=ConsultarTipoDocDescargados(doc_tipo);
+      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarUsuarioDocDescargados(usuario);
+      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      return Consultas;
+   }
+    
     private String ConsultarDowDocDescargados(String dow) {
          String consultar="";
         if(dow != null){
@@ -644,6 +723,9 @@ public class DaoReportesEstadisticas {
         return consultar;
     }
 
+    
+    
+    ///PANEL USUARIOS CATALOGADOS
     public ResultSet ConsultarListaDocumentosCatalogados(String dow, String dom, String month, String year, String[] franja, String[] desde, String[] Hasta, String area, String autor, String doc_tipo, String usuario) {
       
        String sql_consultar="", inter=" intersect ";
@@ -711,6 +793,33 @@ public class DaoReportesEstadisticas {
         }
        return null;
     }
+   
+    public  ArrayList<ResultSet> ConsultarListaSeparadaDocumentosCatalogados(String dow, String dom, String month, String year, String[] franja, String[] desde, String[] Hasta, String area, String autor, String doc_tipo, String usuario) {
+      ArrayList<ResultSet> Consultas=new ArrayList<ResultSet>(10);
+      String temp=ConsultarDowDocCatalogados(dow);
+      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarDomDocCatalogados(dom);
+      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarMonthDocCatalogados(month);
+      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarYearDocCatalogados(year);
+      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarFranjaDocCatalogados(franja);
+      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarIntervaloDocCatalogados(desde,Hasta);
+      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarAreasDocCatalogados(area);
+      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarAutorDocCatalogados(autor);
+      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      temp=ConsultarTipoDocCatalogados(doc_tipo);
+      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp)); 
+      temp=ConsultarUsuarioDocCatalogados(usuario);
+      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+           
+      return Consultas;
+    }
+     
     private String ConsultarDowDocCatalogados(String dow) {
          String consultar="";
         if(dow != null){
@@ -747,7 +856,6 @@ public class DaoReportesEstadisticas {
         }
         return consultar;
     }
-  
     private String ConsultarAreasDocCatalogados(String area) {
       String consultar="";
         if(area != null){
@@ -776,7 +884,5 @@ public class DaoReportesEstadisticas {
                     + " where catalogador='"+usuario+"' ";
         return consultar;
     }
-
-   
 
 }

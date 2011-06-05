@@ -36,6 +36,7 @@ public class ControladorReportesEstadisticas {
             String genero, String Estado, String area) throws SQLException{
        return bibioteca.reportes.PdfCreator.resultSetsToTables(new DaoReportesEstadisticas().ConsultarListaSeparadaUsuario(dow, dom, month, year, franja, desde, Hasta, tipo, genero, Estado, area));
    }
+   
     public PdfPTable ConsultarListaDocumentosExistentes(String area, String autor, String tipo, String editorial, String idioma, String estado, String[] desde, String[] hasta) {
        return bibioteca.reportes.PdfCreator.resultSetToTable(new DaoReportesEstadisticas().ConsultarListaDocumentosExistentes(area, autor, tipo, editorial, idioma, estado, desde, hasta));
     }

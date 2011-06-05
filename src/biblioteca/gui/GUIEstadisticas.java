@@ -2376,13 +2376,15 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           if(jComboBox24.getSelectedIndex()!=0) Estado=jComboBox24.getSelectedIndex()+"";
           if(AreasComboBoxPU.getSelectedIndex()!=0) area=areasExistentes.get(AreasComboBoxPU.getSelectedIndex()-1).getID();
        
-        if(jCheckBox1.isSelected())
+        if(jCheckBox1.isSelected()){
         bibioteca.reportes.PdfCreator.createPdf("usuarios.pdf", "Reporte de Usuarios Registrados", "Total de usuarios registrados: ", 
                 new ControladorReportesEstadisticas().ConsultarListaUsuario(dow, dom, month, year, franja, desde, Hasta, tipo,
              genero, Estado, area));
+        }
         else try {
+           bibioteca.reportes.PdfCreator.createArrayListPdf("usuariosLista.pdf", "Reporte de Usuarios Registrados", "Total de usuarios registrados: ", 
             new ControladorReportesEstadisticas().ConsultarListaSeparadaUsuario(dow, dom, month, year, franja, desde, Hasta, tipo,
-            genero, Estado, area);
+            genero, Estado, area));
         } catch (SQLException ex) {
             Logger.getLogger(GUIEstadisticas.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2439,6 +2441,8 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           hasta[1]=(jComboBox72.getSelectedIndex()+1)+"";
           hasta[2]=jComboBox74.getSelectedItem()+"";
           }
+       
+       
         bibioteca.reportes.PdfCreator.createPdf("documentosExistentes.pdf", "Reporte de Documentos Existentes", "Total de documentos existentes en este reporte: ", 
                 new ControladorReportesEstadisticas().ConsultarListaDocumentosExistentes(area, autor, tipo, editorial, idioma, estado,
        desde, hasta));
