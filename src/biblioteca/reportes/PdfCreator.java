@@ -303,9 +303,7 @@ public class PdfCreator {
         document.add(Introduccion);
         document.add(new Paragraph("\r\n"));
         for(int i=0;i<contenido.size();i++){
-        document.add(contenido.get(i));
-        document.add(new Paragraph("\r\n"));
-        
+        document.add(contenido.get(i).getClass().equals(new PdfPTable(2).getClass()) ? (PdfPTable) contenido.get(i) : contenido.get(i));
         }
         // step 5
         document.close();
