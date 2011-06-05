@@ -20,6 +20,7 @@ package biblioteca.database2.controladores;
 import biblioteca.database2.accesoDatos.DaoReportesEstadisticas;
 import com.itextpdf.text.pdf.PdfPTable;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 
 public class ControladorReportesEstadisticas {
@@ -31,9 +32,9 @@ public class ControladorReportesEstadisticas {
 
    //Resultados intersectados
    
-   public void ConsultarListaSeparadaUsuario(String dow, String dom, String month, String year, String[] franja, String[] desde, String[] Hasta, String tipo,
+   public ArrayList<PdfPTable> ConsultarListaSeparadaUsuario(String dow, String dom, String month, String year, String[] franja, String[] desde, String[] Hasta, String tipo,
             String genero, String Estado, String area) throws SQLException{
-       new DaoReportesEstadisticas().ConsultarListaSeparadaUsuario(dow, dom, month, year, franja, desde, Hasta, tipo, genero, Estado, area);
+       return bibioteca.reportes.PdfCreator.resultSetsToTables(new DaoReportesEstadisticas().ConsultarListaSeparadaUsuario(dow, dom, month, year, franja, desde, Hasta, tipo, genero, Estado, area));
    }
     public PdfPTable ConsultarListaDocumentosExistentes(String area, String autor, String tipo, String editorial, String idioma, String estado, String[] desde, String[] hasta) {
        return bibioteca.reportes.PdfCreator.resultSetToTable(new DaoReportesEstadisticas().ConsultarListaDocumentosExistentes(area, autor, tipo, editorial, idioma, estado, desde, hasta));

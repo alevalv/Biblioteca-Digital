@@ -119,24 +119,31 @@ public class DaoReportesEstadisticas {
     }
     
     //para la lista separada
-     public void ConsultarListaSeparadaUsuario(String dow, String dom, String month, String year, String[] franja, String[] desde, String[] Hasta, String tipo, String genero, String Estado, String area) throws SQLException {
+     public ArrayList<ResultSet> ConsultarListaSeparadaUsuario(String dow, String dom, String month, String year, String[] franja, String[] desde, String[] Hasta, String tipo, String genero, String Estado, String area) throws SQLException {
   
       ArrayList<ResultSet> Consultas=new ArrayList<ResultSet>(10);
-      if(!ConsultarDowUsuarios(dow).isEmpty())  Consultas.add(ResultSetConsultarListaSeparadaUsuario(ConsultarDowUsuarios(dow)));
-      if(!ConsultarDomUsuarios(dom).isEmpty())  Consultas.add(ResultSetConsultarListaSeparadaUsuario(ConsultarDomUsuarios(dom)));
-      if(!ConsultarMonthUsuarios(month).isEmpty()) Consultas.add(ResultSetConsultarListaSeparadaUsuario(ConsultarMonthUsuarios(month)));
-      if(!ConsultarYearUsuarios(year).isEmpty()) Consultas.add(ResultSetConsultarListaSeparadaUsuario(ConsultarYearUsuarios(year)));
-      if(!ConsultarFranjaUsuarios(franja).isEmpty())  Consultas.add(ResultSetConsultarListaSeparadaUsuario(ConsultarFranjaUsuarios(franja)));
-      if(!ConsultarIntervaloUsuarios(desde,Hasta).isEmpty()) Consultas.add(ResultSetConsultarListaSeparadaUsuario(ConsultarIntervaloUsuarios(desde,Hasta)));
-      if(!ConsultarTipoUsuarios(tipo).isEmpty()) Consultas.add(ResultSetConsultarListaSeparadaUsuario(ConsultarTipoUsuarios(tipo)));
-      if(!ConsultarGeneroUsuarios(genero).isEmpty())  Consultas.add(ResultSetConsultarListaSeparadaUsuario(ConsultarGeneroUsuarios(genero)));
-      if(!ConsultarEstadoUsuarios(Estado).isEmpty()) Consultas.add(ResultSetConsultarListaSeparadaUsuario(ConsultarEstadoUsuarios(Estado))); 
-      if(!ConsultarAreasUsuarios(area).isEmpty())  Consultas.add(ResultSetConsultarListaSeparadaUsuario(ConsultarAreasUsuarios(area)));
+      String temp=ConsultarDowUsuarios(dow);
+      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarListaSeparadaUsuario(temp));
+      temp=ConsultarDomUsuarios(dom);
+      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarListaSeparadaUsuario(temp));
+      temp=ConsultarMonthUsuarios(month);
+      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarListaSeparadaUsuario(temp));
+      temp=ConsultarYearUsuarios(year);
+      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarListaSeparadaUsuario(temp));
+      temp=ConsultarFranjaUsuarios(franja);
+      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarListaSeparadaUsuario(temp));
+      temp=ConsultarIntervaloUsuarios(desde,Hasta);
+      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarListaSeparadaUsuario(temp));
+      temp=ConsultarTipoUsuarios(tipo);
+      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarListaSeparadaUsuario(temp));
+      temp=ConsultarGeneroUsuarios(genero);
+      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarListaSeparadaUsuario(temp));
+      temp=ConsultarEstadoUsuarios(Estado);
+      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarListaSeparadaUsuario(temp)); 
+      temp=ConsultarAreasUsuarios(area);
+      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarListaSeparadaUsuario(temp));
            
-      for(int i=0;i<Consultas.size();i++){
-       printResultSet(Consultas.get(i));  
-      }
-    
+      return Consultas;
     }
      public ResultSet ResultSetConsultarListaSeparadaUsuario(String consultar){
         System.out.println(consultar);
