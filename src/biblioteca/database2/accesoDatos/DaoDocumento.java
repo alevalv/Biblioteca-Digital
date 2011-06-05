@@ -60,12 +60,13 @@ public class DaoDocumento {
         String sql_agregar;
         sql_agregar = "INSERT INTO documentos(activo, titulo_principal, "
                 + "titulo_secundario, descripcion, idioma, editorial, fecha_publicacion, "
-                + "derechos_autor, tipo_documento, catalogador)"
+                + "derechos_autor, tipo_documento, fecha_catalogacion, catalogador)"
                 + "VALUES ('" + "true" + "','" + documento.getTituloPrincipal() + "','"
                 + documento.getTituloSecundario() + "','" + documento.getDescripcion() + "','"
                 + documento.getIdioma() + "','" + documento.getEditorial() + "','"
                 + documento.getFechaPublicacion() + "','" + documento.getDerechosAutor() + "','"
-                + documento.getTipoMaterial() + "','" + usuario + "');";
+                + documento.getTipoMaterial() + "','" + documento.getFechaCatalogacion()+"','"
+                + usuario + "');";
 
         try {
             Connection conn = Fachada.conectar();
@@ -138,7 +139,7 @@ public class DaoDocumento {
                 + documento.getIdioma() + "'AND fecha_publicacion='"
                 + documento.getFechaPublicacion() + "'AND derechos_autor='"
                 + documento.getDerechosAutor() + "'AND catalogador='" + catalogador + "'"
-                + "AND ubicacion=null";
+                + "AND fecha_catalogacion='"+documento.getFechaCatalogacion();
         String id = null;
         try {
             Connection conn = Fachada.conectar();

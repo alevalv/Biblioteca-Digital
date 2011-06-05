@@ -55,7 +55,7 @@ public class ControladorDocumento {
      */
     public void insertarDocumento(String tituloPrincipal, String tituloSecundario,
              String editorial, String derechosAutor, String idioma, String descripcion,
-             String tipoMaterial,String fechaPublicacion, String catalogador){
+             String tipoMaterial,String fechaPublicacion, String fecha_catalogacion, String catalogador){
         Documento documento = new Documento();
         documento.setActivo(true);
         documento.setDerechosAutor(derechosAutor);
@@ -66,6 +66,7 @@ public class ControladorDocumento {
         documento.setTipoMaterial(tipoMaterial);
         documento.setTituloPrincipal(tituloPrincipal);
         documento.setTituloSecundario(tituloSecundario);
+        documento.setFechaCatalogacion(fecha_catalogacion);
         DaoDocumento daoDocumento = new DaoDocumento();
         daoDocumento.insertarDocumento(documento, catalogador);
         
@@ -151,7 +152,7 @@ public class ControladorDocumento {
      */
     public String obtenerId(String tituloPrincipal, String tituloSecundario,
              String editorial, String derechosAutor, String idioma, String descripcion,
-             String tipoMaterial,String fechaPublicacion, String catalogador){
+             String tipoMaterial,String fechaPublicacion, String fecha_catalogacion, String catalogador){
         Documento documento = new Documento();
         documento.setActivo(true);
         documento.setDerechosAutor(derechosAutor);
@@ -162,6 +163,7 @@ public class ControladorDocumento {
         documento.setTipoMaterial(tipoMaterial);
         documento.setTituloPrincipal(tituloPrincipal);
         documento.setTituloSecundario(tituloSecundario);
+        documento.setFechaCatalogacion(fecha_catalogacion);
         DaoDocumento daoDocumento = new DaoDocumento();
         return daoDocumento.obtenerDocumentoID(documento, catalogador);
     }
