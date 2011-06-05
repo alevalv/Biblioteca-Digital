@@ -500,28 +500,62 @@ public class DaoReportesEstadisticas {
        String[] franja,String[] desde,String[] Hasta,String area,String autor,String doc_tipo,String usuario){
       
       ArrayList<ResultSet> Consultas=new ArrayList<ResultSet>(10); 
+      NombreTablas=new ArrayList<String>(10);
       String temp=ConsultarDowDocConsultados(dow);
-      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()){
+          NombreTablas.add("Lista de Documentos Consultados por dia de la ");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarDomDocConsultados(dom);
-      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()) {
+          NombreTablas.add("Lista de Documentos Consultados por dia del mes");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarMonthDocConsultados(month);
-      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()) {
+          NombreTablas.add("Lista de Documentos Consultados por mes");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarYearDocConsultados(year);
-      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()) {
+         NombreTablas.add("Lista de Documentos Consultados por año");
+         Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarFranjaDocConsultados(franja);
-      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()) {
+         NombreTablas.add("Lista de Documentos Consultados por franja horaria");
+         Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarIntervaloDocConsultados(desde,Hasta);
-      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()){
+         NombreTablas.add("Lista de Documentos Consultados por intervalo de tiempo");
+         Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarTipoUserDocConsultados(tipo_usuario);
-      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()){
+         NombreTablas.add("Lista de Documentos Consultados por tipo de usuario");
+         Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarAreasDocConsultados(area);
-      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()){
+         NombreTablas.add("Lista de Documentos Consultados por Area");
+         Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarAutorDocConsultados(autor);
-      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()){
+           NombreTablas.add("Lista de Documentos Consultados por Autor");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarTipoDocConsultados(doc_tipo);
-      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()) {
+           NombreTablas.add("Lista de Documentos Consultados por tipo de documento");
+           Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarUsuarioDocConsultados(usuario);
-      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()) {
+          NombreTablas.add("Lista de Documentos Consultados un usuario especifico");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       return Consultas;
    }
   
@@ -682,28 +716,62 @@ public class DaoReportesEstadisticas {
        String[] franja,String[] desde,String[] Hasta,String area,String autor,String doc_tipo,String usuario){
        
       ArrayList<ResultSet> Consultas=new ArrayList<ResultSet>(11);
+      NombreTablas=new ArrayList<String>(11);
       String temp=ConsultarDowDocDescargados(dow);
-      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()) {
+          NombreTablas.add("Lista de Documentos Descargados por dia de la semana");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarDomDocDescargados(dom);
-      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()) {
+          NombreTablas.add("Lista de Documentos Descargados por dia del mes");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarMonthDocDescargados(month);
-      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()){
+          NombreTablas.add("Lista de Documentos Descargados por mes");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarYearDocDescargados(year);
-      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()){
+          NombreTablas.add("Lista de Documentos Descargados por año");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarFranjaDocDescargados(franja);
-      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()){
+          NombreTablas.add("Lista de Documentos Descargados por franja horario");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarIntervaloDocDescargados(desde,Hasta);
-      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()){
+          NombreTablas.add("Lista de Documentos Descargados por intervalo de tiempo");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarTipoUserDocDescargados(tipo_usuario);
-      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()){
+          NombreTablas.add("Lista de Documentos Descargados por tipo de usuario");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarAreasDocDescargados(area);
-      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()){
+          NombreTablas.add("Lista de Documentos Descargados por Area");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarAutorDocDescargados(autor);
-      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp)); 
+      if(!temp.isEmpty()){
+          NombreTablas.add("Lista de Documentos Descargados por Autor");
+          Consultas.add(ResultSetConsultarLista(temp));
+      } 
       temp=ConsultarTipoDocDescargados(doc_tipo);
-      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()) {
+          NombreTablas.add("Lista de Documentos Descargados por tipo de documento");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarUsuarioDocDescargados(usuario);
-      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()) {
+          NombreTablas.add("Lista de Documentos Descargados por un Usuario especifico");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       return Consultas;
    }
     
@@ -856,26 +924,57 @@ public class DaoReportesEstadisticas {
    
     public  ArrayList<ResultSet> ConsultarListaSeparadaDocumentosCatalogados(String dow, String dom, String month, String year, String[] franja, String[] desde, String[] Hasta, String area, String autor, String doc_tipo, String usuario) {
       ArrayList<ResultSet> Consultas=new ArrayList<ResultSet>(10);
+      NombreTablas=new ArrayList<String>(10);
       String temp=ConsultarDowDocCatalogados(dow);
-      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty())  {
+          NombreTablas.add("Lista de Documentos Catalogados por dia de la semana");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarDomDocCatalogados(dom);
-      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()) {
+          NombreTablas.add("Lista de Documentos Catalogados por dia del mes");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarMonthDocCatalogados(month);
-      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()) {
+          NombreTablas.add("Lista de Documentos Catalogados por mes");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarYearDocCatalogados(year);
-      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()){
+          NombreTablas.add("Lista de Documentos Catalogados por año");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarFranjaDocCatalogados(franja);
-      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()) {
+          NombreTablas.add("Lista de Documentos Catalogados por franja horaria");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarIntervaloDocCatalogados(desde,Hasta);
-      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()) {
+          NombreTablas.add("Lista de Documentos Catalogados por intervalo de tiempo");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarAreasDocCatalogados(area);
-      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()) {
+          NombreTablas.add("Lista de Documentos Catalogados por Area");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarAutorDocCatalogados(autor);
-      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()) {
+          NombreTablas.add("Lista de Documentos Catalogados por Autor");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
       temp=ConsultarTipoDocCatalogados(doc_tipo);
-      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp)); 
+      if(!temp.isEmpty()){
+          NombreTablas.add("Lista de Documentos Catalogados por tipo de documento");
+          Consultas.add(ResultSetConsultarLista(temp));
+      } 
       temp=ConsultarUsuarioDocCatalogados(usuario);
-      if(!temp.isEmpty())  Consultas.add(ResultSetConsultarLista(temp));
+      if(!temp.isEmpty()) {
+          NombreTablas.add("Lista de Documentos Catalogados por un usuario especifico");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
            
       return Consultas;
     }
