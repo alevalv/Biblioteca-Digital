@@ -121,6 +121,7 @@ public class GUICatalogacion extends javax.swing.JFrame {
             }
             else{
                 JOptionPane.showMessageDialog(this, "El usuario no es un catalogador", "Error", JOptionPane.ERROR_MESSAGE);
+                destroyAll();
                 this.dispose();
                 parent.setVisible(true);
             }
@@ -133,14 +134,14 @@ public class GUICatalogacion extends javax.swing.JFrame {
 
     static public void destroyAll(){
         documento=null;
-                biblioteca.gui.catalogacion.Autores.autoresSeleccionados=null;
-                biblioteca.gui.catalogacion.Selecc_Areas.areasSeleccionadas=null;
-                biblioteca.gui.catalogacion.Selecc_Pal_Clave.palabrasClaveSeleccionadas=null;
-                Informacion_Basica_Guardada=false;
-                Autores_Guardado=false;
-                Areas_Guardadas=false;
-                Palabras_Clave_Guardadas=false;
-                Tipo_Documento_Guardado=false;
+        biblioteca.gui.catalogacion.Autores.autoresSeleccionados=null;
+        biblioteca.gui.catalogacion.Selecc_Areas.areasSeleccionadas=null;
+        biblioteca.gui.catalogacion.Selecc_Pal_Clave.palabrasClaveSeleccionadas=null;
+        Informacion_Basica_Guardada=false;
+        Autores_Guardado=false;
+        Areas_Guardadas=false;
+        Palabras_Clave_Guardadas=false;
+        Tipo_Documento_Guardado=false;
     }
     /** This method is called from within the constructor to
      * initialize the form.
