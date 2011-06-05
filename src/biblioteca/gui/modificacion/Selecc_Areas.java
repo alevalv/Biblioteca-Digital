@@ -26,6 +26,7 @@ package biblioteca.gui.modificacion;
 import biblioteca.database2.beans.Area;
 import biblioteca.database2.controladores.ControladorArea;
 import biblioteca.database2.controladores.ControladorDocumento;
+import biblioteca.gui.LimitadorDejTextField;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -130,7 +131,13 @@ public class Selecc_Areas extends javax.swing.JPanel {
 
         jLabel6.setText("Nombre: ");
 
+        LimitadorDejTextField AreaL=new LimitadorDejTextField(70);
+        Area_Nombre.setDocument(AreaL);
+
         jLabel1.setText("Descripción: ");
+
+        LimitadorDejTextField Area_DescripcionL=new LimitadorDejTextField(200);
+        Area_Descripcion.setDocument(Area_DescripcionL);
 
         jLabel7.setText("Área Padre: ");
 
@@ -171,7 +178,7 @@ public class Selecc_Areas extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
                 .addComponent(jLabel4))
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
@@ -207,7 +214,7 @@ public class Selecc_Areas extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()

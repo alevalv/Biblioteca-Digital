@@ -193,7 +193,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         AutorComboBoxPDE = new javax.swing.JComboBox();
         DocTipoComboBoxPDE = new javax.swing.JComboBox();
         jLabel55 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField("",5);
         jLabel56 = new javax.swing.JLabel();
         jComboBox68 = new javax.swing.JComboBox();
         jLabel57 = new javax.swing.JLabel();

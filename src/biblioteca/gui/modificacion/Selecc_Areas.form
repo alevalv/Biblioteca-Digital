@@ -18,7 +18,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="107" max="32767" attributes="0"/>
+              <EmptySpace pref="115" max="32767" attributes="0"/>
               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
@@ -240,6 +240,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="Area_Nombre">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="LimitadorDejTextField AreaL=new LimitadorDejTextField(70);&#xa;Area_Nombre.setDocument(AreaL);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
@@ -247,6 +250,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="Area_Descripcion">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="LimitadorDejTextField Area_DescripcionL=new LimitadorDejTextField(200);&#xa;Area_Descripcion.setDocument(Area_DescripcionL);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>

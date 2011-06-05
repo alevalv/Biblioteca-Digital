@@ -26,6 +26,7 @@ package biblioteca.gui.modificacion;
 import biblioteca.database2.accesoDatos.DaoTipoDocumento;
 import biblioteca.database2.beans.TipoDocumento;
 import biblioteca.database2.controladores.ControladorTipoDocumento;
+import biblioteca.gui.LimitadorDejTextField;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -123,8 +124,13 @@ public class Tipo_Documento extends javax.swing.JPanel {
 
         jLabel1.setText("Nombre: ");
 
+        LimitadorDejTextField Tipo_NombreL=new LimitadorDejTextField(20);
+        Tipo_Nombre.setDocument(Tipo_NombreL);
+
         jLabel2.setText("Descripción: ");
 
+        LimitadorDejTextField Tipo_DescripcionL=new LimitadorDejTextField(200);
+        Tipo_Descripcion.setDocument(Tipo_DescripcionL);
         Tipo_Descripcion.setColumns(20);
         Tipo_Descripcion.setRows(5);
         jScrollPane2.setViewportView(Tipo_Descripcion);
@@ -260,7 +266,7 @@ public class Tipo_Documento extends javax.swing.JPanel {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(76, 76, 76)
                     .addComponent(jLabel11)
-                    .addContainerGap(464, Short.MAX_VALUE)))
+                    .addContainerGap(469, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 

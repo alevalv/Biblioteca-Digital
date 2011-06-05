@@ -143,7 +143,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                   <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="464" max="32767" attributes="0"/>
+                  <EmptySpace pref="469" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -235,6 +235,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="Tipo_Nombre">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="LimitadorDejTextField Tipo_NombreL=new LimitadorDejTextField(20);&#xa;Tipo_Nombre.setDocument(Tipo_NombreL);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
@@ -253,6 +256,9 @@
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="LimitadorDejTextField Tipo_DescripcionL=new LimitadorDejTextField(200);&#xa;Tipo_Descripcion.setDocument(Tipo_DescripcionL);"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
