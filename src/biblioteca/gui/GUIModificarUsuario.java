@@ -126,7 +126,7 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
                 .addComponent(UniValleLabel)
                 .addGap(39, 39, 39)
                 .addComponent(jLabel19)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
         HeadPanelLayout.setVerticalGroup(
             HeadPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,13 +149,18 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
         VinculoLabel.setFont(new java.awt.Font("Arial", 0, 12));
         VinculoLabel.setText("Vinculo con Univalle:");
 
-        CorreoTextField.setFont(new java.awt.Font("Arial", 0, 11));
+        LimitadorDejTextField CorreoTextFieldL=new LimitadorDejTextField(40);
+        CorreoTextField.setDocument(CorreoTextFieldL);
+        CorreoTextField.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
 
         CorreoLabel.setFont(new java.awt.Font("Arial", 0, 12));
         CorreoLabel.setText("Correo Electronico: ");
 
-        PreguntaSecretaLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        PreguntaSecretaLabel.setFont(new java.awt.Font("Arial", 0, 12));
         PreguntaSecretaLabel.setText("Pregunta Secreta:");
+
+        LimitadorDejTextField ContrasenaPasswordFieldL=new LimitadorDejTextField(30);
+        ContrasenaPasswordField.setDocument(ContrasenaPasswordFieldL);
 
         ContrasenaLabel.setFont(new java.awt.Font("Arial", 0, 12));
         ContrasenaLabel.setText("Contraseña:");
@@ -163,9 +168,13 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
         ApellidosLabel.setFont(new java.awt.Font("Arial", 0, 12));
         ApellidosLabel.setText("Apellidos:");
 
-        ApellidosTextField.setFont(new java.awt.Font("Arial", 0, 11));
+        LimitadorDejTextField ApellidosL=new LimitadorDejTextField(30);
+        ApellidosTextField.setDocument(ApellidosL);
+        ApellidosTextField.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
 
-        NombresTextField.setFont(new java.awt.Font("Arial", 0, 11));
+        LimitadorDejTextField NombresL=new LimitadorDejTextField(30);
+        NombresTextField.setDocument(NombresL);
+        NombresTextField.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel3.setText("Nombres:");
@@ -173,12 +182,19 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel2.setText("Nombre de Usuario: ");
 
-        NombreUsuarioTextField1.setFont(new java.awt.Font("Arial", 0, 11));
+        LimitadorDejTextField NombreUsuariojTextField1L=new LimitadorDejTextField(30);
+        NombreUsuarioTextField1.setDocument(NombreUsuariojTextField1L);
+        NombreUsuarioTextField1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
 
         RespuestaSecretaLabel.setFont(new java.awt.Font("Arial", 0, 12));
         RespuestaSecretaLabel.setText("Respuesta Secreta: ");
 
+        LimitadorDejTextField PreguntaSecretaTextFieldL=new LimitadorDejTextField(50);
+        PreguntaSecretaTextField.setDocument(PreguntaSecretaTextFieldL);
         PreguntaSecretaTextField.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+
+        LimitadorDejTextField RespuestaSecretaTextFieldL=new LimitadorDejTextField(50);
+        RespuestaSecretaTextField.setDocument(RespuestaSecretaTextFieldL);
 
         VerificarContrasenaLabel.setFont(new java.awt.Font("Arial", 0, 12));
         VerificarContrasenaLabel.setText("Verificar Contraseña:");
@@ -204,6 +220,9 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
                 ModificarButtonActionPerformed(evt);
             }
         });
+
+        LimitadorDejTextField vContrasenaPasswordFieldL=new LimitadorDejTextField(30);
+        VerificarContrasenaPasswordField.setDocument(vContrasenaPasswordFieldL);
 
         FechaNacimientoLabel.setFont(new java.awt.Font("Arial", 0, 12));
         FechaNacimientoLabel.setText("Fecha de Nacimiento:");
@@ -257,7 +276,7 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
             .addGroup(BodyPanelLayout.createSequentialGroup()
                 .addGap(175, 175, 175)
                 .addComponent(TittleLabel)
-                .addContainerGap(198, Short.MAX_VALUE))
+                .addContainerGap(208, Short.MAX_VALUE))
             .addGroup(BodyPanelLayout.createSequentialGroup()
                 .addGap(95, 95, 95)
                 .addGroup(BodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

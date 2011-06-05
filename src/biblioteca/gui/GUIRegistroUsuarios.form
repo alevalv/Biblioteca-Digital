@@ -150,7 +150,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="321" max="32767" attributes="0"/>
+                  <EmptySpace pref="331" max="32767" attributes="0"/>
                   <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
               </Group>
@@ -374,6 +374,9 @@
               <Font name="Arial" size="11" style="0"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="LimitadorDejTextField jTextField4L=new LimitadorDejTextField(40);&#xa;jTextField4.setDocument(jTextField4L);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
           <Properties>
@@ -400,6 +403,9 @@
               <Font name="Arial" size="11" style="0"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="LimitadorDejTextField jPasswordField1L=new LimitadorDejTextField(30);&#xa;jPasswordField1.setDocument(jPasswordField1L);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
@@ -423,6 +429,9 @@
               <Font name="Arial" size="11" style="0"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="LimitadorDejTextField jTextField3L=new LimitadorDejTextField(30);&#xa;jTextField3.setDocument(jTextField3L);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField2">
           <Properties>
@@ -430,6 +439,9 @@
               <Font name="Arial" size="11" style="0"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="LimitadorDejTextField jTextField2L=new LimitadorDejTextField(30);&#xa;jTextField2.setDocument(jTextField2L);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
@@ -453,6 +465,9 @@
               <Font name="Arial" size="11" style="0"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="LimitadorDejTextField jTextField1L=new LimitadorDejTextField(30);&#xa;jTextField1.setDocument(jTextField1L);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel15">
           <Properties>
@@ -468,6 +483,9 @@
               <Font name="Arial" size="11" style="0"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="LimitadorDejTextField jTextField6L=new LimitadorDejTextField(50);&#xa;jTextField6.setDocument(jTextField6L);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField7">
           <Properties>
@@ -475,6 +493,9 @@
               <Font name="Arial" size="11" style="0"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="LimitadorDejTextField jTextField7L=new LimitadorDejTextField(50);&#xa;jTextField7.setDocument(jTextField7L);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel16">
           <Properties>
@@ -555,6 +576,9 @@
               <Font name="Arial" size="11" style="0"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="LimitadorDejTextField jPasswordField2L=new LimitadorDejTextField(30);&#xa;jPasswordField2.setDocument(jPasswordField2L);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel11">
           <Properties>

@@ -131,7 +131,7 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biblioteca/gui/resources/logo.png"))); // NOI18N
 
-        jLabel19.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Ubuntu", 1, 24));
         jLabel19.setText("Biblioteca Digital");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -140,7 +140,7 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 321, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 331, Short.MAX_VALUE)
                 .addComponent(jLabel19)
                 .addGap(57, 57, 57))
         );
@@ -165,7 +165,9 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel7.setText("Vinculo con Univalle:");
 
-        jTextField4.setFont(new java.awt.Font("Arial", 0, 11));
+        LimitadorDejTextField jTextField4L=new LimitadorDejTextField(40);
+        jTextField4.setDocument(jTextField4L);
+        jTextField4.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel8.setText("Correo Electronico: ");
@@ -178,7 +180,9 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
             }
         });
 
-        jPasswordField1.setFont(new java.awt.Font("Arial", 0, 11));
+        LimitadorDejTextField jPasswordField1L=new LimitadorDejTextField(30);
+        jPasswordField1.setDocument(jPasswordField1L);
+        jPasswordField1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel5.setText("Contraseña:");
@@ -186,9 +190,13 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel14.setText("Apellidos:");
 
-        jTextField3.setFont(new java.awt.Font("Arial", 0, 11));
+        LimitadorDejTextField jTextField3L=new LimitadorDejTextField(30);
+        jTextField3.setDocument(jTextField3L);
+        jTextField3.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
 
-        jTextField2.setFont(new java.awt.Font("Arial", 0, 11));
+        LimitadorDejTextField jTextField2L=new LimitadorDejTextField(30);
+        jTextField2.setDocument(jTextField2L);
+        jTextField2.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel3.setText("Nombres:");
@@ -196,14 +204,20 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel2.setText("Nombre de Usuario: ");
 
-        jTextField1.setFont(new java.awt.Font("Arial", 0, 11));
+        LimitadorDejTextField jTextField1L=new LimitadorDejTextField(30);
+        jTextField1.setDocument(jTextField1L);
+        jTextField1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
 
         jLabel15.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel15.setText("Respuesta Secreta: ");
 
-        jTextField6.setFont(new java.awt.Font("Arial", 0, 11));
+        LimitadorDejTextField jTextField6L=new LimitadorDejTextField(50);
+        jTextField6.setDocument(jTextField6L);
+        jTextField6.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
 
-        jTextField7.setFont(new java.awt.Font("Arial", 0, 11));
+        LimitadorDejTextField jTextField7L=new LimitadorDejTextField(50);
+        jTextField7.setDocument(jTextField7L);
+        jTextField7.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
 
         jLabel16.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel16.setText("Verificar Contraseña:");
@@ -233,7 +247,9 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
             }
         });
 
-        jPasswordField2.setFont(new java.awt.Font("Arial", 0, 11));
+        LimitadorDejTextField jPasswordField2L=new LimitadorDejTextField(30);
+        jPasswordField2.setDocument(jPasswordField2L);
+        jPasswordField2.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
 
         jLabel11.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel11.setText("Fecha de Nacimiento:");

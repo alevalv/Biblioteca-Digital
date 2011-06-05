@@ -783,6 +783,8 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 5);
         Panel_Documentos2.add(jLabel55, gridBagConstraints);
 
+        LimitadorDejTextField jTextField5L=new LimitadorDejTextField(30);
+        jTextField5.setDocument(jTextField5L);
         jTextField5.setPreferredSize(new java.awt.Dimension(180, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -1264,6 +1266,8 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
         Panel_Documentos_Catalogados1.add(jLabel69, gridBagConstraints);
 
+        LimitadorDejTextField jTextField6L=new LimitadorDejTextField(30);
+        jTextField6.setDocument(jTextField6L);
         jTextField6.setEditable(false);
         jTextField6.setText("Digite su Username");
         jTextField6.setDisabledTextColor(new java.awt.Color(0, 0, 0));
@@ -1378,6 +1382,8 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
         Panel_Documentos_Descargados1.add(jLabel70, gridBagConstraints);
 
+        LimitadorDejTextField jTextField7L=new LimitadorDejTextField(30);
+        jTextField7.setDocument(jTextField7L);
         jTextField7.setEditable(false);
         jTextField7.setText("Digite su Username");
         jTextField7.setDisabledTextColor(new java.awt.Color(0, 0, 0));
@@ -2031,6 +2037,8 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
         Panel_Documentos_Catalogados2.add(jLabel88, gridBagConstraints);
 
+        LimitadorDejTextField jTextField8L=new LimitadorDejTextField(30);
+        jTextField8.setDocument(jTextField8L);
         jTextField8.setEditable(false);
         jTextField8.setText("Digite su Username");
         jTextField8.setDisabledTextColor(new java.awt.Color(0, 0, 0));

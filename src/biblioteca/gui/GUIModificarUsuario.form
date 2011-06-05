@@ -61,7 +61,7 @@
                   <Component id="UniValleLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="56" max="32767" attributes="0"/>
+                  <EmptySpace pref="66" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -103,7 +103,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="175" max="-2" attributes="0"/>
                   <Component id="TittleLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="198" max="32767" attributes="0"/>
+                  <EmptySpace pref="208" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
@@ -307,6 +307,9 @@
               <Font name="Arial" size="11" style="0"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="LimitadorDejTextField CorreoTextFieldL=new LimitadorDejTextField(40);&#xa;CorreoTextField.setDocument(CorreoTextFieldL);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="CorreoLabel">
           <Properties>
@@ -325,6 +328,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JPasswordField" name="ContrasenaPasswordField">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="LimitadorDejTextField ContrasenaPasswordFieldL=new LimitadorDejTextField(30);&#xa;ContrasenaPasswordField.setDocument(ContrasenaPasswordFieldL);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="ContrasenaLabel">
           <Properties>
@@ -348,6 +354,9 @@
               <Font name="Arial" size="11" style="0"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="LimitadorDejTextField ApellidosL=new LimitadorDejTextField(30);&#xa;ApellidosTextField.setDocument(ApellidosL);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="NombresTextField">
           <Properties>
@@ -355,6 +364,9 @@
               <Font name="Arial" size="11" style="0"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="LimitadorDejTextField NombresL=new LimitadorDejTextField(30);&#xa;NombresTextField.setDocument(NombresL);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
@@ -378,6 +390,9 @@
               <Font name="Arial" size="11" style="0"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="LimitadorDejTextField NombreUsuariojTextField1L=new LimitadorDejTextField(30);&#xa;NombreUsuarioTextField1.setDocument(NombreUsuariojTextField1L);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="RespuestaSecretaLabel">
           <Properties>
@@ -393,8 +408,14 @@
               <Font name="Arial" size="11" style="0"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="LimitadorDejTextField PreguntaSecretaTextFieldL=new LimitadorDejTextField(50);&#xa;PreguntaSecretaTextField.setDocument(PreguntaSecretaTextFieldL);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="RespuestaSecretaTextField">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="LimitadorDejTextField RespuestaSecretaTextFieldL=new LimitadorDejTextField(50);&#xa;RespuestaSecretaTextField.setDocument(RespuestaSecretaTextFieldL);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="VerificarContrasenaLabel">
           <Properties>
@@ -461,6 +482,9 @@
           </Events>
         </Component>
         <Component class="javax.swing.JPasswordField" name="VerificarContrasenaPasswordField">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="LimitadorDejTextField vContrasenaPasswordFieldL=new LimitadorDejTextField(30);&#xa;VerificarContrasenaPasswordField.setDocument(vContrasenaPasswordFieldL);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="FechaNacimientoLabel">
           <Properties>
