@@ -155,7 +155,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         LimitadorDejTextField DescripcionL=new LimitadorDejTextField(500);
         Descripcion.setDocument(DescripcionL);
         Descripcion.setColumns(20);
-        Descripcion.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        Descripcion.setFont(new java.awt.Font("Tahoma", 0, 11));
         Descripcion.setRows(5);
         Descripcion.setMargin(new java.awt.Insets(5, 5, 5, 5));
         Descripcion.setPreferredSize(new java.awt.Dimension(200, 80));
@@ -243,11 +243,11 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 11;
         gridBagConstraints.gridwidth = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(24, 12, 10, 0);
         add(Estado, gridBagConstraints);
 
-        Siguiente.setFont(new java.awt.Font("Ubuntu", 1, 15));
+        Siguiente.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         Siguiente.setText("Siguiente Paso");
         Siguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
