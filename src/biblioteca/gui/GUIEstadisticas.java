@@ -212,6 +212,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel79 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jCheckBox2 = new javax.swing.JCheckBox();
         jPanel3 = new javax.swing.JPanel();
         Panel_Documentos_Catalogados1 = new javax.swing.JPanel();
         jLabel61 = new javax.swing.JLabel();
@@ -252,6 +253,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         DocTipoComboBoxPDC = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
+        jCheckBox10 = new javax.swing.JCheckBox();
         jPanel4 = new javax.swing.JPanel();
         Panel_Documentos_Descargados1 = new javax.swing.JPanel();
         jLabel70 = new javax.swing.JLabel();
@@ -292,6 +294,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         AutorComboBoxPDD = new javax.swing.JComboBox();
         DocTipoComboBoxPDD = new javax.swing.JComboBox();
         jButton4 = new javax.swing.JButton();
+        jCheckBox11 = new javax.swing.JCheckBox();
         jPanel5 = new javax.swing.JPanel();
         Panel_Documentos_Catalogados2 = new javax.swing.JPanel();
         jLabel81 = new javax.swing.JLabel();
@@ -330,6 +333,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         DocTipoComboBoxPDC1 = new javax.swing.JComboBox();
         jLabel19 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
+        jCheckBox12 = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -952,10 +956,18 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         Panel_Documentos2.add(jButton2, gridBagConstraints);
+
+        jCheckBox2.setText("Intersectar");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        Panel_Documentos2.add(jCheckBox2, gridBagConstraints);
 
         jPanel2.add(Panel_Documentos2);
 
@@ -1339,10 +1351,18 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         Panel_Documentos_Catalogados1.add(jButton3, gridBagConstraints);
+
+        jCheckBox10.setText("Intersectar");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 17;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        Panel_Documentos_Catalogados1.add(jCheckBox10, gridBagConstraints);
 
         jPanel3.add(Panel_Documentos_Catalogados1);
 
@@ -1719,10 +1739,18 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         Panel_Documentos_Descargados1.add(jButton4, gridBagConstraints);
+
+        jCheckBox11.setText("Intersectar");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 17;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        Panel_Documentos_Descargados1.add(jCheckBox11, gridBagConstraints);
 
         jPanel4.add(Panel_Documentos_Descargados1);
 
@@ -2090,10 +2118,18 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         Panel_Documentos_Catalogados2.add(jButton5, gridBagConstraints);
+
+        jCheckBox12.setText("Intersectar");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 17;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        Panel_Documentos_Catalogados2.add(jCheckBox12, gridBagConstraints);
 
         jPanel5.add(Panel_Documentos_Catalogados2);
 
@@ -2363,11 +2399,11 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           if(jCheckBox9.isSelected()){
           desde=new String[3];
           desde[0]=jComboBox15.getSelectedItem()+"";
-          desde[1]=jComboBox17.getSelectedIndex()+"";
+          desde[1]=(jComboBox17.getSelectedIndex()+1)+"";
           desde[2]=jComboBox19.getSelectedItem()+"";
           Hasta=new String[3];
           Hasta[0]=jComboBox16.getSelectedItem()+"";
-          Hasta[1]=jComboBox18.getSelectedIndex()+"";
+          Hasta[1]=(jComboBox18.getSelectedIndex()+1)+"";
           Hasta[2]=jComboBox20.getSelectedItem()+"";
           }
       }
@@ -2442,10 +2478,14 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           hasta[2]=jComboBox74.getSelectedItem()+"";
           }
        
-       
+       if(jCheckBox2.isSelected())
         bibioteca.reportes.PdfCreator.createPdf("documentosExistentes.pdf", "Reporte de Documentos Existentes", "Total de documentos existentes en este reporte: ", 
                 new ControladorReportesEstadisticas().ConsultarListaDocumentosExistentes(area, autor, tipo, editorial, idioma, estado,
        desde, hasta));
+        else  
+           bibioteca.reportes.PdfCreator.createArrayListPdf("documentosExistenteslista.pdf", "Reporte de Documentos Existentes", "Total de documentos existentes en este reporte: ", 
+                new ControladorReportesEstadisticas().ConsultarListaSeparadaDocumentosExistentes(area, autor, tipo, editorial, idioma, estado, desde, hasta));
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -2467,11 +2507,11 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           if(jCheckBox37.isSelected()){
           desde=new String[3];
           desde[0]=jComboBox82.getSelectedItem()+"";
-          desde[1]=jComboBox83.getSelectedIndex()+"";
+          desde[1]=(jComboBox83.getSelectedIndex()+1)+"";
           desde[2]=jComboBox84.getSelectedItem()+"";
           Hasta=new String[3];
           Hasta[0]=jComboBox89.getSelectedItem()+"";
-          Hasta[1]=jComboBox88.getSelectedIndex()+"";
+          Hasta[1]=(jComboBox88.getSelectedIndex()+1)+"";
           Hasta[2]=jComboBox87.getSelectedItem()+"";
           }
       }
@@ -2481,11 +2521,13 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           if(DocTipoComboBoxPDC.getSelectedIndex()!=0) doc_tipo=tdExistentes.get(DocTipoComboBoxPDC.getSelectedIndex()-1).getTipoDocumento();
           if(jTextField6.isCursorSet() && !jTextField6.getText().isEmpty()) usuario=jTextField6.getText();
           
+          if(jCheckBox10.isSelected())
           bibioteca.reportes.PdfCreator.createPdf("documentosConsultados.pdf", "Reporte de Documentos Consultados", "Total de documentos consultados en este reporte: ", 
                 new ControladorReportesEstadisticas().ConsultarListaDocumentosConsultados(dow, dom, month, year, tipo_usuario,
                franja, desde,Hasta,area, autor, doc_tipo, usuario));
-          
-      
+          else 
+             bibioteca.reportes.PdfCreator.createArrayListPdf("documentosConsultadoslista.pdf", "Reporte de Documentos Consultados", "Total de documentos Consultados en este reporte: ", 
+                new ControladorReportesEstadisticas().ConsultarListaSeparadaDocumentosConsultados(dow, dom, month, year, tipo_usuario, franja, desde, Hasta, area, autor, doc_tipo, usuario));
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -2506,11 +2548,11 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           if(jCheckBox39.isSelected()){
           desde=new String[3];
           desde[0]=jComboBox101.getSelectedItem()+"";
-          desde[1]=jComboBox100.getSelectedIndex()+"";
+          desde[1]=(jComboBox100.getSelectedIndex()+1)+"";
           desde[2]=jComboBox98.getSelectedItem()+"";
           Hasta=new String[3];
           Hasta[0]=jComboBox94.getSelectedItem()+"";
-          Hasta[1]=jComboBox95.getSelectedIndex()+"";
+          Hasta[1]=(jComboBox95.getSelectedIndex()+1)+"";
           Hasta[2]=jComboBox96.getSelectedItem()+"";
           }
       }
@@ -2520,8 +2562,12 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           if(DocTipoComboBoxPDD.getSelectedIndex()!=0) doc_tipo=tdExistentes.get(DocTipoComboBoxPDD.getSelectedIndex()-1).getTipoDocumento();
           if(jTextField7.isCursorSet() && !jTextField7.getText().isEmpty()) usuario=jTextField7.getText();
           
-          bibioteca.reportes.PdfCreator.createPdf("documentosDescargados.pdf", "Reporte de Documentos Descargados", "Total de documentos consultados en este reporte: ",new ControladorReportesEstadisticas().ConsultarListaDocumentosDescargados(dow, dom, month, year, tipo_usuario,
+          if(jCheckBox11.isSelected())
+          bibioteca.reportes.PdfCreator.createPdf("documentosDescargadosLista.pdf", "Reporte de Documentos Descargados", "Total de documentos consultados en este reporte: ",new ControladorReportesEstadisticas().ConsultarListaDocumentosDescargados(dow, dom, month, year, tipo_usuario,
                franja, desde,Hasta,area, autor, doc_tipo, usuario));
+          else
+           bibioteca.reportes.PdfCreator.createArrayListPdf("documentosDescargadosLista.pdf", "Reporte de Documentos Descargados", "Total de documentos consultados en este reporte: ",new ControladorReportesEstadisticas().ConsultarListaSeparadaDocumentosDescargados(dow, dom, month, year, tipo_usuario, franja, desde, Hasta, area, autor, doc_tipo, usuario));
+           
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jTextField6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField6MouseClicked
@@ -2616,11 +2662,11 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           if(jCheckBox51.isSelected()){
           desde=new String[3];
           desde[0]=jComboBox108.getSelectedItem()+"";
-          desde[1]=jComboBox109.getSelectedIndex()+"";
+          desde[1]=(jComboBox109.getSelectedIndex()+1)+"";
           desde[2]=jComboBox110.getSelectedItem()+"";
           Hasta=new String[3];
           Hasta[0]=jComboBox113.getSelectedItem()+"";
-          Hasta[1]=jComboBox112.getSelectedIndex()+"";
+          Hasta[1]=(jComboBox112.getSelectedIndex()+1)+"";
           Hasta[2]=jComboBox111.getSelectedItem()+"";
           }
       }
@@ -2629,7 +2675,11 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           if(DocTipoComboBoxPDC1.getSelectedIndex()!=0) doc_tipo=tdExistentes.get(DocTipoComboBoxPDC1.getSelectedIndex()-1).getTipoDocumento();
           if(jTextField8.isCursorSet() && !jTextField8.getText().isEmpty()) usuario=jTextField8.getText();
           
+          if(jCheckBox12.isSelected())
           bibioteca.reportes.PdfCreator.createPdf("documentosCatalogados.pdf", "Reporte de Documentos Catalogados", "Total de documentos catalogados en este reporte: ",new ControladorReportesEstadisticas().ConsultarListaDocumentosCatalogados(dow, dom, month, year, franja, desde, Hasta, area, autor, doc_tipo, usuario));
+          else
+          bibioteca.reportes.PdfCreator.createArrayListPdf("documentosCatalogadosLista.pdf", "Reporte de Documentos Catalogados", "Total de documentos catalogados en este reporte: ",new ControladorReportesEstadisticas().ConsultarListaSeparadaDocumentosCatalogados(dow, dom, month, year, franja, desde, Hasta, area, autor, doc_tipo, usuario));
+  
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jCheckBox34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox34ActionPerformed
@@ -2762,6 +2812,10 @@ public class GUIEstadisticas extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox10;
+    private javax.swing.JCheckBox jCheckBox11;
+    private javax.swing.JCheckBox jCheckBox12;
+    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox29;
     private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JCheckBox jCheckBox31;

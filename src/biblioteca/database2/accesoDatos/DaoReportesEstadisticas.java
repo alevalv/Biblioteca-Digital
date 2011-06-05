@@ -308,6 +308,7 @@ public class DaoReportesEstadisticas {
       temp=ConsultarEstadoDocumentosExistentes(estado);
       if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
       temp=ConsultarIntervaloDocumentosExistentes(desde,hasta);
+      if(!temp.isEmpty()) Consultas.add(ResultSetConsultarLista(temp));
       return Consultas;
     }
     
@@ -618,7 +619,7 @@ public class DaoReportesEstadisticas {
        return null;
    }
     //para las listas separadas panel documentos descargados
-    public ArrayList<ResultSet> ConsultarListaSeparadasDocumentosDescargados(String dow,String dom,String month,String year,String tipo_usuario,
+    public ArrayList<ResultSet> ConsultarListaSeparadaDocumentosDescargados(String dow,String dom,String month,String year,String tipo_usuario,
        String[] franja,String[] desde,String[] Hasta,String area,String autor,String doc_tipo,String usuario){
        
       ArrayList<ResultSet> Consultas=new ArrayList<ResultSet>(11);
