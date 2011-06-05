@@ -46,6 +46,26 @@ public class DaoEstadisticas {
         Fachada=new Fachada();
     }
     
+    /**
+     * Genera el sql para obtener la lista de los documento más descargados, según los parametros
+     * seleccionados por el usuario.
+     * <br>Esta función se apoya en crearCondicionesEspecialesDescargados para 
+     * generar consultas aún más especificas usando una subconsulta
+     * @param dow Dia del año seleccionado
+     * @param dom Dia del mes seleccionado
+     * @param month Mes seleccionado
+     * @param year Año seleccionado
+     * @param tipo_usuario Tipo de usuario selccionado
+     * @param franja Franja horaria seleccionada, es un String[] con dos fechas en sql
+     * @param desde fecha de inicio de la franja de descargas
+     * @param hasta fecha de fin de la franja de descargas
+     * @param area id del area seleccionada por el usuario
+     * @param autor correo del autor seleccionado por el usuario
+     * @param doc_tipo Tipo de documento seleccionado por el usuario
+     * @param usuario El username especifico que el usuario selecciona
+     * @param todos Indica si el usuario quiere una consulta general (respecto a fechas) o una consulta más especifica
+     * @return ResultSet con el resultado de la consulta
+     */
     public ResultSet documentosMasDescargados(String dow,String dom,String month,String year,String tipo_usuario,
        String[] franja,String[] desde,String[] hasta,String area,String autor,String doc_tipo,String usuario, boolean todos){
         String sql_descargados="";
@@ -114,6 +134,16 @@ public class DaoEstadisticas {
        
     }
     
+    /**
+     * Crea una subconsulta que se agrega a la consulta creada en documentosMasDescargados
+     * en el caso de que sea necesario para el usuario
+     * @param tipo_usuario String con el tipo de usuario selccionado
+     * @param area String con el id area seleccionada
+     * @param autor String con el autor del documento
+     * @param doc_tipo String con el tipo de documento
+     * @param usuario String con el nombre de usuario a consultar
+     * @return String con la subconsulta para ser agregada a la consulta principal
+     */
     private String crearCondicionesEspecialesDescargados(String tipo_usuario, String area,String autor,String doc_tipo,String usuario){
         String salida="";
         ArrayList condiciones = new ArrayList(5);
@@ -151,6 +181,26 @@ public class DaoEstadisticas {
         return salida;
     }
     
+    /**
+     * Genera el sql para obtener la lista de los documento más consultados, según los parametros
+     * seleccionados por el usuario.
+     * <br>Esta función se apoya en crearCondicionesEspecialesConsultados para 
+     * generar consultas aún más especificas usando una subconsulta
+     * @param dow Dia del año seleccionado
+     * @param dom Dia del mes seleccionado
+     * @param month Mes seleccionado
+     * @param year Año seleccionado
+     * @param tipo_usuario Tipo de usuario selccionado
+     * @param franja Franja horaria seleccionada, es un String[] con dos fechas en sql
+     * @param desde fecha de inicio de la franja de descargas
+     * @param hasta fecha de fin de la franja de descargas
+     * @param area id del area seleccionada por el usuario
+     * @param autor correo del autor seleccionado por el usuario
+     * @param doc_tipo Tipo de documento seleccionado por el usuario
+     * @param usuario El username especifico que el usuario selecciona
+     * @param todos Indica si el usuario quiere una consulta general (respecto a fechas) o una consulta más especifica
+     * @return ResultSet con el resultado de la consulta
+     */
     public ResultSet documentosMasConsultados(String dow,String dom,String month,String year,String tipo_usuario,
        String[] franja,String[] desde,String[] hasta,String area,String autor,String doc_tipo,String usuario, boolean todos){
         String sql_descargados="";
@@ -218,6 +268,16 @@ public class DaoEstadisticas {
        
     }
     
+    /**
+     * Crea una subconsulta que se agrega a la consulta creada en documentosMasConsultados
+     * en el caso de que sea necesario para el usuario
+     * @param tipo_usuario String con el tipo de usuario selccionado
+     * @param area String con el id area seleccionada
+     * @param autor String con el autor del documento
+     * @param doc_tipo String con el tipo de documento
+     * @param usuario String con el nombre de usuario a consultar
+     * @return String con la subconsulta para ser agregada a la consulta principal
+     */
     private String crearCondicionesEspecialesConsultados(String tipo_usuario, String area,String autor,String doc_tipo,String usuario){
         String salida="";
         ArrayList condiciones = new ArrayList(5);
