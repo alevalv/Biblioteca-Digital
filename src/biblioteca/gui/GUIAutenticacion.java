@@ -25,8 +25,14 @@ package biblioteca.gui;
 
 import biblioteca.database2.controladores.ControladorUsuario;
 import javax.swing.JOptionPane;
-import biblioteca.gui.LimitadorDejTextField;
 
+/**
+ * Esta GUI permite autenticar usuarios en la aplicación, a través de una interfaz
+ * sencilla
+ * 
+ * @author María Cristina Bustos Rodríguez
+ * @author Alejandro Valdés Villada
+ */
 class GUIAutenticacion extends javax.swing.JFrame {
     biblioteca.gui.GUIBusqueda parent;
     /** Creates new form GUIAutenticacion */

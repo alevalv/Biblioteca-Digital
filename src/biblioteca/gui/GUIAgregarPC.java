@@ -14,8 +14,16 @@ import biblioteca.database2.controladores.ControladorPalabraClave;
 import javax.swing.JOptionPane;
 
 /**
+ * Esta GUI permite crear palabras claves en la base de datos de la apliación, sin necesidad de
+ * abrir la GUI de Catalogación o modificación de documento
+ * 
+ * <br> Es el mismo codigo que está en biblioteca.gui.catalogacion.Selecc_Pal_Clave, solo
+ * adaptado para una interfaz aparte
+ * 
+ * @see biblioteca.gui.catalogacion.Selecc_Pal_Clave
  *
- * @author alejandro
+ * @author María Cristina Bustos Rodríguez
+ * @author Alejandro Valdés Villada
  */
 public class GUIAgregarPC extends javax.swing.JFrame {
     private javax.swing.JFrame parent;
@@ -143,6 +151,11 @@ public class GUIAgregarPC extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Comprueba campos vacios en la interfaz y envia un mensaje de error
+     * explicando cual es el error al usuario
+     * @return boolean indicando si no hay campos vacios en la interfaz
+     */
     private boolean checkEmptyFieldsPC(){
         if(PC_Nombre.getText()==null || PC_Nombre.getText().equals("")){
             JOptionPane.showMessageDialog(this, "El campo Nombre no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);

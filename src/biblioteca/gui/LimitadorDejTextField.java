@@ -10,9 +10,10 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultStyledDocument;
 
 /**
- *
- * @author Cris
- * @author Alejandro
+ * Clase creada para limitar el texto que se introduce en los JTextField
+ * 
+ * @author María Cristina Bustos Rodríguez
+ * @author Alejandro Valdés Villada
  */
 public class LimitadorDejTextField extends DefaultStyledDocument {
         int caracteresMaximos;

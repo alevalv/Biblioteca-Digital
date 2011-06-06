@@ -36,8 +36,10 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
- * @author Cris
+ * Busqueda avanzada de documentos en la base de datos
+ * 
+ * @author María Cristina Bustos Rodríguez
+ * @author Alejandro Valdés Villada
  */
 public class GUIBusquedaAvanzada extends javax.swing.JFrame {
     biblioteca.gui.GUIBusqueda parent;

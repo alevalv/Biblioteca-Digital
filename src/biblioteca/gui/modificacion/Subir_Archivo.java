@@ -27,8 +27,12 @@ import biblioteca.gui.LimitadorDejTextField;
 import javax.swing.JFileChooser;
 
 /**
+ * Este panel hace parte de la interfaz GUIModificacionDocumento. Finaliza
+ * el proceso de modificación de documento, no se permite subir un nuevo archivo
  *
- * @author alejandro
+ * @see biblioteca.gui.GUIModificacionDocumento;
+ * @author María Cristina Bustos Rodríguez
+ * @author Alejandro Valdés Villada
  */
 public class Subir_Archivo extends javax.swing.JPanel {
     biblioteca.gui.GUIModificacionDocumento MainGui;
@@ -38,6 +42,9 @@ public class Subir_Archivo extends javax.swing.JPanel {
         MainGui=Parent;
     }
     
+    /**
+     * Carga la información del documento a modificar
+     */
     public void inicializarDocumento(){
         Path.setEnabled(false);
         Path.setEditable(false);

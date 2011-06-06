@@ -33,11 +33,18 @@ import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 
 /**
+ * Este panel hace parte de la interfaz GUIModificacionDocumento, permite seleccionar un conjunto
+ * de áreas para un documento que se esté catalogando en ese momento.
  *
- * @author alejandro
+ * @see biblioteca.gui.GUIModificacionDocumento;
+ * @author María Cristina Bustos Rodríguez
+ * @author Alejandro Valdés Villada
  */
 public class Selecc_Areas extends javax.swing.JPanel {
     ArrayList<Area> areasExistentes;
+    /**
+     * Contenedor de areas Seleccionadas para el documento actual
+     */
     static public ArrayList<Area> areasSeleccionadas;
     /** Creates new form Selecc_Areas */
     public Selecc_Areas() {
@@ -46,6 +53,10 @@ public class Selecc_Areas extends javax.swing.JPanel {
         initComboBox();
     }
     
+    /**
+     * Inicializa el panel con los datos del documento a modificar, esta función
+     * es llamada desde el Parent de este JPanel
+     */
     public void inicializarDocumento(){
         ArrayList<Area> areaDoc = new ControladorDocumento().obtenerAreas(biblioteca.gui.GUIModificacionDocumento.documento.getID_documento());
         for(int i=0;i<areaDoc.size();i++){
@@ -55,6 +66,9 @@ public class Selecc_Areas extends javax.swing.JPanel {
         refreshAreas();
     }
     
+    /**
+     * Inicializa los ComboBox de áreas con las existentes en la base de datos
+     */
     private void initComboBox(){
         Areas.removeAllItems();
         Area_Padre.removeAllItems();
@@ -352,6 +366,12 @@ public class Selecc_Areas extends javax.swing.JPanel {
         add(jLabel21, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Agrega el área seleccionada al contenedor de áreas, si esta ya no está
+     * contenida ahi, además llama a refreshAreas para mostrar de nuevo las áreas
+     * seleccionadas
+     * @param evt 
+     */
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
         if(Areas.getSelectedIndex()!=-1){
             if(!areasSeleccionadas.contains((Area)Areas.getSelectedItem())){
@@ -361,6 +381,10 @@ public class Selecc_Areas extends javax.swing.JPanel {
         refreshAreas();
 }//GEN-LAST:event_AgregarActionPerformed
 
+    /**
+     * Refresca el JTextArea que contiene los nombres de las áreas que están
+     * actualmente agregadas al contenedor de áreas seleccionadas
+     */
     private void refreshAreas(){
         String texto="";
         for(int i=0;i<areasSeleccionadas.size();i++){
@@ -371,6 +395,11 @@ public class Selecc_Areas extends javax.swing.JPanel {
         Areas_Agregadas.setText(texto);
     }
     
+    /**
+     * Finaliza el proceso de Seleccionar áreas y pasa a la siguiente interfaz
+     * en el proceso de catalogación.
+     * @param evt 
+     */
     private void SiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteActionPerformed
         if(!areasSeleccionadas.isEmpty()){
             Estado.setForeground(Color.green);
@@ -388,6 +417,12 @@ public class Selecc_Areas extends javax.swing.JPanel {
         
 }//GEN-LAST:event_SiguienteActionPerformed
 
+    /**
+     * Handler para el botón de agregar area, agrega un área a la base de datos
+     * con los datos obtenidos de la interfaz, además reinicializa los Combobox
+     * de área
+     * @param evt ActionEvent (no se usa)
+     */
     private void Agregar_AreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_AreaActionPerformed
         if(checkEmptyFieldsArea()){
             new ControladorArea().insertarArea(Area_Descripcion.getText().replaceAll("[']", "`"), Area_Nombre.getText().replaceAll("[']", "`"), (Area_Padre.getSelectedIndex()!=-1) ? ((Area)Area_Padre.getSelectedItem()).getID() : "0");
@@ -400,6 +435,11 @@ public class Selecc_Areas extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_Agregar_AreaActionPerformed
 
+     /**
+     * Elimina todas las áreas agregadas que están en el contenedor de áreas
+     * seleccionadas y refresca el JTextArea de áreas
+     * @param evt 
+     */
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
         biblioteca.gui.GUIModificacionDocumento.Areas_Guardadas=false;
         Cancelar.setEnabled(false);
@@ -411,6 +451,11 @@ public class Selecc_Areas extends javax.swing.JPanel {
         Estado.setText("[Sin Guardar]");
     }//GEN-LAST:event_CancelarActionPerformed
 
+    /**
+     * Comprueba si existen campos vacios en las entradas para insertar una
+     * nueva area
+     * @return boolean indicando si no hay campos vacios
+     */
     private boolean checkEmptyFieldsArea(){
         if(Area_Nombre.getText()==null || Area_Nombre.getText().equals("")){
             JOptionPane.showMessageDialog(this, "El campo Area Nombre no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);

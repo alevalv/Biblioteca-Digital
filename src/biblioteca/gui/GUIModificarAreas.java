@@ -31,8 +31,14 @@ import java.util.Vector;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Cris
+ * Interfaz de modificación de áreas de interes de un usuario
+ * 
+ * <br>Con esta interfaz se pueden modificar las áreas de interes del usuario seleccionado
+ * a través de una interfaz sencilla que se actualiza con las áreas existentes de la
+ * base de datos
+ * 
+ * @author María Cristina Bustos Rodríguez
+ * @author Alejandro Valdés Villada
  */
 public class GUIModificarAreas extends javax.swing.JFrame {
 
@@ -55,8 +61,11 @@ public class GUIModificarAreas extends javax.swing.JFrame {
         this.setLocationRelativeTo(parent);
         this.setResizable(false);
     }
-    
 
+    /**
+     * Inicializa las listas de áreas con las áreas existentes de la base
+     * de datos
+     */
     private void initListExistentes(){
        areasExistentes=new Vector<String>();
        areasexistentesarray=new ControladorArea().consultarTodasLasAreas();
@@ -72,6 +81,9 @@ public class GUIModificarAreas extends javax.swing.JFrame {
        jList1.setSelectedIndex(-1);
     }
 
+    /**
+     *Inicializa la lista de áreas antiguas seleccionadas por el usuario 
+     */
     private void initListSeleccionadas(){
        areasSeleccionadas=new Vector<String>();
        areasSeleccionadasarray=new ControladorArea().consultarAreasporUsuario(username);

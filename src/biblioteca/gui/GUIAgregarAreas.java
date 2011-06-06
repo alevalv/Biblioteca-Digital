@@ -16,12 +16,27 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
+ * Esta GUI permite crear áreas en la base de datos de la apliación, sin necesidad de
+ * abrir la GUI de Catalogación o modificación de documento
+ * 
+ * <br> Es el mismo codigo que está en biblioteca.gui.catalogacion.Selecc_Areas, solo
+ * adaptado para una interfaz aparte
+ * 
+ * @see biblioteca.gui.catalogacion.Selecc_Areas
  *
- * @author alejandro
+ * @author María Cristina Bustos Rodríguez
+ * @author Alejandro Valdés Villada
  */
 public class GUIAgregarAreas extends javax.swing.JFrame {
     javax.swing.JFrame parent;
     /** Creates new form GUIAgregarAreas */
+    
+    /**
+     * Crea una nueva GUI Area con la ventana padre dada
+     * <br>Usando el parent, se hace un dispose a esta ventana cuando se cierra,
+     * y se hace visible al parent.
+     * @param parent JFrame que es la ventana padre
+     */
     public GUIAgregarAreas(javax.swing.JFrame parent) {
         initComponents();
         this.parent=parent;
@@ -166,6 +181,11 @@ public class GUIAgregarAreas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Comprueba si existen campos vacios en las entradas para insertar una
+     * nueva area
+     * @return boolean indicando si no hay campos vacios
+     */
     private boolean checkEmptyFieldsArea(){
         if(Area_Nombre.getText()==null || Area_Nombre.getText().equals("")){
             JOptionPane.showMessageDialog(this, "El campo Area Nombre no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
@@ -178,6 +198,9 @@ public class GUIAgregarAreas extends javax.swing.JFrame {
         else return true;
     }
     
+    /**
+     * Inicializa el ComboBox de áreas con las existentes en la base de datos
+     */
     private void initAreaPadreComboBox(){
         Area_Padre.removeAllItems();
         ArrayList<Area> areasExistentes= new ControladorArea().consultarTodasLasAreas();
@@ -189,6 +212,12 @@ public class GUIAgregarAreas extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Handler para el botón de agregar area, agrega un área a la base de datos
+     * con los datos obtenidos de la interfaz, además reinicializa el Combobox
+     * de área
+     * @param evt ActionEvent (no se usa)
+     */
     private void Agregar_AreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_AreaActionPerformed
         if(checkEmptyFieldsArea()){
             new ControladorArea().insertarArea(Area_Descripcion.getText().replaceAll("[']", "`"), Area_Nombre.getText().replaceAll("[']", "`"), (Area_Padre.getSelectedIndex()!=-1) ? ((Area)Area_Padre.getSelectedItem()).getID() : "0");
@@ -200,6 +229,10 @@ public class GUIAgregarAreas extends javax.swing.JFrame {
         }
 }//GEN-LAST:event_Agregar_AreaActionPerformed
 
+    /**
+     * Handler para cerrar la ventana, cierra la ventana y muestra el parent
+     * @param evt WindowEvent (no se usa)
+     */
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         this.dispose();
         parent.setVisible(true);

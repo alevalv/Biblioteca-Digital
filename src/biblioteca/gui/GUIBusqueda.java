@@ -30,8 +30,13 @@ import biblioteca.database2.controladores.ControladorUsuario;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 /**
- *
- * @author alejandro
+ * Interfaz principal de la aplicación
+ * 
+ * <br>Desde aqui se acceden a todas las interfaces, a través de un MenuBar,
+ * también, esta GUI provee la busqueda normal de documentos en la base de datos.
+ * 
+ * @author María Cristina Bustos Rodríguez
+ * @author Alejandro Valdés Villada
  */
 public class GUIBusqueda extends javax.swing.JFrame {
     ArrayList<String> resultados;

@@ -17,7 +17,7 @@
  */
 
 /*
- * GUICAT_Autores.java
+ * Autores.java
  *
  * Created on 7/05/2011, 04:50:06 PM
  */
@@ -34,8 +34,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 
 /**
+ * Este panel hace parte de la interfaz GUICatalogacion, permite seleccionar un conjunto
+ * de autores para un documento que se esté catalogando en ese momento.
  *
- * @author alejandro
+ * @see biblioteca.gui.GUICatalogacion;
+ * @author María Cristina Bustos Rodríguez
+ * @author Alejandro Valdés Villada
  */
 public class Autores extends javax.swing.JPanel {
     Documento documento;
@@ -50,6 +54,9 @@ public class Autores extends javax.swing.JPanel {
         initAuthorComboBox();
     }
     
+    /**
+     * Inicializa los ComboBox de áreas con las existentes en la base de datos
+     */
     private void initAuthorComboBox(){
         Autores.removeAllItems();
         autoresExistentes = new ControladorAutor().obtenerTodosLosAutores();
@@ -423,6 +430,11 @@ public class Autores extends javax.swing.JPanel {
         Agregar.setEnabled(true);
     }//GEN-LAST:event_CancelarActionPerformed
 
+    /**
+     * Comprueba si existen campos vacios en las entradas para insertar una
+     * nuevo autor
+     * @return boolean indicando si no hay campos vacios
+     */
     private boolean checkEmptyFieldsAuthor(){
         if(Autor_Correo.getText()==null || Autor_Correo.getText().equals("")){
             JOptionPane.showMessageDialog(this, "El campo Autor Correo no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);

@@ -37,8 +37,16 @@ import java.util.StringTokenizer;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author alejandro
+ * Interfaz de catalogación de documentos
+ * 
+ * <br>Con esta interfaz es posible agregar nuevos documentos a la aplicación,
+ * especificando todo lo relacionado con este.
+ * <br>Esta dividida en varios JPanel que están creados en biblioteca.gui.catalogacion
+ * 
+ * @see biblioteca.gui.catalogacion
+ * 
+ * @author María Cristina Bustos Rodríguez
+ * @author Alejandro Valdés Villada
  */
 public class GUICatalogacion extends javax.swing.JFrame {
     static Documento documento;
@@ -62,6 +70,14 @@ public class GUICatalogacion extends javax.swing.JFrame {
         this.setResizable(false);
     }
     
+    /**
+     * Cataloga un nuevo documento en la aplicación; este proceso se ejecuta
+     * cuando el usuario ha hecho correctamente las actividades de los diferentes
+     * subpaneles de GUICatalogación.
+     * <br> Se encarga de guardar el documento en el repositorio de la biblioteca
+     * y de crear las entradas en la base de datos con todo lo relacionado al documento
+     * @param file File con el path del archivo del documento
+     */
     public void catalogar(File file){
         if(Informacion_Basica_Guardada && Autores_Guardado && Areas_Guardadas
                 && Palabras_Clave_Guardadas && Tipo_Documento_Guardado){
@@ -121,9 +137,6 @@ public class GUICatalogacion extends javax.swing.JFrame {
             }
             else{
                 JOptionPane.showMessageDialog(this, "El usuario no es un catalogador", "Error", JOptionPane.ERROR_MESSAGE);
-                destroyAll();
-                this.dispose();
-                parent.setVisible(true);
             }
             
         }
@@ -132,6 +145,10 @@ public class GUICatalogacion extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Debido al uso de campos estaticos para el paso de información entre los
+     * paneles, estos se destruyen forzadamente despues de hacer la catalogación
+     */
     static public void destroyAll(){
         documento=null;
         biblioteca.gui.catalogacion.Autores.autoresSeleccionados=null;

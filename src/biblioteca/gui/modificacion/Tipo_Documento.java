@@ -33,8 +33,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 
 /**
+ * Este panel hace parte de la interfaz GUIModificacionDocumento, permite la visualización
+ * y la modificación de un documento seleccionado previamente
  *
- * @author alejandro
+ * @see biblioteca.gui.GUIModificacionDocumento;
+ * @author María Cristina Bustos Rodríguez
+ * @author Alejandro Valdés Villada
  */
 public class Tipo_Documento extends javax.swing.JPanel {
     ArrayList<TipoDocumento> tiposExistentes;    
@@ -46,6 +50,9 @@ public class Tipo_Documento extends javax.swing.JPanel {
         biblioteca.gui.GUIModificacionDocumento.Tipo_Documento_Guardado=false;
     }
 
+    /**
+     * Inicializa los ComboBox de palabras claves con las existentes en la base de datos
+     */
     private void initComboBox(){
         Tipos_Documento.removeAllItems();
         tiposExistentes=null;
@@ -60,6 +67,10 @@ public class Tipo_Documento extends javax.swing.JPanel {
         
     }
     
+    /**
+     * Obtiene el tipo de material del documento seleccionado, y lo carga a la
+     * interfaz
+     */
     public void inicializarDocumento(){
         Tipos_Documento.setSelectedItem(biblioteca.gui.GUIModificacionDocumento.documento.getTipoMaterial());
     }
@@ -373,6 +384,11 @@ public class Tipo_Documento extends javax.swing.JPanel {
         Estado.setText("[Sin Guardar]");
     }//GEN-LAST:event_EditarActionPerformed
 
+    /**
+     * Comprueba si existen campos vacios en las entradas para insertar una
+     * nuevo tipo de material
+     * @return boolean indicando si no hay campos vacios
+     */
     private boolean checkEmptyFieldsTipo(){
         if(Tipo_Nombre.getText()==null || Tipo_Nombre.getText().equals("")){
             JOptionPane.showMessageDialog(this, "El campo Nombre no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);

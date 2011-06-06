@@ -14,8 +14,16 @@ import biblioteca.database2.controladores.ControladorAutor;
 import javax.swing.JOptionPane;
 
 /**
+ * Esta GUI permite crear autores en la base de datos de la apliación, sin necesidad de
+ * abrir la GUI de Catalogación o modificación de documento
+ * 
+ * <br> Es el mismo codigo que está en biblioteca.gui.catalogacion.Autores, solo
+ * adaptado para una interfaz aparte
+ * 
+ * @see biblioteca.gui.catalogacion.Autores
  *
- * @author alejandro
+ * @author María Cristina Bustos Rodríguez
+ * @author Alejandro Valdés Villada
  */
 public class GUIAgregarAutores extends javax.swing.JFrame {
 
@@ -199,6 +207,11 @@ public class GUIAgregarAutores extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Comprueba campos vacios en la interfaz y envia un mensaje de error
+     * explicando cual es el error al usuario
+     * @return boolean indicando si no hay campos vacios en la interfaz
+     */
     private boolean checkEmptyFieldsAuthor(){
         if(Autor_Correo.getText()==null || Autor_Correo.getText().equals("")){
             JOptionPane.showMessageDialog(this, "El campo Autor Correo no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);

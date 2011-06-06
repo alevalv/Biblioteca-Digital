@@ -29,14 +29,22 @@ import javax.swing.JOptionPane;
 import biblioteca.database2.controladores.ControladorDocumento;
 
 /**
- *
- * @author Alejandro
+ * GUI para mostrar las recomendaciones de documentos al usuario autenticado
+ * actualmente
+ * 
+ * <br>Estas recomendaciones se calculan según las áreas de interes del usuario
+ * autenticado actualmente, la fecha de catalogación de documentos que tengan esas
+ * áreas de interés del usuario y la ultima vez que accedio el usuario a la
+ * aplicación
+ * 
+ * @author María Cristina Bustos Rodríguez
+ * @author Alejandro Valdés Villada
  */
 public class GUIRecomendaciones extends javax.swing.JFrame {
-    /** Creates new form GUIRecomendaciones */
     javax.swing.JFrame parent;
     ArrayList<String> resultados;
-
+    
+    /** Creates new form GUIRecomendaciones */
     public GUIRecomendaciones(javax.swing.JFrame parent) {
             initComponents();
             NoEditableTableModel modelo =new NoEditableTableModel();

@@ -30,8 +30,12 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /**
+ * Este panel hace parte de la interfaz GUICatalogacion, permite la selección
+ * del archivo al que apunta el documento a catalogar
  *
- * @author alejandro
+ * @see biblioteca.gui.GUICatalogacion;
+ * @author María Cristina Bustos Rodríguez
+ * @author Alejandro Valdés Villada
  */
 public class Subir_Archivo extends javax.swing.JPanel {
     Documento documento;

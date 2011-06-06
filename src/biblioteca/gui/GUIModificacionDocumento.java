@@ -29,8 +29,17 @@ import biblioteca.database2.controladores.ControladorUsuario;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author alejandro
+ * Interfaz de catalogación de documentos
+ * 
+ * <br>Con esta interfaz es posible modificar documento existentes en la base de
+ * datos, conociendo su identificador único.
+ * 
+ * <br>Esta dividida en varios JPanel que están creados en biblioteca.gui.modificacion
+ * 
+ * @see biblioteca.gui.modificacion
+ * 
+ * @author María Cristina Bustos Rodríguez
+ * @author Alejandro Valdés Villada
  */
 public class GUIModificacionDocumento extends javax.swing.JFrame {
     static public Documento documento;
@@ -65,6 +74,10 @@ public class GUIModificacionDocumento extends javax.swing.JFrame {
         this.setResizable(false);
     }
     
+    /**
+     * Modifica un documento en la base de datos. No se permiten modificaciones de 
+     * identificador y de archivo seleccionado
+     */
     public void catalogar(){
         if(Informacion_Basica_Guardada && Autores_Guardado && Areas_Guardadas
                 && Palabras_Clave_Guardadas && Tipo_Documento_Guardado){
@@ -96,6 +109,10 @@ public class GUIModificacionDocumento extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Indica a los JPanel internos de que el documento fue seleccionado,
+     * para cargar el contenido de este en cada una de las interfaces
+     */
     public void documentoAbierto(){
         this.areas.inicializarDocumento();
         this.autores.inicializarDocumento();
@@ -104,6 +121,10 @@ public class GUIModificacionDocumento extends javax.swing.JFrame {
         this.td.inicializarDocumento();
     }
 
+    /**
+     * Debido al uso de campos estaticos para el paso de información entre los
+     * paneles, estos se destruyen forzadamente despues de hacer la modificación
+     */
     static public void destroyAll(){
         documento=null;
         biblioteca.gui.modificacion.Autores.autoresSeleccionados=null;

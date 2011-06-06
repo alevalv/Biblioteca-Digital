@@ -27,8 +27,10 @@ import biblioteca.database2.controladores.ControladorUsuario;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Cris
+ * GUI par agregar un nuevo usuario a la aplicación
+ * 
+ * @author María Cristina Bustos Rodríguez
+ * @author Alejandro Valdés Villada
  */
 public class GUIRegistroUsuarios extends javax.swing.JFrame {
     biblioteca.gui.GUIBusqueda parent;
@@ -486,7 +488,11 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
-
+    /**
+     * Comprueba campos vacios en la interfaz y envia un mensaje de error
+     * explicando cual es el error al usuario
+     * @return boolean indicando si no hay campos vacios en la interfaz
+     */
     private boolean checkEmptyFields(){
         String contrasena=new String(jPasswordField1.getPassword());
         String vericontrasena=new String(jPasswordField2.getPassword());
@@ -527,6 +533,10 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
         return true;
     }
 
+    /**
+     * Comprueba si el username escrito en el campo, esta disponible
+     * @return boolean indicando si el username esta disponible o no
+     */
     private boolean verificarDisponibilidad(){
         String username=jTextField1.getText();
         ControladorUsuario controlador=new ControladorUsuario();

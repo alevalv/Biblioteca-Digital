@@ -32,6 +32,14 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 
+/**
+ * Este panel hace parte de la interfaz GUICatalogacion, permite el ingreso de las
+ * palabras claves que estan relacionadas con el documento que se esta catalogando
+ *
+ * @see biblioteca.gui.GUICatalogacion;
+ * @author María Cristina Bustos Rodríguez
+ * @author Alejandro Valdés Villada
+ */
 public class Selecc_Pal_Clave extends javax.swing.JPanel {
     Documento documento;
     ArrayList<PalabraClave> palabrasClaveExistentes;
@@ -44,7 +52,9 @@ public class Selecc_Pal_Clave extends javax.swing.JPanel {
         initComboBox();
     }
 
-    
+    /**
+     * Inicializa los ComboBox de palabras claves con las existentes en la base de datos
+     */
     private void initComboBox() {
      Palabras_Clave.removeAllItems();
      palabrasClaveExistentes=null;
@@ -57,6 +67,10 @@ public class Selecc_Pal_Clave extends javax.swing.JPanel {
      }
     }
     
+    /**
+     * Refresca el JTextArea que contiene los nombres de las palabras claves que están
+     * actualmente agregadas al contenedor de palabras clave seleccionadas
+     */
     private void refreshPalabrasClave(){
         String texto="";
         for(int i=0;i<palabrasClaveSeleccionadas.size();i++){
@@ -373,6 +387,11 @@ public class Selecc_Pal_Clave extends javax.swing.JPanel {
         Estado.setText("[Sin guardar]");
     }//GEN-LAST:event_CancelarActionPerformed
 
+    /**
+     * Comprueba si existen campos vacios en las entradas para insertar una
+     * nueva palabra clave
+     * @return boolean indicando si no hay campos vacios
+     */
     private boolean checkEmptyFieldsPC(){
         if(PC_Nombre.getText()==null || PC_Nombre.getText().equals("")){
             JOptionPane.showMessageDialog(this, "El campo Nombre no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);

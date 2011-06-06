@@ -30,8 +30,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 
 /**
+ * Este panel hace parte de la interfaz GUICatalogacion, permite el ingreso de la
+ * información basica (contenida en la tabla de documentos) o metadatos de un documento
+ * que será ingresado a la aplicación
  *
- * @author alejandro
+ * @see biblioteca.gui.GUICatalogacion;
+ * @author María Cristina Bustos Rodríguez
+ * @author Alejandro Valdés Villada
  */
 public class Informacion_Basica extends javax.swing.JPanel {
     Documento documento;    
@@ -395,6 +400,11 @@ public class Informacion_Basica extends javax.swing.JPanel {
         enableFields(true);
     }//GEN-LAST:event_EditarActionPerformed
 
+    /**
+     * Comprueba si existen campos vacios en las entradas para insertar una
+     * nueva autor
+     * @return boolean indicando si no hay campos vacios
+     */
     private boolean checkEmptyFields(){
         if(Titulo_Principal.getText()==null || Titulo_Principal.getText().equals("")){
             JOptionPane.showMessageDialog(this, "El campo Titulo Principal no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
@@ -419,6 +429,10 @@ public class Informacion_Basica extends javax.swing.JPanel {
         else return true;
     }
     
+    /**
+     * Guarda los datos que estan en la interfaz en un Documento, y finaliza el 
+     * proceso de la inserción de datos basicos del documento
+     */
     private void guardarDatos(){
         documento.setTituloPrincipal(Titulo_Principal.getText().replaceAll("[']", "`"));
         documento.setTituloSecundario(Titulo_Secundario.getText().replaceAll("[']", "`"));
@@ -436,6 +450,10 @@ public class Informacion_Basica extends javax.swing.JPanel {
         biblioteca.gui.GUICatalogacion.Informacion_Basica_Guardada=true;
     }
     
+    /**
+     * Habilita o deshabilita los campos de la interfaz según el parametro
+     * @param b boolean indicando si habilitar o deshabilitar la interfaz
+     */
     private void enableFields(boolean b){
         Titulo_Principal.setEditable(b);
         Titulo_Principal.setEnabled(b);
@@ -453,10 +471,6 @@ public class Informacion_Basica extends javax.swing.JPanel {
         Idioma.setEnabled(b);
         Editar.setEnabled(!b);
     }
-    
-    
-    
-    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox AnoComboBox;

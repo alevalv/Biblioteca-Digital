@@ -34,8 +34,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 
 /**
+ * Este panel hace parte de la interfaz GUIModificacionDocumento, permite seleccionar un conjunto
+ * de autores para un documento que se esté modificacando, además de mostrar los
+ * autores anteriores del documento a modificar.
  *
- * @author alejandro
+ * @see biblioteca.gui.GUIModificacionDocumento;
+ * @author María Cristina Bustos Rodríguez
+ * @author Alejandro Valdés Villada
  */
 public class Autores extends javax.swing.JPanel {
     private ArrayList<Autor> autoresExistentes;
@@ -48,6 +53,10 @@ public class Autores extends javax.swing.JPanel {
         initAuthorComboBox();
     }
     
+    /**
+     * Inicializa la interfaz de autores con los autores del documento dado,
+     * este metodo es llamado desde el contenedor del JPanel
+     */
     public void inicializarDocumento(){
         ArrayList<Autor> autorDoc = new ControladorDocumento().obtenerAutores(biblioteca.gui.GUIModificacionDocumento.documento.getID_documento());
         for(int i=0;i<autorDoc.size();i++){
@@ -57,6 +66,9 @@ public class Autores extends javax.swing.JPanel {
         new ControladorDocumento().eliminarAutores(biblioteca.gui.GUIModificacionDocumento.documento.getID_documento(), autorDoc);
     }
     
+    /**
+     * Inicializa los ComboBox de áreas con las existentes en la base de datos
+     */
     private void initAuthorComboBox(){
         Autores.removeAllItems();
         autoresExistentes = new ControladorAutor().obtenerTodosLosAutores();
@@ -431,6 +443,11 @@ public class Autores extends javax.swing.JPanel {
         Agregar.setEnabled(true);
     }//GEN-LAST:event_CancelarActionPerformed
 
+    /**
+     * Comprueba si existen campos vacios en las entradas para insertar una
+     * nueva autor
+     * @return boolean indicando si no hay campos vacios
+     */
     private boolean checkEmptyFieldsAuthor(){
         if(Autor_Correo.getText()==null || Autor_Correo.getText().equals("")){
             JOptionPane.showMessageDialog(this, "El campo Autor Correo no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
@@ -451,6 +468,10 @@ public class Autores extends javax.swing.JPanel {
         else return true;
     }    
     
+    /**
+     * Refresca el JTextArea que contiene los nombres de los autores que están
+     * actualmente agregadas al contenedor de autores seleccionados
+     */
     private void refreshAutoresSeleccionados(){
         String nuevoTexto="";
         for(int i=0;i<autoresSeleccionados.size();i++){

@@ -29,8 +29,16 @@ import biblioteca.database2.controladores.ControladorUsuario;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Cris
+ * GUI para modificar la información de un usuario existentes
+ * 
+ * <br>Según el tipo de usuario que ingrese a esta interfaz, esta cambiará.
+ * <br>Para usuarios normales y catalogadores, se carga automaticamente
+ * con su información personal y se podrá modificar
+ * <br>Para el administrador se puede seleccionar el nickname, pero este
+ * solo podrá modificar el estado de la cuenta y el tipo de esta
+ * 
+ * @author María Cristina Bustos Rodríguez
+ * @author Alejandro Valdés Villada
  */
 public class GUIModificarUsuario extends javax.swing.JFrame {
     biblioteca.gui.GUIBusqueda parent;
@@ -498,9 +506,12 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
         }
 }//GEN-LAST:event_ModificarButtonActionPerformed
 
-
+    /**
+     * Consulta los datos de un usuario existente según su username, y los carga
+     * a la interfaz de modificación
+     * @param username String con el username del usuario a consultar
+     */
     private void ConsultarDatosUsuario(String username){
-
         Usuario usuario= new ControladorUsuario().consultarUsuario(username);
         String fecha_nac=usuario.getFechaNacimiento();
         NombreUsuarioTextField1.setText(usuario.getLogin());
@@ -535,6 +546,8 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
             PerfilComboBox.setSelectedIndex(0);
         else if(perfil.equals("2"))
             PerfilComboBox.setSelectedIndex(1);
+        else
+            PerfilComboBox.setSelectedIndex(-1);
 
     }
     
@@ -550,6 +563,11 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
         return "f";
     }
 
+    /**
+     * Comprueba campos vacios en la interfaz y envia un mensaje de error
+     * explicando cual es el error al usuario
+     * @return boolean indicando si no hay campos vacios en la interfaz
+     */
      private boolean checkEmptyFields(){
         String contrasena=new String(ContrasenaPasswordField.getPassword());
         String vericontrasena=new String(VerificarContrasenaPasswordField.getPassword());
