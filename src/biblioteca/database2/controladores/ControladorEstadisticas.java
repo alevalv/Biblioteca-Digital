@@ -59,23 +59,29 @@ public class ControladorEstadisticas {
         DaoEstadisticas controlador = new DaoEstadisticas();
         if(dow){
             ArrayList<String> tmp= controlador.consultarUsuariosRegistradosPorDoW();
+            float promedio=promedio(tmp,2);
             salida.add(new Paragraph("Resultados para los días de la semana"));
             salida.add(new Paragraph("\r\n"));
-            salida.add(biblioteca.reportes.PdfCreator.plainArrayListToPdfPTable(tmp));
+            salida.add(biblioteca.reportes.PdfCreator.plainArrayListToPdfPTable(agregarPorcentajesALista(tmp, 2), 3));
+            salida.add(new Paragraph("Promedio "+promedio));
             salida.add(new Paragraph("\r\n"));
         }
         if(dom){
             ArrayList<String> tmp= controlador.consultarUsuariosRegistradosPorDoM();
             salida.add(new Paragraph("Resultados para los días del mes"));
             salida.add(new Paragraph("\r\n"));
-            salida.add(biblioteca.reportes.PdfCreator.plainArrayListToPdfPTable(tmp));
+            float promedio=promedio(tmp,2);
+            salida.add(biblioteca.reportes.PdfCreator.plainArrayListToPdfPTable(agregarPorcentajesALista(tmp, 2), 3));
+            salida.add(new Paragraph("Promedio "+promedio));
             salida.add(new Paragraph("\r\n"));
         }
         if(mes){
             ArrayList<String> tmp= controlador.consultarUsuariosRegistradosPorMes();
             salida.add(new Paragraph("Resultados para los meses"));
             salida.add(new Paragraph("\r\n"));
-            salida.add(biblioteca.reportes.PdfCreator.plainArrayListToPdfPTable(tmp));
+            float promedio=promedio(tmp,2);
+            salida.add(biblioteca.reportes.PdfCreator.plainArrayListToPdfPTable(agregarPorcentajesALista(tmp, 2), 3));
+            salida.add(new Paragraph("Promedio "+promedio));
             salida.add(new Paragraph("\r\n"));
         }
         if(Year!=null){
@@ -100,6 +106,35 @@ public class ControladorEstadisticas {
             salida.add(new Paragraph(tmp.get(0)+" "+tmp.get(1)));
             salida.add(new Paragraph("\r\n"));
         }
+        return salida;
+    }
+    
+    private float promedio(ArrayList<String> datos, int columnas){
+        int total=0, n=0;
+        for(int i=columnas+1; i<datos.size();i+=columnas){
+            total+=Integer.parseInt(datos.get(i));
+            n++;
+        }
+        return (float) total/n;
+    }
+    
+    private ArrayList<String> agregarPorcentajesALista(ArrayList<String> datos, int columnas){
+        int total=0;
+        ArrayList<String> salida = new ArrayList<String>((int) (datos.size()*1.5));
+        for(int i=columnas+1; i<datos.size();i+=columnas){
+            total+=Integer.parseInt(datos.get(i));
+        }
+        for(int i=0;i<columnas;i++){
+            salida.add(datos.get(i));
+        }
+        salida.add("Porcentaje");
+        for(int i=columnas;i<datos.size();i++){
+            salida.add(datos.get(i));
+            if(i%(columnas)==columnas-1){
+                salida.add(((int) ((Integer.parseInt(datos.get(i))*100)/total))+"%");
+            }
+        }
+        System.out.println(salida);
         return salida;
     }
     
