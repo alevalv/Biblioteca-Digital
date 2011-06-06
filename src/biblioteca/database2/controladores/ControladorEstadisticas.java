@@ -50,24 +50,39 @@ public class ControladorEstadisticas {
         return tabla;
     }
     
-    public PdfPTable estadisticasDocumentosConsultados(String dow,String dom,String month,String year,String tipo_usuario,
-       String[] franja,String[] desde,String[] hasta,String area,String autor,String doc_tipo,String usuario, boolean todos, int salida){
+    public /*PdfPTable*/ ArrayList<Element> estadisticasDocumentosConsultados(String dow,String dom,String month,String year,String tipo_usuario,
+        String[] franja,String[] desde,String[] hasta,String area,String autor,String doc_tipo,String usuario, boolean todos, int salida) throws BadElementException, MalformedURLException, IOException{
+       
+        ArrayList<Element> Salida=  new ArrayList<Element>(5);
+        BufferedImage bufferedImage;
+        Image image;
         ResultSet rs = new DaoEstadisticas().documentosMasConsultados(dow, dom, month, year, tipo_usuario, franja, desde, hasta, area, autor, doc_tipo, usuario, todos);
         int total=0;
         ArrayList<ArrayList<String>> resultadosTabla = biblioteca.reportes.PdfCreator.resultSetToArrayList(rs);
-        biblioteca.reportes.PdfCreator.Array2DtoArrayPlane(resultadosTabla);
+        ArrayList<String> Array2DtoArrayPlane = biblioteca.reportes.PdfCreator.Array2DtoArrayPlane(resultadosTabla);
         for(int i=1;i<resultadosTabla.size();i++){
             total+=Integer.parseInt(resultadosTabla.get(i).get(resultadosTabla.get(i).size()-1));
         }
         PdfPTable tabla=biblioteca.reportes.PdfCreator.arrayListToStatisticTable(resultadosTabla, total, salida);
-        return tabla;
+       
+        
+       Salida.add(tabla);
+       Salida.add(new Paragraph("\r\n"));
+       Salida.add(new Paragraph("* Diagrama de Pastel y Diagrama de Barras: Documentos Consultados"));
+       JFreeChart chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(Array2DtoArrayPlane),"Documentos Consultados");
+       bufferedImage = chart.createBufferedImage(400, 300);
+       image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+       Salida.add(image);
+       
+        //return tabla;
+        return Salida;
     }
     
     public ArrayList<Element> estadisticasUsuariosRegistradosMultiplesTablas(boolean dow, boolean dom, boolean mes, String Year, String[] franja, String desde[], String[] hasta) throws BadElementException, MalformedURLException, IOException{
         
         BufferedImage bufferedImage;
         Image image;
-        ArrayList<Element> salida=  new ArrayList<Element>(24);
+        ArrayList<Element> salida=  new ArrayList<Element>(30);
         ArrayList<Element> images=new ArrayList<Element>(10);
         DaoEstadisticas controlador = new DaoEstadisticas();
         if(dow){

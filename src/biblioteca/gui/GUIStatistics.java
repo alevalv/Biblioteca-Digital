@@ -1759,9 +1759,24 @@ public class GUIStatistics extends javax.swing.JFrame {
         if(jTextField6.isCursorSet() && !jTextField6.getText().isEmpty()) usuario=jTextField6.getText();
           
         int salida=Integer.parseInt(Num_Doc.getText());
-        biblioteca.reportes.PdfCreator.createPdf("documentosMásConsultados.pdf", "Reporte de Documentos Más Consultados",
+        /*biblioteca.reportes.PdfCreator.createPdf("documentosMásConsultados.pdf", "Reporte de Documentos Más Consultados",
                 "Total de documentos en este reporte: ",new ControladorEstadisticas().estadisticasDocumentosConsultados(dow, dom, month, year, tipo_usuario,
-                franja, desde,Hasta,area, autor, doc_tipo, usuario, jCheckBox31.isSelected(), salida));
+                franja, desde,Hasta,area, autor, doc_tipo, usuario, jCheckBox31.isSelected(), salida));*/
+        
+         ArrayList<Element> elementosaInsertar = null;
+         try {
+            elementosaInsertar=new ControladorEstadisticas().estadisticasDocumentosConsultados(dow, dom, month, year, tipo_usuario,
+                franja, desde,Hasta,area, autor, doc_tipo, usuario, jCheckBox31.isSelected(), salida) ;    
+         } catch (BadElementException ex) {
+            Logger.getLogger(GUIStatistics.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(GUIStatistics.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(GUIStatistics.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+            biblioteca.reportes.PdfCreator.createDinamicPdf("documentosMásConsultados.pdf", "Reporte de Documentos Más Consultados", ":D", elementosaInsertar);
+        
 }//GEN-LAST:event_Reporte_ConsultadosActionPerformed
 
     private void Reporte_DescargadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reporte_DescargadosActionPerformed
