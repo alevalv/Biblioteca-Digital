@@ -358,7 +358,6 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 16;
-        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
         Panel_Usuarios.add(jLabel12, gridBagConstraints);
@@ -594,7 +593,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
 
         jComboBox19.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2010", "2009" }));
         jComboBox19.setEnabled(false);
-        jComboBox19.setPreferredSize(new java.awt.Dimension(50, 20));
+        jComboBox19.setPreferredSize(new java.awt.Dimension(70, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 10;
@@ -603,7 +602,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
 
         jComboBox20.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2010", "2009" }));
         jComboBox20.setEnabled(false);
-        jComboBox20.setPreferredSize(new java.awt.Dimension(50, 20));
+        jComboBox20.setPreferredSize(new java.awt.Dimension(70, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 11;
@@ -906,7 +905,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
 
         jComboBox73.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2010. 2009", "2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970", "1969", "1968", "1967", "1966", "1965", "1964", "1963", "1962", "1961", "1960", "1959", "1958", "1957", "1956", "1955", "1954", "1953", "1952", "1951", "1950" }));
         jComboBox73.setEnabled(false);
-        jComboBox73.setPreferredSize(new java.awt.Dimension(50, 20));
+        jComboBox73.setPreferredSize(new java.awt.Dimension(70, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 10;
@@ -917,7 +916,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
 
         jComboBox74.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2010. 2009", "2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970", "1969", "1968", "1967", "1966", "1965", "1964", "1963", "1962", "1961", "1960", "1959", "1958", "1957", "1956", "1955", "1954", "1953", "1952", "1951", "1950" }));
         jComboBox74.setEnabled(false);
-        jComboBox74.setPreferredSize(new java.awt.Dimension(50, 20));
+        jComboBox74.setPreferredSize(new java.awt.Dimension(70, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 11;
@@ -1200,7 +1199,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
 
         jComboBox84.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2010", "2009" }));
         jComboBox84.setEnabled(false);
-        jComboBox84.setPreferredSize(new java.awt.Dimension(50, 20));
+        jComboBox84.setPreferredSize(new java.awt.Dimension(70, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 10;
@@ -1209,7 +1208,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
 
         jComboBox87.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2010", "2009" }));
         jComboBox87.setEnabled(false);
-        jComboBox87.setPreferredSize(new java.awt.Dimension(50, 20));
+        jComboBox87.setPreferredSize(new java.awt.Dimension(70, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 11;
@@ -1473,7 +1472,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
 
         jComboBox96.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2010", "2009" }));
         jComboBox96.setEnabled(false);
-        jComboBox96.setPreferredSize(new java.awt.Dimension(50, 20));
+        jComboBox96.setPreferredSize(new java.awt.Dimension(70, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 11;
@@ -1482,7 +1481,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
 
         jComboBox98.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2010", "2009" }));
         jComboBox98.setEnabled(false);
-        jComboBox98.setPreferredSize(new java.awt.Dimension(50, 20));
+        jComboBox98.setPreferredSize(new java.awt.Dimension(70, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 10;
@@ -1987,7 +1986,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
 
         jComboBox110.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2010", "2009" }));
         jComboBox110.setEnabled(false);
-        jComboBox110.setPreferredSize(new java.awt.Dimension(50, 20));
+        jComboBox110.setPreferredSize(new java.awt.Dimension(70, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 10;
@@ -1996,7 +1995,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
 
         jComboBox111.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2010", "2009" }));
         jComboBox111.setEnabled(false);
-        jComboBox111.setPreferredSize(new java.awt.Dimension(50, 20));
+        jComboBox111.setPreferredSize(new java.awt.Dimension(70, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 11;
