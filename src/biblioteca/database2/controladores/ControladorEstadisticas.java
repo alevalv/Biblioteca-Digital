@@ -19,11 +19,18 @@ package biblioteca.database2.controladores;
 
 import biblioteca.database2.accesoDatos.DaoEstadisticas;
 import biblioteca.reportes.ChartCreator;
+import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.Element;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPTable;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.encoders.EncoderUtil;
 
 
 public class ControladorEstadisticas {
@@ -55,17 +62,26 @@ public class ControladorEstadisticas {
         return tabla;
     }
     
-    public ArrayList<Element> estadisticasUsuariosRegistradosMultiplesTablas(boolean dow, boolean dom, boolean mes, String Year, String[] franja, String desde[], String[] hasta){
+    public ArrayList<Element> estadisticasUsuariosRegistradosMultiplesTablas(boolean dow, boolean dom, boolean mes, String Year, String[] franja, String desde[], String[] hasta) throws BadElementException, MalformedURLException, IOException{
+        int width, height;
+        BufferedImage bufferedImage;
+        Image image;
         ArrayList<Element> salida=  new ArrayList<Element>(24);
         DaoEstadisticas controlador = new DaoEstadisticas();
         if(dow){
+            width=400;
+            height=300;
             ArrayList<String> tmp= controlador.consultarUsuariosRegistradosPorDoW();
             float promedio=promedio(tmp,2);
-            ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(tmp),"Usuarios Registrados para los días de la semana");
+            JFreeChart chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(tmp),"Usuarios Registrados para los días de la semana");
+            bufferedImage = chart.createBufferedImage(width, height);
+            image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
             salida.add(new Paragraph("Resultados para los días de la semana"));
             salida.add(new Paragraph("\r\n"));
             salida.add(biblioteca.reportes.PdfCreator.plainArrayListToPdfPTable(agregarPorcentajesALista(tmp, 2), 3));
             salida.add(new Paragraph("Promedio "+promedio));
+            salida.add(new Paragraph("\r\n"));
+            salida.add(image);
             salida.add(new Paragraph("\r\n"));
         }
         if(dom){
