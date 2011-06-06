@@ -286,6 +286,11 @@ public class GUIModificarAreas extends javax.swing.JFrame {
         if(i!=-1 && j!=-1){
 
             JOptionPane.showMessageDialog(this, "Areas modificadas con Exito", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+            areasExistentes=null;
+            areasSeleccionadas=null;
+            areasexistentesarray=null;
+            areasSeleccionadasarray=null;
+            areasAgregadas=areasEliminadas=null;
             this.dispose();
             parent.setVisible(true);
         }
