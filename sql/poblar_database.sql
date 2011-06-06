@@ -43,7 +43,6 @@ INSERT INTO documento_palabras_clave VALUES ('3','bases');
 INSERT INTO autor(autor_correo, nombre, apellido, acronimo) VALUES ('cisco@cisco.com', 'Cisco ', 'Systems', 'CS');
 INSERT INTO palabras_clave(nombre, descripcion) VALUES ('redes', 'conexiones entre multiples objetos');
 INSERT INTO documentos(activo, titulo_principal, titulo_secundario, descripcion, idioma, editorial, fecha_publicacion, derechos_autor, tipo_documento, fecha_catalogacion, catalogador)VALUES ('true','Advanced Cisco router configuration','student guide','Cisco internetwork operating system release 10.3','Inglés','Cisco Systems','19950723','Reservados','pdf','2011-06-05 23:15:33.892','alevalv');
-SELECT doc_id FROM documentos WHERE titulo_principal='Advanced Cisco router configuration'AND titulo_secundario='student guide'AND descripcion='Cisco internetwork operating system release 10.3'AND editorial='Cisco Systems'AND idioma='Inglés'AND fecha_publicacion='19950723'AND derechos_autor='Reservados'AND catalogador='alevalv'AND fecha_catalogacion='2011-06-05 23:15:33.892'
 UPDATE documentos SET ubicacion ='repository/4.pdf' WHERE doc_id = '4';
 INSERT INTO documento_autor VALUES ('4','cisco@cisco.com');
 INSERT INTO documento_areas_computacion VALUES ('49','4');
