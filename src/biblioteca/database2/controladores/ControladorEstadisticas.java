@@ -63,18 +63,16 @@ public class ControladorEstadisticas {
     }
     
     public ArrayList<Element> estadisticasUsuariosRegistradosMultiplesTablas(boolean dow, boolean dom, boolean mes, String Year, String[] franja, String desde[], String[] hasta) throws BadElementException, MalformedURLException, IOException{
-        int width, height;
+        
         BufferedImage bufferedImage;
         Image image;
         ArrayList<Element> salida=  new ArrayList<Element>(24);
         DaoEstadisticas controlador = new DaoEstadisticas();
         if(dow){
-            width=400;
-            height=300;
             ArrayList<String> tmp= controlador.consultarUsuariosRegistradosPorDoW();
             float promedio=promedio(tmp,2);
             JFreeChart chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(tmp),"Usuarios Registrados para los días de la semana");
-            bufferedImage = chart.createBufferedImage(width, height);
+            bufferedImage = chart.createBufferedImage(400, 300);
             image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
             salida.add(new Paragraph("Resultados para los días de la semana"));
             salida.add(new Paragraph("\r\n"));
@@ -84,7 +82,7 @@ public class ControladorEstadisticas {
             salida.add(image);
             salida.add(new Paragraph("\r\n"));
             chart = ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(tmp), "Usuarios Registrados para los días de la semana", "Días de la Semana", "Cantidad de usuarios");
-            bufferedImage = chart.createBufferedImage(width, height);
+            bufferedImage = chart.createBufferedImage(400, 300);
             image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
             salida.add(image);
             salida.add(new Paragraph("\r\n"));
@@ -97,6 +95,16 @@ public class ControladorEstadisticas {
             salida.add(biblioteca.reportes.PdfCreator.plainArrayListToPdfPTable(agregarPorcentajesALista(tmp, 2), 3));
             salida.add(new Paragraph("Promedio "+promedio));
             salida.add(new Paragraph("\r\n"));
+            JFreeChart chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(tmp),"Usuarios Registrados para los días del mes");
+            bufferedImage = chart.createBufferedImage(400, 300);
+            image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+            salida.add(image);
+            salida.add(new Paragraph("\r\n"));
+            chart = ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(tmp), "Usuarios Registrados para los días del Mes", "Días del mes", "Cantidad de usuarios");
+            bufferedImage = chart.createBufferedImage(400, 300);
+            image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+            salida.add(image);
+            salida.add(new Paragraph("\r\n"));
         }
         if(mes){
             ArrayList<String> tmp= controlador.consultarUsuariosRegistradosPorMes();
@@ -105,6 +113,16 @@ public class ControladorEstadisticas {
             float promedio=promedio(tmp,2);
             salida.add(biblioteca.reportes.PdfCreator.plainArrayListToPdfPTable(agregarPorcentajesALista(tmp, 2), 3));
             salida.add(new Paragraph("Promedio "+promedio));
+            salida.add(new Paragraph("\r\n"));
+            JFreeChart chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(tmp),"Usuarios Registrados para los meses");
+            bufferedImage = chart.createBufferedImage(400, 300);
+            image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+            salida.add(image);
+            salida.add(new Paragraph("\r\n"));
+            chart = ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(tmp), "Usuarios Registrados para los Meses", "Meses", "Cantidad de usuarios");
+            bufferedImage = chart.createBufferedImage(400, 300);
+            image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+            salida.add(image);
             salida.add(new Paragraph("\r\n"));
         }
         if(Year!=null){
