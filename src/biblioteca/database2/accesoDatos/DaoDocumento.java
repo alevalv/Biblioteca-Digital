@@ -169,6 +169,7 @@ public class DaoDocumento {
         String sql_modificar;
         sql_modificar = "UPDATE documentos SET ubicacion ='" + ubicacion + "' WHERE doc_id = '"
                 + id_documento + "';";
+        //System.out.println(sql_modificar);
         try {
             Connection conn = Fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -323,6 +324,7 @@ public class DaoDocumento {
             for (int i = 0; i < areas.size(); i++) {
                 sql_insertar = "INSERT INTO documento_areas_computacion VALUES ('"
                         + areas.get(i).getID() + "','" + id_documento + "');";
+                //System.out.println(sql_insertar);
                 sentencia.addBatch(sql_insertar);
             }
             sentencia.executeBatch();
@@ -346,6 +348,7 @@ public class DaoDocumento {
             for (int i = 0; i < PC.size(); i++) {
                 sql_insertar = "INSERT INTO documento_palabras_clave VALUES ('"
                         + id_documento + "','" + PC.get(i).getNombre() + "');";
+                //System.out.println(sql_insertar);
                 sentencia.addBatch(sql_insertar);
             }
             sentencia.executeBatch();
@@ -369,6 +372,7 @@ public class DaoDocumento {
             for (int i = 0; i < autores.size(); i++) {
                 sql_insertar = "INSERT INTO documento_autor VALUES ('"
                         + id_documento + "','" + autores.get(i).getCorreo() + "');";
+                //System.out.println(sql_insertar);
                 sentencia.addBatch(sql_insertar);
             }
             sentencia.executeBatch();
@@ -564,7 +568,7 @@ public class DaoDocumento {
                 + "JOIN documento_autor ON documentos.doc_id=documento_autor.doc_id "
                 + "JOIN autor ON documento_autor.autor_correo=autor.autor_correo) "
                 + "JOIN documento_palabras_clave ON documentos.doc_id="
-                + "documento_palabras_clave.doc_id) WHERE ";
+                + "documento_palabras_clave.doc_id) WHERE documentos.activo='t' AND (";
         sql_consultar += "titulo_principal ILIKE '%" + metadatos.get(0) + "%' OR ";
         sql_consultar += "titulo_secundario ILIKE '%" + metadatos.get(0) + "%' OR ";
         sql_consultar += "autor.nombre ILIKE '%" + metadatos.get(0) + "%' OR ";
@@ -582,7 +586,7 @@ public class DaoDocumento {
             temporal += "documento_palabras_clave.nombre ILIKE '%" + metadatos.get(i) + "%'";
             sql_consultar+=temporal;
         }
-        sql_consultar+=";";
+        sql_consultar+=");";
         ArrayList<String> resultados = null;
         try {
             Connection conn = Fachada.conectar();
@@ -613,6 +617,7 @@ public class DaoDocumento {
         String sql_insertar;
         sql_insertar = "INSERT INTO usuario_consulta_documento (doc_id, username)"
                 + "VALUES ('" + id_documento + "','" + usuario + "');";
+        //System.out.println(sql_insertar);
         try {
             Connection conn = Fachada.conectar();
             java.sql.Statement sentencia = conn.createStatement();
@@ -635,6 +640,7 @@ public class DaoDocumento {
         String sql_insertar;
         sql_insertar = "INSERT INTO usuario_descarga_documento (doc_id, username)"
                 + "VALUES ('" + id_documento + "','" + usuario + "');";
+        //System.out.println(sql_insertar);
         try {
             Connection conn = Fachada.conectar();
             java.sql.Statement sentencia = conn.createStatement();
@@ -648,20 +654,21 @@ public class DaoDocumento {
     }
 
     /**
-     * Consulta en la base de datos si existen documentos con los parametros espeficados
+     * Consulta en la base de datos si existen documentos con los parametros espeficados,
+     * esta función es usada en la interfaz de busqueda avanzada.
      * <br><br> La salida de esta función es el identificador del documento y el título principal de este
-     * @param titulo
-     * @param autor
-     * @param pc
-     * @param tituloopcion
-     * @param autoropcion
-     * @param pcopcion
-     * @param area
-     * @param editorial
-     * @param tipo_material
-     * @param idioma
-     * @param fecha
-     * @return 
+     * @param titulo El conjunto de palabras para la busqueda por titulo
+     * @param autor El conjunto de palabras para la busqueda por autor
+     * @param pc El conjunto de palabras para la busqueda por palabra clave
+     * @param tituloopcion La restricción sobre el titulo, 1= Todas las palabras, 2=Algunas palabras, 3= ninguna de las palabras
+     * @param autoropcion La restricción sobre los autores, 1= Todas las palabras, 2=Algunas palabras, 3= ninguna de las palabras
+     * @param pcopcion La restricción sobre las palabras clave, 1= Todas las palabras, 2=Algunas palabras, 3= ninguna de las palabras
+     * @param area El área seleccionada por el usuario, si no se selecciona ninguna, se envia ""
+     * @param editorial El editorial seleccionada por el usuario,si no se selecciona ninguna, se envia ""
+     * @param tipo_material El tipo de material seleccionado por el usuario, si no se selecciona ninguno, se envia "Cualquiera"
+     * @param idioma El idioma seleccionado por el usuario, si no se selecciona ninguno, se envia "Cualquiera"
+     * @param fecha La fecha con la busqueda, esta predefinida.
+     * @return ArrayList de String con los resultados de los documentos
      */
     public ArrayList<String>  consultaAvanzada(ArrayList<String> titulo, ArrayList<String> autor, ArrayList<String> pc, int tituloopcion, int autoropcion, int pcopcion, String area, String editorial, String tipo_material, String idioma, int fecha) {
 
@@ -714,7 +721,7 @@ public class DaoDocumento {
     }
 
    private String ConsultaAvanzadaTitulo(ArrayList<String> titulo, int tituloopcion){
-       String SQL_Avanzado="SELECT  DISTINCT documentos.doc_id, titulo_principal FROM documentos WHERE";
+       String SQL_Avanzado="SELECT  DISTINCT documentos.doc_id, titulo_principal FROM documentos WHERE activo='t' AND ";
        if(tituloopcion==0){
           for(int i=0;i<titulo.size();i++){
              if(i==0)

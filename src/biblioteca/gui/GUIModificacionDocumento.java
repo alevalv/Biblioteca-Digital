@@ -71,8 +71,7 @@ public class GUIModificacionDocumento extends javax.swing.JFrame {
             if(new ControladorUsuario().verificarTipoUsuario("2", biblioteca.Main.BibliotecaDigital.LOGGED_USER)
                 || new ControladorUsuario().verificarTipoUsuario("1", biblioteca.Main.BibliotecaDigital.LOGGED_USER)){
                 ControladorDocumento controladorDocumento = new ControladorDocumento();
-                controladorDocumento.modificarDocumento(documento.getID_documento(), documento.getTituloPrincipal(), documento.getTituloSecundario(), documento.getEditorial(), documento.getDerechosAutor(), documento.getIdioma(), documento.getDescripcion(), documento.getTipoMaterial(), documento.getFechaPublicacion(), true);
-                controladorDocumento.insertarUbicacion(documento.getID_documento(), documento.getUbicacion());
+                controladorDocumento.modificarDocumento(documento.getID_documento(), documento.getTituloPrincipal(), documento.getTituloSecundario(), documento.getEditorial(), documento.getDerechosAutor(), documento.getIdioma(), documento.getDescripcion(), documento.getTipoMaterial(), documento.getFechaPublicacion(), documento.getActivo());
                 //RELACIONES CON OTRAS TABLAS.
                 
                 //autores
