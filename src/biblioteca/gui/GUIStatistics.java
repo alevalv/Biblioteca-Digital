@@ -1759,9 +1759,6 @@ public class GUIStatistics extends javax.swing.JFrame {
         if(jTextField6.isCursorSet() && !jTextField6.getText().isEmpty()) usuario=jTextField6.getText();
           
         int salida=Integer.parseInt(Num_Doc.getText());
-        /*biblioteca.reportes.PdfCreator.createPdf("documentosMásConsultados.pdf", "Reporte de Documentos Más Consultados",
-                "Total de documentos en este reporte: ",new ControladorEstadisticas().estadisticasDocumentosConsultados(dow, dom, month, year, tipo_usuario,
-                franja, desde,Hasta,area, autor, doc_tipo, usuario, jCheckBox31.isSelected(), salida));*/
         
          ArrayList<Element> elementosaInsertar = null;
          try {
@@ -1809,9 +1806,9 @@ public class GUIStatistics extends javax.swing.JFrame {
         if(DocTipoComboBoxPDD.getSelectedIndex()!=0) doc_tipo=tdExistentes.get(DocTipoComboBoxPDD.getSelectedIndex()-1).getTipoDocumento();
         if(jTextField7.isCursorSet() && !jTextField7.getText().isEmpty()) usuario=jTextField7.getText();
         int salida=Integer.parseInt(Num_Doc1.getText());
-        biblioteca.reportes.PdfCreator.createPdf("documentosMásDescargados.pdf", "Reporte de Documentos Más Descargados",
+       /* biblioteca.reportes.PdfCreator.createPdf("documentosMásDescargados.pdf", "Reporte de Documentos Más Descargados",
                 "Total de documentos en este reporte: ",new ControladorEstadisticas().estadisticasDocumentosDescargados(dow, dom, month, year, tipo_usuario,
-                franja, desde,Hasta,area, autor, doc_tipo, usuario, jCheckBox45.isSelected(), salida));
+                franja, desde,Hasta,area, autor, doc_tipo, usuario, jCheckBox45.isSelected(), salida));*/
 }//GEN-LAST:event_Reporte_DescargadosActionPerformed
 
     private void jCheckBox39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox39ActionPerformed
