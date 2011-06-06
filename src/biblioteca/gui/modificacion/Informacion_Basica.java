@@ -89,6 +89,8 @@ public class Informacion_Basica extends javax.swing.JPanel {
         jLabel19 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        Activo = new javax.swing.JComboBox();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -107,7 +109,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 350;
+        gridBagConstraints.ipadx = 250;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(Titulo_Principal, gridBagConstraints);
@@ -171,7 +173,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 18;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 350;
+        gridBagConstraints.ipadx = 250;
         gridBagConstraints.ipady = 81;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -186,7 +188,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         add(jLabel6, gridBagConstraints);
 
-        Idioma.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Inglés", "Español", "Portuges", "Otro" }));
+        Idioma.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Español", "Inglés", "Francés", "Aleman", "Portugués", "Otro" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 11;
@@ -211,7 +213,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.gridy = 8;
         gridBagConstraints.gridwidth = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 350;
+        gridBagConstraints.ipadx = 250;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(Editorial, gridBagConstraints);
@@ -237,7 +239,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.gridy = 10;
         gridBagConstraints.gridwidth = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 393;
+        gridBagConstraints.ipadx = 250;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(Derechos_Autor, gridBagConstraints);
@@ -276,8 +278,9 @@ public class Informacion_Basica extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 19;
+        gridBagConstraints.gridx = 18;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         add(Editar, gridBagConstraints);
 
@@ -288,8 +291,9 @@ public class Informacion_Basica extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 19;
+        gridBagConstraints.gridx = 17;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         add(Consultar, gridBagConstraints);
 
@@ -308,7 +312,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 17;
+        gridBagConstraints.gridwidth = 15;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
@@ -358,11 +362,9 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 17;
         gridBagConstraints.gridy = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(16, 4, 0, 0);
         add(jLabel13, gridBagConstraints);
 
-        AnoComboBox.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        AnoComboBox.setFont(new java.awt.Font("Arial", 0, 11));
         AnoComboBox.setMaximumRowCount(60);
         AnoComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2010", "2009", "2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970", "1969", "1968", "1967", "1966", "1965", "1964", "1963", "1962", "1961", "1960", "1959", "1958", "1957", "1956", "1955", "1954", "1953", "1952", "1951", "1950", "1949", "1948", "1947", "1946", "1945", "1944", "1943", "1942", "1941", "1940" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -422,6 +424,23 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 10;
         add(jLabel20, gridBagConstraints);
+
+        jLabel21.setText("Estado: ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 13;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        add(jLabel21, gridBagConstraints);
+
+        Activo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Activo", "Inactivo" }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 16;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(Activo, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void SiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteActionPerformed
@@ -457,7 +476,12 @@ public class Informacion_Basica extends javax.swing.JPanel {
         Editorial.setText(documento.getEditorial());
         Derechos_Autor.setText(documento.getDerechosAutor());
         Idioma.setSelectedItem(documento.getIdioma());
-        
+        if(documento.getActivo()){
+            Activo.setSelectedIndex(0);
+        }
+        else{
+            Activo.setSelectedIndex(1);
+        }
         biblioteca.gui.GUIModificacionDocumento.documento=this.documento;
         parent.documentoAbierto();
          }
@@ -501,6 +525,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         documento.setFechaPublicacion(fechaPub);
         documento.setDerechosAutor(Derechos_Autor.getText().replaceAll("[']", "`"));
         documento.setIdioma((String)Idioma.getItemAt(Idioma.getSelectedIndex()));
+        documento.setActivo((Activo.getSelectedIndex()==0) ? true : false);
         Estado.setForeground(Color.green);
         Estado.setText("[Guardado]");
         enableFields(false);
@@ -530,6 +555,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox Activo;
     private javax.swing.JComboBox AnoComboBox;
     private javax.swing.JButton Consultar;
     private javax.swing.JTextField Derechos_Autor;
@@ -557,6 +583,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
