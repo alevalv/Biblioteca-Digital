@@ -42,15 +42,13 @@ public class ChartCreator {
     }
     
     
-    public static void generatePieChart(DefaultPieDataset dataSet, String titulo) {
+    public static JFreeChart generatePieChart(DefaultPieDataset dataSet, String titulo) {
    
         JFreeChart chart = ChartFactory.createPieChart(
                 titulo, dataSet, true, true, false);
  
-        ChartFrame frame = new ChartFrame("First", chart);
-        frame.pack();
-        frame.setVisible(true);
-      //  return chart;
+        
+        return chart;
     }
     
     
