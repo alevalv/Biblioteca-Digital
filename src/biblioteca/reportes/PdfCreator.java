@@ -258,11 +258,14 @@ public class PdfCreator {
         Font myFontTitle = new Font();
         myFontTitle.setFamily("Arial");
         myFontTitle.setStyle(Font.BOLD);
-        myFontTitle.setSize(10);
+        myFontTitle.setSize(12);
         Font Univallef= new Font();
         Univallef.setColor(BaseColor.RED);
         Univallef.setFamily("Arial");
         Univallef.setSize(18);
+        Image header = Image.getInstance(PdfCreator.class.getResource("/biblioteca/gui/resources/minilogo.png"));
+        header.setAlignment(Image.ALIGN_CENTER);
+        header.scaleToFit(50, 75);
         Paragraph Univalle = new Paragraph("Universidad del Valle", Univallef);
         Univalle.setAlignment(Paragraph.ALIGN_CENTER);
         Paragraph pTitulo = new Paragraph(titulo, myFontTitle);
@@ -270,6 +273,8 @@ public class PdfCreator {
         Paragraph Fecha = new Paragraph("Fecha y Hora de Reporte: "+fecha,myFontTitle);
         document.open();
         // step 4
+        document.add(header);
+        document.add(new Paragraph("\r\n"));
         document.add(Univalle);
         document.add(new Paragraph("\r\n"));
         document.add(pTitulo);        
@@ -301,11 +306,14 @@ public class PdfCreator {
         Font myFontTitle = new Font();
         myFontTitle.setFamily("Arial");
         myFontTitle.setStyle(Font.BOLD);
-        myFontTitle.setSize(10);
+        myFontTitle.setSize(12);
         Font Univallef= new Font();
         Univallef.setColor(BaseColor.RED);
         Univallef.setFamily("Arial");
         Univallef.setSize(18);
+        Image header = Image.getInstance(PdfCreator.class.getResource("/biblioteca/gui/resources/minilogo.png"));
+        header.setAlignment(Image.ALIGN_CENTER);
+        header.scaleToFit(50, 75);
         Paragraph Univalle = new Paragraph("Universidad del Valle", Univallef);
         Univalle.setAlignment(Paragraph.ALIGN_CENTER);
         Paragraph pTitulo = new Paragraph(titulo, myFontTitle);
@@ -314,6 +322,8 @@ public class PdfCreator {
         Paragraph Introduccion = new Paragraph("Reporte de usuarios registrados");
         document.open();
         // step 4
+        document.add(header);
+        document.add(new Paragraph("\r\n"));
         document.add(Univalle);
         document.add(new Paragraph("\r\n"));
         document.add(pTitulo);        
