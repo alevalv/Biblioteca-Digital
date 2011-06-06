@@ -720,6 +720,12 @@ public class DaoDocumento {
         return resultados;
     }
 
+    /**
+     * Genera una parte de la consulta avanzada, en este caso, la busqueda por titulo
+     * @param titulo ArrayList de String con las palabras para buscar el titulo
+     * @param tituloopcion int con la restricción seleccionada     
+     * @return String con una parte de la consulta
+     */
    private String ConsultaAvanzadaTitulo(ArrayList<String> titulo, int tituloopcion){
        String SQL_Avanzado="SELECT  DISTINCT documentos.doc_id, titulo_principal FROM documentos WHERE activo='t' AND ";
        if(tituloopcion==0){
@@ -753,9 +759,15 @@ public class DaoDocumento {
        return SQL_Avanzado;
    }
 
+   /**
+     * Genera una parte de la consulta avanzada, en este caso, la busqueda por autor
+     * @param titulo ArrayList de String con las palabras para buscar el autor
+     * @param tituloopcion int con la restricción seleccionada     
+     * @return String con una parte de la consulta
+     */
    private String ConsultaAvanzadaAutor(ArrayList<String> autor, int autoropcion){
        String SQL_Avanzado="(SELECT  DISTINCT documentos.doc_id, titulo_principal FROM documentos NATURAL JOIN documento_autor "
-               + "INNER JOIN autor ON documento_autor.autor_correo=autor.autor_correo WHERE";
+               + "INNER JOIN autor ON documento_autor.autor_correo=autor.autor_correo WHERE documentos.activo='t' AND ";
        String SQL_AvanzadoUnion=" UNION (SELECT  DISTINCT documentos.doc_id, titulo_principal FROM documentos NATURAL JOIN documento_autor "
                + "INNER JOIN autor ON documento_autor.autor_correo=autor.autor_correo WHERE";
          if(autoropcion==0){
@@ -833,9 +845,15 @@ public class DaoDocumento {
        return SQL_Avanzado+SQL_AvanzadoUnion;
    }
 
+   /**
+     * Genera una parte de la consulta avanzada, en este caso, la busqueda por palabra clave
+     * @param titulo ArrayList de String con las palabras para buscar por palabras clave
+     * @param tituloopcion int con la restricción seleccionada     
+     * @return String con una parte de la consulta
+     */
    private String ConsultaAvanzadaPalabraClave(ArrayList<String> pc, int pcopcion){
         String SQL_Avanzado="SELECT  DISTINCT documentos.doc_id, titulo_principal FROM documentos NATURAL JOIN documento_palabras_clave "
-                + "INNER JOIN palabras_clave ON documento_palabras_clave.nombre=palabras_clave.nombre WHERE";
+                + "INNER JOIN palabras_clave ON documento_palabras_clave.nombre=palabras_clave.nombre WHERE documentos.activo='t' AND ";
        if(pcopcion==0){
           for(int i=0;i<pc.size();i++){
              if(i==0)
@@ -867,12 +885,21 @@ public class DaoDocumento {
        return SQL_Avanzado;
    }
 
+   /**
+    * Genera una parte de la consulta avanzada, en este caso, la busqueda por las
+    * restricciones extras de combobox
+    * @param editorial String con el nombre de la editorial a buscar
+    * @param tipo_material String con el tipo de material a buscar
+    * @param idioma String con el idioma a consultar
+    * @param fecha int con la restricción de fecha seleccionada
+    * @return String con la parte de la consulta
+    */
    private String ConsultaRestricciones(String editorial, String tipo_material, String idioma, int fecha){
      String SQL_Avanzado="";
      if(editorial.equals("") && tipo_material.equals("Cualquiera") && idioma.equals("Cualquiera") && fecha==0)
          return SQL_Avanzado;
      else{
-     SQL_Avanzado="SELECT  DISTINCT documentos.doc_id, titulo_principal FROM documentos WHERE";
+     SQL_Avanzado="SELECT  DISTINCT documentos.doc_id, titulo_principal FROM documentos WHERE documentos.activo='t' AND ";
      if(!editorial.equals("")){
          SQL_Avanzado+=" editorial ilike '"+editorial+"' ";
      }
@@ -909,6 +936,11 @@ public class DaoDocumento {
        }
     }
 
+   /**
+    * Genera una parte de la consulta avanzada, en este caso, la consulta por áreas
+    * @param area String con el área a consultar
+    * @return String con la consulta
+    */
    private String ConsultaAvanzadaAreas(String area){
        String SQL_Avanzado="";
        if(area.equals("Cualquiera")){
@@ -917,7 +949,7 @@ public class DaoDocumento {
        else{
          SQL_Avanzado="SELECT DISTINCT documentos.doc_id, titulo_principal FROM documentos NATURAL JOIN documento_areas_computacion"
                  + " INNER JOIN areas_computacion ON documento_areas_computacion.area_id=areas_computacion.area_id "
-                 + " WHERE documento_areas_computacion.area_id='"+area+"'";
+                 + " WHERE documentos.activo='t' AND documento_areas_computacion.area_id='"+area+"'";
 
          return SQL_Avanzado;
         }
