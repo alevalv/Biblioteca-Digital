@@ -12,6 +12,7 @@ package biblioteca.gui;
 
 import biblioteca.database2.beans.Area;
 import biblioteca.database2.controladores.ControladorArea;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,6 +26,7 @@ public class GUIAgregarAreas extends javax.swing.JFrame {
         initComponents();
         this.parent=parent;
         this.setLocationRelativeTo(parent);
+        initAreaPadreComboBox();
     }
 
     /** This method is called from within the constructor to
@@ -176,6 +178,17 @@ public class GUIAgregarAreas extends javax.swing.JFrame {
         else return true;
     }
     
+    private void initAreaPadreComboBox(){
+        Area_Padre.removeAllItems();
+        ArrayList<Area> areasExistentes= new ControladorArea().consultarTodasLasAreas();
+        if(areasExistentes!=null){
+            for(int i=0;i<areasExistentes.size();i++){
+                Area_Padre.insertItemAt(areasExistentes.get(i), i);
+            }            
+            Area_Padre.setSelectedIndex(-1);
+        }
+    }
+    
     private void Agregar_AreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_AreaActionPerformed
         if(checkEmptyFieldsArea()){
             new ControladorArea().insertarArea(Area_Descripcion.getText().replaceAll("[']", "`"), Area_Nombre.getText().replaceAll("[']", "`"), (Area_Padre.getSelectedIndex()!=-1) ? ((Area)Area_Padre.getSelectedItem()).getID() : "0");
@@ -183,6 +196,7 @@ public class GUIAgregarAreas extends javax.swing.JFrame {
             Area_Nombre.setText("");
             Area_Descripcion.setText("");
             Area_Padre.setSelectedIndex(-1);
+            initAreaPadreComboBox();
         }
 }//GEN-LAST:event_Agregar_AreaActionPerformed
 
