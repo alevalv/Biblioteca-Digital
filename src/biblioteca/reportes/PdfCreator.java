@@ -74,12 +74,13 @@ public class PdfCreator {
         return salida;
     }
     
-    static public PdfPTable plainArrayListToPdfPTable(ArrayList<String> entrada){
-        PdfPTable salida= new PdfPTable(2);
-        salida.addCell(entrada.get(0));
-        salida.addCell(entrada.get(1));
+    static public PdfPTable plainArrayListToPdfPTable(ArrayList<String> entrada, int columns){
+        PdfPTable salida= new PdfPTable(columns);
+        for(int i=0;i<columns;i++){
+            salida.addCell(entrada.get(i));
+        }
         salida.setHeaderRows(1);
-        for(int i=2;i<entrada.size();i++){
+        for(int i=columns;i<entrada.size();i++){
             salida.addCell(entrada.get(i));
         }
         return salida;
