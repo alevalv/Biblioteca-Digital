@@ -338,7 +338,7 @@ public class Tipo_Documento extends javax.swing.JPanel {
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
         if(checkEmptyFieldsTipo()){
-            if(new ControladorTipoDocumento().agregarTipoDocumento(Tipo_Nombre.getText().toLowerCase(), Tipo_Descripcion.getText())!=-1){
+            if(new ControladorTipoDocumento().agregarTipoDocumento(Tipo_Nombre.getText().toLowerCase().replaceAll("[']", "`"), Tipo_Descripcion.getText().replaceAll("[']", "`"))!=-1){
                 JOptionPane.showMessageDialog(this, Tipo_Nombre.getText()+" ha sido agregado", "Notificación", JOptionPane.INFORMATION_MESSAGE);
                 Tipo_Nombre.setText("");
                 Tipo_Descripcion.setText("");

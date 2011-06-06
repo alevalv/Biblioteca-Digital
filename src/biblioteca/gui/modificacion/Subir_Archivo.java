@@ -23,12 +23,8 @@
  */
 package biblioteca.gui.modificacion;
 
-import biblioteca.database2.beans.Documento;
 import biblioteca.gui.LimitadorDejTextField;
-import java.io.File;
 import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 /**
  *

@@ -363,7 +363,7 @@ public class Selecc_Pal_Clave extends javax.swing.JPanel {
 
     private void Agregar_Palabra_ClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_Palabra_ClaveActionPerformed
         if(checkEmptyFieldsPC()){
-            if(new ControladorPalabraClave().InsertarPalabraClave(PC_Nombre.getText().toLowerCase(), PC_Descripcion.getText())!=-1){
+            if(new ControladorPalabraClave().InsertarPalabraClave(PC_Nombre.getText().toLowerCase().replaceAll("[']", "`"), PC_Descripcion.getText().replaceAll("[']", "`"))!=-1){
                 JOptionPane.showMessageDialog(this, PC_Nombre.getText()+ " ha sido agregada", "Notificaición", JOptionPane.INFORMATION_MESSAGE);
                 PC_Nombre.setText("");
                 PC_Descripcion.setText("");

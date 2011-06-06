@@ -407,7 +407,7 @@ public class Autores extends javax.swing.JPanel {
 
     private void Agregar_AutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_AutorActionPerformed
         if(checkEmptyFieldsAuthor()){
-            if(new ControladorAutor().insertarAutor(Autor_Nombre.getText(), Autor_Apellido.getText(), Autor_Correo.getText().toLowerCase(), Autor_Acronimo.getText())!=-1){
+            if(new ControladorAutor().insertarAutor(Autor_Nombre.getText().replaceAll("[']", "`"), Autor_Apellido.getText().replaceAll("[']", "`"), Autor_Correo.getText().toLowerCase(), Autor_Acronimo.getText().replaceAll("[']", "`"))!=-1){
                 JOptionPane.showMessageDialog(this, "El autor con correo "+Autor_Correo.getText()+ " ha sido agregado", "Notificación", JOptionPane.INFORMATION_MESSAGE);
                 Autor_Correo.setText("");
                 Autor_Apellido.setText("");

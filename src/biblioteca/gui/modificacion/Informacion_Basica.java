@@ -491,16 +491,15 @@ public class Informacion_Basica extends javax.swing.JPanel {
     }
     
     private void guardarDatos(){
-        documento.setTituloPrincipal(Titulo_Principal.getText());
-        documento.setTituloSecundario(Titulo_Secundario.getText());
-        documento.setDescripcion(Descripcion.getText());
-        documento.setEditorial(Editorial.getText());
+        documento.setTituloPrincipal(Titulo_Principal.getText().replaceAll("[']", "`"));
+        documento.setTituloSecundario(Titulo_Secundario.getText().replaceAll("[']", "`"));
+        documento.setDescripcion(Descripcion.getText().replaceAll("[']", "`"));
+        documento.setEditorial(Editorial.getText().replaceAll("[']", "`"));
         String fechaPub= (String) AnoComboBox.getSelectedItem();
         fechaPub+=(String) MesComboBox.getSelectedItem();
         fechaPub+=(String) DiaComboBox.getSelectedItem();
         documento.setFechaPublicacion(fechaPub);
-        documento.setDerechosAutor(Derechos_Autor.getText());
-        System.out.println(Idioma.getItemAt(Idioma.getSelectedIndex()));
+        documento.setDerechosAutor(Derechos_Autor.getText().replaceAll("[']", "`"));
         documento.setIdioma((String)Idioma.getItemAt(Idioma.getSelectedIndex()));
         Estado.setForeground(Color.green);
         Estado.setText("[Guardado]");
