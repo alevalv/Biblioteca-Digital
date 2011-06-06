@@ -149,3 +149,32 @@ UPDATE documentos SET ubicacion ='repository/15.pdf' WHERE doc_id = '15';
 INSERT INTO documento_autor VALUES ('15','martha.millan@correounivalle.edu.co');
 INSERT INTO documento_areas_computacion VALUES ('8','15');
 INSERT INTO documento_palabras_clave VALUES ('15','bases');
+
+
+--consultas y descargas
+
+INSERT INTO usuario_consulta_documento (doc_id, username, fecha_hora)VALUES ('12','millan', '2011-01-05 23:32:33.437');
+INSERT INTO usuario_descarga_documento (doc_id, username, fecha_hora)VALUES ('12','millan', '2011-02-04 20:32:33.437');
+INSERT INTO usuario_consulta_documento (doc_id, username, fecha_hora)VALUES ('14','millan', '2011-03-03 09:32:33.437');
+INSERT INTO usuario_consulta_documento (doc_id, username, fecha_hora)VALUES ('7','millan', '2011-04-02 14:32:33.437');
+INSERT INTO usuario_consulta_documento (doc_id, username, fecha_hora)VALUES ('13','millan', '2011-05-01 10:32:33.437');
+INSERT INTO usuario_consulta_documento (doc_id, username, fecha_hora)VALUES ('14','millan', '2011-06-06 15:32:33.437');
+INSERT INTO usuario_consulta_documento (doc_id, username, fecha_hora)VALUES ('5','millan', '2010-07-20 21:32:33.437');
+INSERT INTO usuario_consulta_documento (doc_id, username, fecha_hora)VALUES ('9','millan', '2011-09-07 12:32:33.437');
+INSERT INTO usuario_consulta_documento (doc_id, username, fecha_hora)VALUES ('5','millan', '2011-08-10 18:32:33.437');
+INSERT INTO usuario_consulta_documento (doc_id, username, fecha_hora)VALUES ('14','millan', '2011-10-15 17:32:33.437');
+INSERT INTO usuario_consulta_documento (doc_id, username, fecha_hora)VALUES ('1','alevalv', '2010-11-21 06:32:33.437');
+INSERT INTO usuario_consulta_documento (doc_id, username, fecha_hora)VALUES ('13','alevalv', '2009-12-25 03:32:33.437');
+INSERT INTO usuario_consulta_documento (doc_id, username, fecha_hora)VALUES ('5','alevalv', '2011-01-30 13:32:33.437');
+INSERT INTO usuario_consulta_documento (doc_id, username, fecha_hora)VALUES ('8','alevalv', '2011-02-04 17:32:33.437');
+INSERT INTO usuario_consulta_documento (doc_id, username, fecha_hora)VALUES ('4','alevalv', '2011-03-13 18:32:33.437');
+INSERT INTO usuario_consulta_documento (doc_id, username, fecha_hora)VALUES ('5','alevalv', '2011-04-06 01:32:33.437');
+INSERT INTO usuario_consulta_documento (doc_id, username, fecha_hora)VALUES ('7','alevalv', '2008-05-09 19:32:33.437');
+INSERT INTO usuario_consulta_documento (doc_id, username, fecha_hora)VALUES ('12','alevalv', '2011-06-11 20:32:33.437');
+INSERT INTO usuario_descarga_documento (doc_id, username, fecha_hora)VALUES ('12','alevalv', '2011-07-22 18:40:33.437');
+INSERT INTO usuario_consulta_documento (doc_id, username, fecha_hora)VALUES ('14','alevalv', '2009-08-11 15:32:33.437');
+INSERT INTO usuario_consulta_documento (doc_id, username, fecha_hora)VALUES ('4','alevalv', '2011-09-30 09:32:33.437');
+INSERT INTO usuario_descarga_documento (doc_id, username, fecha_hora)VALUES ('4','alevalv', '2011-06-29 13:32:33.437');
+INSERT INTO usuario_consulta_documento (doc_id, username, fecha_hora)VALUES ('10','alevalv', '2011-06-28 14:32:33.437');
+INSERT INTO usuario_descarga_documento (doc_id, username, fecha_hora)VALUES ('10','alevalv', '2010-09-16 16:32:33.437');
+
