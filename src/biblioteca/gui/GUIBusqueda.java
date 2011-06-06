@@ -547,23 +547,48 @@ public class GUIBusqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_RecomendacionesDocumentosActionPerformed
 
     private void EstadisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstadisticasActionPerformed
-        new GUIStatistics(this).setVisible(true);
+        if(new ControladorUsuario().verificarTipoUsuario("2", biblioteca.Main.BibliotecaDigital.LOGGED_USER) ||
+                new ControladorUsuario().verificarTipoUsuario("1", biblioteca.Main.BibliotecaDigital.LOGGED_USER))
+            new GUIStatistics(this).setVisible(true);
+        else{
+            JOptionPane.showMessageDialog(this, "Esta opción solo está disponible para catalogadores", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_EstadisticasActionPerformed
 
     private void Agregar_AreasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_AreasActionPerformed
-        new GUIAgregarAreas(this).setVisible(true);
+        if(new ControladorUsuario().verificarTipoUsuario("2", biblioteca.Main.BibliotecaDigital.LOGGED_USER) ||
+                new ControladorUsuario().verificarTipoUsuario("1", biblioteca.Main.BibliotecaDigital.LOGGED_USER))
+            new GUIAgregarAreas(this).setVisible(true);
+         else{
+            JOptionPane.showMessageDialog(this, "Esta opción solo está disponible para catalogadores", "Error", JOptionPane.ERROR_MESSAGE);
+        }   
     }//GEN-LAST:event_Agregar_AreasActionPerformed
 
     private void Agregar_AutoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_AutoresActionPerformed
-        new GUIAgregarAutores(this).setVisible(true);
+        if(new ControladorUsuario().verificarTipoUsuario("2", biblioteca.Main.BibliotecaDigital.LOGGED_USER) ||
+                new ControladorUsuario().verificarTipoUsuario("1", biblioteca.Main.BibliotecaDigital.LOGGED_USER))
+            new GUIAgregarAutores(this).setVisible(true);
+        else{
+            JOptionPane.showMessageDialog(this, "Esta opción solo está disponible para catalogadores", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_Agregar_AutoresActionPerformed
 
     private void Agregar_Palabra_ClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_Palabra_ClaveActionPerformed
-        new GUIAgregarPC(this).setVisible(true);
+        if(new ControladorUsuario().verificarTipoUsuario("2", biblioteca.Main.BibliotecaDigital.LOGGED_USER) ||
+                new ControladorUsuario().verificarTipoUsuario("1", biblioteca.Main.BibliotecaDigital.LOGGED_USER))
+            new GUIAgregarPC(this).setVisible(true);
+        else{
+            JOptionPane.showMessageDialog(this, "Esta opción solo está disponible para catalogadores", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_Agregar_Palabra_ClaveActionPerformed
 
     private void Agregar_Tipo_DocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_Tipo_DocActionPerformed
-        new GUIAgregarTipoDocumento(this).setVisible(true);
+        if(new ControladorUsuario().verificarTipoUsuario("2", biblioteca.Main.BibliotecaDigital.LOGGED_USER) ||
+                new ControladorUsuario().verificarTipoUsuario("1", biblioteca.Main.BibliotecaDigital.LOGGED_USER))
+            new GUIAgregarTipoDocumento(this).setVisible(true);
+        else{
+            JOptionPane.showMessageDialog(this, "Esta opción solo está disponible para catalogadores", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_Agregar_Tipo_DocActionPerformed
 
     public void habilitarBotones(boolean b){
