@@ -494,7 +494,155 @@ public class DaoEstadisticas {
         return salida;
     }
 
+    
     public void ConsultarDocumentosCatalogados(boolean dow, boolean dom, boolean month, String year, String[] franja, String[] desde, String[] Hasta, boolean area, boolean autor, boolean doc_tipo, boolean usuario) {
         throw new UnsupportedOperationException("Not yet implemented");
     }
+  
+    public ArrayList<String> consultarDocumentosCatalogadosPorDoW(){
+        final String[] dias = {"Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"};
+        final String consulta_base="SELECT count(*) FROM documentos WHERE date_part('dow', fecha_catalogacion) = '0";
+        ArrayList<String> salida = new ArrayList<String>(16);
+        salida.add("Días");
+        salida.add("Cantidad");
+        for(int i=0;i<=6;i++){
+            try {
+                String sql=consulta_base+i+"';";
+                Connection conn = Fachada.conectar();
+                java.sql.Statement sentencia = conn.createStatement();
+                ResultSet tabla = sentencia.executeQuery(sql);
+                salida.add(dias[i]);
+                tabla.next();
+                salida.add(tabla.getString(1));
+                conn.close();
+            }
+            catch (SQLException e) {
+                System.err.println(e);
+            } 
+            catch (Exception e) {
+                System.err.println(e);
+            }
+        }
+        return salida;
+    }
+    
+    public ArrayList<String> consultarDocumentosCatalogadosPorDoM(){
+        final String consulta_base="SELECT count(*) FROM documentos WHERE date_part('day', fecha_catalogacion) = '";
+        ArrayList<String> salida = new ArrayList<String>(64);
+        salida.add("Día del mes");
+        salida.add("Cantidad");
+        for(int i=1;i<=31;i++){
+            try {
+                String sql=consulta_base+i+"';";
+                Connection conn = Fachada.conectar();
+                java.sql.Statement sentencia = conn.createStatement();
+                ResultSet tabla = sentencia.executeQuery(sql);
+                salida.add("Día "+i);
+                tabla.next();
+                salida.add(tabla.getString(1));
+                conn.close();
+            }
+            catch (SQLException e) {
+                System.err.println(e);
+            } 
+            catch (Exception e) {
+                System.err.println(e);
+            }
+        }
+        return salida;
+    }
+    
+    public ArrayList<String> consultarDocumentosCatalogadosPorMes(){
+        final String[] dias = {"Enero", "Febrero", "Marzo","Abril","Mayo", "Junio",
+            "Julio", "Agosto", "Septiembre", "Octubre", "Nombiembre", "Diciembre"};
+        final String consulta_base="SELECT count(*) FROM documentos WHERE date_part('month', fecha_catalogacion) = '";
+        ArrayList<String> salida = new ArrayList<String>(26);
+        salida.add("Mes");
+        salida.add("Cantidad");
+        for(int i=1;i<=12;i++){
+            try {
+                String sql=consulta_base+i+"';";
+                Connection conn = Fachada.conectar();
+                java.sql.Statement sentencia = conn.createStatement();
+                ResultSet tabla = sentencia.executeQuery(sql);
+                salida.add(dias[i-1]);
+                tabla.next();
+                salida.add(tabla.getString(1));
+                conn.close();
+            }
+            catch (SQLException e) {
+                System.err.println(e);
+            } 
+            catch (Exception e) {
+                System.err.println(e);
+            }
+        }
+        return salida;
+    }
+    
+    public ArrayList<String> consultarDocumentosCatalogadosPorYear(String Year){
+        ArrayList<String> salida= new ArrayList<String>(2);
+        final String sql="SELECT count(*) FROM documentos WHERE date_part('year', fecha_catalogacion) = '"+Year+"';";
+        try {
+            Connection conn = Fachada.conectar();
+            java.sql.Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql);
+            salida.add("Año: "+Year);
+            tabla.next();
+            salida.add(tabla.getString(1));
+            conn.close();
+        }
+        catch (SQLException e) {
+            System.err.println(e);
+        } 
+        catch (Exception e) {
+            System.err.println(e);
+        }
+        return salida;
+    }
+    
+    public ArrayList<String> consultarDocumentosCatalogadosPorFranja(String desde, String hasta){
+        final String sql="SELECT count(*) FROM documentos WHERE date_part('hour',fecha_catalogacion)>="+desde+" and date_part('hour',fecha_catalogacion)<="+hasta+" ";
+        System.out.println(sql);
+        ArrayList<String> salida= new ArrayList<String>(2);
+        try {
+            Connection conn = Fachada.conectar();
+            java.sql.Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql);
+            salida.add("Franja: "+desde+" - "+hasta);
+            tabla.next();
+            salida.add(tabla.getString(1));
+            conn.close();
+        }
+        catch (SQLException e) {
+            System.err.println(e);
+        } 
+        catch (Exception e) {
+            System.err.println(e);
+        }
+        return salida;
+    }
+    
+    public ArrayList<String> consultarDocumentosCatalogadosPorIntervalo(String desde, String hasta){
+        final String sql="SELECT count(*) FROM documentos WHERE fecha_catalogacion between '"+desde+"' and '"+hasta+"';";
+        System.out.println(sql);
+        ArrayList<String> salida= new ArrayList<String>(2);
+        try {
+            Connection conn = Fachada.conectar();
+            java.sql.Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql);
+            salida.add("Intervalo: "+desde+" - "+hasta);
+            tabla.next();
+            salida.add(tabla.getString(1));
+            conn.close();
+        }
+        catch (SQLException e) {
+            System.err.println(e);
+        } 
+        catch (Exception e) {
+            System.err.println(e);
+        }
+        return salida;
+    }
+    
 }
