@@ -185,6 +185,16 @@ public class PdfCreator {
         return salida;
     }
     
+    static public void /*ArrayList<String>*/ Array2DtoArrayPlane(ArrayList<ArrayList<String>> entrada){
+        int size=entrada.size();
+        ArrayList<String> salida=new ArrayList<String>(size);
+        for(int i=1;i<size;i+=2){
+            salida.add(entrada.get(i).get(1));
+            salida.add(entrada.get(i).get(2));
+        }
+        for(int i=0;i<salida.size();i++) System.out.println(salida.get(i));
+        //return salida;
+    }
     /**
      * createPdf es una función estatica que funciona como plantilla para generar
      * reportes dinamicos, según la necesidad del usuario.
