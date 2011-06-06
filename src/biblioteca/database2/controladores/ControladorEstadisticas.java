@@ -82,7 +82,6 @@ public class ControladorEstadisticas {
             JFreeChart chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(tmp),"Usuarios Registrados para los días de la semana");
             bufferedImage = chart.createBufferedImage(400, 300);
             image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
-            images.add(new Paragraph("Anexo: Diagrama de Pastel: Usuarios Registrados para los dias de la Semana"));
             images.add(image);
             images.add(new Paragraph("\r\n"));
             salida.add(new Paragraph("* Ver Anexo: Diagrama de Barras: Usuarios Registrados para los dias de la Semana"));
@@ -90,7 +89,6 @@ public class ControladorEstadisticas {
             chart = ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(tmp), "Usuarios Registrados para los días de la semana", "Días de la Semana", "Cantidad de usuarios");
             bufferedImage = chart.createBufferedImage(400, 300);
             image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
-            images.add(new Paragraph("Anexo: Diagrama de Barras: Usuarios Registrados para los dias de la Semana"));
             images.add(image);
             images.add(new Paragraph("\r\n"));
         }
@@ -107,7 +105,6 @@ public class ControladorEstadisticas {
             JFreeChart chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(tmp),"Usuarios Registrados para los días del mes");
             bufferedImage = chart.createBufferedImage(400, 300);
             image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
-            images.add(new Paragraph("Anexo: Diagrama de Pastel: Usuarios Registrados para los dias del mes"));
             images.add(image);
             images.add(new Paragraph("\r\n"));
             chart = ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(tmp), "Usuarios Registrados para los días del Mes", "Días del mes", "Cantidad de usuarios");
@@ -115,7 +112,6 @@ public class ControladorEstadisticas {
             image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
             salida.add(new Paragraph("* Ver Anexo: Diagrama de Barras: Usuarios Registrados para los dias del mes"));
             salida.add(new Paragraph("\r\n"));
-            images.add(new Paragraph("Anexo: Diagrama de Barras: Usuarios Registrados para los dias del mes"));
             images.add(image);
             images.add(new Paragraph("\r\n"));
         }
@@ -132,7 +128,6 @@ public class ControladorEstadisticas {
             JFreeChart chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(tmp),"Usuarios Registrados para los meses");
             bufferedImage = chart.createBufferedImage(400, 300);
             image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
-            images.add(new Paragraph("Anexo: Diagrama de Pastel: Usuarios Registrados para los dias del mes"));
             images.add(image);
             images.add(new Paragraph("\r\n"));
             salida.add(new Paragraph("* Ver Anexo: Diagrama de Barras: Usuarios Registrados para los meses"));
@@ -140,7 +135,6 @@ public class ControladorEstadisticas {
             chart = ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(tmp), "Usuarios Registrados para los Meses", "Meses", "Cantidad de usuarios");
             bufferedImage = chart.createBufferedImage(400, 300);
             image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
-            images.add(new Paragraph("Anexo: Diagrama de Barras: Usuarios Registrados para los meses"));
             images.add(image);
             images.add(new Paragraph("\r\n"));
         }
@@ -167,6 +161,10 @@ public class ControladorEstadisticas {
             salida.add(new Paragraph("\r\n"));
         }
         
+        if(!images.isEmpty()){
+            salida.add(new Paragraph("Anexos:"));
+            salida.add(new Paragraph("\r\n"));
+        }
         for(int i=0;i<images.size();i++){
             salida.add(images.get(i));
         }
