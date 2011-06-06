@@ -214,7 +214,7 @@ public class DaoEstadisticas {
         }
         else{
             sql_descargados="SELECT doc_id as Identificacion, documentos."
-                    + "titulo_principal as Titulo, count(*) as Descargas FROM usuario_consulta_documento NATURAL JOIN "
+                    + "titulo_principal as Titulo, count(*) as Consultas FROM usuario_consulta_documento NATURAL JOIN "
                     + "documentos JOIN usuarios ON usuario_consulta_documento.username=usuarios.username WHERE ";
             ArrayList<String> condiciones = new ArrayList<String>(12);
             if(dow!=null){

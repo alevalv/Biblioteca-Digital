@@ -474,8 +474,9 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
         i=controlador.guardarUsuario(username, nombre, apellido, genero, correo, contrasenaS, fecha_nacimiento, pregunta, respuesta, vinculo,tipo_usuario, nivel, fechaderegistro+"");
         if(i!=-1){
             JOptionPane.showMessageDialog(this, "Información de Usuario Modificada con Exito", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+            biblioteca.Main.BibliotecaDigital.LOGGED_USER=username;
             biblioteca.gui.GUIModificarAreas GMA = new biblioteca.gui.GUIModificarAreas(parent);
-    
+              
             GMA.setVisible(true);
         }
             

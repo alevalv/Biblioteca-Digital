@@ -223,6 +223,45 @@ public class GUIStatistics extends javax.swing.JFrame {
         jCheckBox51 = new javax.swing.JCheckBox();
         Reporte_Usuarios = new javax.swing.JButton();
         jComboBox85 = new javax.swing.JComboBox();
+        jPanel3 = new javax.swing.JPanel();
+        Panel_Documentos_Catalogados2 = new javax.swing.JPanel();
+        jLabel85 = new javax.swing.JLabel();
+        jCheckBox38 = new javax.swing.JCheckBox();
+        jComboBox86 = new javax.swing.JComboBox();
+        jCheckBox52 = new javax.swing.JCheckBox();
+        jCheckBox53 = new javax.swing.JCheckBox();
+        jComboBox91 = new javax.swing.JComboBox();
+        jCheckBox54 = new javax.swing.JCheckBox();
+        jComboBox92 = new javax.swing.JComboBox();
+        jCheckBox55 = new javax.swing.JCheckBox();
+        jCheckBox56 = new javax.swing.JCheckBox();
+        jLabel86 = new javax.swing.JLabel();
+        jComboBox114 = new javax.swing.JComboBox();
+        jComboBox115 = new javax.swing.JComboBox();
+        jLabel87 = new javax.swing.JLabel();
+        jComboBox116 = new javax.swing.JComboBox();
+        jCheckBox57 = new javax.swing.JCheckBox();
+        jLabel88 = new javax.swing.JLabel();
+        jComboBox117 = new javax.swing.JComboBox();
+        jComboBox118 = new javax.swing.JComboBox();
+        jComboBox119 = new javax.swing.JComboBox();
+        jComboBox120 = new javax.swing.JComboBox();
+        jComboBox121 = new javax.swing.JComboBox();
+        jComboBox122 = new javax.swing.JComboBox();
+        jLabel89 = new javax.swing.JLabel();
+        jLabel90 = new javax.swing.JLabel();
+        AreasComboBoxPDC1 = new javax.swing.JComboBox();
+        jLabel91 = new javax.swing.JLabel();
+        jTextField8 = new javax.swing.JTextField();
+        jLabel92 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        AutorComboBoxPDC1 = new javax.swing.JComboBox();
+        DocTipoComboBoxPDC1 = new javax.swing.JComboBox();
+        jLabel19 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
+        jCheckBox12 = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -572,6 +611,11 @@ public class GUIStatistics extends javax.swing.JFrame {
         jTextField7.setForeground(new java.awt.Color(102, 102, 102));
         jTextField7.setText("Digite su Username");
         jTextField7.setPreferredSize(new java.awt.Dimension(110, 20));
+        jTextField7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField7MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 16;
@@ -918,6 +962,11 @@ public class GUIStatistics extends javax.swing.JFrame {
         jTextField6.setForeground(new java.awt.Color(102, 102, 102));
         jTextField6.setText("Digite su Username");
         jTextField6.setPreferredSize(new java.awt.Dimension(110, 20));
+        jTextField6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField6MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 16;
@@ -1235,7 +1284,388 @@ public class GUIStatistics extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         jPanel2.add(jComboBox85, gridBagConstraints);
 
-        jTabbedPane1.addTab("Estadisticas Usuarios Registrados", jPanel2);
+        jTabbedPane1.addTab("Usuarios Registrados", jPanel2);
+
+        Panel_Documentos_Catalogados2.setLayout(new java.awt.GridBagLayout());
+
+        jLabel85.setText("Fecha de Catalogación:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 5);
+        Panel_Documentos_Catalogados2.add(jLabel85, gridBagConstraints);
+
+        jCheckBox38.setSelected(true);
+        jCheckBox38.setText("Cualquiera");
+        jCheckBox38.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox38ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        Panel_Documentos_Catalogados2.add(jCheckBox38, gridBagConstraints);
+
+        jComboBox86.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo" }));
+        jComboBox86.setEnabled(false);
+        jComboBox86.setPreferredSize(new java.awt.Dimension(70, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        Panel_Documentos_Catalogados2.add(jComboBox86, gridBagConstraints);
+
+        jCheckBox52.setText("Por dia de la Semana:");
+        jCheckBox52.setEnabled(false);
+        jCheckBox52.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox52ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
+        Panel_Documentos_Catalogados2.add(jCheckBox52, gridBagConstraints);
+
+        jCheckBox53.setText("Por dia del Mes");
+        jCheckBox53.setEnabled(false);
+        jCheckBox53.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox53ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
+        Panel_Documentos_Catalogados2.add(jCheckBox53, gridBagConstraints);
+
+        jComboBox91.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        jComboBox91.setEnabled(false);
+        jComboBox91.setPreferredSize(new java.awt.Dimension(70, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        Panel_Documentos_Catalogados2.add(jComboBox91, gridBagConstraints);
+
+        jCheckBox54.setText("Por Mes:");
+        jCheckBox54.setEnabled(false);
+        jCheckBox54.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox54ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
+        Panel_Documentos_Catalogados2.add(jCheckBox54, gridBagConstraints);
+
+        jComboBox92.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        jComboBox92.setEnabled(false);
+        jComboBox92.setPreferredSize(new java.awt.Dimension(70, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        Panel_Documentos_Catalogados2.add(jComboBox92, gridBagConstraints);
+
+        jCheckBox55.setText("Por Año:");
+        jCheckBox55.setEnabled(false);
+        jCheckBox55.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox55ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
+        Panel_Documentos_Catalogados2.add(jCheckBox55, gridBagConstraints);
+
+        jCheckBox56.setText("Por Franja Horaria:");
+        jCheckBox56.setEnabled(false);
+        jCheckBox56.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox56ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 5);
+        Panel_Documentos_Catalogados2.add(jCheckBox56, gridBagConstraints);
+
+        jLabel86.setText("Desde:");
+        jLabel86.setEnabled(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        Panel_Documentos_Catalogados2.add(jLabel86, gridBagConstraints);
+
+        jComboBox114.setMaximumRowCount(12);
+        jComboBox114.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00" }));
+        jComboBox114.setEnabled(false);
+        jComboBox114.setPreferredSize(new java.awt.Dimension(60, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 5);
+        Panel_Documentos_Catalogados2.add(jComboBox114, gridBagConstraints);
+
+        jComboBox115.setMaximumRowCount(12);
+        jComboBox115.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00" }));
+        jComboBox115.setEnabled(false);
+        jComboBox115.setPreferredSize(new java.awt.Dimension(60, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 5);
+        Panel_Documentos_Catalogados2.add(jComboBox115, gridBagConstraints);
+
+        jLabel87.setText("Hasta:");
+        jLabel87.setEnabled(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        Panel_Documentos_Catalogados2.add(jLabel87, gridBagConstraints);
+
+        jComboBox116.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2010", "2009" }));
+        jComboBox116.setEnabled(false);
+        jComboBox116.setPreferredSize(new java.awt.Dimension(70, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        Panel_Documentos_Catalogados2.add(jComboBox116, gridBagConstraints);
+
+        jCheckBox57.setText("Intervalo de Tiempo");
+        jCheckBox57.setEnabled(false);
+        jCheckBox57.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox57ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 5);
+        Panel_Documentos_Catalogados2.add(jCheckBox57, gridBagConstraints);
+
+        jLabel88.setText("Desde:");
+        jLabel88.setEnabled(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        Panel_Documentos_Catalogados2.add(jLabel88, gridBagConstraints);
+
+        jComboBox117.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        jComboBox117.setEnabled(false);
+        jComboBox117.setPreferredSize(new java.awt.Dimension(60, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 5);
+        Panel_Documentos_Catalogados2.add(jComboBox117, gridBagConstraints);
+
+        jComboBox118.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        jComboBox118.setEnabled(false);
+        jComboBox118.setPreferredSize(new java.awt.Dimension(70, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 5);
+        Panel_Documentos_Catalogados2.add(jComboBox118, gridBagConstraints);
+
+        jComboBox119.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2010", "2009" }));
+        jComboBox119.setEnabled(false);
+        jComboBox119.setPreferredSize(new java.awt.Dimension(50, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 5);
+        Panel_Documentos_Catalogados2.add(jComboBox119, gridBagConstraints);
+
+        jComboBox120.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2010", "2009" }));
+        jComboBox120.setEnabled(false);
+        jComboBox120.setPreferredSize(new java.awt.Dimension(50, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 5);
+        Panel_Documentos_Catalogados2.add(jComboBox120, gridBagConstraints);
+
+        jComboBox121.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        jComboBox121.setEnabled(false);
+        jComboBox121.setPreferredSize(new java.awt.Dimension(70, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 5);
+        Panel_Documentos_Catalogados2.add(jComboBox121, gridBagConstraints);
+
+        jComboBox122.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        jComboBox122.setEnabled(false);
+        jComboBox122.setPreferredSize(new java.awt.Dimension(60, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 5, 5);
+        Panel_Documentos_Catalogados2.add(jComboBox122, gridBagConstraints);
+
+        jLabel89.setText("Hasta:");
+        jLabel89.setEnabled(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        Panel_Documentos_Catalogados2.add(jLabel89, gridBagConstraints);
+
+        jLabel90.setText("Por Áreas de Conocimiento:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
+        Panel_Documentos_Catalogados2.add(jLabel90, gridBagConstraints);
+
+        AreasComboBoxPDC1.setPreferredSize(new java.awt.Dimension(180, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
+        Panel_Documentos_Catalogados2.add(AreasComboBoxPDC1, gridBagConstraints);
+
+        jLabel91.setText("Por un Catalogador Particular:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
+        Panel_Documentos_Catalogados2.add(jLabel91, gridBagConstraints);
+
+        LimitadorDejTextField jTextField8L=new LimitadorDejTextField(30);
+        jTextField8.setDocument(jTextField8L);
+        jTextField8.setEditable(false);
+        jTextField8.setText("Digite su Username");
+        jTextField8.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextField8.setEnabled(false);
+        jTextField8.setPreferredSize(new java.awt.Dimension(180, 20));
+        jTextField8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField8MouseClicked(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
+        Panel_Documentos_Catalogados2.add(jTextField8, gridBagConstraints);
+
+        jLabel92.setFont(new java.awt.Font("Ubuntu", 1, 11));
+        jLabel92.setText("Reporte de Documentos Catalogados: ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 5);
+        Panel_Documentos_Catalogados2.add(jLabel92, gridBagConstraints);
+
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biblioteca/gui/resources/logo.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        Panel_Documentos_Catalogados2.add(jLabel16, gridBagConstraints);
+
+        jLabel17.setFont(new java.awt.Font("Ubuntu", 1, 24));
+        jLabel17.setText("Reportes ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
+        Panel_Documentos_Catalogados2.add(jLabel17, gridBagConstraints);
+
+        jLabel18.setText("Por Autor:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
+        Panel_Documentos_Catalogados2.add(jLabel18, gridBagConstraints);
+
+        AutorComboBoxPDC1.setPreferredSize(new java.awt.Dimension(180, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
+        Panel_Documentos_Catalogados2.add(AutorComboBoxPDC1, gridBagConstraints);
+
+        DocTipoComboBoxPDC1.setPreferredSize(new java.awt.Dimension(180, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
+        Panel_Documentos_Catalogados2.add(DocTipoComboBoxPDC1, gridBagConstraints);
+
+        jLabel19.setText("Por Tipo de Documento:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 15;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
+        Panel_Documentos_Catalogados2.add(jLabel19, gridBagConstraints);
+
+        jButton5.setText("Generar Reportes");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        Panel_Documentos_Catalogados2.add(jButton5, gridBagConstraints);
+
+        jCheckBox12.setText("Intersectar");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 17;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        Panel_Documentos_Catalogados2.add(jCheckBox12, gridBagConstraints);
+
+        jPanel3.add(Panel_Documentos_Catalogados2);
+
+        jTabbedPane1.addTab("Documentos Catalogados", jPanel3);
 
         getContentPane().add(jTabbedPane1, java.awt.BorderLayout.PAGE_START);
 
@@ -1265,18 +1695,19 @@ public class GUIStatistics extends javax.swing.JFrame {
         if(jCheckBox37.isSelected()){
             desde=new String[3];
             desde[0]=jComboBox82.getSelectedItem()+"";
-            desde[1]=jComboBox83.getSelectedIndex()+"";
+            desde[1]=(jComboBox83.getSelectedIndex()+1)+"";
             desde[2]=jComboBox84.getSelectedItem()+"";
             Hasta=new String[3];
             Hasta[0]=jComboBox89.getSelectedItem()+"";
-            Hasta[1]=jComboBox88.getSelectedIndex()+"";
+            Hasta[1]=(jComboBox88.getSelectedIndex()+1)+"";
             Hasta[2]=jComboBox87.getSelectedItem()+"";
         }
         if(jComboBox90.getSelectedIndex()!=0) tipo_usuario=jComboBox90.getSelectedIndex()+"";
         if(AreasComboBoxPDC.getSelectedIndex()!=0) area=areasExistentes.get(AreasComboBoxPDC.getSelectedIndex()-1).getID();
         if(AutorComboBoxPDC.getSelectedIndex()!=0) autor=autoresExistentes.get(AutorComboBoxPDC.getSelectedIndex()-1).getCorreo();
         if(DocTipoComboBoxPDC.getSelectedIndex()!=0) doc_tipo=tdExistentes.get(DocTipoComboBoxPDC.getSelectedIndex()-1).getTipoDocumento();
-        usuario=jTextField6.getText();
+        if(jTextField6.isCursorSet() && !jTextField6.getText().isEmpty()) usuario=jTextField6.getText();
+          
         int salida=Integer.parseInt(Num_Doc.getText());
         biblioteca.reportes.PdfCreator.createPdf("documentosMásConsultados.pdf", "Reporte de Documentos Más Consultados",
                 "Total de documentos en este reporte: ",new ControladorEstadisticas().estadisticasDocumentosConsultados(dow, dom, month, year, tipo_usuario,
@@ -1300,11 +1731,11 @@ public class GUIStatistics extends javax.swing.JFrame {
         if(jCheckBox39.isSelected()){
             desde=new String[3];
             desde[0]=jComboBox101.getSelectedItem()+"";
-            desde[1]=jComboBox100.getSelectedIndex()+"";
+            desde[1]=(jComboBox100.getSelectedIndex()+1)+"";
             desde[2]=jComboBox98.getSelectedItem()+"";
             Hasta=new String[3];
             Hasta[0]=jComboBox94.getSelectedItem()+"";
-            Hasta[1]=jComboBox95.getSelectedIndex()+"";
+            Hasta[1]=(jComboBox95.getSelectedIndex()+1)+"";
             Hasta[2]=jComboBox96.getSelectedItem()+"";
         }
         if(jComboBox93.getSelectedIndex()!=0) tipo_usuario=jComboBox93.getSelectedIndex()+"";
@@ -1584,19 +2015,172 @@ public class GUIStatistics extends javax.swing.JFrame {
         else jComboBox85.setEnabled(false);
     }//GEN-LAST:event_jCheckBox49ActionPerformed
 
+    private void jTextField7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField7MouseClicked
+        jTextField7.setEnabled(true);
+        jTextField7.setEditable(true);
+        jTextField7.setText("");
+    }//GEN-LAST:event_jTextField7MouseClicked
+
+    private void jTextField6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField6MouseClicked
+         jTextField6.setEnabled(true);
+        jTextField6.setEditable(true);
+        jTextField6.setText("");
+    }//GEN-LAST:event_jTextField6MouseClicked
+
+    private void jCheckBox38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox38ActionPerformed
+        if(jCheckBox38.isSelected()){
+            jCheckBox46.setEnabled(false);
+            jCheckBox47.setEnabled(false);
+            jCheckBox48.setEnabled(false);
+            jCheckBox49.setEnabled(false);
+            jCheckBox50.setEnabled(false);
+            jCheckBox51.setEnabled(false);
+            jCheckBox46.setSelected(false);
+            jCheckBox47.setSelected(false);
+            jCheckBox48.setSelected(false);
+            jCheckBox49.setSelected(false);
+            jCheckBox50.setSelected(false);
+            jCheckBox51.setSelected(false);
+            jLabel82.setEnabled(false);
+            jLabel83.setEnabled(false);
+            jLabel84.setEnabled(false);
+            jLabel85.setEnabled(false);
+            jComboBox85.setEnabled(false);
+            jComboBox86.setEnabled(false);
+            jComboBox91.setEnabled(false);
+            jComboBox99.setEnabled(false);
+            jComboBox92.setEnabled(false);
+            jComboBox97.setEnabled(false);
+            jComboBox108.setEnabled(false);
+            jComboBox109.setEnabled(false);
+            jComboBox110.setEnabled(false);
+            jComboBox113.setEnabled(false);
+            jComboBox112.setEnabled(false);
+            jComboBox111.setEnabled(false);
+        } else{
+            jCheckBox46.setEnabled(true);
+            jCheckBox47.setEnabled(true);
+            jCheckBox48.setEnabled(true);
+            jCheckBox49.setEnabled(true);
+            jCheckBox50.setEnabled(true);
+            jCheckBox51.setEnabled(true);
+            jLabel82.setEnabled(true);
+            jLabel83.setEnabled(true);
+            jLabel84.setEnabled(true);
+            jLabel85.setEnabled(true);
+        }
+}//GEN-LAST:event_jCheckBox38ActionPerformed
+
+    private void jCheckBox52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox52ActionPerformed
+        if(jCheckBox46.isSelected()) jComboBox85.setEnabled(true);
+        else jComboBox85.setEnabled(false);
+}//GEN-LAST:event_jCheckBox52ActionPerformed
+
+    private void jCheckBox53ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox53ActionPerformed
+        if(jCheckBox47.isSelected()) jComboBox86.setEnabled(true);
+        else jComboBox86.setEnabled(false);
+}//GEN-LAST:event_jCheckBox53ActionPerformed
+
+    private void jCheckBox54ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox54ActionPerformed
+        if(jCheckBox48.isSelected()) jComboBox91.setEnabled(true);
+        else jComboBox91.setEnabled(false);
+}//GEN-LAST:event_jCheckBox54ActionPerformed
+
+    private void jCheckBox55ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox55ActionPerformed
+        if(jCheckBox49.isSelected()) jComboBox99.setEnabled(true);
+        else jComboBox99.setEnabled(false);
+}//GEN-LAST:event_jCheckBox55ActionPerformed
+
+    private void jCheckBox56ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox56ActionPerformed
+        if(jCheckBox50.isSelected()){
+            jComboBox92.setEnabled(true);
+            jComboBox97.setEnabled(true);
+        } else{
+            jComboBox92.setEnabled(false);
+            jComboBox97.setEnabled(false);
+        }
+}//GEN-LAST:event_jCheckBox56ActionPerformed
+
+    private void jCheckBox57ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox57ActionPerformed
+        if(jCheckBox51.isSelected()){
+            jComboBox108.setEnabled(true);
+            jComboBox109.setEnabled(true);
+            jComboBox110.setEnabled(true);
+            jComboBox113.setEnabled(true);
+            jComboBox112.setEnabled(true);
+            jComboBox111.setEnabled(true);
+        } else{
+            jComboBox108.setEnabled(false);
+            jComboBox109.setEnabled(false);
+            jComboBox110.setEnabled(false);
+            jComboBox113.setEnabled(false);
+            jComboBox112.setEnabled(false);
+            jComboBox111.setEnabled(false);
+        }
+}//GEN-LAST:event_jCheckBox57ActionPerformed
+
+    private void jTextField8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField8MouseClicked
+        jTextField8.setEnabled(true);
+        jTextField8.setEditable(true);
+        jTextField8.setText("");
+}//GEN-LAST:event_jTextField8MouseClicked
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        String dow = null, dom = null, month = null, year = null;
+        String[] franja = null, desde = null, Hasta = null;
+        String area = null, autor=null, doc_tipo=null, usuario=null;
+        
+        if(!jCheckBox38.isSelected()){
+            if(jCheckBox46.isSelected()) dow=jComboBox85.getSelectedIndex()+"";
+            if(jCheckBox47.isSelected()) dom=jComboBox86.getSelectedItem()+"";
+            if(jCheckBox48.isSelected()) month=(jComboBox91.getSelectedIndex()+1)+"";
+            if(jCheckBox49.isSelected()) year=jComboBox99.getSelectedItem()+"";
+            if(jCheckBox50.isSelected()){
+                franja=new String[2];
+                franja[0]=jComboBox92.getSelectedIndex()+"";
+                franja[1]=jComboBox97.getSelectedIndex()+"";
+            }
+            if(jCheckBox51.isSelected()){
+                desde=new String[3];
+                desde[0]=jComboBox108.getSelectedItem()+"";
+                desde[1]=(jComboBox109.getSelectedIndex()+1)+"";
+                desde[2]=jComboBox110.getSelectedItem()+"";
+                Hasta=new String[3];
+                Hasta[0]=jComboBox113.getSelectedItem()+"";
+                Hasta[1]=(jComboBox112.getSelectedIndex()+1)+"";
+                Hasta[2]=jComboBox111.getSelectedItem()+"";
+            }
+        }
+        if(AreasComboBoxPDC1.getSelectedIndex()!=0) area=areasExistentes.get(AreasComboBoxPDC1.getSelectedIndex()-1).getID();
+        if(AutorComboBoxPDC1.getSelectedIndex()!=0) autor=autoresExistentes.get(AutorComboBoxPDC1.getSelectedIndex()-1).getCorreo();
+        if(DocTipoComboBoxPDC1.getSelectedIndex()!=0) doc_tipo=tdExistentes.get(DocTipoComboBoxPDC1.getSelectedIndex()-1).getTipoDocumento();
+        if(jTextField8.isCursorSet() && !jTextField8.getText().isEmpty()) usuario=jTextField8.getText();
+        
+     //   if(jCheckBox12.isSelected())
+       //     biblioteca.reportes.PdfCreator.createPdf("documentosCatalogados.pdf", "Reporte de Documentos Catalogados", "Total de documentos catalogados en este reporte: ",new ControladorReportesEstadisticas().ConsultarListaDocumentosCatalogados(dow, dom, month, year, franja, desde, Hasta, area, autor, doc_tipo, usuario));
+        //else
+          //  biblioteca.reportes.PdfCreator.createArrayListPdf("documentosCatalogadosLista.pdf", "Reporte de Documentos Catalogados", "Total de documentos catalogados en este reporte: ",new ControladorReportesEstadisticas().ConsultarListaSeparadaDocumentosCatalogados(dow, dom, month, year, franja, desde, Hasta, area, autor, doc_tipo, usuario));
+    }//GEN-LAST:event_jButton5ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox AreasComboBoxPDC;
+    private javax.swing.JComboBox AreasComboBoxPDC1;
     private javax.swing.JComboBox AreasComboBoxPDD;
     private javax.swing.JComboBox AutorComboBoxPDC;
+    private javax.swing.JComboBox AutorComboBoxPDC1;
     private javax.swing.JComboBox AutorComboBoxPDD;
     private javax.swing.JComboBox DocTipoComboBoxPDC;
+    private javax.swing.JComboBox DocTipoComboBoxPDC1;
     private javax.swing.JComboBox DocTipoComboBoxPDD;
     private javax.swing.JTextField Num_Doc;
     private javax.swing.JTextField Num_Doc1;
     private javax.swing.JPanel Panel_Documentos_Catalogados1;
+    private javax.swing.JPanel Panel_Documentos_Catalogados2;
     private javax.swing.JButton Reporte_Consultados;
     private javax.swing.JButton Reporte_Descargados;
     private javax.swing.JButton Reporte_Usuarios;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JCheckBox jCheckBox12;
     private javax.swing.JCheckBox jCheckBox31;
     private javax.swing.JCheckBox jCheckBox32;
     private javax.swing.JCheckBox jCheckBox33;
@@ -1604,6 +2188,7 @@ public class GUIStatistics extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox35;
     private javax.swing.JCheckBox jCheckBox36;
     private javax.swing.JCheckBox jCheckBox37;
+    private javax.swing.JCheckBox jCheckBox38;
     private javax.swing.JCheckBox jCheckBox39;
     private javax.swing.JCheckBox jCheckBox40;
     private javax.swing.JCheckBox jCheckBox41;
@@ -1617,6 +2202,12 @@ public class GUIStatistics extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox49;
     private javax.swing.JCheckBox jCheckBox50;
     private javax.swing.JCheckBox jCheckBox51;
+    private javax.swing.JCheckBox jCheckBox52;
+    private javax.swing.JCheckBox jCheckBox53;
+    private javax.swing.JCheckBox jCheckBox54;
+    private javax.swing.JCheckBox jCheckBox55;
+    private javax.swing.JCheckBox jCheckBox56;
+    private javax.swing.JCheckBox jCheckBox57;
     private javax.swing.JComboBox jComboBox100;
     private javax.swing.JComboBox jComboBox101;
     private javax.swing.JComboBox jComboBox102;
@@ -1631,6 +2222,15 @@ public class GUIStatistics extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBox111;
     private javax.swing.JComboBox jComboBox112;
     private javax.swing.JComboBox jComboBox113;
+    private javax.swing.JComboBox jComboBox114;
+    private javax.swing.JComboBox jComboBox115;
+    private javax.swing.JComboBox jComboBox116;
+    private javax.swing.JComboBox jComboBox117;
+    private javax.swing.JComboBox jComboBox118;
+    private javax.swing.JComboBox jComboBox119;
+    private javax.swing.JComboBox jComboBox120;
+    private javax.swing.JComboBox jComboBox121;
+    private javax.swing.JComboBox jComboBox122;
     private javax.swing.JComboBox jComboBox76;
     private javax.swing.JComboBox jComboBox77;
     private javax.swing.JComboBox jComboBox78;
@@ -1641,10 +2241,13 @@ public class GUIStatistics extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBox83;
     private javax.swing.JComboBox jComboBox84;
     private javax.swing.JComboBox jComboBox85;
+    private javax.swing.JComboBox jComboBox86;
     private javax.swing.JComboBox jComboBox87;
     private javax.swing.JComboBox jComboBox88;
     private javax.swing.JComboBox jComboBox89;
     private javax.swing.JComboBox jComboBox90;
+    private javax.swing.JComboBox jComboBox91;
+    private javax.swing.JComboBox jComboBox92;
     private javax.swing.JComboBox jComboBox93;
     private javax.swing.JComboBox jComboBox94;
     private javax.swing.JComboBox jComboBox95;
@@ -1656,6 +2259,10 @@ public class GUIStatistics extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1687,11 +2294,21 @@ public class GUIStatistics extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel82;
     private javax.swing.JLabel jLabel83;
     private javax.swing.JLabel jLabel84;
+    private javax.swing.JLabel jLabel85;
+    private javax.swing.JLabel jLabel86;
+    private javax.swing.JLabel jLabel87;
+    private javax.swing.JLabel jLabel88;
+    private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel90;
+    private javax.swing.JLabel jLabel91;
+    private javax.swing.JLabel jLabel92;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
 }
