@@ -83,6 +83,11 @@ public class ControladorEstadisticas {
             salida.add(new Paragraph("\r\n"));
             salida.add(image);
             salida.add(new Paragraph("\r\n"));
+            chart = ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(tmp), "Usuarios Registrados para los días de la semana", "Días de la Semana", "Cantidad de usuarios");
+            bufferedImage = chart.createBufferedImage(width, height);
+            image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+            salida.add(image);
+            salida.add(new Paragraph("\r\n"));
         }
         if(dom){
             ArrayList<String> tmp= controlador.consultarUsuariosRegistradosPorDoM();
