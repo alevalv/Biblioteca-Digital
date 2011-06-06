@@ -463,7 +463,6 @@ public class GUIRegistroUsuarios extends javax.swing.JFrame {
 
         fecha_nacimiento=ano+"-"+mes+"-"+dia;
         
-        /// Falta verificar Contraseñaaa !! :/
         String contrasenaS=new String(contrasena);
 
         java.util.Date actual=new java.util.Date();

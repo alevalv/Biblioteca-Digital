@@ -472,6 +472,11 @@ public class GUIEstadisticas extends javax.swing.JFrame {
 
         jCheckBox8.setText("Por Franja Horaria:");
         jCheckBox8.setEnabled(false);
+        jCheckBox8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox8ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
@@ -2803,6 +2808,17 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           jComboBox89.setEnabled(false);
         }
     }//GEN-LAST:event_jCheckBox37ActionPerformed
+
+    private void jCheckBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox8ActionPerformed
+            if(jCheckBox8.isSelected()){
+            jComboBox13.setEnabled(true);
+            jComboBox14.setEnabled(true);
+        }
+        else{
+            jComboBox13.setEnabled(false);
+            jComboBox14.setEnabled(false);
+        }
+    }//GEN-LAST:event_jCheckBox8ActionPerformed
 
     private void unsupportedOperation(){
         JOptionPane.showMessageDialog(this, "Esta operación aún no ha sido implementada", "Error", JOptionPane.ERROR_MESSAGE);
