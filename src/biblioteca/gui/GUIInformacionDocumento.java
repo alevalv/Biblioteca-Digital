@@ -23,6 +23,7 @@
  */
 package biblioteca.gui;
 
+import biblioteca.database2.beans.Autor;
 import biblioteca.database2.beans.Documento;
 import biblioteca.database2.controladores.ControladorDocumento;
 import java.io.BufferedInputStream;
@@ -31,6 +32,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -62,6 +64,13 @@ public class GUIInformacionDocumento extends javax.swing.JFrame {
      */
     
     private void inicializarDocumento(){
+        String autores="";
+        ArrayList<Autor> obtenerAutores = new ControladorDocumento().obtenerAutores(documento_id);
+        for(int j=0;j<obtenerAutores.size();j++){
+            autores+=obtenerAutores.get(j).getNombre()+" "+obtenerAutores.get(j).getApellido();
+            if(j!=(obtenerAutores.size()-1))
+                autores+=", ";
+        }
         this.documento=controlador.usuarioConsultaDocumento(documento_id, biblioteca.Main.BibliotecaDigital.LOGGED_USER);
         this.Titulo_Principal.setText(documento.getTituloPrincipal());
         this.ID.setText(documento.getID_documento());
@@ -71,6 +80,7 @@ public class GUIInformacionDocumento extends javax.swing.JFrame {
         this.Fecha_Catalogacion.setText(documento.getFechaCatalogacion().substring(0, 10));
         this.Idioma.setText(documento.getIdioma());
         this.Derechos_Autor.setText(documento.getDerechosAutor());
+        this.Autores.setText(autores);
     }
     
     @SuppressWarnings("unchecked")
@@ -97,6 +107,8 @@ public class GUIInformacionDocumento extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         Derechos_Autor = new javax.swing.JTextField();
         Descargar = new javax.swing.JButton();
+        Autores = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -146,19 +158,18 @@ public class GUIInformacionDocumento extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabel2.setText("Titulo: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         getContentPane().add(jLabel2, gridBagConstraints);
 
         Titulo_Principal.setEditable(false);
-        Titulo_Principal.setPreferredSize(new java.awt.Dimension(150, 22));
+        Titulo_Principal.setPreferredSize(new java.awt.Dimension(150, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 9;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 17;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
         getContentPane().add(Titulo_Principal, gridBagConstraints);
@@ -167,7 +178,7 @@ public class GUIInformacionDocumento extends javax.swing.JFrame {
         jLabel5.setText("Titulo Secundario: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
         getContentPane().add(jLabel5, gridBagConstraints);
@@ -175,17 +186,17 @@ public class GUIInformacionDocumento extends javax.swing.JFrame {
         Titulo_Secundario.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 17;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
         getContentPane().add(Titulo_Secundario, gridBagConstraints);
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11));
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("Editorial: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
         getContentPane().add(jLabel6, gridBagConstraints);
@@ -193,7 +204,7 @@ public class GUIInformacionDocumento extends javax.swing.JFrame {
         Editorial.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 17;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
@@ -203,19 +214,20 @@ public class GUIInformacionDocumento extends javax.swing.JFrame {
         jLabel7.setText("Fec. Public: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 0);
         getContentPane().add(jLabel7, gridBagConstraints);
 
         Fecha_Publicacion.setEditable(false);
-        Fecha_Publicacion.setPreferredSize(new java.awt.Dimension(50, 22));
+        Fecha_Publicacion.setPreferredSize(new java.awt.Dimension(50, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 11;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.gridwidth = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 80;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
         getContentPane().add(Fecha_Publicacion, gridBagConstraints);
 
@@ -223,19 +235,20 @@ public class GUIInformacionDocumento extends javax.swing.JFrame {
         jLabel8.setText("Fec. Catalog: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         getContentPane().add(jLabel8, gridBagConstraints);
 
         Fecha_Catalogacion.setEditable(false);
-        Fecha_Catalogacion.setPreferredSize(new java.awt.Dimension(50, 22));
+        Fecha_Catalogacion.setPreferredSize(new java.awt.Dimension(50, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 11;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.gridwidth = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 50;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
         getContentPane().add(Fecha_Catalogacion, gridBagConstraints);
 
@@ -243,7 +256,7 @@ public class GUIInformacionDocumento extends javax.swing.JFrame {
         jLabel9.setText("Idioma: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
         getContentPane().add(jLabel9, gridBagConstraints);
@@ -251,7 +264,7 @@ public class GUIInformacionDocumento extends javax.swing.JFrame {
         Idioma.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.gridwidth = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
@@ -261,7 +274,7 @@ public class GUIInformacionDocumento extends javax.swing.JFrame {
         jLabel10.setText("Derechos de Autor: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         getContentPane().add(jLabel10, gridBagConstraints);
@@ -269,7 +282,7 @@ public class GUIInformacionDocumento extends javax.swing.JFrame {
         Derechos_Autor.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.gridwidth = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
@@ -283,18 +296,33 @@ public class GUIInformacionDocumento extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.gridwidth = 18;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         getContentPane().add(Descargar, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 17;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
+        getContentPane().add(Autores, gridBagConstraints);
+
+        jLabel11.setFont(new java.awt.Font("Ubuntu", 1, 11)); // NOI18N
+        jLabel11.setText("Autores: ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
+        getContentPane().add(jLabel11, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void DescargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DescargarActionPerformed
         if(!biblioteca.Main.BibliotecaDigital.LOGGED_USER.equals("dummyuser")){
-            controlador.usuarioDescargaDocumento(documento_id, biblioteca.Main.BibliotecaDigital.LOGGED_USER);
             JFileChooser JFC= new JFileChooser();
             JFC.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
             JFC.showSaveDialog(this);
@@ -306,6 +334,7 @@ public class GUIInformacionDocumento extends javax.swing.JFrame {
                 BufferedInputStream bufferedInput = new BufferedInputStream(fileInput);
                 /// Se abre el fichero donde se hará la copia
                 File newFile = JFC.getSelectedFile();
+                if(newFile==null) return;
                 if(!newFile.exists()){
                     newFile.createNewFile();
                 }
@@ -323,6 +352,7 @@ public class GUIInformacionDocumento extends javax.swing.JFrame {
                 bufferedInput.close();
                 bufferedOutput.close();
                 JOptionPane.showMessageDialog(this, "El documento ha sido guardado en "+newFilePath, "Notificación", JOptionPane.INFORMATION_MESSAGE);
+                controlador.usuarioDescargaDocumento(documento_id, biblioteca.Main.BibliotecaDigital.LOGGED_USER);
             }
             catch(IOException ioe){
                 System.err.println(ioe);
@@ -339,6 +369,7 @@ public class GUIInformacionDocumento extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Autores;
     private javax.swing.JTextField Derechos_Autor;
     private javax.swing.JButton Descargar;
     private javax.swing.JTextField Editorial;
@@ -350,6 +381,7 @@ public class GUIInformacionDocumento extends javax.swing.JFrame {
     private javax.swing.JTextField Titulo_Secundario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
