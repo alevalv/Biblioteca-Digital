@@ -18,6 +18,7 @@
 package biblioteca.database2.controladores;
 
 import biblioteca.database2.accesoDatos.DaoEstadisticas;
+import biblioteca.reportes.ChartCreator;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPTable;
@@ -59,6 +60,8 @@ public class ControladorEstadisticas {
         DaoEstadisticas controlador = new DaoEstadisticas();
         if(dow){
             ArrayList<String> tmp= controlador.consultarUsuariosRegistradosPorDoW();
+            ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(tmp),"Usuarios Registrados para los días de la semana");
+            
             salida.add(new Paragraph("Resultados para los días de la semana"));
             salida.add(new Paragraph("\r\n"));
             salida.add(biblioteca.reportes.PdfCreator.plainArrayListToPdfPTable(tmp));

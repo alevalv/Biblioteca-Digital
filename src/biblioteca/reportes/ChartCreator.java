@@ -18,6 +18,9 @@
 package biblioteca.reportes;
 
 import java.util.ArrayList;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.DefaultPieDataset;
 /**
  * Esta clase provee una interfaz entre los resultados de las consultas de la base
@@ -28,8 +31,27 @@ import org.jfree.data.general.DefaultPieDataset;
  * @author María Cristina Bustos Rodríguez
  */
 public class ChartCreator {
-    static public String pieChart(ArrayList<String> datos){
-        DefaultPieDataset a;
-        return "";
+        
+    public static DefaultPieDataset asignarPieDataset(ArrayList<String> Valores){
+         DefaultPieDataset dataSet = new DefaultPieDataset();
+      for(int i=2;i<Valores.size();i+=2){
+           System.out.println(Valores.get(i)+" "+Valores.get(i+1));
+           dataSet.setValue(Valores.get(i), Double.parseDouble(Valores.get(i+1)));
+        }
+        return dataSet;
     }
+    
+    
+    public static void generatePieChart(DefaultPieDataset dataSet, String titulo) {
+   
+        JFreeChart chart = ChartFactory.createPieChart(
+                titulo, dataSet, true, true, false);
+ 
+        ChartFrame frame = new ChartFrame("First", chart);
+        frame.pack();
+        frame.setVisible(true);
+      //  return chart;
+    }
+    
+    
 }
