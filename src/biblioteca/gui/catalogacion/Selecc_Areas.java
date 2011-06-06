@@ -54,9 +54,8 @@ public class Selecc_Areas extends javax.swing.JPanel {
         areasExistentes= new ControladorArea().consultarTodasLasAreas();
         if(areasExistentes!=null){
             for(int i=0;i<areasExistentes.size();i++){
-                if(i!=0)
-                    Areas.insertItemAt(areasExistentes.get(i).toString(), i-1);
-                Area_Padre.insertItemAt(areasExistentes.get(i).toString(), i);
+                Areas.insertItemAt(areasExistentes.get(i), i);
+                Area_Padre.insertItemAt(areasExistentes.get(i), i);
             }
             Areas.setSelectedIndex(-1);
             Area_Padre.setSelectedIndex(-1);
@@ -96,7 +95,6 @@ public class Selecc_Areas extends javax.swing.JPanel {
         Areas_Agregadas = new javax.swing.JTextArea();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -337,19 +335,12 @@ public class Selecc_Areas extends javax.swing.JPanel {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 11;
         add(jLabel20, gridBagConstraints);
-
-        jLabel21.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel21.setText("*");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 12;
-        add(jLabel21, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
         if(Areas.getSelectedIndex()!=-1){
-            if(!areasSeleccionadas.contains(areasExistentes.get(Areas.getSelectedIndex()+1))){
-                areasSeleccionadas.add(areasExistentes.get(Areas.getSelectedIndex()+1));
+            if(!areasSeleccionadas.contains((Area)Areas.getSelectedItem())){
+                areasSeleccionadas.add((Area)Areas.getSelectedItem());
             }
         }
         refreshAreas();
@@ -358,7 +349,9 @@ public class Selecc_Areas extends javax.swing.JPanel {
     private void refreshAreas(){
         String texto="";
         for(int i=0;i<areasSeleccionadas.size();i++){
-            texto+=areasSeleccionadas.get(i).toString()+"\n";
+            texto+=areasSeleccionadas.get(i).toString();
+            if(i!=(areasSeleccionadas.size()-1))
+                texto+="\n";
         }
         Areas_Agregadas.setText(texto);
     }
@@ -382,8 +375,7 @@ public class Selecc_Areas extends javax.swing.JPanel {
 
     private void Agregar_AreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_AreaActionPerformed
         if(checkEmptyFieldsArea()){
-            System.out.println(areasExistentes.get(Area_Padre.getSelectedIndex()).getID());
-            new ControladorArea().insertarArea(Area_Descripcion.getText().replaceAll("[']", "`"), Area_Nombre.getText().replaceAll("[']", "`"), areasExistentes.get(Area_Padre.getSelectedIndex()).getID());
+            new ControladorArea().insertarArea(Area_Descripcion.getText().replaceAll("[']", "`"), Area_Nombre.getText().replaceAll("[']", "`"), (Area_Padre.getSelectedIndex()!=-1) ? ((Area)Area_Padre.getSelectedItem()).getID() : "0");
             JOptionPane.showMessageDialog(this, "El el area con nombre "+Area_Nombre.getText()+ " ha sido agregado", "Notificación", JOptionPane.INFORMATION_MESSAGE);
             Area_Nombre.setText("");
             Area_Descripcion.setText("");
@@ -413,10 +405,6 @@ public class Selecc_Areas extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "El campo Area Descripcion no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
-        else if(Area_Padre.getSelectedIndex()==-1){
-            JOptionPane.showMessageDialog(this, "El campo Area Padre no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
         else return true;
     }
     
@@ -435,7 +423,6 @@ public class Selecc_Areas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

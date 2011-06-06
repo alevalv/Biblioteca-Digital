@@ -114,6 +114,6 @@ public class Area {
      */
     @Override
     public String toString(){
-        return area_id+";\""+nombre+"\";"+Area_Padre;
+        return nombre+":"+area_id+"; padre: "+Area_Padre;
     }
 }

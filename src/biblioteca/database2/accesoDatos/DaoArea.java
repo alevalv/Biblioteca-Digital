@@ -54,6 +54,7 @@ public class DaoArea {
         sql_guardar="INSERT INTO areas_computacion(descripcion, nombre, area_padre) VALUES ('" +
                 are.getDescripcion() + "', '" + are.getNombre() 
                 + "', '"  + are.getAreaPadre()+ "');";
+        //System.out.println(sql_guardar);
         try{
             Connection conect= fachada.conectar();
             Statement sentencia = conect.createStatement();
@@ -101,7 +102,7 @@ public class DaoArea {
      */
      public ArrayList<Area> consultarTodasLasAreas(){
          String sql_consultar;
-         sql_consultar="SELECT * FROM areas_computacion ORDER BY area_id ASC;";
+         sql_consultar="SELECT * FROM areas_computacion WHERE NOT area_id='0' ORDER BY nombre ASC;";
          ArrayList<Area> Areas=null;
          try{
              Connection conn= fachada.conectar();
@@ -246,6 +247,7 @@ public class DaoArea {
                 areas.get(i).getID() + "', '" +  Username
                 + "');";
         }
+       //System.out.println(sql_agregar);
         try{
             Connection conect= fachada.conectar();
             Statement sentencia = conect.createStatement();
