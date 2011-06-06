@@ -645,4 +645,78 @@ public class DaoEstadisticas {
         return salida;
     }
     
+    public ResultSet consultarDocumentosCatalogadosPorArea(){
+       try {
+                String sql="SELECT nombre AS Nombre_Area, count(doc_id) AS Cantidad_de_Documentos_Catalogados FROM documento_areas_computacion NATURAL JOIN areas_computacion GROUP BY nombre ORDER BY Cantidad_de_Documentos_Catalogados DESC;";
+                Connection conn = Fachada.conectar();
+                java.sql.Statement sentencia = conn.createStatement();
+                ResultSet tabla = sentencia.executeQuery(sql);
+                conn.close();
+                return tabla;
+            }
+            catch (SQLException e) {
+                System.err.println(e);
+            } 
+            catch (Exception e) {
+                System.err.println(e);
+            }
+        return null;   
+     }
+    
+   public ResultSet consultarDocumentosCatalogadosPorAutor(){
+       try {
+                String sql="SELECT nombre AS Nombre_Autor, count(doc_id) AS Cantidad_de_Documentos_Catalogados FROM documento_autor "
+                        + "NATURAL JOIN autor GROUP BY nombre ORDER BY Cantidad_de_Documentos_Catalogados DESC;";
+                Connection conn = Fachada.conectar();
+                java.sql.Statement sentencia = conn.createStatement();
+                ResultSet tabla = sentencia.executeQuery(sql);
+                conn.close();
+                return tabla;
+            }
+            catch (SQLException e) {
+                System.err.println(e);
+            } 
+            catch (Exception e) {
+                System.err.println(e);
+            }
+        return null;   
+     }
+     
+  public ResultSet consultarDocumentosCatalogadosPorPalabraClave(){
+       try {
+                String sql="SELECT nombre AS Palabra_Clave, count(doc_id) AS Cantidad_de_Documentos_Catalogados FROM "
+                        + "documento_palabras_clave NATURAL JOIN palabras_clave GROUP BY nombre ORDER BY Cantidad_de_Documentos_Catalogados DESC;";
+                Connection conn = Fachada.conectar();
+                java.sql.Statement sentencia = conn.createStatement();
+                ResultSet tabla = sentencia.executeQuery(sql);
+                conn.close();
+                return tabla;
+            }
+            catch (SQLException e) {
+                System.err.println(e);
+            } 
+            catch (Exception e) {
+                System.err.println(e);
+            }
+        return null;   
+     }
+      
+ public ResultSet consultarDocumentosCatalogadosPorTipoMaterial(){
+       try {
+                String sql="SELECT tipo_material.tipo_documento AS Tipo_Material, count(doc_id) AS Cantidad_de_Documentos_Catalogados FROM documentos INNER "
+                        + "JOIN tipo_material ON documentos.tipo_documento=tipo_material.tipo_documento GROUP BY tipo_material.tipo_documento ORDER BY Cantidad_de_Documentos_Catalogados DESC;";
+                Connection conn = Fachada.conectar();
+                java.sql.Statement sentencia = conn.createStatement();
+                ResultSet tabla = sentencia.executeQuery(sql);
+                conn.close();
+                return tabla;
+            }
+            catch (SQLException e) {
+                System.err.println(e);
+            } 
+            catch (Exception e) {
+                System.err.println(e);
+            }
+        return null;   
+     }
 }
