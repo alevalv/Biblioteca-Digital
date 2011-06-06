@@ -30,9 +30,10 @@ import biblioteca.database2.controladores.ControladorArea;
 import biblioteca.database2.controladores.ControladorAutor;
 import biblioteca.database2.controladores.ControladorEstadisticas;
 import biblioteca.database2.controladores.ControladorTipoDocumento;
-import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.Element;
-import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -1222,7 +1223,7 @@ public class GUIStatistics extends javax.swing.JFrame {
         gridBagConstraints.gridy = 17;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(20, 0, 10, 10);
         jPanel2.add(Reporte_Usuarios, gridBagConstraints);
 
         jComboBox85.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2010", "2009" }));
@@ -1519,7 +1520,7 @@ public class GUIStatistics extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox50ActionPerformed
 
     private void jCheckBox51ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox51ActionPerformed
-        if(jCheckBox37.isSelected()){
+        if(jCheckBox51.isSelected()){
           jComboBox108.setEnabled(true);
           jComboBox109.setEnabled(true);
           jComboBox110.setEnabled(true);
@@ -1538,33 +1539,43 @@ public class GUIStatistics extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox51ActionPerformed
 
     private void Reporte_UsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reporte_UsuariosActionPerformed
-        ArrayList<Element> elementosaInsertar = null;
-        String year=null;
-        String[] desde=null, hasta=null, franja=null;
-        
-        if(jCheckBox49.isSelected()){
-            year=jComboBox85.getSelectedItem()+"";
+      
+            ArrayList<Element> elementosaInsertar = null;
+            String year=null;
+            String[] desde=null, hasta=null, franja=null;
+            
+            if(jCheckBox49.isSelected()){
+                year=jComboBox85.getSelectedItem()+"";
+            }
+            
+            if(jCheckBox50.isSelected()){
+                franja=new String[2];
+                franja[0]=jComboBox97.getSelectedIndex()+"";
+                franja[1]=jComboBox99.getSelectedIndex()+"";
+            }
+            
+            if(jCheckBox51.isSelected()){
+                desde=new String[3];
+                desde[0]=jComboBox108.getSelectedItem()+"";
+                desde[1]=(jComboBox111.getSelectedIndex()+1)+"";
+                desde[2]=jComboBox112.getSelectedItem()+"";
+                hasta=new String[3];
+                hasta[0]=jComboBox109.getSelectedItem()+"";
+                hasta[1]=(jComboBox110.getSelectedIndex()+1)+"";
+                hasta[2]=jComboBox113.getSelectedItem()+"";
+            }
+        try {
+            elementosaInsertar=new ControladorEstadisticas().estadisticasUsuariosRegistradosMultiplesTablas(jCheckBox46.isSelected(), jCheckBox47.isSelected(), jCheckBox48.isSelected(), year, franja, desde, hasta);
+        } catch (BadElementException ex) {
+            Logger.getLogger(GUIStatistics.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(GUIStatistics.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(GUIStatistics.class.getName()).log(Level.SEVERE, null, ex);
         }
+            
+            biblioteca.reportes.PdfCreator.createDinamicPdf("ReporteUsuariosRegistradosMultiples.pdf", "Reporte de Usuarios Registrados", ":D", elementosaInsertar);
         
-        if(jCheckBox50.isSelected()){
-            franja=new String[2];
-            franja[0]=jComboBox97.getSelectedIndex()+"";
-            franja[1]=jComboBox99.getSelectedIndex()+"";
-        }
-        
-        if(jCheckBox51.isSelected()){
-            desde=new String[3];
-            desde[0]=jComboBox108.getSelectedItem()+"";
-            desde[1]=jComboBox111.getSelectedIndex()+"";
-            desde[2]=jComboBox112.getSelectedItem()+"";
-            hasta=new String[3];
-            hasta[0]=jComboBox109.getSelectedItem()+"";
-            hasta[1]=jComboBox110.getSelectedIndex()+"";
-            hasta[2]=jComboBox113.getSelectedItem()+"";
-        }
-        
-        elementosaInsertar=new ControladorEstadisticas().estadisticasUsuariosRegistradosMultiplesTablas(jCheckBox46.isSelected(), jCheckBox47.isSelected(), jCheckBox48.isSelected(), year, franja, desde, hasta);
-        biblioteca.reportes.PdfCreator.createDinamicPdf("ReporteUsuariosRegistradosMultiples.pdf", "Reporte de Usuarios Registrados", ":D", elementosaInsertar);
 
     }//GEN-LAST:event_Reporte_UsuariosActionPerformed
 

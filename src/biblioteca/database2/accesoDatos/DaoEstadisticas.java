@@ -451,6 +451,7 @@ public class DaoEstadisticas {
      */
     public ArrayList<String> consultarUsuariosRegistradosPorFranja(String desde, String hasta){
         final String sql="SELECT count(*) FROM usuarios WHERE date_part('hour',fecha_registro)>="+desde+" and date_part('hour',fecha_registro)<="+hasta+" ";
+        System.out.println(sql);
         ArrayList<String> salida= new ArrayList<String>(2);
         try {
             Connection conn = Fachada.conectar();
@@ -471,7 +472,8 @@ public class DaoEstadisticas {
     }
     
     public ArrayList<String> consultarUsuariosRegistradosPorIntervalo(String desde, String hasta){
-        final String sql="SELECT count(*) FROM usuarios WHERE fecha_registro between "+desde+" and "+hasta+";";
+        final String sql="SELECT count(*) FROM usuarios WHERE fecha_registro between '"+desde+"' and '"+hasta+"';";
+        System.out.println(sql);
         ArrayList<String> salida= new ArrayList<String>(2);
         try {
             Connection conn = Fachada.conectar();
