@@ -249,7 +249,7 @@ public class DaoEstadisticas {
             }
         }
         sql_descargados+=crearCondicionesEspecialesConsultados(tipo_usuario, area, autor, doc_tipo, usuario);
-        sql_descargados+=" GROUP BY Identificacion, Titulo ORDER BY  descargas DESC; ";
+        sql_descargados+=" GROUP BY Identificacion, Titulo ORDER BY  Consultas DESC; ";
         System.out.println(sql_descargados);
         try {
             Connection conn = Fachada.conectar();
