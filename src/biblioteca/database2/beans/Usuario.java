@@ -46,6 +46,15 @@ public class Usuario {
     String fechaRegistro;
     String perfil;
     String correo_electronico;
+    String ultimo_acceso;
+
+    public String getUltimo_acceso() {
+        return ultimo_acceso;
+    }
+
+    public void setUltimo_acceso(String ultimo_acceso) {
+        this.ultimo_acceso = ultimo_acceso;
+    }
 
     /**
      * Construye un objeto vacio de tipo Usuario
