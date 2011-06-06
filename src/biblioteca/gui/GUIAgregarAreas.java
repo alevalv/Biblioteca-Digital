@@ -27,6 +27,7 @@ public class GUIAgregarAreas extends javax.swing.JFrame {
         this.parent=parent;
         this.setLocationRelativeTo(parent);
         initAreaPadreComboBox();
+        this.setResizable(false);
     }
 
     /** This method is called from within the constructor to
@@ -59,6 +60,8 @@ public class GUIAgregarAreas extends javax.swing.JFrame {
             }
         });
 
+        jPanel1.setMinimumSize(new java.awt.Dimension(666, 239));
+        jPanel1.setPreferredSize(new java.awt.Dimension(666, 239));
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         LimitadorDejTextField AreaL=new LimitadorDejTextField(70);
@@ -68,7 +71,6 @@ public class GUIAgregarAreas extends javax.swing.JFrame {
         gridBagConstraints.gridy = 10;
         gridBagConstraints.gridwidth = 15;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 300;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel1.add(Area_Nombre, gridBagConstraints);
@@ -108,7 +110,6 @@ public class GUIAgregarAreas extends javax.swing.JFrame {
         gridBagConstraints.gridy = 11;
         gridBagConstraints.gridwidth = 15;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 300;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel1.add(Area_Descripcion, gridBagConstraints);
@@ -118,7 +119,6 @@ public class GUIAgregarAreas extends javax.swing.JFrame {
         gridBagConstraints.gridy = 12;
         gridBagConstraints.gridwidth = 15;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 300;
         gridBagConstraints.ipady = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
