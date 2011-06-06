@@ -60,7 +60,6 @@ public class GUIModificarAreas extends javax.swing.JFrame {
     private void initListExistentes(){
        areasExistentes=new Vector<String>();
        areasexistentesarray=new ControladorArea().consultarTodasLasAreas();
-       areasexistentesarray.remove(0);
        if(areasexistentesarray!=null){
            
             for(int i=0;i<areasexistentesarray.size();i++){
@@ -79,8 +78,7 @@ public class GUIModificarAreas extends javax.swing.JFrame {
          if(areasSeleccionadasarray!=null){
 
             for(int i=0;i<areasSeleccionadasarray.size();i++){
-                areasSeleccionadas.add(i,areasSeleccionadasarray.get(i).toString());
-                System.out.println(areasSeleccionadas.get(i));
+                areasSeleccionadas.add(i,areasSeleccionadasarray.get(i).toString());                
             }
 
         }
