@@ -286,7 +286,7 @@ public class DaoEstadisticas {
             temp="(SELECT DISTINCT doc_id FROM usuario_consulta"
                     + "_documento NATURAL JOIN usuarios WHERE tipo_usuario="+
                     ((tipo_usuario.equals("Usuario Normal")) ? "'3'" : "'2'") +
-                    ((usuario!=null) ? " AND username='"+usuario : "")+")";
+                    ((usuario!=null) ? " AND username='"+usuario+"'" : "")+")";
             condiciones.add(temp);
         }
         if(area!=null){
