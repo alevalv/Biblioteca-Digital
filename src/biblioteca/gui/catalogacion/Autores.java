@@ -446,8 +446,7 @@ public class Autores extends javax.swing.JPanel {
     private void refreshAutoresSeleccionados(){
         String nuevoTexto="";
         for(int i=0;i<autoresSeleccionados.size();i++){
-            nuevoTexto+=autoresExistentes.get(i).getCorreo()+" - "+autoresExistentes.get(i).getNombre()
-                    +" "+autoresExistentes.get(i).getApellido()+" - "+autoresExistentes.get(i).getAcronimo();
+            nuevoTexto+=autoresSeleccionados.get(i).toString();
             if(i!=(autoresSeleccionados.size()-1))
                 nuevoTexto+="\n";
         }
