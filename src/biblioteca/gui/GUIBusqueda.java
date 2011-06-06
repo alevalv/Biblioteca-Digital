@@ -73,6 +73,12 @@ public class GUIBusqueda extends javax.swing.JFrame {
         Archivo = new javax.swing.JMenu();
         Agregar_Documento = new javax.swing.JMenuItem();
         Modificar_Documento = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        Agregar_Areas = new javax.swing.JMenuItem();
+        Agregar_Autores = new javax.swing.JMenuItem();
+        Agregar_Palabra_Clave = new javax.swing.JMenuItem();
+        Agregar_Tipo_Doc = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
         Salir = new javax.swing.JMenuItem();
         Autenticarse = new javax.swing.JMenu();
         Registrarse = new javax.swing.JMenuItem();
@@ -244,6 +250,54 @@ public class GUIBusqueda extends javax.swing.JFrame {
             }
         });
         Archivo.add(Modificar_Documento);
+
+        jSeparator2.setMinimumSize(new java.awt.Dimension(2, 1));
+        jSeparator2.setPreferredSize(new java.awt.Dimension(2, 1));
+        Archivo.add(jSeparator2);
+
+        Agregar_Areas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        Agregar_Areas.setMnemonic('A');
+        Agregar_Areas.setText("Agregar Áreas");
+        Agregar_Areas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Agregar_AreasActionPerformed(evt);
+            }
+        });
+        Archivo.add(Agregar_Areas);
+
+        Agregar_Autores.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        Agregar_Autores.setMnemonic('u');
+        Agregar_Autores.setText("Agregar Áutores");
+        Agregar_Autores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Agregar_AutoresActionPerformed(evt);
+            }
+        });
+        Archivo.add(Agregar_Autores);
+
+        Agregar_Palabra_Clave.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        Agregar_Palabra_Clave.setMnemonic('p');
+        Agregar_Palabra_Clave.setText("Agregar Palabras Clave");
+        Agregar_Palabra_Clave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Agregar_Palabra_ClaveActionPerformed(evt);
+            }
+        });
+        Archivo.add(Agregar_Palabra_Clave);
+
+        Agregar_Tipo_Doc.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        Agregar_Tipo_Doc.setMnemonic('t');
+        Agregar_Tipo_Doc.setText("Agregar Tipos de Documento");
+        Agregar_Tipo_Doc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Agregar_Tipo_DocActionPerformed(evt);
+            }
+        });
+        Archivo.add(Agregar_Tipo_Doc);
+
+        jSeparator1.setMinimumSize(new java.awt.Dimension(2, 1));
+        jSeparator1.setPreferredSize(new java.awt.Dimension(2, 1));
+        Archivo.add(jSeparator1);
 
         Salir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_MASK));
         Salir.setMnemonic('s');
@@ -496,13 +550,33 @@ public class GUIBusqueda extends javax.swing.JFrame {
         new GUIStatistics(this).setVisible(true);
     }//GEN-LAST:event_EstadisticasActionPerformed
 
+    private void Agregar_AreasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_AreasActionPerformed
+        new GUIAgregarAreas(this).setVisible(true);
+    }//GEN-LAST:event_Agregar_AreasActionPerformed
+
+    private void Agregar_AutoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_AutoresActionPerformed
+        new GUIAgregarAutores(this).setVisible(true);
+    }//GEN-LAST:event_Agregar_AutoresActionPerformed
+
+    private void Agregar_Palabra_ClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_Palabra_ClaveActionPerformed
+        new GUIAgregarPC(this).setVisible(true);
+    }//GEN-LAST:event_Agregar_Palabra_ClaveActionPerformed
+
+    private void Agregar_Tipo_DocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_Tipo_DocActionPerformed
+        new GUIAgregarTipoDocumento(this).setVisible(true);
+    }//GEN-LAST:event_Agregar_Tipo_DocActionPerformed
+
     public void habilitarBotones(boolean b){
         Iniciar_Sesion.setEnabled(b);
         Cerrar_Sesion.setEnabled(!b);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem Agregar_Areas;
+    private javax.swing.JMenuItem Agregar_Autores;
     private javax.swing.JMenuItem Agregar_Documento;
+    private javax.swing.JMenuItem Agregar_Palabra_Clave;
+    private javax.swing.JMenuItem Agregar_Tipo_Doc;
     private javax.swing.JMenu Archivo;
     private javax.swing.JMenu Autenticarse;
     private javax.swing.JButton Buscar;
@@ -534,6 +608,8 @@ public class GUIBusqueda extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
     // End of variables declaration//GEN-END:variables
 }
 
