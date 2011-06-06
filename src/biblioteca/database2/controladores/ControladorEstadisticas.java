@@ -208,6 +208,10 @@ public class ControladorEstadisticas {
         return salida;
     }
     
+    public void ConsultarDocumentosCatalogados(boolean dow, boolean dom, boolean month, String year, String[] franja, String[] desde, String[] Hasta, boolean area, boolean autor, boolean doc_tipo, boolean usuario) {
+         new DaoEstadisticas().ConsultarDocumentosCatalogados(dow, dom, month, year, franja, desde, Hasta, area, autor, doc_tipo, usuario);
+        
+    }
     private float promedio(ArrayList<String> datos, int columnas){
         int total=0, n=0;
         for(int i=columnas+1; i<datos.size();i+=columnas){
@@ -236,5 +240,7 @@ public class ControladorEstadisticas {
         System.out.println(salida);
         return salida;
     }
+
+    
     
 }
