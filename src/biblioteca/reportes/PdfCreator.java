@@ -352,7 +352,6 @@ public class PdfCreator {
         document.add(developers);        
         document.add(new Paragraph("\r\n"));
         document.add(Fecha);
-        document.add(Fecha);
         document.add(new Paragraph("\r\n"));
        // document.add(Introduccion);
         document.add(new Paragraph("\r\n"));

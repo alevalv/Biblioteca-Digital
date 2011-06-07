@@ -38,7 +38,6 @@ public class ChartCreator {
       int size=Valores.size();
       size=(size<=32)? size: 32;
       for(int i=2;i<size;i+=2){
-           System.out.println(Valores.get(i)+" "+Valores.get(i+1));
            dataSet.setValue(Valores.get(i), Double.parseDouble(Valores.get(i+1)));
         }
         return dataSet;
@@ -49,7 +48,6 @@ public class ChartCreator {
       int size=Valores.size();
       size=(size<=32)? size: 32;
       for(int i=2;i<size;i+=2){
-           System.out.println(Valores.get(i)+" "+Valores.get(i+1));
            dataSet.setValue(Double.parseDouble(Valores.get(i+1)),"Grafica",Valores.get(i));
         }
         return dataSet;

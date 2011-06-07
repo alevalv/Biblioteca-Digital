@@ -207,14 +207,14 @@ public class ControladorEstadisticas {
             ArrayList<String> tmp= controlador.consultarUsuariosRegistradosPorYear(Year);
             Salida.add(new Paragraph("Resultados para el año seleccionado"));
             Salida.add(new Paragraph("\r\n"));
-            Salida.add(new Paragraph(tmp.get(0)+" "+tmp.get(1)));
+            Salida.add(new Paragraph("Año:"+tmp.get(0)+", Resultados:"+tmp.get(1)));
             Salida.add(new Paragraph("\r\n"));
         }
         if(franja!=null){
             ArrayList<String> tmp= controlador.consultarUsuariosRegistradosPorFranja(franja[0],franja[1]);
             Salida.add(new Paragraph("Resultados para la franja seleccionada"));
             Salida.add(new Paragraph("\r\n"));
-            Salida.add(new Paragraph(tmp.get(0)+" "+tmp.get(1)));
+            Salida.add(new Paragraph("Franja:"+tmp.get(0)+", Resultados:"+tmp.get(1)));
             Salida.add(new Paragraph("\r\n"));
         }
         if(desde!=null && hasta !=null){
@@ -222,7 +222,7 @@ public class ControladorEstadisticas {
                     hasta[0]+"-"+hasta[1]+"-"+hasta[2]);
             Salida.add(new Paragraph("Resultados para el intervalo de tiempo seleccionado"));
             Salida.add(new Paragraph("\r\n"));
-            Salida.add(new Paragraph(tmp.get(0)+" "+tmp.get(1)));
+            Salida.add(new Paragraph("Intervalo de Tiempo: "+tmp.get(0)+", Resultados:"+tmp.get(1)));
             Salida.add(new Paragraph("\r\n"));
         }
         if(genero){
@@ -502,14 +502,14 @@ public class ControladorEstadisticas {
             ArrayList<String> tmp= controlador.consultarDocumentosCatalogadosPorYear(year);
             Salida.add(new Paragraph("Resultados para el año seleccionado"));
             Salida.add(new Paragraph("\r\n"));
-            Salida.add(new Paragraph(tmp.get(0)+" "+tmp.get(1)));
+            Salida.add(new Paragraph("Año: "+tmp.get(0)+", Resultados:"+tmp.get(1)));
             Salida.add(new Paragraph("\r\n"));
         }
         if(franja!=null){
             ArrayList<String> tmp= controlador.consultarDocumentosCatalogadosPorFranja(franja[0], franja[1]);
             Salida.add(new Paragraph("Resultados para la franja seleccionada"));
             Salida.add(new Paragraph("\r\n"));
-            Salida.add(new Paragraph(tmp.get(0)+" "+tmp.get(1)));
+            Salida.add(new Paragraph("Franja:"+tmp.get(0)+", Resultados:"+tmp.get(1)));
             Salida.add(new Paragraph("\r\n"));
         }
         if(desde!=null && Hasta !=null){
@@ -517,7 +517,7 @@ public class ControladorEstadisticas {
                     Hasta[0]+"-"+Hasta[1]+"-"+Hasta[2]);
             Salida.add(new Paragraph("Resultados para el intervalo de tiempo seleccionado"));
             Salida.add(new Paragraph("\r\n"));
-            Salida.add(new Paragraph(tmp.get(0)+" "+tmp.get(1)));
+            Salida.add(new Paragraph("Intervalo de Tiempo: "+tmp.get(0)+", Resultados:"+tmp.get(1)));
             Salida.add(new Paragraph("\r\n"));
         }
        if(area){
