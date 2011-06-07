@@ -260,6 +260,8 @@ public class GUIStatistics extends javax.swing.JFrame {
             }
         });
 
+        jTabbedPane1.setToolTipText("Número Máximo=15");
+
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biblioteca/gui/resources/logo.png"))); // NOI18N
@@ -658,6 +660,7 @@ public class GUIStatistics extends javax.swing.JFrame {
         jPanel1.add(jLabel10, gridBagConstraints);
 
         Num_Doc1.setText("10");
+        Num_Doc1.setToolTipText("Número Máximo=15");
         Num_Doc1.setPreferredSize(new java.awt.Dimension(60, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
@@ -1077,6 +1080,7 @@ public class GUIStatistics extends javax.swing.JFrame {
         Panel_Documentos_Catalogados1.add(jLabel9, gridBagConstraints);
 
         Num_Doc.setText("10");
+        Num_Doc.setToolTipText("Número Máximo=15");
         Num_Doc.setPreferredSize(new java.awt.Dimension(60, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
@@ -1598,6 +1602,7 @@ public class GUIStatistics extends javax.swing.JFrame {
         Panel_Usuarios.add(jLabel14, gridBagConstraints);
 
         Num_Doc2.setText("10");
+        Num_Doc2.setToolTipText("Número Máximo=15");
         Num_Doc2.setPreferredSize(new java.awt.Dimension(60, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
