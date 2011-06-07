@@ -296,9 +296,9 @@ public class ControladorEstadisticas {
            resultadosTabla = biblioteca.reportes.PdfCreator.resultSetToArrayList(rs);
          for(int i=0;i<resultadosTabla.size();i++){
               if(resultadosTabla.get(i).get(0).equals("3")) resultadosTabla.get(i).set(0, "Normal");
-              if(resultadosTabla.get(i).get(0).equals("2")) resultadosTabla.get(i).set(0, "Catalogador");
-              if(resultadosTabla.get(i).get(0).equals("1")) resultadosTabla.get(i).set(0, "Administrador");
-              if(resultadosTabla.get(i).get(0).equals("0")) resultadosTabla.remove(i);
+              else if(resultadosTabla.get(i).get(0).equals("2")) resultadosTabla.get(i).set(0, "Catalogador");
+              else if(resultadosTabla.get(i).get(0).equals("1")) resultadosTabla.get(i).set(0, "Administrador");
+              else if(resultadosTabla.get(i).get(0).equals("0")) resultadosTabla.remove(i);
            }
            Array2DtoArrayPlane = biblioteca.reportes.PdfCreator.Array2DtoArrayPlane(resultadosTabla,0,1);
            for(int i=1;i<resultadosTabla.size();i++)
