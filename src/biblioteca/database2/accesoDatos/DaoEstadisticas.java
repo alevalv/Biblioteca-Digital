@@ -522,21 +522,14 @@ public class DaoEstadisticas {
         return salida;
     }
     
-    public ArrayList<String> consultarDocumentosCatalogadosPorDoM(){
-        final String consulta_base="SELECT count(*) FROM documentos WHERE date_part('day', fecha_catalogacion) = '";
-        ArrayList<String> salida = new ArrayList<String>(64);
-        salida.add("Día del mes");
-        salida.add("Cantidad");
-        for(int i=1;i<=31;i++){
-            try {
-                String sql=consulta_base+i+"';";
+    public ResultSet consultarDocumentosCatalogadosPorDoM(){
+        try {
+                String sql="SELECT 'Dia '||date_part('day',fecha_catalogacion) as dia, count(doc_id) as cantidad FROM documentos GROUP BY dia ORDER BY cantidad DESC;";
                 Connection conn = Fachada.conectar();
                 java.sql.Statement sentencia = conn.createStatement();
                 ResultSet tabla = sentencia.executeQuery(sql);
-                salida.add("Día "+i);
-                tabla.next();
-                salida.add(tabla.getString(1));
                 conn.close();
+                return tabla;
             }
             catch (SQLException e) {
                 System.err.println(e);
@@ -544,8 +537,9 @@ public class DaoEstadisticas {
             catch (Exception e) {
                 System.err.println(e);
             }
-        }
-        return salida;
+        
+        
+        return null;
     }
     
     public ArrayList<String> consultarDocumentosCatalogadosPorMes(){
@@ -661,9 +655,9 @@ public class DaoEstadisticas {
     
    public ResultSet consultarDocumentosCatalogadosPorAutor(){
        try {
-                String sql="SELECT nombre ||' '|| apellido AS Nombre_Autor, autor_correo AS Correo_Autor, count(doc_id) AS Cantidad_de_Documentos_Catalogados FROM documento_autor "
-                        + "NATURAL JOIN autor GROUP BY Nombre_Autor, autor_correo ORDER BY Cantidad_de_Documentos_Catalogados DESC;";
-               
+                String sql="SELECT nombre ||' '|| apellido AS Nombre_Autor, acronimo, autor_correo AS Correo_Autor, count(doc_id) AS Cantidad_de_Documentos_Catalogados FROM documento_autor "
+                        + "NATURAL JOIN autor GROUP BY Nombre_Autor, acronimo, autor_correo ORDER BY Cantidad_de_Documentos_Catalogados DESC;";
+               System.out.println(sql);
                 Connection conn = Fachada.conectar();
                 java.sql.Statement sentencia = conn.createStatement();
                 ResultSet tabla = sentencia.executeQuery(sql);
@@ -736,6 +730,8 @@ public class DaoEstadisticas {
             }
         return null;   
      }
+ 
+ 
  
  
 }

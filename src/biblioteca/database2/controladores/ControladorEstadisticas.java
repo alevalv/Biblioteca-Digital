@@ -232,37 +232,49 @@ public class ControladorEstadisticas {
             Salida.add(new Paragraph("\r\n"));
             Salida.add(new Paragraph("* Ver Anexo: Diagrama de Pastel: Documentos Catalogados para los dias de la Semana"));
             Salida.add(new Paragraph("\r\n"));
-            chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(tmp),"Documentos Catalogados para los días de la semana");
+            chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(tmp),"Documentos Catalogados para los Días de la Semana");
             bufferedImage = chart.createBufferedImage(400, 300);
             image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+            image.scaleAbsolute(300, 200);
+            image.setAlignment(Image.MIDDLE);
             Images.add(image);
             Images.add(new Paragraph("\r\n"));
-            Salida.add(new Paragraph("* Ver Anexo: Diagrama de Barras: Documentos Catalogados para los dias de la Semana"));
+            Salida.add(new Paragraph("* Ver Anexo: Diagrama de Barras: Documentos Catalogados para los Días de la Semana"));
             Salida.add(new Paragraph("\r\n"));
-            chart = ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(tmp), "Documentos Catalogados para los días de la semana", "Días de la Semana", "Cantidad de Documentos Catalogados");
-            bufferedImage = chart.createBufferedImage(400, 300);
+            chart = ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(tmp), "Documentos Catalogados para los Días de la Semana", "Días de la Semana", "Cantidad de Documentos Catalogados");
+            bufferedImage = chart.createBufferedImage(700, 300);
             image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+            image.scaleAbsolute(400, 200);
+            image.setAlignment(Image.MIDDLE);
             Images.add(image);
             Images.add(new Paragraph("\r\n"));
         }
        if(dom){
-            ArrayList<String> tmp= controlador.consultarDocumentosCatalogadosPorDoM();
+            rs=controlador.consultarDocumentosCatalogadosPorDoM();
+           resultadosTabla = biblioteca.reportes.PdfCreator.resultSetToArrayList(rs);
+           Array2DtoArrayPlane = biblioteca.reportes.PdfCreator.Array2DtoArrayPlane(resultadosTabla,0,1);
+           for(int i=1;i<resultadosTabla.size();i++)
+               total+=Integer.parseInt(resultadosTabla.get(i).get(resultadosTabla.get(i).size()-1));
+            tabla=biblioteca.reportes.PdfCreator.arrayListToStatisticTable(resultadosTabla, total, salida);
             Salida.add(new Paragraph("Resultados de Documentos Catalogados para los días del mes"));
             Salida.add(new Paragraph("\r\n"));
-            float promedio=promedio(tmp,2);
-            Salida.add(biblioteca.reportes.PdfCreator.plainArrayListToPdfPTable(agregarPorcentajesALista(tmp, 2), 3));
-            Salida.add(new Paragraph("Promedio "+promedio));
-            Salida.add(new Paragraph("\r\n"));
+            Salida.add(tabla);
+           Salida.add(new Paragraph("\r\n"));
             Salida.add(new Paragraph("* Ver Anexo: Diagrama de Pastel: Documentos Catalogados para los dias del mes"));
             Salida.add(new Paragraph("\r\n"));
-            chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(tmp),"Documentos Catalogados para los días del mes");
-            bufferedImage = chart.createBufferedImage(400, 300);
+            chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(Array2DtoArrayPlane),"Documentos Catalogados para los días del mes");
+            chart.setBackgroundImage(null);
+            bufferedImage = chart.createBufferedImage(500, 600);
             image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+            image.scaleAbsolute(250, 300);
+            image.setAlignment(Image.MIDDLE);
             Images.add(image);
             Images.add(new Paragraph("\r\n"));
-            chart = ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(tmp), "Documentos Catalogados para los días del Mes", "Días del mes", "Documentos Catalogados");
-            bufferedImage = chart.createBufferedImage(400, 300);
+            chart = ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(Array2DtoArrayPlane), "Documentos Catalogados para los días del Mes", "Días del mes", "Documentos Catalogados");
+            bufferedImage = chart.createBufferedImage(1000, 500);
             image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+            image.scaleAbsolute(500, 250);
+            image.setAlignment(Image.MIDDLE);
             Salida.add(new Paragraph("* Ver Anexo: Diagrama de Barras: Documentos Catalogados para los dias del mes"));
             Salida.add(new Paragraph("\r\n"));
             Images.add(image);
@@ -279,15 +291,19 @@ public class ControladorEstadisticas {
             Salida.add(new Paragraph("* Ver Anexo: Diagrama de Pastel: Documentos Catalogados para los meses"));
             Salida.add(new Paragraph("\r\n"));
             chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(tmp),"Documentos Catalogados para los meses");
-            bufferedImage = chart.createBufferedImage(400, 300);
+            bufferedImage = chart.createBufferedImage(500, 300);
             image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+            image.scaleAbsolute(350, 200);
+            image.setAlignment(Image.MIDDLE);
             Images.add(image);
             Images.add(new Paragraph("\r\n"));
             Salida.add(new Paragraph("* Ver Anexo: Diagrama de Barras: Documentos Catalogados para los meses"));
             Salida.add(new Paragraph("\r\n"));
             chart = ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(tmp), "Documentos Catalogados para los Meses", "Meses", "Documentos Catalogados");
-            bufferedImage = chart.createBufferedImage(400, 300);
+            bufferedImage = chart.createBufferedImage(1000, 600);
             image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+            image.scaleAbsolute(500, 300);
+            image.setAlignment(Image.MIDDLE);
             Images.add(image);
             Images.add(new Paragraph("\r\n"));
         }
@@ -328,13 +344,17 @@ public class ControladorEstadisticas {
            Salida.add(new Paragraph("* Ver Anexo Diagrama de Pastel y Diagrama de Barras para Areas con más Documentos Catalogados"));
            Salida.add(new Paragraph("\r\n"));
            chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(Array2DtoArrayPlane),"Areas con más Documentos Catalogados");
-           bufferedImage = chart.createBufferedImage(400, 300);
+           bufferedImage = chart.createBufferedImage(600, 600);
            image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+           image.scaleAbsolute(300, 300);
+           image.setAlignment(Image.MIDDLE);
            Images.add(image);
            Images.add(new Paragraph("\r\n"));
            chart=ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(Array2DtoArrayPlane), "Areas con más Documentos Catalogados", "Area_ID", "Numero de Documentos Catalogados");
-           bufferedImage = chart.createBufferedImage(400, 300);
+           bufferedImage = chart.createBufferedImage(900, 500);
            image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+           image.scaleAbsolute(450, 250);
+           image.setAlignment(Image.MIDDLE);
            Images.add(image);
            Images.add(new Paragraph("\r\n"));
        }
@@ -343,7 +363,7 @@ public class ControladorEstadisticas {
            total=0;
            rs=controlador.consultarDocumentosCatalogadosPorAutor();
            resultadosTabla = biblioteca.reportes.PdfCreator.resultSetToArrayList(rs);
-           Array2DtoArrayPlane = biblioteca.reportes.PdfCreator.Array2DtoArrayPlane(resultadosTabla,0,2);
+           Array2DtoArrayPlane = biblioteca.reportes.PdfCreator.Array2DtoArrayPlane(resultadosTabla,1,3);
            for(int i=1;i<resultadosTabla.size();i++)
                total+=Integer.parseInt(resultadosTabla.get(i).get(resultadosTabla.get(i).size()-1));
            tabla=biblioteca.reportes.PdfCreator.arrayListToStatisticTable(resultadosTabla, total, salida);
@@ -354,13 +374,17 @@ public class ControladorEstadisticas {
            Salida.add(new Paragraph("* Ver Anexo Diagrama de Pastel y Diagrama de Barras para Autores con más Documentos Catalogados"));
            Salida.add(new Paragraph("\r\n"));
            chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(Array2DtoArrayPlane),"Autores con más Documentos Catalogados");
-           bufferedImage = chart.createBufferedImage(400, 300);
+           bufferedImage = chart.createBufferedImage(600, 600);
            image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+           image.scaleAbsolute(300, 300);
+           image.setAlignment(Image.MIDDLE);
            Images.add(image);
            Images.add(new Paragraph("\r\n"));
            chart=ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(Array2DtoArrayPlane), "Autores con más Documentos Catalogados", "Nombre Autor", "Numero de Documentos Catalogados");
-           bufferedImage = chart.createBufferedImage(400, 300);
+           bufferedImage = chart.createBufferedImage(1000, 600);
            image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+           image.scaleAbsolute(400, 300);
+           image.setAlignment(Image.MIDDLE);
            Images.add(image);
            Images.add(new Paragraph("\r\n"));
        }
@@ -379,13 +403,18 @@ public class ControladorEstadisticas {
            Salida.add(new Paragraph("* Ver Anexo Diagrama de Pastel y Diagrama de Barras para Tipos de Material con más Documentos Catalogados"));
            Salida.add(new Paragraph("\r\n"));
            chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(Array2DtoArrayPlane),"Tipos de Material con más Documentos Catalogados");
-           bufferedImage = chart.createBufferedImage(400, 300);
+           bufferedImage = chart.createBufferedImage(600, 600);
            image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+           bufferedImage = chart.createBufferedImage(300, 300);
+           image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+           image.setAlignment(Image.MIDDLE);
            Images.add(image);
            Images.add(new Paragraph("\r\n"));
            chart=ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(Array2DtoArrayPlane), "Tipos de Material con más Documentos Catalogados", "Tipo de Material", "Numero de Documentos Catalogados");
-           bufferedImage = chart.createBufferedImage(400, 300);
+           bufferedImage = chart.createBufferedImage(900, 500);
            image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+           image.scaleAbsolute(450, 250);
+           image.setAlignment(Image.MIDDLE);
            Images.add(image);
            Images.add(new Paragraph("\r\n"));
        }
@@ -404,13 +433,17 @@ public class ControladorEstadisticas {
            Salida.add(new Paragraph("* Ver Anexo Diagrama de Pastel y Diagrama de Barras para Palabras Clave con más Documentos Catalogados"));
            Salida.add(new Paragraph("\r\n"));
            chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(Array2DtoArrayPlane),"Palabras Clave con más Documentos Catalogados");
-           bufferedImage = chart.createBufferedImage(400, 300);
+           bufferedImage = chart.createBufferedImage(500, 500);
            image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+           image.scaleAbsolute(250, 250);
+           image.setAlignment(Image.MIDDLE);
            Images.add(image);
            Images.add(new Paragraph("\r\n"));
            chart=ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(Array2DtoArrayPlane), "Palabras Clave con más Documentos Catalogados", "Palabras Clave", "Numero de Documentos Catalogados");
-           bufferedImage = chart.createBufferedImage(400, 300);
+           bufferedImage = chart.createBufferedImage(900, 500);
            image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+           image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+           image.scaleAbsolute(450, 250);
            Images.add(image);
            Images.add(new Paragraph("\r\n"));
        }
@@ -429,13 +462,17 @@ public class ControladorEstadisticas {
            Salida.add(new Paragraph("* Ver Anexo Diagrama de Pastel y Diagrama de Barras para Usuarios que mas Catalogan"));
            Salida.add(new Paragraph("\r\n"));
            chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(Array2DtoArrayPlane),"Usuarios que mas Catalogan");
-           bufferedImage = chart.createBufferedImage(400, 300);
+           bufferedImage = chart.createBufferedImage(500, 500);
            image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+           image.scaleAbsolute(250, 250);
+           image.setAlignment(Image.MIDDLE);
            Images.add(image);
            Images.add(new Paragraph("\r\n"));
            chart=ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(Array2DtoArrayPlane), "Usuarios que mas Catalogan", "Username", "Numero de Documentos Catalogados");
-           bufferedImage = chart.createBufferedImage(400, 300);
+           bufferedImage = chart.createBufferedImage(900, 500);
            image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+           image.scaleAbsolute(450, 250);
+           image.setAlignment(Image.MIDDLE);
            Images.add(image);
            Images.add(new Paragraph("\r\n"));
        }
@@ -475,7 +512,6 @@ public class ControladorEstadisticas {
                 salida.add(((int) ((Integer.parseInt(datos.get(i))*100)/total))+"%");
             }
         }
-        System.out.println(salida);
         return salida;
     }
 

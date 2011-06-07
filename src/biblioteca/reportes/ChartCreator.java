@@ -19,7 +19,6 @@ package biblioteca.reportes;
 
 import java.util.ArrayList;
 import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
@@ -36,7 +35,9 @@ public class ChartCreator {
         
     public static DefaultPieDataset asignarPieDataset(ArrayList<String> Valores){
          DefaultPieDataset dataSet = new DefaultPieDataset();
-      for(int i=2;i<Valores.size();i+=2){
+      int size=Valores.size();
+      size=(size<=32)? size: 32;
+      for(int i=2;i<size;i+=2){
            System.out.println(Valores.get(i)+" "+Valores.get(i+1));
            dataSet.setValue(Valores.get(i), Double.parseDouble(Valores.get(i+1)));
         }
@@ -45,20 +46,44 @@ public class ChartCreator {
    
     public static DefaultCategoryDataset asignarBarDataset(ArrayList<String> Valores){
       DefaultCategoryDataset dataSet = new DefaultCategoryDataset();
-      for(int i=2;i<Valores.size();i+=2){
+      int size=Valores.size();
+      size=(size<=32)? size: 32;
+      for(int i=2;i<size;i+=2){
            System.out.println(Valores.get(i)+" "+Valores.get(i+1));
            dataSet.setValue(Double.parseDouble(Valores.get(i+1)),"Grafica",Valores.get(i));
         }
         return dataSet;
     }
     
+    /*public static DefaultPieDataset DataPieSetConIndices(ArrayList<String> Valores){
+      DefaultPieDataset dataSet = new DefaultPieDataset();
+      int size=(Valores.size()<=32)? Valores.size() : 32;
+      for(int i=2;i<size;i+=2){
+           System.out.println(Valores.get(i)+" "+Valores.get(i+1));
+           dataSet.setValue((i+1)+"", Double.parseDouble(Valores.get(i+1)));
+        }
+        return dataSet;
+    }
+    
+    public static DefaultCategoryDataset DataBarSetConIndices(ArrayList<String> Valores){
+      DefaultCategoryDataset dataSet = new DefaultCategoryDataset();
+      for(int i=2;i<Valores.size();i+=2){
+           System.out.println(Valores.get(i)+" "+Valores.get(i+1));
+           dataSet.setValue(Double.parseDouble(Valores.get(i+1)),"Grafica",(i+1)+"");
+        }
+        return dataSet;
+    }*/
+    
     public static JFreeChart generatePieChart(DefaultPieDataset dataSet, String titulo) {
    
         JFreeChart chart = ChartFactory.createPieChart(
                 titulo, dataSet, true, true, false);
  
-        
+       /* ChartFrame frame = new ChartFrame("First", chart);
+        frame.pack();
+        frame.setVisible(true);*/
         return chart;
+        
     }
     
      public static JFreeChart generateBarChart(DefaultCategoryDataset dataSet, String Titulo, String tituloX, String tituloY) {
@@ -66,6 +91,7 @@ public class ChartCreator {
         JFreeChart chart = ChartFactory.createBarChart(
                 Titulo, tituloX, tituloY,
                 dataSet, PlotOrientation.VERTICAL, false, true, false);
+      
         return chart;
     }
     

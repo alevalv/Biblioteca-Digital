@@ -318,7 +318,7 @@ public class PdfCreator {
         Paragraph pTitulo = new Paragraph(titulo, myFontTitle);
         pTitulo.setAlignment(Paragraph.ALIGN_CENTER);
         Paragraph Fecha = new Paragraph("Fecha y Hora de Reporte: "+fecha,myFontTitle);
-        Paragraph Introduccion = new Paragraph("Reporte de usuarios registrados");
+        //Paragraph Introduccion = new Paragraph("Reporte de usuarios registrados");
         document.open();
         // step 4
         document.add(header);
@@ -329,7 +329,7 @@ public class PdfCreator {
         document.add(new Paragraph("\r\n"));
         document.add(Fecha);
         document.add(new Paragraph("\r\n"));
-        document.add(Introduccion);
+       // document.add(Introduccion);
         document.add(new Paragraph("\r\n"));
         for(int i=0;i<contenido.size();i++){
         document.add(contenido.get(i).getClass().equals(new PdfPTable(2).getClass()) ? (PdfPTable) contenido.get(i) : contenido.get(i));

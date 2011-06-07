@@ -90,6 +90,7 @@ public class BibliotecaDigital {
 
             public void run() {
                 new biblioteca.gui.GUIBusqueda().setVisible(true);
+                //new biblioteca.gui.GUIStatistics(null).setVisible(true);
             }
         });
         
