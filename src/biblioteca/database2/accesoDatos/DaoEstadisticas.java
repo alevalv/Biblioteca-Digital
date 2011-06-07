@@ -206,7 +206,7 @@ public class DaoEstadisticas {
         String sql_descargados="";
         if(todos){
             sql_descargados="SELECT doc_id as Identificacion, documentos."
-                    + "titulo_principal as Titulo, count(*) as Descargas FROM usuario_consulta_documento NATURAL JOIN "
+                    + "titulo_principal as Titulo, count(*) as Consultas FROM usuario_consulta_documento NATURAL JOIN "
                     + "documentos JOIN usuarios ON usuario_consulta_documento.username=usuarios.username ";
             if(franja!=null){
                 sql_descargados+="WHERE date_part('hour',fecha_hora)>="+franja[0]+" and date_part('hour',fecha_hora)<="+franja[1]+" ";
