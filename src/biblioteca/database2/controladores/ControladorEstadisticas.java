@@ -208,10 +208,42 @@ public class ControladorEstadisticas {
         return salida;
     }
     
-    public void ConsultarDocumentosCatalogados(boolean dow, boolean dom, boolean month, String year, String[] franja, String[] desde, String[] Hasta, boolean area, boolean autor, boolean doc_tipo, boolean usuario) {
-         new DaoEstadisticas().ConsultarDocumentosCatalogados(dow, dom, month, year, franja, desde, Hasta, area, autor, doc_tipo, usuario);
-        
+    public ArrayList<Element> ConsultarDocumentosCatalogados(boolean dow, boolean dom, boolean month, String year, String[] franja, String[] desde, String[] Hasta, boolean area, boolean autor, boolean doc_tipo, boolean usuario, int salida)  throws BadElementException, MalformedURLException, IOException{
+       
+       ArrayList<Element> Salida=  new ArrayList<Element>(100);
+       ArrayList<Element> Images=  new ArrayList<Element>(100);
+       DaoEstadisticas controlador=new DaoEstadisticas();
+       ResultSet rs;
+       JFreeChart chart;
+       BufferedImage bufferedImage;
+       Image image;
+       ArrayList<ArrayList<String>> resultadosTabla;
+       ArrayList<String> Array2DtoArrayPlane;
+       PdfPTable tabla=null;
+       int total=0;  
+       
+       if(area){
+           rs=controlador.consultarDocumentosCatalogadosPorArea();
+           resultadosTabla = biblioteca.reportes.PdfCreator.resultSetToArrayList(rs);
+           Array2DtoArrayPlane = biblioteca.reportes.PdfCreator.Array2DtoArrayPlane(resultadosTabla);
+           for(int i=1;i<resultadosTabla.size();i++)
+               total+=Integer.parseInt(resultadosTabla.get(i).get(resultadosTabla.get(i).size()-1));
+           tabla=biblioteca.reportes.PdfCreator.arrayListToStatisticTable(resultadosTabla, total, salida);
+           System.out.println("salida "+salida);
+           total=0;
+           Salida.add(new Paragraph("Areas con más Documentos Catalogados"));
+           Salida.add(new Paragraph("\r\n"));
+           Salida.add(tabla);
+           Salida.add(new Paragraph("\r\n"));
+           chart=ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(Array2DtoArrayPlane), "Areas con más Documentos Catalogados", "Area", "Numero de Documentos Catalogados");
+           bufferedImage = chart.createBufferedImage(400, 300);
+           image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+       }
+       
+        return Salida;
     }
+    
+    
     private float promedio(ArrayList<String> datos, int columnas){
         int total=0, n=0;
         for(int i=columnas+1; i<datos.size();i+=columnas){

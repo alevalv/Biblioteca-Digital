@@ -494,11 +494,7 @@ public class DaoEstadisticas {
         return salida;
     }
 
-    
-    public void ConsultarDocumentosCatalogados(boolean dow, boolean dom, boolean month, String year, String[] franja, String[] desde, String[] Hasta, boolean area, boolean autor, boolean doc_tipo, boolean usuario) {
-        throw new UnsupportedOperationException("Not yet implemented");
-    }
-  
+        
     public ArrayList<String> consultarDocumentosCatalogadosPorDoW(){
         final String[] dias = {"Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"};
         final String consulta_base="SELECT count(*) FROM documentos WHERE date_part('dow', fecha_catalogacion) = '0";
@@ -647,7 +643,7 @@ public class DaoEstadisticas {
     
     public ResultSet consultarDocumentosCatalogadosPorArea(){
        try {
-                String sql="SELECT nombre AS Nombre_Area, count(doc_id) AS Cantidad_de_Documentos_Catalogados FROM documento_areas_computacion NATURAL JOIN areas_computacion GROUP BY nombre ORDER BY Cantidad_de_Documentos_Catalogados DESC;";
+                String sql="SELECT area_id AS Area_ID, nombre AS Nombre_Area, count(doc_id) AS Cantidad_de_Documentos_Catalogados FROM documento_areas_computacion NATURAL JOIN areas_computacion GROUP BY area_id, nombre ORDER BY Cantidad_de_Documentos_Catalogados DESC;";
                 Connection conn = Fachada.conectar();
                 java.sql.Statement sentencia = conn.createStatement();
                 ResultSet tabla = sentencia.executeQuery(sql);

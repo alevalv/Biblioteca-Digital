@@ -2046,19 +2046,21 @@ public class GUIStatistics extends javax.swing.JFrame {
           autor=jCheckBox2.isSelected();
           doc_tipo=jCheckBox3.isSelected();
           usuario=jCheckBox10.isSelected();
-           
-            new ControladorEstadisticas().ConsultarDocumentosCatalogados(dow, dom, month, year, franja, desde, Hasta, area, autor, doc_tipo, usuario);
-        /*if(jCheckBox1.isSelected()){
-            biblioteca.reportes.PdfCreator.createPdf("usuarios.pdf", "Reporte de Usuarios Registrados", "Total de usuarios registrados: ",
-                    new ControladorReportesEstadisticas().ConsultarListaUsuario(dow, dom, month, year, franja, desde, Hasta, tipo,
-                    genero, Estado, area));
-        } else try {
-            biblioteca.reportes.PdfCreator.createArrayListPdf("usuariosLista.pdf", "Reporte de Usuarios Registrados", "Total de usuarios registrados: ",
-                    new ControladorReportesEstadisticas().ConsultarListaSeparadaUsuario(dow, dom, month, year, franja, desde, Hasta, tipo,
-                    genero, Estado, area));
-        } catch (SQLException ex) {
-            Logger.getLogger(GUIEstadisticas.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+          int salida=Integer.parseInt(Num_Doc2.getText());
+          ArrayList<Element> elementosaInsertar=null;
+        try {
+            elementosaInsertar = new ControladorEstadisticas().ConsultarDocumentosCatalogados(dow, dom, month, year, franja, desde, Hasta, area, autor, doc_tipo, usuario, salida);
+      
+        } catch (BadElementException ex) {
+            Logger.getLogger(GUIStatistics.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(GUIStatistics.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(GUIStatistics.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         biblioteca.reportes.PdfCreator.createDinamicPdf("EstadisticasUsuariosCatalogados.pdf", "Estadisticas sobre Documentos Catalogados", ":D", elementosaInsertar);
+        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jCheckBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox8ActionPerformed
