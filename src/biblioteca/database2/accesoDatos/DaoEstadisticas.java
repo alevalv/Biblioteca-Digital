@@ -315,7 +315,7 @@ public class DaoEstadisticas {
         return salida;
     }
     
-    
+    ///////
     /**
      * Consulta la cantidad de usuarios registrados por el Day of The Week,
      * retorna un ArrayList de String con el nombre del día y la cantidad de
@@ -357,21 +357,14 @@ public class DaoEstadisticas {
      * de los cuales los dos primeros son los nombres de las columnas
      * @return ArrayList de String con los datos de usuarios registrados
      */
-    public ArrayList<String> consultarUsuariosRegistradosPorDoM(){
-        final String consulta_base="SELECT count(*) FROM usuarios WHERE date_part('day', fecha_registro) = '";
-        ArrayList<String> salida = new ArrayList<String>(64);
-        salida.add("Día del mes");
-        salida.add("Cantidad");
-        for(int i=1;i<=31;i++){
-            try {
-                String sql=consulta_base+i+"';";
+    public ResultSet consultarUsuariosRegistradosPorDoM(){
+        try {
+                String sql="SELECT 'Dia '||date_part('day',fecha_registro) as dia, count(username) as cantidad FROM usuarios GROUP BY dia ORDER BY cantidad DESC;";
                 Connection conn = Fachada.conectar();
                 java.sql.Statement sentencia = conn.createStatement();
                 ResultSet tabla = sentencia.executeQuery(sql);
-                salida.add("Día "+i);
-                tabla.next();
-                salida.add(tabla.getString(1));
                 conn.close();
+                return tabla;
             }
             catch (SQLException e) {
                 System.err.println(e);
@@ -379,8 +372,7 @@ public class DaoEstadisticas {
             catch (Exception e) {
                 System.err.println(e);
             }
-        }
-        return salida;
+        return null; 
     }
     
     /**
@@ -494,7 +486,96 @@ public class DaoEstadisticas {
         return salida;
     }
 
-        
+    public ResultSet consultarUsuariosRegistradosPorGenero(){
+               try {
+                String sql="SELECT genero, count(username) as Cantidad_de_Usuarios FROM usuarios GROUP BY genero ORDER BY Cantidad_de_Usuarios DESC;";
+                Connection conn = Fachada.conectar();
+                java.sql.Statement sentencia = conn.createStatement();
+                ResultSet tabla = sentencia.executeQuery(sql);
+                conn.close();
+                return tabla;
+            }
+            catch (SQLException e) {
+                System.err.println(e);
+            } 
+            catch (Exception e) {
+                System.err.println(e);
+            }
+        return null;
+     }
+    
+    public ResultSet consultarUsuariosRegistradosPorVinculo(){
+               try {
+                String sql="SELECT vinculo_con_univalle, count(username) as Cantidad_de_Usuarios FROM usuarios GROUP BY vinculo_con_univalle ORDER BY Cantidad_de_Usuarios DESC;";
+                Connection conn = Fachada.conectar();
+                java.sql.Statement sentencia = conn.createStatement();
+                ResultSet tabla = sentencia.executeQuery(sql);
+                conn.close();
+                return tabla;
+            }
+            catch (SQLException e) {
+                System.err.println(e);
+            } 
+            catch (Exception e) {
+                System.err.println(e);
+            }
+        return null;
+     }
+     
+     public ResultSet consultarUsuariosRegistradosPorTipoUsuario(){
+               try {
+                String sql="SELECT tipo_usuario, count(username) as Cantidad_de_Usuarios FROM usuarios GROUP BY tipo_usuario ORDER BY Cantidad_de_Usuarios DESC;";
+                Connection conn = Fachada.conectar();
+                java.sql.Statement sentencia = conn.createStatement();
+                ResultSet tabla = sentencia.executeQuery(sql);
+                conn.close();
+                return tabla;
+            }
+            catch (SQLException e) {
+                System.err.println(e);
+            } 
+            catch (Exception e) {
+                System.err.println(e);
+            }
+        return null;
+     }
+     
+     public ResultSet consultarUsuariosRegistradosPorEstado(){
+               try {
+                String sql="SELECT activo, count(username) as Cantidad_de_Usuarios FROM usuarios GROUP BY activo ORDER BY Cantidad_de_Usuarios DESC;";
+                Connection conn = Fachada.conectar();
+                java.sql.Statement sentencia = conn.createStatement();
+                ResultSet tabla = sentencia.executeQuery(sql);
+                conn.close();
+                return tabla;
+            }
+            catch (SQLException e) {
+                System.err.println(e);
+            } 
+            catch (Exception e) {
+                System.err.println(e);
+            }
+        return null;
+     }
+     
+     public ResultSet consultarUsuariosRegistradosPorArea(){
+              try {
+                String sql="SELECT area_id, nombre, count(username) as Cantidad_de_Usuarios FROM usuario_areas_computacion NATURAL JOIN areas_computacion GROUP BY area_id, nombre ORDER BY Cantidad_de_Usuarios DESC;";
+                Connection conn = Fachada.conectar();
+                java.sql.Statement sentencia = conn.createStatement();
+                ResultSet tabla = sentencia.executeQuery(sql);
+                conn.close();
+                return tabla;
+            }
+            catch (SQLException e) {
+                System.err.println(e);
+            } 
+            catch (Exception e) {
+                System.err.println(e);
+            }
+        return null; 
+     }
+    //
     public ArrayList<String> consultarDocumentosCatalogadosPorDoW(){
         final String[] dias = {"Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"};
         final String consulta_base="SELECT count(*) FROM documentos WHERE date_part('dow', fecha_catalogacion) = '0";
@@ -537,8 +618,6 @@ public class DaoEstadisticas {
             catch (Exception e) {
                 System.err.println(e);
             }
-        
-        
         return null;
     }
     
