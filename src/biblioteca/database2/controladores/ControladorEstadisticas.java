@@ -47,7 +47,7 @@ public class ControladorEstadisticas {
         ResultSet rs = new DaoEstadisticas().documentosMasDescargados(dow, dom, month, year, tipo_usuario, franja, desde, hasta, area, autor, doc_tipo, usuario, todos);
         int total=0;
         ArrayList<ArrayList<String>> resultadosTabla = biblioteca.reportes.PdfCreator.resultSetToArrayList(rs);
-        ArrayList<String> Array2DtoArrayPlane = biblioteca.reportes.PdfCreator.Array2DtoArrayPlane(resultadosTabla);
+        ArrayList<String> Array2DtoArrayPlane = biblioteca.reportes.PdfCreator.Array2DtoArrayPlane(resultadosTabla,1,2);
         for(int i=1;i<resultadosTabla.size();i++){
             total+=Integer.parseInt(resultadosTabla.get(i).get(resultadosTabla.get(i).size()-1));
         }
@@ -77,7 +77,7 @@ public class ControladorEstadisticas {
         ResultSet rs = new DaoEstadisticas().documentosMasConsultados(dow, dom, month, year, tipo_usuario, franja, desde, hasta, area, autor, doc_tipo, usuario, todos);
         int total=0;
         ArrayList<ArrayList<String>> resultadosTabla = biblioteca.reportes.PdfCreator.resultSetToArrayList(rs);
-        ArrayList<String> Array2DtoArrayPlane = biblioteca.reportes.PdfCreator.Array2DtoArrayPlane(resultadosTabla);
+        ArrayList<String> Array2DtoArrayPlane = biblioteca.reportes.PdfCreator.Array2DtoArrayPlane(resultadosTabla,1,2);
         for(int i=1;i<resultadosTabla.size();i++){
             total+=Integer.parseInt(resultadosTabla.get(i).get(resultadosTabla.get(i).size()-1));
         }
@@ -208,6 +208,7 @@ public class ControladorEstadisticas {
         return salida;
     }
     
+    
     public ArrayList<Element> ConsultarDocumentosCatalogados(boolean dow, boolean dom, boolean month, String year, String[] franja, String[] desde, String[] Hasta, boolean area, boolean autor, boolean doc_tipo, boolean usuario, int salida)  throws BadElementException, MalformedURLException, IOException{
        
        ArrayList<Element> Salida=  new ArrayList<Element>(100);
@@ -223,23 +224,86 @@ public class ControladorEstadisticas {
        int total=0;  
        
        if(area){
+           total=0;
            rs=controlador.consultarDocumentosCatalogadosPorArea();
            resultadosTabla = biblioteca.reportes.PdfCreator.resultSetToArrayList(rs);
-           Array2DtoArrayPlane = biblioteca.reportes.PdfCreator.Array2DtoArrayPlane(resultadosTabla);
+           Array2DtoArrayPlane = biblioteca.reportes.PdfCreator.Array2DtoArrayPlane(resultadosTabla,0,2);
            for(int i=1;i<resultadosTabla.size();i++)
                total+=Integer.parseInt(resultadosTabla.get(i).get(resultadosTabla.get(i).size()-1));
            tabla=biblioteca.reportes.PdfCreator.arrayListToStatisticTable(resultadosTabla, total, salida);
-           System.out.println("salida "+salida);
-           total=0;
            Salida.add(new Paragraph("Areas con más Documentos Catalogados"));
            Salida.add(new Paragraph("\r\n"));
            Salida.add(tabla);
            Salida.add(new Paragraph("\r\n"));
-           chart=ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(Array2DtoArrayPlane), "Areas con más Documentos Catalogados", "Area", "Numero de Documentos Catalogados");
+           Salida.add(new Paragraph("* Ver Anexo Diagrama de Pastel y Diagrama de Barras para Areas con más Documentos Catalogados"));
+           chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(Array2DtoArrayPlane),"Areas con más Documentos Catalogados");
            bufferedImage = chart.createBufferedImage(400, 300);
            image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+           Images.add(image);
+           Images.add(new Paragraph("\r\n"));
+           chart=ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(Array2DtoArrayPlane), "Areas con más Documentos Catalogados", "Area_ID", "Numero de Documentos Catalogados");
+           bufferedImage = chart.createBufferedImage(400, 300);
+           image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+           Images.add(image);
+           Images.add(new Paragraph("\r\n"));
        }
        
+       if(autor){
+           total=0;
+           rs=controlador.consultarDocumentosCatalogadosPorAutor();
+           resultadosTabla = biblioteca.reportes.PdfCreator.resultSetToArrayList(rs);
+           Array2DtoArrayPlane = biblioteca.reportes.PdfCreator.Array2DtoArrayPlane(resultadosTabla,0,2);
+           for(int i=1;i<resultadosTabla.size();i++)
+               total+=Integer.parseInt(resultadosTabla.get(i).get(resultadosTabla.get(i).size()-1));
+           tabla=biblioteca.reportes.PdfCreator.arrayListToStatisticTable(resultadosTabla, total, salida);
+           Salida.add(new Paragraph("Autores con más Documentos Catalogados"));
+           Salida.add(new Paragraph("\r\n"));
+           Salida.add(tabla);
+           Salida.add(new Paragraph("\r\n"));
+           Salida.add(new Paragraph("* Ver Anexo Diagrama de Pastel y Diagrama de Barras para Autores con más Documentos Catalogados"));
+           chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(Array2DtoArrayPlane),"Autores con más Documentos Catalogados");
+           bufferedImage = chart.createBufferedImage(400, 300);
+           image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+           Images.add(image);
+           Images.add(new Paragraph("\r\n"));
+           chart=ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(Array2DtoArrayPlane), "Autores con más Documentos Catalogados", "Nombre Autor", "Numero de Documentos Catalogados");
+           bufferedImage = chart.createBufferedImage(400, 300);
+           image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+           Images.add(image);
+           Images.add(new Paragraph("\r\n"));
+       }
+       if(doc_tipo){
+           total=0;
+           rs=controlador.consultarDocumentosCatalogadosPorTipoMaterial();
+           resultadosTabla = biblioteca.reportes.PdfCreator.resultSetToArrayList(rs);
+           Array2DtoArrayPlane = biblioteca.reportes.PdfCreator.Array2DtoArrayPlane(resultadosTabla,0,1);
+           for(int i=1;i<resultadosTabla.size();i++)
+               total+=Integer.parseInt(resultadosTabla.get(i).get(resultadosTabla.get(i).size()-1));
+           tabla=biblioteca.reportes.PdfCreator.arrayListToStatisticTable(resultadosTabla, total, salida);
+           Salida.add(new Paragraph("Tipo de Material con más Documentos Catalogados"));
+           Salida.add(new Paragraph("\r\n"));
+           Salida.add(tabla);
+           Salida.add(new Paragraph("\r\n"));
+           Salida.add(new Paragraph("* Ver Anexo Diagrama de Pastel y Diagrama de Barras para Tipos de Material con más Documentos Catalogados"));
+           chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(Array2DtoArrayPlane),"Tipos de Material con más Documentos Catalogados");
+           bufferedImage = chart.createBufferedImage(400, 300);
+           image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+           Images.add(image);
+           Images.add(new Paragraph("\r\n"));
+           chart=ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(Array2DtoArrayPlane), "Tipos de Material con más Documentos Catalogados", "Tipo de Material", "Numero de Documentos Catalogados");
+           bufferedImage = chart.createBufferedImage(400, 300);
+           image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+           Images.add(image);
+           Images.add(new Paragraph("\r\n"));
+       }
+       
+       if(!Images.isEmpty()){
+            Salida.add(new Paragraph("Anexos:"));
+            Salida.add(new Paragraph("\r\n"));
+        }
+        for(int i=0;i<Images.size();i++){
+            Salida.add(Images.get(i));
+        }
         return Salida;
     }
     

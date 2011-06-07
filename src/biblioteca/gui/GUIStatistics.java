@@ -2058,7 +2058,7 @@ public class GUIStatistics extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(GUIStatistics.class.getName()).log(Level.SEVERE, null, ex);
         }
-         biblioteca.reportes.PdfCreator.createDinamicPdf("EstadisticasUsuariosCatalogados.pdf", "Estadisticas sobre Documentos Catalogados", ":D", elementosaInsertar);
+         biblioteca.reportes.PdfCreator.createDinamicPdf("EstadisticasDocumentosCatalogados.pdf", "Estadisticas sobre Documentos Catalogados", ":D", elementosaInsertar);
         
 
     }//GEN-LAST:event_jButton1ActionPerformed

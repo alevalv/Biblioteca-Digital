@@ -186,12 +186,12 @@ public class PdfCreator {
         return salida;
     }
     
-    static public  ArrayList<String> Array2DtoArrayPlane(ArrayList<ArrayList<String>> entrada){
+    static public  ArrayList<String> Array2DtoArrayPlane(ArrayList<ArrayList<String>> entrada, int index1, int index2){
         int size=entrada.size();
         ArrayList<String> salida=new ArrayList<String>(size);
         for(int i=0;i<size;i++){
-            salida.add(entrada.get(i).get(1));
-            salida.add(entrada.get(i).get(2));
+            salida.add(entrada.get(i).get(index1));
+            salida.add(entrada.get(i).get(index2));
         }
         for(int i=0;i<salida.size();i++) System.out.println(salida.get(i));
         return salida;
