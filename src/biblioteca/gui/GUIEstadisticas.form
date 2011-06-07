@@ -776,7 +776,7 @@
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="jCheckBox1">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Intersectar"/>
+                    <Property name="text" type="java.lang.String" value="Mostrar Resultados Separados"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1425,7 +1425,7 @@
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="jCheckBox2">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Intersectar"/>
+                    <Property name="text" type="java.lang.String" value="Mostrar Resultados Separados"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2194,7 +2194,7 @@
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="jCheckBox10">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Intersectar"/>
+                    <Property name="text" type="java.lang.String" value="Mostrar Resultados Separados"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2962,7 +2962,7 @@
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="jCheckBox11">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Intersectar"/>
+                    <Property name="text" type="java.lang.String" value="Mostrar Resultados Separados"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -3702,7 +3702,7 @@
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="jCheckBox12">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Intersectar"/>
+                    <Property name="text" type="java.lang.String" value="Mostrar Resultados Separados"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">

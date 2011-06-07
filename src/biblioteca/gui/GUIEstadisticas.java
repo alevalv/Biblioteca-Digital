@@ -706,7 +706,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         Panel_Usuarios.add(jButton1, gridBagConstraints);
 
-        jCheckBox1.setText("Intersectar");
+        jCheckBox1.setText("Mostrar Resultados Separados");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 18;
@@ -982,7 +982,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         Panel_Documentos2.add(jButton2, gridBagConstraints);
 
-        jCheckBox2.setText("Intersectar");
+        jCheckBox2.setText("Mostrar Resultados Separados");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 13;
@@ -1379,7 +1379,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         Panel_Documentos_Catalogados1.add(jButton3, gridBagConstraints);
 
-        jCheckBox10.setText("Intersectar");
+        jCheckBox10.setText("Mostrar Resultados Separados");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 17;
@@ -1769,7 +1769,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         Panel_Documentos_Descargados1.add(jButton4, gridBagConstraints);
 
-        jCheckBox11.setText("Intersectar");
+        jCheckBox11.setText("Mostrar Resultados Separados");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 17;
@@ -2150,7 +2150,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         Panel_Documentos_Catalogados2.add(jButton5, gridBagConstraints);
 
-        jCheckBox12.setText("Intersectar");
+        jCheckBox12.setText("Mostrar Resultados Separados");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 17;
@@ -2440,10 +2440,12 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           if(jComboBox1.getSelectedIndex()!=0) vinculo=jComboBox1.getSelectedItem()+"";
           if(AreasComboBoxPU.getSelectedIndex()!=0) area=areasExistentes.get(AreasComboBoxPU.getSelectedIndex()-1).getID();
         try {
-        if(jCheckBox1.isSelected()){
+        if(!jCheckBox1.isSelected()){
             biblioteca.reportes.PdfCreator.createPdf("ReporteUsuariosRegistrados.pdf", "Reporte de Usuarios Registrados", "Total de usuarios registrados: ", 
                 new ControladorReportesEstadisticas().ConsultarListaUsuario(dow, dom, month, year, franja, desde, Hasta, tipo,
              genero, Estado, area, vinculo));
+            JOptionPane.showMessageDialog(null, "Reporte realizado con éxito en el archivo ReporteUsuariosRegistrados.pdf", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+        
         }
         else{
             biblioteca.reportes.PdfCreator.createArrayListPdf("ReporteUsuariosRegistrados.pdf", "Reporte de Usuarios Registrados", "Total de usuarios registrados: ", 
@@ -2508,10 +2510,13 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           hasta[2]=jComboBox74.getSelectedItem()+"";
           }
        try{
-       if(jCheckBox2.isSelected())
+       if(!jCheckBox2.isSelected()){
         biblioteca.reportes.PdfCreator.createPdf("ReporteDocumentosExistentes.pdf", "Reporte de Documentos Existentes", "Total de documentos existentes en este reporte: ", 
                 new ControladorReportesEstadisticas().ConsultarListaDocumentosExistentes(area, autor, tipo, editorial, idioma, estado,
        desde, hasta));
+       JOptionPane.showMessageDialog(null, "Reporte realizado con éxito en el archivo ReporteDocumentosExistentes.pdf", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+        
+       }
        else{  
            biblioteca.reportes.PdfCreator.createArrayListPdf("ReporteDocumentosExistentes.pdf", "Reporte de Documentos Existentes", "Total de documentos existentes en este reporte: ", 
                 new ControladorReportesEstadisticas().ConsultarListaSeparadaDocumentosExistentes(area, autor, tipo, editorial, idioma, estado, desde, hasta));
@@ -2557,10 +2562,13 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           if(DocTipoComboBoxPDC.getSelectedIndex()!=0) doc_tipo=tdExistentes.get(DocTipoComboBoxPDC.getSelectedIndex()-1).getTipoDocumento();
           if(jTextField6.isCursorSet() && !jTextField6.getText().isEmpty()) usuario=jTextField6.getText();
           try{
-          if(jCheckBox10.isSelected())
+          if(!jCheckBox10.isSelected()){
           biblioteca.reportes.PdfCreator.createPdf("ReporteDocumentosConsultados.pdf", "Reporte de Documentos Consultados", "Total de documentos consultados en este reporte: ", 
                 new ControladorReportesEstadisticas().ConsultarListaDocumentosConsultados(dow, dom, month, year, tipo_usuario,
                franja, desde,Hasta,area, autor, doc_tipo, usuario));
+          JOptionPane.showMessageDialog(null, "Reporte realizado con éxito en el archivo ReporteDocumentosConsultados.pdf", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+        
+          }
           else {
              biblioteca.reportes.PdfCreator.createArrayListPdf("ReporteDocumentosConsultados.pdf", "Reporte de Documentos Consultados", "Total de documentos Consultados en este reporte: ", 
                 new ControladorReportesEstadisticas().ConsultarListaSeparadaDocumentosConsultados(dow, dom, month, year, tipo_usuario, franja, desde, Hasta, area, autor, doc_tipo, usuario));
@@ -2604,9 +2612,12 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           if(DocTipoComboBoxPDD.getSelectedIndex()!=0) doc_tipo=tdExistentes.get(DocTipoComboBoxPDD.getSelectedIndex()-1).getTipoDocumento();
           if(jTextField7.isCursorSet() && !jTextField7.getText().isEmpty()) usuario=jTextField7.getText();
           try{
-          if(jCheckBox11.isSelected())
+          if(!jCheckBox11.isSelected()){
           biblioteca.reportes.PdfCreator.createPdf("ReporteDocumentosDescargados.pdf", "Reporte de Documentos Descargados", "Total de documentos consultados en este reporte: ",new ControladorReportesEstadisticas().ConsultarListaDocumentosDescargados(dow, dom, month, year, tipo_usuario,
                franja, desde,Hasta,area, autor, doc_tipo, usuario));
+          JOptionPane.showMessageDialog(null, "Reporte realizado con éxito en el archivo ReporteDocumentosDescargados.pdf", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+        
+          }
           else{
            biblioteca.reportes.PdfCreator.createArrayListPdf("ReporteDocumentosDescargados.pdf", "Reporte de Documentos Descargados", "Total de documentos consultados en este reporte: ",new ControladorReportesEstadisticas().ConsultarListaSeparadaDocumentosDescargados(dow, dom, month, year, tipo_usuario, franja, desde, Hasta, area, autor, doc_tipo, usuario));
               JOptionPane.showMessageDialog(null, "Reporte realizado con éxito en el archivo ReporteDocumentosDescargados.pdf", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
@@ -2722,11 +2733,13 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           if(DocTipoComboBoxPDC1.getSelectedIndex()!=0) doc_tipo=tdExistentes.get(DocTipoComboBoxPDC1.getSelectedIndex()-1).getTipoDocumento();
           if(jTextField8.isCursorSet() && !jTextField8.getText().isEmpty()) usuario=jTextField8.getText();
           try{
-          if(jCheckBox12.isSelected())
+          if(!jCheckBox12.isSelected()){
           biblioteca.reportes.PdfCreator.createPdf("ReporteDocumentosCatalogados.pdf", "Reporte de Documentos Catalogados", "Total de documentos catalogados en este reporte: ",new ControladorReportesEstadisticas().ConsultarListaDocumentosCatalogados(dow, dom, month, year, franja, desde, Hasta, area, autor, doc_tipo, usuario));
+          JOptionPane.showMessageDialog(null, "Reporte realizado con éxito en el archivo ReporteDocumentosCatalogados.pdf", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+        }
           else{
           biblioteca.reportes.PdfCreator.createArrayListPdf("ReporteDocumentosCatalogados.pdf", "Reporte de Documentos Catalogados", "Total de documentos catalogados en este reporte: ",new ControladorReportesEstadisticas().ConsultarListaSeparadaDocumentosCatalogados(dow, dom, month, year, franja, desde, Hasta, area, autor, doc_tipo, usuario));
-         JOptionPane.showMessageDialog(null, "Reporte realizado con éxito en el archivo ReporteDocumentosDescargados.pdf", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+         JOptionPane.showMessageDialog(null, "Reporte realizado con éxito en el archivo ReporteDocumentosCatalogados.pdf", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
         
        } 
        }catch (Exception ex) {
