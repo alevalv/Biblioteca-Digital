@@ -365,6 +365,7 @@ public class GUIBusqueda extends javax.swing.JFrame {
         jMenu1.add(RecomendacionesDocumentos);
 
         Estadisticas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        Estadisticas.setMnemonic('e');
         Estadisticas.setText("Estadisticas");
         Estadisticas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -434,7 +435,10 @@ public class GUIBusqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_Modificar_DocumentoActionPerformed
 
     private void ReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReportesActionPerformed
-       new biblioteca.gui.GUIEstadisticas(this).setVisible(true);
+       if(new ControladorUsuario().verificarTipoUsuario("1", biblioteca.Main.BibliotecaDigital.LOGGED_USER))
+           new biblioteca.gui.GUIEstadisticas(this).setVisible(true);
+       else
+            JOptionPane.showMessageDialog(this, "Esta opción solo está disponible para administradores", "Error", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_ReportesActionPerformed
 
     private void RegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarseActionPerformed
@@ -552,11 +556,10 @@ public class GUIBusqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_RecomendacionesDocumentosActionPerformed
 
     private void EstadisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstadisticasActionPerformed
-        //if(new ControladorUsuario().verificarTipoUsuario("1", biblioteca.Main.BibliotecaDigital.LOGGED_USER))
+        if(new ControladorUsuario().verificarTipoUsuario("1", biblioteca.Main.BibliotecaDigital.LOGGED_USER))
             new GUIStatistics(this).setVisible(true);
-        //else{
-        //    JOptionPane.showMessageDialog(this, "Esta opción solo está disponible para catalogadores", "Error", JOptionPane.ERROR_MESSAGE);
-        //}
+        else
+            JOptionPane.showMessageDialog(this, "Esta opción solo está disponible para administradores", "Error", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_EstadisticasActionPerformed
 
     private void Agregar_AreasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_AreasActionPerformed
