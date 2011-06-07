@@ -107,32 +107,37 @@ public class ControladorEstadisticas {
         return Salida;
     }
     
-    public ArrayList<Element> estadisticasUsuariosRegistradosMultiplesTablas(boolean dow, boolean dom, boolean mes, String Year, String[] franja, String desde[], String[] hasta) throws BadElementException, MalformedURLException, IOException{
-        
+    public ArrayList<Element> estadisticasUsuariosRegistradosMultiplesTablas(boolean dow, boolean dom, boolean mes, String Year, String[] franja, String desde[], String[] hasta, boolean genero, boolean vinculo, boolean tipo, boolean estado, boolean area, int salida) throws BadElementException, MalformedURLException, IOException{
         BufferedImage bufferedImage;
         Image image;
-        ArrayList<Element> salida=  new ArrayList<Element>(30);
-        ArrayList<Element> images=new ArrayList<Element>(10);
+        ResultSet rs;
+        ArrayList<Element> Salida=  new ArrayList<Element>(100);
+        ArrayList<Element> images=new ArrayList<Element>(100);
         DaoEstadisticas controlador = new DaoEstadisticas();
+        JFreeChart chart;
+        ArrayList<ArrayList<String>> resultadosTabla;
+        ArrayList<String> Array2DtoArrayPlane;
+        PdfPTable tabla=null;
+        int total=0;
         if(dow){
             ArrayList<String> tmp= controlador.consultarUsuariosRegistradosPorDoW();
             float promedio=promedio(tmp,2);
-            salida.add(new Paragraph("Resultados para los días de la semana"));
-            salida.add(new Paragraph("\r\n"));
-            salida.add(biblioteca.reportes.PdfCreator.plainArrayListToPdfPTable(agregarPorcentajesALista(tmp, 2), 3));
-            salida.add(new Paragraph("Promedio "+promedio));
-            salida.add(new Paragraph("\r\n"));
-            salida.add(new Paragraph("* Ver Anexo: Diagrama de Pastel: Usuarios Registrados para los dias de la Semana"));
-            salida.add(new Paragraph("\r\n"));
-            JFreeChart chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(tmp),"Usuarios Registrados para los días de la semana");
+            Salida.add(new Paragraph("Resultados para los días de la semana"));
+            Salida.add(new Paragraph("\r\n"));
+            Salida.add(biblioteca.reportes.PdfCreator.plainArrayListToPdfPTable(agregarPorcentajesALista(tmp, 2), 3));
+            Salida.add(new Paragraph("Promedio "+promedio));
+            Salida.add(new Paragraph("\r\n"));
+            Salida.add(new Paragraph("* Ver Anexo: Diagrama de Pastel: Usuarios Registrados para los dias de la Semana"));
+            Salida.add(new Paragraph("\r\n"));
+            chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(tmp),"Usuarios Registrados para los días de la semana");
             bufferedImage = chart.createBufferedImage(400, 300);
             image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
             image.scaleAbsolute(300, 200);
             image.setAlignment(Image.MIDDLE);
             images.add(image);
             images.add(new Paragraph("\r\n"));
-            salida.add(new Paragraph("* Ver Anexo: Diagrama de Barras: Usuarios Registrados para los dias de la Semana"));
-            salida.add(new Paragraph("\r\n"));
+            Salida.add(new Paragraph("* Ver Anexo: Diagrama de Barras: Usuarios Registrados para los dias de la Semana"));
+            Salida.add(new Paragraph("\r\n"));
             chart = ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(tmp), "Usuarios Registrados para los días de la semana", "Días de la Semana", "Cantidad de usuarios");
             bufferedImage = chart.createBufferedImage(700, 300);
             image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
@@ -142,51 +147,54 @@ public class ControladorEstadisticas {
             images.add(new Paragraph("\r\n"));
         }
         if(dom){
-            ArrayList<String> tmp= controlador.consultarUsuariosRegistradosPorDoM();
-            salida.add(new Paragraph("Resultados para los días del mes"));
-            salida.add(new Paragraph("\r\n"));
-            float promedio=promedio(tmp,2);
-            salida.add(biblioteca.reportes.PdfCreator.plainArrayListToPdfPTable(agregarPorcentajesALista(tmp, 2), 3));
-            salida.add(new Paragraph("Promedio "+promedio));
-            salida.add(new Paragraph("\r\n"));
-            salida.add(new Paragraph("* Ver Anexo: Diagrama de Pastel: Usuarios Registrados para los dias del mes"));
-            salida.add(new Paragraph("\r\n"));
-            JFreeChart chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(tmp),"Usuarios Registrados para los días del mes");
+           rs=controlador.consultarUsuariosRegistradosPorDoM();
+           resultadosTabla = biblioteca.reportes.PdfCreator.resultSetToArrayList(rs);
+           Array2DtoArrayPlane = biblioteca.reportes.PdfCreator.Array2DtoArrayPlane(resultadosTabla,0,1);
+           for(int i=1;i<resultadosTabla.size();i++)
+               total+=Integer.parseInt(resultadosTabla.get(i).get(resultadosTabla.get(i).size()-1));
+            tabla=biblioteca.reportes.PdfCreator.arrayListToStatisticTable(resultadosTabla, total, salida);
+            Salida.add(new Paragraph("Resultados para los días del mes"));
+            Salida.add(new Paragraph("\r\n"));
+            Salida.add(tabla);
+            Salida.add(new Paragraph("\r\n"));
+            Salida.add(new Paragraph("* Ver Anexo: Diagrama de Pastel: Usuarios Registrados para los dias del mes"));
+            Salida.add(new Paragraph("\r\n"));
+            chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(Array2DtoArrayPlane),"Usuarios Registrados para los días del mes");
             bufferedImage = chart.createBufferedImage(500, 600);
             image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
             image.scaleAbsolute(250, 300);
             image.setAlignment(Image.MIDDLE);
             images.add(image);
             images.add(new Paragraph("\r\n"));
-            chart = ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(tmp), "Usuarios Registrados para los días del Mes", "Días del mes", "Cantidad de usuarios");
+            chart = ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(Array2DtoArrayPlane), "Usuarios Registrados para los días del Mes", "Días del mes", "Cantidad de usuarios");
             bufferedImage = chart.createBufferedImage(1000, 500);
             image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
             image.scaleAbsolute(500, 250);
             image.setAlignment(Image.MIDDLE);
-            salida.add(new Paragraph("* Ver Anexo: Diagrama de Barras: Usuarios Registrados para los dias del mes"));
-            salida.add(new Paragraph("\r\n"));
+            Salida.add(new Paragraph("* Ver Anexo: Diagrama de Barras: Usuarios Registrados para los dias del mes"));
+            Salida.add(new Paragraph("\r\n"));
             images.add(image);
             images.add(new Paragraph("\r\n"));
         }
         if(mes){
             ArrayList<String> tmp= controlador.consultarUsuariosRegistradosPorMes();
-            salida.add(new Paragraph("Resultados para los meses"));
-            salida.add(new Paragraph("\r\n"));
+            Salida.add(new Paragraph("Resultados para los meses"));
+            Salida.add(new Paragraph("\r\n"));
             float promedio=promedio(tmp,2);
-            salida.add(biblioteca.reportes.PdfCreator.plainArrayListToPdfPTable(agregarPorcentajesALista(tmp, 2), 3));
-            salida.add(new Paragraph("Promedio "+promedio));
-            salida.add(new Paragraph("\r\n"));
-            salida.add(new Paragraph("* Ver Anexo: Diagrama de Pastel: Usuarios Registrados para los meses"));
-            salida.add(new Paragraph("\r\n"));
-            JFreeChart chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(tmp),"Usuarios Registrados para los meses");
+            Salida.add(biblioteca.reportes.PdfCreator.plainArrayListToPdfPTable(agregarPorcentajesALista(tmp, 2), 3));
+            Salida.add(new Paragraph("Promedio "+promedio));
+            Salida.add(new Paragraph("\r\n"));
+            Salida.add(new Paragraph("* Ver Anexo: Diagrama de Pastel: Usuarios Registrados para los meses"));
+            Salida.add(new Paragraph("\r\n"));
+            chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(tmp),"Usuarios Registrados para los meses");
             bufferedImage = chart.createBufferedImage(500, 300);
             image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
             image.scaleAbsolute(350, 200);
             image.setAlignment(Image.MIDDLE);
             images.add(image);
             images.add(new Paragraph("\r\n"));
-            salida.add(new Paragraph("* Ver Anexo: Diagrama de Barras: Usuarios Registrados para los meses"));
-            salida.add(new Paragraph("\r\n"));
+            Salida.add(new Paragraph("* Ver Anexo: Diagrama de Barras: Usuarios Registrados para los meses"));
+            Salida.add(new Paragraph("\r\n"));
             chart = ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(tmp), "Usuarios Registrados para los Meses", "Meses", "Cantidad de usuarios");
             bufferedImage = chart.createBufferedImage(1000, 600);
             image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
@@ -197,35 +205,199 @@ public class ControladorEstadisticas {
         }
         if(Year!=null){
             ArrayList<String> tmp= controlador.consultarUsuariosRegistradosPorYear(Year);
-            salida.add(new Paragraph("Resultados para el año seleccionado"));
-            salida.add(new Paragraph("\r\n"));
-            salida.add(new Paragraph(tmp.get(0)+" "+tmp.get(1)));
-            salida.add(new Paragraph("\r\n"));
+            Salida.add(new Paragraph("Resultados para el año seleccionado"));
+            Salida.add(new Paragraph("\r\n"));
+            Salida.add(new Paragraph(tmp.get(0)+" "+tmp.get(1)));
+            Salida.add(new Paragraph("\r\n"));
         }
         if(franja!=null){
             ArrayList<String> tmp= controlador.consultarUsuariosRegistradosPorFranja(franja[0],franja[1]);
-            salida.add(new Paragraph("Resultados para la franja seleccionada"));
-            salida.add(new Paragraph("\r\n"));
-            salida.add(new Paragraph(tmp.get(0)+" "+tmp.get(1)));
-            salida.add(new Paragraph("\r\n"));
+            Salida.add(new Paragraph("Resultados para la franja seleccionada"));
+            Salida.add(new Paragraph("\r\n"));
+            Salida.add(new Paragraph(tmp.get(0)+" "+tmp.get(1)));
+            Salida.add(new Paragraph("\r\n"));
         }
         if(desde!=null && hasta !=null){
             ArrayList<String> tmp= controlador.consultarUsuariosRegistradosPorIntervalo(desde[0]+"-"+desde[1]+"-"+desde[2],
                     hasta[0]+"-"+hasta[1]+"-"+hasta[2]);
-            salida.add(new Paragraph("Resultados para el intervalo de tiempo seleccionado"));
-            salida.add(new Paragraph("\r\n"));
-            salida.add(new Paragraph(tmp.get(0)+" "+tmp.get(1)));
-            salida.add(new Paragraph("\r\n"));
+            Salida.add(new Paragraph("Resultados para el intervalo de tiempo seleccionado"));
+            Salida.add(new Paragraph("\r\n"));
+            Salida.add(new Paragraph(tmp.get(0)+" "+tmp.get(1)));
+            Salida.add(new Paragraph("\r\n"));
         }
-        
+        if(genero){
+           rs=controlador.consultarUsuariosRegistradosPorGenero();
+           resultadosTabla = biblioteca.reportes.PdfCreator.resultSetToArrayList(rs);
+         for(int i=0;i<resultadosTabla.size();i++){
+              if(resultadosTabla.get(i).get(0).equals("F") || resultadosTabla.get(i).get(0).equals("f")) resultadosTabla.get(i).set(0, "Femenino");
+              if(resultadosTabla.get(i).get(0).equals("M") || resultadosTabla.get(i).get(0).equals("m")) resultadosTabla.get(i).set(0, "Masculino");
+              if(resultadosTabla.get(i).get(0).equals("N") || resultadosTabla.get(i).get(0).equals("n")) {
+                  resultadosTabla.remove(i);
+              }
+           }
+           Array2DtoArrayPlane = biblioteca.reportes.PdfCreator.Array2DtoArrayPlane(resultadosTabla,0,1);
+           for(int i=1;i<resultadosTabla.size();i++)
+               total+=Integer.parseInt(resultadosTabla.get(i).get(resultadosTabla.get(i).size()-1));
+            tabla=biblioteca.reportes.PdfCreator.arrayListToStatisticTable(resultadosTabla, total, salida);
+            Salida.add(new Paragraph("Estadisticas de Usuarios Registrados por Genero"));
+            Salida.add(new Paragraph("\r\n"));
+            Salida.add(tabla);
+            Salida.add(new Paragraph("\r\n"));
+            Salida.add(new Paragraph("* Ver Anexo: Diagrama de Pastel: Estadisticas de Usuarios Registrados por Genero"));
+            Salida.add(new Paragraph("\r\n"));
+            chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(Array2DtoArrayPlane),"Estadisticas de Usuarios Registrados por Genero");
+            bufferedImage = chart.createBufferedImage(450, 400);
+            image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+             image.scaleAbsolute(250, 200);
+            image.setAlignment(Image.MIDDLE);
+            images.add(image);
+            images.add(new Paragraph("\r\n"));
+            chart = ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(Array2DtoArrayPlane), "Estadisticas de Usuarios Registrados por Genero", "Genero", "Cantidad de Usuarios");
+            bufferedImage = chart.createBufferedImage(400, 400);
+            image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+            image.scaleAbsolute(200, 200);
+            image.setAlignment(Image.MIDDLE);
+            Salida.add(new Paragraph("* Ver Anexo: Diagrama de Barras: Estadisticas de Usuarios Registrados por Genero"));
+            Salida.add(new Paragraph("\r\n"));
+            images.add(image);
+            images.add(new Paragraph("\r\n"));
+        }
+         if(vinculo){
+           rs=controlador.consultarUsuariosRegistradosPorVinculo();
+           resultadosTabla = biblioteca.reportes.PdfCreator.resultSetToArrayList(rs); Array2DtoArrayPlane = biblioteca.reportes.PdfCreator.Array2DtoArrayPlane(resultadosTabla,0,1);
+           for(int i=1;i<resultadosTabla.size();i++)
+               total+=Integer.parseInt(resultadosTabla.get(i).get(resultadosTabla.get(i).size()-1));
+            tabla=biblioteca.reportes.PdfCreator.arrayListToStatisticTable(resultadosTabla, total, salida);
+            Salida.add(new Paragraph("Estadisticas de Usuarios Registrados por Vinculo"));
+            Salida.add(new Paragraph("\r\n"));
+            Salida.add(tabla);
+            Salida.add(new Paragraph("\r\n"));
+            Salida.add(new Paragraph("* Ver Anexo: Diagrama de Pastel: Estadisticas de Usuarios Registrados por Vinculo"));
+            Salida.add(new Paragraph("\r\n"));
+            chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(Array2DtoArrayPlane),"Estadisticas de Usuarios Registrados por Vinculo");
+            bufferedImage = chart.createBufferedImage(500, 500);
+            image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+            image.scaleAbsolute(300, 200);
+            image.setAlignment(Image.MIDDLE);
+            images.add(image);
+            images.add(new Paragraph("\r\n"));
+            chart = ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(Array2DtoArrayPlane), "Estadisticas de Usuarios Registrados por Vinculo", "Vinculo", "Cantidad de Usuarios");
+            bufferedImage = chart.createBufferedImage(500, 400);
+            image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+            image.scaleAbsolute(200, 200);
+            image.setAlignment(Image.MIDDLE);
+            Salida.add(new Paragraph("* Ver Anexo: Diagrama de Barras: Estadisticas de Usuarios Registrados por Vinculo"));
+            Salida.add(new Paragraph("\r\n"));
+            images.add(image);
+            images.add(new Paragraph("\r\n"));
+        }
+        if(tipo){
+           rs=controlador.consultarUsuariosRegistradosPorTipoUsuario();
+           resultadosTabla = biblioteca.reportes.PdfCreator.resultSetToArrayList(rs);
+         for(int i=0;i<resultadosTabla.size();i++){
+              if(resultadosTabla.get(i).get(0).equals("3")) resultadosTabla.get(i).set(0, "Normal");
+              if(resultadosTabla.get(i).get(0).equals("2")) resultadosTabla.get(i).set(0, "Catalogador");
+              if(resultadosTabla.get(i).get(0).equals("1")) resultadosTabla.get(i).set(0, "Administrador");
+              if(resultadosTabla.get(i).get(0).equals("0")) resultadosTabla.remove(i);
+           }
+           Array2DtoArrayPlane = biblioteca.reportes.PdfCreator.Array2DtoArrayPlane(resultadosTabla,0,1);
+           for(int i=1;i<resultadosTabla.size();i++)
+               total+=Integer.parseInt(resultadosTabla.get(i).get(resultadosTabla.get(i).size()-1));
+            tabla=biblioteca.reportes.PdfCreator.arrayListToStatisticTable(resultadosTabla, total, salida);
+            Salida.add(new Paragraph("Estadisticas de Usuarios Registrados por Tipo de Usuario"));
+            Salida.add(new Paragraph("\r\n"));
+            Salida.add(tabla);
+            Salida.add(new Paragraph("\r\n"));
+            Salida.add(new Paragraph("* Ver Anexo: Diagrama de Pastel: Estadisticas de Usuarios Tipo de Usuario"));
+            Salida.add(new Paragraph("\r\n"));
+            chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(Array2DtoArrayPlane),"Estadisticas de Usuarios Tipo de Usuario");
+            bufferedImage = chart.createBufferedImage(450, 400);
+            image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+             image.scaleAbsolute(250, 200);
+            image.setAlignment(Image.MIDDLE);
+            images.add(image);
+            images.add(new Paragraph("\r\n"));
+            chart = ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(Array2DtoArrayPlane), "Estadisticas de Usuarios Registrados por Tipo de Usuario", "Tipo de Usuario", "Cantidad de Usuarios");
+            bufferedImage = chart.createBufferedImage(600, 400);
+            image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+            image.scaleAbsolute(300, 200);
+            image.setAlignment(Image.MIDDLE);
+            Salida.add(new Paragraph("* Ver Anexo: Diagrama de Barras: Estadisticas de Usuarios Registrados por Genero"));
+            Salida.add(new Paragraph("\r\n"));
+            images.add(image);
+            images.add(new Paragraph("\r\n"));
+        }
+        if(estado){
+           rs=controlador.consultarUsuariosRegistradosPorEstado();
+           resultadosTabla = biblioteca.reportes.PdfCreator.resultSetToArrayList(rs);
+           for(int i=0;i<resultadosTabla.size();i++){
+              if(resultadosTabla.get(i).get(0).equals("t") || resultadosTabla.get(i).get(0).equals("T")) resultadosTabla.get(i).set(0, "Activo");
+              if(resultadosTabla.get(i).get(0).equals("f") || resultadosTabla.get(i).get(0).equals("F")) resultadosTabla.get(i).set(0, "Inactivo");
+           }
+           Array2DtoArrayPlane = biblioteca.reportes.PdfCreator.Array2DtoArrayPlane(resultadosTabla,0,1);
+           for(int i=1;i<resultadosTabla.size();i++)
+               total+=Integer.parseInt(resultadosTabla.get(i).get(resultadosTabla.get(i).size()-1));
+            tabla=biblioteca.reportes.PdfCreator.arrayListToStatisticTable(resultadosTabla, total, salida);
+            Salida.add(new Paragraph("Estadisticas de Usuarios Registrados por Estado de Cuenta"));
+            Salida.add(new Paragraph("\r\n"));
+            Salida.add(tabla);
+            Salida.add(new Paragraph("\r\n"));
+            Salida.add(new Paragraph("* Ver Anexo: Diagrama de Pastel: Estadisticas de Usuarios por Estado de Cuenta"));
+            Salida.add(new Paragraph("\r\n"));
+            chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(Array2DtoArrayPlane),"Estadisticas de Usuarios por Estado de Cuenta");
+            bufferedImage = chart.createBufferedImage(450, 400);
+            image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+             image.scaleAbsolute(250, 200);
+            image.setAlignment(Image.MIDDLE);
+            images.add(image);
+            images.add(new Paragraph("\r\n"));
+            chart = ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(Array2DtoArrayPlane), "Estadisticas de Usuarios Registrados por Estado de Cuenta", "Estado de Cuenta", "Cantidad de Usuarios");
+            bufferedImage = chart.createBufferedImage(600, 400);
+            image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+            image.scaleAbsolute(300, 200);
+            image.setAlignment(Image.MIDDLE);
+            Salida.add(new Paragraph("* Ver Anexo: Diagrama de Barras: Estadisticas de Usuarios Registrados por Estado de Cuenta"));
+            Salida.add(new Paragraph("\r\n"));
+            images.add(image);
+            images.add(new Paragraph("\r\n"));
+        }
+        if(area){
+            total=0;
+           rs=controlador.consultarUsuariosRegistradosPorArea();
+           resultadosTabla = biblioteca.reportes.PdfCreator.resultSetToArrayList(rs);
+           Array2DtoArrayPlane = biblioteca.reportes.PdfCreator.Array2DtoArrayPlane(resultadosTabla,0,2);
+           for(int i=1;i<resultadosTabla.size();i++)
+               total+=Integer.parseInt(resultadosTabla.get(i).get(resultadosTabla.get(i).size()-1));
+           tabla=biblioteca.reportes.PdfCreator.arrayListToStatisticTable(resultadosTabla, total, salida);
+           Salida.add(new Paragraph("Areas con más Documentos Catalogados"));
+           Salida.add(new Paragraph("\r\n"));
+           Salida.add(tabla);
+           Salida.add(new Paragraph("\r\n"));
+           Salida.add(new Paragraph("* Ver Anexo Diagrama de Pastel y Diagrama de Barras para Areas con más Documentos Catalogados"));
+           Salida.add(new Paragraph("\r\n"));
+           chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(Array2DtoArrayPlane),"Areas con más Documentos Catalogados");
+           bufferedImage = chart.createBufferedImage(600, 600);
+           image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+           image.scaleAbsolute(300, 300);
+           image.setAlignment(Image.MIDDLE);
+           images.add(image);
+           images.add(new Paragraph("\r\n"));
+           chart=ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(Array2DtoArrayPlane), "Areas con más Documentos Catalogados", "Area_ID", "Numero de Documentos Catalogados");
+           bufferedImage = chart.createBufferedImage(900, 500);
+           image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+           image.scaleAbsolute(450, 250);
+           image.setAlignment(Image.MIDDLE);
+           images.add(image);
+           images.add(new Paragraph("\r\n"));
+        }
         if(!images.isEmpty()){
-            salida.add(new Paragraph("Anexos:"));
-            salida.add(new Paragraph("\r\n"));
+            Salida.add(new Paragraph("Anexos:"));
+            Salida.add(new Paragraph("\r\n"));
         }
         for(int i=0;i<images.size();i++){
-            salida.add(images.get(i));
+            Salida.add(images.get(i));
         }
-        return salida;
+        return Salida;
     }
     
     
