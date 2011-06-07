@@ -251,6 +251,7 @@ public class GUIStatistics extends javax.swing.JFrame {
         jCheckBox10 = new javax.swing.JCheckBox();
         jLabel14 = new javax.swing.JLabel();
         Num_Doc2 = new javax.swing.JTextField();
+        jCheckBox11 = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -1550,7 +1551,7 @@ public class GUIStatistics extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.gridwidth = 2;
         Panel_Usuarios.add(jButton1, gridBagConstraints);
 
@@ -1575,7 +1576,7 @@ public class GUIStatistics extends javax.swing.JFrame {
         jCheckBox3.setText("Tipos de Documento más Catalogados");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
@@ -1584,7 +1585,7 @@ public class GUIStatistics extends javax.swing.JFrame {
         jCheckBox10.setText("Usuarios que más Catalogan");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 17;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
@@ -1604,6 +1605,15 @@ public class GUIStatistics extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         Panel_Usuarios.add(Num_Doc2, gridBagConstraints);
+
+        jCheckBox11.setText("Palabras Clave más Catalogadas");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
+        Panel_Usuarios.add(jCheckBox11, gridBagConstraints);
 
         jPanel3.add(Panel_Usuarios);
 
@@ -2017,7 +2027,7 @@ public class GUIStatistics extends javax.swing.JFrame {
         boolean dow = false, dom = false, month = false;
         String[] franja = null, desde = null, Hasta = null;
         String year = null;
-        boolean area = false, autor=false, doc_tipo=false, usuario=false;
+        boolean area = false, autor=false, pc=false, doc_tipo=false, usuario=false;
         
         
             dow=jCheckBox4.isSelected();
@@ -2046,10 +2056,11 @@ public class GUIStatistics extends javax.swing.JFrame {
           autor=jCheckBox2.isSelected();
           doc_tipo=jCheckBox3.isSelected();
           usuario=jCheckBox10.isSelected();
+          pc=jCheckBox11.isSelected();
           int salida=Integer.parseInt(Num_Doc2.getText());
           ArrayList<Element> elementosaInsertar=null;
         try {
-            elementosaInsertar = new ControladorEstadisticas().ConsultarDocumentosCatalogados(dow, dom, month, year, franja, desde, Hasta, area, autor, doc_tipo, usuario, salida);
+            elementosaInsertar = new ControladorEstadisticas().ConsultarDocumentosCatalogados(dow, dom, month, year, franja, desde, Hasta, area, autor, doc_tipo, pc,usuario, salida);
       
         } catch (BadElementException ex) {
             Logger.getLogger(GUIStatistics.class.getName()).log(Level.SEVERE, null, ex);
@@ -2092,6 +2103,7 @@ public class GUIStatistics extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox10;
+    private javax.swing.JCheckBox jCheckBox11;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JCheckBox jCheckBox31;

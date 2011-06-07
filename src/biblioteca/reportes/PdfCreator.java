@@ -193,7 +193,6 @@ public class PdfCreator {
             salida.add(entrada.get(i).get(index1));
             salida.add(entrada.get(i).get(index2));
         }
-        for(int i=0;i<salida.size();i++) System.out.println(salida.get(i));
         return salida;
     }
     /**

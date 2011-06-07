@@ -661,8 +661,9 @@ public class DaoEstadisticas {
     
    public ResultSet consultarDocumentosCatalogadosPorAutor(){
        try {
-                String sql="SELECT nombre AS Nombre_Autor, count(doc_id) AS Cantidad_de_Documentos_Catalogados FROM documento_autor "
-                        + "NATURAL JOIN autor GROUP BY nombre ORDER BY Cantidad_de_Documentos_Catalogados DESC;";
+                String sql="SELECT nombre ||' '|| apellido AS Nombre_Autor, autor_correo AS Correo_Autor, count(doc_id) AS Cantidad_de_Documentos_Catalogados FROM documento_autor "
+                        + "NATURAL JOIN autor GROUP BY Nombre_Autor, autor_correo ORDER BY Cantidad_de_Documentos_Catalogados DESC;";
+               
                 Connection conn = Fachada.conectar();
                 java.sql.Statement sentencia = conn.createStatement();
                 ResultSet tabla = sentencia.executeQuery(sql);
@@ -678,7 +679,7 @@ public class DaoEstadisticas {
         return null;   
      }
      
-  public ResultSet consultarDocumentosCatalogadosPorPalabraClave(){
+    public ResultSet consultarDocumentosCatalogadosPorPalabraClave(){
        try {
                 String sql="SELECT nombre AS Palabra_Clave, count(doc_id) AS Cantidad_de_Documentos_Catalogados FROM "
                         + "documento_palabras_clave NATURAL JOIN palabras_clave GROUP BY nombre ORDER BY Cantidad_de_Documentos_Catalogados DESC;";
@@ -715,4 +716,26 @@ public class DaoEstadisticas {
             }
         return null;   
      }
+ 
+ public ResultSet consultarDocumentosCatalogadosPorUsuarios(){
+       try {
+                String sql="SELECT username AS Usuario, nombres ||' '|| apellidos as Nombre_Usuario, count(doc_id) AS Cantidad_de_Documentos"
+                        + "_Catalogados FROM documentos NATURAL JOIN usuarios GROUP BY Usuario, Nombre_Usuario ORDER BY Cantidad_de_Documentos_"
+                        + "Catalogados DESC;";
+                Connection conn = Fachada.conectar();
+                java.sql.Statement sentencia = conn.createStatement();
+                ResultSet tabla = sentencia.executeQuery(sql);
+                conn.close();
+                return tabla;
+            }
+            catch (SQLException e) {
+                System.err.println(e);
+            } 
+            catch (Exception e) {
+                System.err.println(e);
+            }
+        return null;   
+     }
+ 
+ 
 }
