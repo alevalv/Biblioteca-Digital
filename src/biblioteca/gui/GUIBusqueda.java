@@ -548,7 +548,6 @@ public class GUIBusqueda extends javax.swing.JFrame {
     private void RecomendacionesDocumentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecomendacionesDocumentosActionPerformed
         if(!biblioteca.Main.BibliotecaDigital.LOGGED_USER.equals("dummyuser")){
             new GUIRecomendaciones(this).setVisible(true);
-            this.setVisible(false);
         }
         else
             JOptionPane.showMessageDialog(this, "Debe ingresar al sistema para obtener sus recomendaciones", "Error", JOptionPane.ERROR_MESSAGE);
