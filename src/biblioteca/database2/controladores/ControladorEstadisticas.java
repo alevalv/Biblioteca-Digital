@@ -57,13 +57,17 @@ public class ControladorEstadisticas {
        Salida.add(new Paragraph("\r\n"));
        Salida.add(new Paragraph("* Diagrama de Pastel y Diagrama de Barras: Documentos Descargados"));
        JFreeChart chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(Array2DtoArrayPlane),"Documentos Descargados");
-       bufferedImage = chart.createBufferedImage(400, 300);
+       bufferedImage = chart.createBufferedImage(500, 600);
        image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+       image.scaleAbsolute(250, 300);
+       image.setAlignment(Image.MIDDLE);
        Salida.add(image);
        Salida.add(new Paragraph("\r\n"));
-       chart=ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(Array2DtoArrayPlane), "Documentos Descargados", "Titulo Documento", "Numero de Descargados");
-       bufferedImage = chart.createBufferedImage(400, 300);
+       chart=ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(Array2DtoArrayPlane), "Documentos Descargados", "Identificador Documento", "Numero de Descargados");
+       bufferedImage = chart.createBufferedImage(1000, 500);
        image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+       image.scaleAbsolute(500, 250);
+       image.setAlignment(Image.MIDDLE);
        Salida.add(image);
        return Salida;
     }
@@ -77,7 +81,7 @@ public class ControladorEstadisticas {
         ResultSet rs = new DaoEstadisticas().documentosMasConsultados(dow, dom, month, year, tipo_usuario, franja, desde, hasta, area, autor, doc_tipo, usuario, todos);
         int total=0;
         ArrayList<ArrayList<String>> resultadosTabla = biblioteca.reportes.PdfCreator.resultSetToArrayList(rs);
-        ArrayList<String> Array2DtoArrayPlane = biblioteca.reportes.PdfCreator.Array2DtoArrayPlane(resultadosTabla,1,2);
+        ArrayList<String> Array2DtoArrayPlane = biblioteca.reportes.PdfCreator.Array2DtoArrayPlane(resultadosTabla,0,2);
         for(int i=1;i<resultadosTabla.size();i++){
             total+=Integer.parseInt(resultadosTabla.get(i).get(resultadosTabla.get(i).size()-1));
         }
@@ -88,13 +92,17 @@ public class ControladorEstadisticas {
        Salida.add(new Paragraph("\r\n"));
        Salida.add(new Paragraph("* Diagrama de Pastel y Diagrama de Barras: Documentos Consultados"));
        JFreeChart chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(Array2DtoArrayPlane),"Documentos Consultados");
-       bufferedImage = chart.createBufferedImage(400, 300);
+       bufferedImage = chart.createBufferedImage(500, 600);
        image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+       image.scaleAbsolute(250, 300);
+       image.setAlignment(Image.MIDDLE);
        Salida.add(image);
        Salida.add(new Paragraph("\r\n"));
-       chart=ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(Array2DtoArrayPlane), "Documentos Consultados", "Titulo Documento", "Numero de Consultas");
-       bufferedImage = chart.createBufferedImage(400, 300);
+       chart=ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(Array2DtoArrayPlane), "Documentos Consultados", "Identificador Documento", "Numero de Consultas");
+       bufferedImage = chart.createBufferedImage(1000, 500);
        image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+       image.scaleAbsolute(500, 250);
+       image.setAlignment(Image.MIDDLE);
        Salida.add(image);
         return Salida;
     }
@@ -263,7 +271,6 @@ public class ControladorEstadisticas {
             Salida.add(new Paragraph("* Ver Anexo: Diagrama de Pastel: Documentos Catalogados para los dias del mes"));
             Salida.add(new Paragraph("\r\n"));
             chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(Array2DtoArrayPlane),"Documentos Catalogados para los días del mes");
-            chart.setBackgroundImage(null);
             bufferedImage = chart.createBufferedImage(500, 600);
             image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
             image.scaleAbsolute(250, 300);
