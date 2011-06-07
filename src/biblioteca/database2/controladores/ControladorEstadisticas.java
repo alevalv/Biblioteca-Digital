@@ -222,7 +222,97 @@ public class ControladorEstadisticas {
        ArrayList<String> Array2DtoArrayPlane;
        PdfPTable tabla=null;
        int total=0;  
-       
+       if(dow){
+            ArrayList<String> tmp= controlador.consultarDocumentosCatalogadosPorDoW();
+            float promedio=promedio(tmp,2);
+            Salida.add(new Paragraph("Resultados de Documentos Catalogados para los días de la semana"));
+            Salida.add(new Paragraph("\r\n"));
+            Salida.add(biblioteca.reportes.PdfCreator.plainArrayListToPdfPTable(agregarPorcentajesALista(tmp, 2), 3));
+            Salida.add(new Paragraph("Promedio "+promedio));
+            Salida.add(new Paragraph("\r\n"));
+            Salida.add(new Paragraph("* Ver Anexo: Diagrama de Pastel: Documentos Catalogados para los dias de la Semana"));
+            Salida.add(new Paragraph("\r\n"));
+            chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(tmp),"Documentos Catalogados para los días de la semana");
+            bufferedImage = chart.createBufferedImage(400, 300);
+            image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+            Images.add(image);
+            Images.add(new Paragraph("\r\n"));
+            Salida.add(new Paragraph("* Ver Anexo: Diagrama de Barras: Documentos Catalogados para los dias de la Semana"));
+            Salida.add(new Paragraph("\r\n"));
+            chart = ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(tmp), "Documentos Catalogados para los días de la semana", "Días de la Semana", "Cantidad de Documentos Catalogados");
+            bufferedImage = chart.createBufferedImage(400, 300);
+            image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+            Images.add(image);
+            Images.add(new Paragraph("\r\n"));
+        }
+       if(dom){
+            ArrayList<String> tmp= controlador.consultarDocumentosCatalogadosPorDoM();
+            Salida.add(new Paragraph("Resultados de Documentos Catalogados para los días del mes"));
+            Salida.add(new Paragraph("\r\n"));
+            float promedio=promedio(tmp,2);
+            Salida.add(biblioteca.reportes.PdfCreator.plainArrayListToPdfPTable(agregarPorcentajesALista(tmp, 2), 3));
+            Salida.add(new Paragraph("Promedio "+promedio));
+            Salida.add(new Paragraph("\r\n"));
+            Salida.add(new Paragraph("* Ver Anexo: Diagrama de Pastel: Documentos Catalogados para los dias del mes"));
+            Salida.add(new Paragraph("\r\n"));
+            chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(tmp),"Documentos Catalogados para los días del mes");
+            bufferedImage = chart.createBufferedImage(400, 300);
+            image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+            Images.add(image);
+            Images.add(new Paragraph("\r\n"));
+            chart = ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(tmp), "Documentos Catalogados para los días del Mes", "Días del mes", "Documentos Catalogados");
+            bufferedImage = chart.createBufferedImage(400, 300);
+            image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+            Salida.add(new Paragraph("* Ver Anexo: Diagrama de Barras: Documentos Catalogados para los dias del mes"));
+            Salida.add(new Paragraph("\r\n"));
+            Images.add(image);
+            Images.add(new Paragraph("\r\n"));
+        }
+        if(month){
+            ArrayList<String> tmp= controlador.consultarDocumentosCatalogadosPorMes();
+            Salida.add(new Paragraph("Resultados de Documentos Catalogados para los meses"));
+            Salida.add(new Paragraph("\r\n"));
+            float promedio=promedio(tmp,2);
+            Salida.add(biblioteca.reportes.PdfCreator.plainArrayListToPdfPTable(agregarPorcentajesALista(tmp, 2), 3));
+            Salida.add(new Paragraph("Promedio "+promedio));
+            Salida.add(new Paragraph("\r\n"));
+            Salida.add(new Paragraph("* Ver Anexo: Diagrama de Pastel: Documentos Catalogados para los meses"));
+            Salida.add(new Paragraph("\r\n"));
+            chart = ChartCreator.generatePieChart(ChartCreator.asignarPieDataset(tmp),"Documentos Catalogados para los meses");
+            bufferedImage = chart.createBufferedImage(400, 300);
+            image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+            Images.add(image);
+            Images.add(new Paragraph("\r\n"));
+            Salida.add(new Paragraph("* Ver Anexo: Diagrama de Barras: Documentos Catalogados para los meses"));
+            Salida.add(new Paragraph("\r\n"));
+            chart = ChartCreator.generateBarChart(ChartCreator.asignarBarDataset(tmp), "Documentos Catalogados para los Meses", "Meses", "Documentos Catalogados");
+            bufferedImage = chart.createBufferedImage(400, 300);
+            image = Image.getInstance(EncoderUtil.encode(bufferedImage, "png"));
+            Images.add(image);
+            Images.add(new Paragraph("\r\n"));
+        }
+        if(year!=null){
+            ArrayList<String> tmp= controlador.consultarDocumentosCatalogadosPorYear(year);
+            Salida.add(new Paragraph("Resultados para el año seleccionado"));
+            Salida.add(new Paragraph("\r\n"));
+            Salida.add(new Paragraph(tmp.get(0)+" "+tmp.get(1)));
+            Salida.add(new Paragraph("\r\n"));
+        }
+        if(franja!=null){
+            ArrayList<String> tmp= controlador.consultarDocumentosCatalogadosPorFranja(franja[0], franja[1]);
+            Salida.add(new Paragraph("Resultados para la franja seleccionada"));
+            Salida.add(new Paragraph("\r\n"));
+            Salida.add(new Paragraph(tmp.get(0)+" "+tmp.get(1)));
+            Salida.add(new Paragraph("\r\n"));
+        }
+        if(desde!=null && Hasta !=null){
+            ArrayList<String> tmp= controlador.consultarDocumentosCatalogadosPorIntervalo(desde[0]+"-"+desde[1]+"-"+desde[2],
+                    Hasta[0]+"-"+Hasta[1]+"-"+Hasta[2]);
+            Salida.add(new Paragraph("Resultados para el intervalo de tiempo seleccionado"));
+            Salida.add(new Paragraph("\r\n"));
+            Salida.add(new Paragraph(tmp.get(0)+" "+tmp.get(1)));
+            Salida.add(new Paragraph("\r\n"));
+        }
        if(area){
            total=0;
            rs=controlador.consultarDocumentosCatalogadosPorArea();
