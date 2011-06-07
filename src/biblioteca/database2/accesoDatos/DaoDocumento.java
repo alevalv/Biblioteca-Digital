@@ -67,7 +67,6 @@ public class DaoDocumento {
                 + documento.getFechaPublicacion() + "','" + documento.getDerechosAutor() + "','"
                 + documento.getTipoMaterial() + "','" + documento.getFechaCatalogacion()+"','"
                 + usuario + "');";
-
         System.out.println(sql_agregar);
         try {
             Connection conn = Fachada.conectar();
@@ -169,7 +168,7 @@ public class DaoDocumento {
         String sql_modificar;
         sql_modificar = "UPDATE documentos SET ubicacion ='" + ubicacion + "' WHERE doc_id = '"
                 + id_documento + "';";
-        //System.out.println(sql_modificar);
+        System.out.println(sql_modificar);
         try {
             Connection conn = Fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -228,7 +227,7 @@ public class DaoDocumento {
                 + "ubicacion='" + documento.getUbicacion() + "',"
                 + "tipo_documento='" + documento.getTipoMaterial() + "'"
                 + "WHERE doc_id='" + documento.getID_documento() + "'";
-
+        
         try {
             Connection conn = Fachada.conectar();
             java.sql.Statement sentencia = conn.createStatement();
@@ -324,7 +323,7 @@ public class DaoDocumento {
             for (int i = 0; i < areas.size(); i++) {
                 sql_insertar = "INSERT INTO documento_areas_computacion VALUES ('"
                         + areas.get(i).getID() + "','" + id_documento + "');";
-                //System.out.println(sql_insertar);
+                System.out.println(sql_insertar);
                 sentencia.addBatch(sql_insertar);
             }
             sentencia.executeBatch();
@@ -348,7 +347,7 @@ public class DaoDocumento {
             for (int i = 0; i < PC.size(); i++) {
                 sql_insertar = "INSERT INTO documento_palabras_clave VALUES ('"
                         + id_documento + "','" + PC.get(i).getNombre() + "');";
-                //System.out.println(sql_insertar);
+                System.out.println(sql_insertar);
                 sentencia.addBatch(sql_insertar);
             }
             sentencia.executeBatch();
@@ -372,7 +371,7 @@ public class DaoDocumento {
             for (int i = 0; i < autores.size(); i++) {
                 sql_insertar = "INSERT INTO documento_autor VALUES ('"
                         + id_documento + "','" + autores.get(i).getCorreo() + "');";
-                //System.out.println(sql_insertar);
+                System.out.println(sql_insertar);
                 sentencia.addBatch(sql_insertar);
             }
             sentencia.executeBatch();
@@ -617,7 +616,7 @@ public class DaoDocumento {
         String sql_insertar;
         sql_insertar = "INSERT INTO usuario_consulta_documento (doc_id, username)"
                 + "VALUES ('" + id_documento + "','" + usuario + "');";
-        //System.out.println(sql_insertar);
+        System.out.println(sql_insertar);
         try {
             Connection conn = Fachada.conectar();
             java.sql.Statement sentencia = conn.createStatement();
@@ -640,7 +639,7 @@ public class DaoDocumento {
         String sql_insertar;
         sql_insertar = "INSERT INTO usuario_descarga_documento (doc_id, username)"
                 + "VALUES ('" + id_documento + "','" + usuario + "');";
-        //System.out.println(sql_insertar);
+        System.out.println(sql_insertar);
         try {
             Connection conn = Fachada.conectar();
             java.sql.Statement sentencia = conn.createStatement();
@@ -790,13 +789,11 @@ public class DaoDocumento {
              }
           }
        }
-       else if(autoropcion == 1)
-           {
+       else if(autoropcion == 1){
            SQL_Avanzado+=" nombre='"+autor.get(0)+"' )";
            SQL_AvanzadoUnion+=" apellido='"+autor.get(0)+"' )";
        }
-       else if(autoropcion == 2)
-           {
+       else if(autoropcion == 2){
             for(int i=0;i<autor.size();i++){
              if(autor.size()==1){
                 SQL_Avanzado+=" nombre ilike '%"+autor.get(i)+"%' )";
@@ -967,7 +964,7 @@ public class DaoDocumento {
    public ArrayList<String> consultarRecomendacionesDocumentos(String username, String fecha_registro, ArrayList<String> Areas){
        String sql_consultar = "SELECT DISTINCT documentos.doc_id, titulo_principal"
                 + " FROM documento_areas_computacion NATURAL JOIN documentos WHERE ";
-        sql_consultar += "fecha_catalogacion > " + fecha_registro+ " AND ( ";
+        sql_consultar += "fecha_catalogacion > '" + fecha_registro+ "' AND ( ";
 
         for (int i = 0; i < Areas.size(); i++) {
             sql_consultar+="area_id='"+Areas.get(i)+"' ";
