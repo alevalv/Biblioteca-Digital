@@ -277,6 +277,10 @@ public class PdfCreator {
         Univalle.setAlignment(Paragraph.ALIGN_CENTER);
         Paragraph pTitulo = new Paragraph(titulo, myFontTitle);
         pTitulo.setAlignment(Paragraph.ALIGN_CENTER);
+        Paragraph biblioteca=new Paragraph("Biblioteca Digital EISC", myFontTitle);
+        biblioteca.setAlignment(Paragraph.ALIGN_CENTER);
+        Paragraph developers=new Paragraph("Desarrollado por:\n María Cristina Bustos \n Alejandro Valdés Villada", myFontTitle);
+        developers.setAlignment(Paragraph.ALIGN_CENTER);
         Paragraph Fecha = new Paragraph("Fecha y Hora de Reporte: "+fecha,myFontTitle);
         document.open();
         // step 4
@@ -285,6 +289,10 @@ public class PdfCreator {
         document.add(Univalle);
         document.add(new Paragraph("\r\n"));
         document.add(pTitulo);        
+        document.add(new Paragraph("\r\n"));
+        document.add(biblioteca);        
+        document.add(new Paragraph("\r\n"));
+        document.add(developers);        
         document.add(new Paragraph("\r\n"));
         document.add(Fecha);
         document.add(new Paragraph("\r\n"));
@@ -325,6 +333,10 @@ public class PdfCreator {
         Univalle.setAlignment(Paragraph.ALIGN_CENTER);
         Paragraph pTitulo = new Paragraph(titulo, myFontTitle);
         pTitulo.setAlignment(Paragraph.ALIGN_CENTER);
+        Paragraph biblioteca=new Paragraph("Biblioteca Digital EISC", myFontTitle);
+        biblioteca.setAlignment(Paragraph.ALIGN_CENTER);
+        Paragraph developers=new Paragraph("Desarrollado por:\n María Cristina Bustos \n Alejandro Valdés Villada", myFontTitle);
+        developers.setAlignment(Paragraph.ALIGN_CENTER);
         Paragraph Fecha = new Paragraph("Fecha y Hora de Reporte: "+fecha,myFontTitle);
         //Paragraph Introduccion = new Paragraph("Reporte de usuarios registrados");
         document.open();
@@ -335,6 +347,11 @@ public class PdfCreator {
         document.add(new Paragraph("\r\n"));
         document.add(pTitulo);        
         document.add(new Paragraph("\r\n"));
+        document.add(biblioteca);        
+        document.add(new Paragraph("\r\n"));
+        document.add(developers);        
+        document.add(new Paragraph("\r\n"));
+        document.add(Fecha);
         document.add(Fecha);
         document.add(new Paragraph("\r\n"));
        // document.add(Introduccion);

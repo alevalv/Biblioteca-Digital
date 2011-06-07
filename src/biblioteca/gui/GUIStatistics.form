@@ -40,8 +40,8 @@
         <Container class="javax.swing.JPanel" name="jPanel1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Documentos m&#xe1;s descargados">
-                <Property name="tabTitle" type="java.lang.String" value="Documentos m&#xe1;s descargados"/>
+              <JTabbedPaneConstraints tabName="Documentos m&#xe1;s Descargados">
+                <Property name="tabTitle" type="java.lang.String" value="Documentos m&#xe1;s Descargados"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -822,8 +822,8 @@
         <Container class="javax.swing.JPanel" name="Panel_Documentos_Catalogados1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Documentos m&#xe1;s consultados">
-                <Property name="tabTitle" type="java.lang.String" value="Documentos m&#xe1;s consultados"/>
+              <JTabbedPaneConstraints tabName="Documentos m&#xe1;s Consultados">
+                <Property name="tabTitle" type="java.lang.String" value="Documentos m&#xe1;s Consultados"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>

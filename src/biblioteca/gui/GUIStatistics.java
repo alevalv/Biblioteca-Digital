@@ -692,7 +692,7 @@ public class GUIStatistics extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         jPanel1.add(Num_Doc1, gridBagConstraints);
 
-        jTabbedPane1.addTab("Documentos más descargados", jPanel1);
+        jTabbedPane1.addTab("Documentos más Descargados", jPanel1);
 
         Panel_Documentos_Catalogados1.setLayout(new java.awt.GridBagLayout());
 
@@ -1127,7 +1127,7 @@ public class GUIStatistics extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         Panel_Documentos_Catalogados1.add(Num_Doc, gridBagConstraints);
 
-        jTabbedPane1.addTab("Documentos más consultados", Panel_Documentos_Catalogados1);
+        jTabbedPane1.addTab("Documentos más Consultados", Panel_Documentos_Catalogados1);
 
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
