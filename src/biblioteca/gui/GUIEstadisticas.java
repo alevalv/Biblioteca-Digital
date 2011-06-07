@@ -174,8 +174,6 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         jComboBox23 = new javax.swing.JComboBox();
         jLabel29 = new javax.swing.JLabel();
         jComboBox24 = new javax.swing.JComboBox();
-        jLabel30 = new javax.swing.JLabel();
-        jComboBox25 = new javax.swing.JComboBox();
         jLabel13 = new javax.swing.JLabel();
         jComboBox26 = new javax.swing.JComboBox();
         AreasComboBoxPU = new javax.swing.JComboBox();
@@ -184,6 +182,8 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         jLabel80 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jCheckBox1 = new javax.swing.JCheckBox();
+        jComboBox1 = new javax.swing.JComboBox();
+        jLabel20 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         Panel_Documentos2 = new javax.swing.JPanel();
         jLabel52 = new javax.swing.JLabel();
@@ -357,7 +357,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         jLabel12.setText("Por Interes a Áreas de Conocimiento:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 17;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
         Panel_Usuarios.add(jLabel12, gridBagConstraints);
@@ -628,7 +628,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         jLabel29.setText("Por Genero:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
         Panel_Usuarios.add(jLabel29, gridBagConstraints);
@@ -637,30 +637,14 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         jComboBox24.setPreferredSize(new java.awt.Dimension(180, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
         Panel_Usuarios.add(jComboBox24, gridBagConstraints);
-
-        jLabel30.setText("Por Edad:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
-        Panel_Usuarios.add(jLabel30, gridBagConstraints);
-
-        jComboBox25.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cualquiera", "Menores de 18 años", "Entre 18 y 25 años", "Entre 25 y 35 años", "Mayores de 35 años" }));
-        jComboBox25.setPreferredSize(new java.awt.Dimension(180, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
-        Panel_Usuarios.add(jComboBox25, gridBagConstraints);
 
         jLabel13.setText("Por Estado de Cuenta");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
         Panel_Usuarios.add(jLabel13, gridBagConstraints);
@@ -669,7 +653,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         jComboBox26.setPreferredSize(new java.awt.Dimension(180, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
         Panel_Usuarios.add(jComboBox26, gridBagConstraints);
 
@@ -677,7 +661,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         AreasComboBoxPU.setPreferredSize(new java.awt.Dimension(180, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 17;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
@@ -717,7 +701,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 19;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         Panel_Usuarios.add(jButton1, gridBagConstraints);
@@ -725,10 +709,27 @@ public class GUIEstadisticas extends javax.swing.JFrame {
         jCheckBox1.setText("Intersectar");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         Panel_Usuarios.add(jCheckBox1, gridBagConstraints);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cualquiera", "Ninguno", "Pregrado", "Posgrado", "Egresado", "Profesor", "Jubilado" }));
+        jComboBox1.setPreferredSize(new java.awt.Dimension(180, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
+        Panel_Usuarios.add(jComboBox1, gridBagConstraints);
+
+        jLabel20.setText("Por Vinculo con Univalle");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
+        Panel_Usuarios.add(jLabel20, gridBagConstraints);
 
         jPanel1.add(Panel_Usuarios);
 
@@ -2406,7 +2407,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
       String dow = null, dom = null, month = null, year = null, tipo = null, genero = null, Estado = null;
-      String area = null;
+      String area = null, vinculo=null;
       String[] franja = null, desde = null, Hasta = null;
       
       if(!jCheckBox3.isSelected()){
@@ -2435,17 +2436,18 @@ public class GUIEstadisticas extends javax.swing.JFrame {
           if(jComboBox23.getSelectedIndex()!=0) tipo=jComboBox23.getSelectedIndex()+"";
           if(jComboBox26.getSelectedIndex()!=0) genero=jComboBox26.getSelectedIndex()+"";
           if(jComboBox24.getSelectedIndex()!=0) Estado=jComboBox24.getSelectedIndex()+"";
+          if(jComboBox1.getSelectedIndex()!=0) vinculo=jComboBox1.getSelectedItem()+"";
           if(AreasComboBoxPU.getSelectedIndex()!=0) area=areasExistentes.get(AreasComboBoxPU.getSelectedIndex()-1).getID();
        
         if(jCheckBox1.isSelected()){
             biblioteca.reportes.PdfCreator.createPdf("usuarios.pdf", "Reporte de Usuarios Registrados", "Total de usuarios registrados: ", 
                 new ControladorReportesEstadisticas().ConsultarListaUsuario(dow, dom, month, year, franja, desde, Hasta, tipo,
-             genero, Estado, area));
+             genero, Estado, area, vinculo));
         }
         else try {
             biblioteca.reportes.PdfCreator.createArrayListPdf("usuariosLista.pdf", "Reporte de Usuarios Registrados", "Total de usuarios registrados: ", 
             new ControladorReportesEstadisticas().ConsultarListaSeparadaUsuario(dow, dom, month, year, franja, desde, Hasta, tipo,
-            genero, Estado, area));
+            genero, Estado, area, vinculo));
         } catch (SQLException ex) {
             Logger.getLogger(GUIEstadisticas.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2881,6 +2883,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox7;
     private javax.swing.JCheckBox jCheckBox8;
     private javax.swing.JCheckBox jCheckBox9;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox10;
     private javax.swing.JComboBox jComboBox100;
     private javax.swing.JComboBox jComboBox101;
@@ -2908,7 +2911,6 @@ public class GUIEstadisticas extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBox20;
     private javax.swing.JComboBox jComboBox23;
     private javax.swing.JComboBox jComboBox24;
-    private javax.swing.JComboBox jComboBox25;
     private javax.swing.JComboBox jComboBox26;
     private javax.swing.JComboBox jComboBox68;
     private javax.swing.JComboBox jComboBox69;
@@ -2955,6 +2957,7 @@ public class GUIEstadisticas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
@@ -2962,7 +2965,6 @@ public class GUIEstadisticas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel52;

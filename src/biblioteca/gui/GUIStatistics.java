@@ -639,7 +639,7 @@ public class GUIStatistics extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 5);
         jPanel1.add(jLabel77, gridBagConstraints);
 
-        Reporte_Descargados.setText("Generar Reporte");
+        Reporte_Descargados.setText("Generar Estadisticas");
         Reporte_Descargados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Reporte_DescargadosActionPerformed(evt);
@@ -1059,7 +1059,7 @@ public class GUIStatistics extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
         Panel_Documentos_Catalogados1.add(jLabel4, gridBagConstraints);
 
-        Reporte_Consultados.setText("Generar Reporte");
+        Reporte_Consultados.setText("Generar Estadisticas");
         Reporte_Consultados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Reporte_ConsultadosActionPerformed(evt);
@@ -1293,7 +1293,7 @@ public class GUIStatistics extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 5);
         jPanel2.add(jCheckBox51, gridBagConstraints);
 
-        Reporte_Usuarios.setText("Generar Reporte");
+        Reporte_Usuarios.setText("Generar Estadisticas");
         Reporte_Usuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Reporte_UsuariosActionPerformed(evt);
@@ -1547,7 +1547,7 @@ public class GUIStatistics extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 5);
         Panel_Usuarios.add(jLabel85, gridBagConstraints);
 
-        jButton1.setText("Generar Reportes");
+        jButton1.setText("Generar Estadisticas");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

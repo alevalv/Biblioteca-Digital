@@ -26,8 +26,8 @@ import java.util.ArrayList;
 public class ControladorReportesEstadisticas {
         
    public PdfPTable ConsultarListaUsuario(String dow, String dom, String month, String year, String[] franja, String[] desde, String[] Hasta, String tipo,
-            String genero, String Estado, String area){
-       return biblioteca.reportes.PdfCreator.resultSetToTable(new DaoReportesEstadisticas().ConsultarListaUsuario(dow, dom, month, year, franja, desde, Hasta, tipo, genero, Estado, area));
+            String genero, String Estado, String area, String vinculo){
+       return biblioteca.reportes.PdfCreator.resultSetToTable(new DaoReportesEstadisticas().ConsultarListaUsuario(dow, dom, month, year, franja, desde, Hasta, tipo, genero, Estado, area, vinculo));
     }
 
     public PdfPTable ConsultarListaDocumentosExistentes(String area, String autor, String tipo, String editorial, String idioma, String estado, String[] desde, String[] hasta) {
@@ -49,8 +49,8 @@ public class ControladorReportesEstadisticas {
     //Resultados intersectados
    
     public ArrayList<PdfPTable> ConsultarListaSeparadaUsuario(String dow, String dom, String month, String year, String[] franja, String[] desde, String[] Hasta, String tipo,
-            String genero, String Estado, String area) throws SQLException{
-       return biblioteca.reportes.PdfCreator.resultSetsToTables(new DaoReportesEstadisticas().ConsultarListaSeparadaUsuario(dow, dom, month, year, franja, desde, Hasta, tipo, genero, Estado, area));
+            String genero, String Estado, String area,String vinculo) throws SQLException{
+       return biblioteca.reportes.PdfCreator.resultSetsToTables(new DaoReportesEstadisticas().ConsultarListaSeparadaUsuario(dow, dom, month, year, franja, desde, Hasta, tipo, genero, Estado, area, vinculo));
      }
     public ArrayList<PdfPTable> ConsultarListaSeparadaDocumentosExistentes(String area, String autor, String tipo, String editorial, String idioma, String estado, String[] desde, String[] hasta) {
        return biblioteca.reportes.PdfCreator.resultSetsToTables(new DaoReportesEstadisticas().ConsultarListaSeparadaDocumentosExistentes(area, autor, tipo, editorial, idioma, estado, desde, hasta));

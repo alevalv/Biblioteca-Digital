@@ -71,7 +71,7 @@ public class DaoReportesEstadisticas {
     ///Para panel usuarios
     //para la lista unida
     public ResultSet ConsultarListaUsuario(String dow, String dom, String month, String year, String[] franja, String[] desde, String[] Hasta, String tipo,
-            String genero, String Estado, String area){
+            String genero, String Estado, String area, String vinculo){
       
       String sql_consultar="", inter=" intersect ";
       int cont=0;
@@ -106,6 +106,11 @@ public class DaoReportesEstadisticas {
           cont++;
       sql_consultar+=ConsultarTipoUsuarios(tipo);}
       
+      if(!ConsultarVinculoUsuarios(vinculo).isEmpty())  {
+          if(cont>0) sql_consultar+=inter;
+          cont++;
+      sql_consultar+=ConsultarVinculoUsuarios(vinculo);}
+      
        if(!ConsultarGeneroUsuarios(genero).isEmpty())  {
           if(cont>0) sql_consultar+=inter;
           cont++;
@@ -120,7 +125,8 @@ public class DaoReportesEstadisticas {
           if(cont>0) sql_consultar+=inter;
           cont++;
       sql_consultar+=ConsultarAreasUsuarios(area);}
-           
+        
+     
       if(cont>0) sql_consultar+=";";
       
       System.out.println(sql_consultar);
@@ -140,7 +146,7 @@ public class DaoReportesEstadisticas {
     }
     
     //para la lista separada
-     public ArrayList<ResultSet> ConsultarListaSeparadaUsuario(String dow, String dom, String month, String year, String[] franja, String[] desde, String[] Hasta, String tipo, String genero, String Estado, String area) throws SQLException {
+     public ArrayList<ResultSet> ConsultarListaSeparadaUsuario(String dow, String dom, String month, String year, String[] franja, String[] desde, String[] Hasta, String tipo, String genero, String Estado, String area, String vinculo) throws SQLException {
   
       ArrayList<ResultSet> Consultas=new ArrayList<ResultSet>(10);
       NombreTablas=new ArrayList<String>(10);
@@ -177,6 +183,11 @@ public class DaoReportesEstadisticas {
       temp=ConsultarTipoUsuarios(tipo);
       if(!temp.isEmpty()){
           NombreTablas.add("Lista de Usuarios Registrados por tipo de usuario");
+          Consultas.add(ResultSetConsultarLista(temp));
+      }
+      temp=ConsultarVinculoUsuarios(vinculo);
+      if(!temp.isEmpty()) {
+          NombreTablas.add("Lista de Usuarios Registrados por Vinculo con Univalle");
           Consultas.add(ResultSetConsultarLista(temp));
       }
       temp=ConsultarGeneroUsuarios(genero);
@@ -268,6 +279,14 @@ public class DaoReportesEstadisticas {
         String consultar="";
         if(id_area != null){
             consultar="Select username, nombres, apellidos, fecha_registro from usuarios natural join usuario_areas_computacion where area_id='"+id_area+"' ";}
+        return consultar;
+    }
+    
+     private String ConsultarVinculoUsuarios(String vinculo){
+        String consultar="";
+        if(vinculo != null){
+            consultar="Select username, nombres, apellidos, fecha_registro from usuarios where vinculo_con_univalle='"+vinculo+"' ";
+             }
         return consultar;
     }
  //////////////////////////////////////////////////////////////////

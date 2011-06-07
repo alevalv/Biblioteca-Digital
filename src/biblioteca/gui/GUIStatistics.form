@@ -773,7 +773,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="Reporte_Descargados">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Generar Reporte"/>
+                <Property name="text" type="java.lang.String" value="Generar Estadisticas"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Reporte_DescargadosActionPerformed"/>
@@ -1546,7 +1546,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="Reporte_Consultados">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Generar Reporte"/>
+                <Property name="text" type="java.lang.String" value="Generar Estadisticas"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Reporte_ConsultadosActionPerformed"/>
@@ -2023,7 +2023,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="Reporte_Usuarios">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Generar Reporte"/>
+                <Property name="text" type="java.lang.String" value="Generar Estadisticas"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Reporte_UsuariosActionPerformed"/>
@@ -2534,7 +2534,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton1">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Generar Reportes"/>
+                    <Property name="text" type="java.lang.String" value="Generar Estadisticas"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
