@@ -72,13 +72,13 @@ public class Subir_Archivo extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridBagLayout());
 
-        jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 24));
         jLabel4.setText("Subir un Archivo");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 7;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 180, 0);
+        gridBagConstraints.insets = new java.awt.Insets(30, 0, 150, 0);
         add(jLabel4, gridBagConstraints);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biblioteca/gui/resources/logo.png"))); // NOI18N
@@ -99,7 +99,7 @@ public class Subir_Archivo extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.ipadx = 415;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 15);
         add(Path, gridBagConstraints);
 
         Seleccionar_Archivo.setText("Seleccionar Archivo");
@@ -112,7 +112,7 @@ public class Subir_Archivo extends javax.swing.JPanel {
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 10);
         add(Seleccionar_Archivo, gridBagConstraints);
 
         jLabel5.setFont(new java.awt.Font("Ubuntu", 0, 18));
@@ -123,7 +123,7 @@ public class Subir_Archivo extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.ipadx = 23;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 15);
         add(jLabel5, gridBagConstraints);
 
         Finalizar.setFont(new java.awt.Font("Ubuntu", 1, 15));
@@ -139,7 +139,7 @@ public class Subir_Archivo extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(160, 42, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(160, 42, 0, 10);
         add(Finalizar, gridBagConstraints);
 
         Estado.setFont(new java.awt.Font("Ubuntu", 0, 24));
@@ -151,7 +151,7 @@ public class Subir_Archivo extends javax.swing.JPanel {
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 38;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(170, 0, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(150, 15, 20, 0);
         add(Estado, gridBagConstraints);
 
         jLabel20.setForeground(new java.awt.Color(255, 0, 0));

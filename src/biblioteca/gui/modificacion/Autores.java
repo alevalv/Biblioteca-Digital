@@ -148,7 +148,7 @@ public class Autores extends javax.swing.JPanel {
         gridBagConstraints.ipadx = 527;
         gridBagConstraints.ipady = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 15);
         add(Autores, gridBagConstraints);
 
         Agregar.setText("Agregar Autor al Documento");
@@ -161,8 +161,8 @@ public class Autores extends javax.swing.JPanel {
         gridBagConstraints.gridx = 14;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 15);
         add(Agregar, gridBagConstraints);
 
         jSeparator1.setMinimumSize(new java.awt.Dimension(150, 6));
@@ -184,7 +184,7 @@ public class Autores extends javax.swing.JPanel {
         gridBagConstraints.gridy = 9;
         gridBagConstraints.gridwidth = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 5);
         add(jLabel2, gridBagConstraints);
 
         jLabel5.setFont(new java.awt.Font("Ubuntu", 0, 18));
@@ -194,7 +194,7 @@ public class Autores extends javax.swing.JPanel {
         gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 5);
         add(jLabel5, gridBagConstraints);
 
         jLabel6.setText("Correo Electronico:");
@@ -202,6 +202,7 @@ public class Autores extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         add(jLabel6, gridBagConstraints);
 
         jLabel7.setText("Nombre(s): ");
@@ -209,6 +210,7 @@ public class Autores extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 11;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         add(jLabel7, gridBagConstraints);
 
         jLabel8.setText("Apellido(s): ");
@@ -216,6 +218,7 @@ public class Autores extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         add(jLabel8, gridBagConstraints);
 
         Cancelar.setText("Cancelar Operación");
@@ -229,7 +232,7 @@ public class Autores extends javax.swing.JPanel {
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 15);
         add(Cancelar, gridBagConstraints);
 
         LimitadorDejTextField Autor_CorreoL=new LimitadorDejTextField(40);
@@ -240,7 +243,7 @@ public class Autores extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 405;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 15);
         add(Autor_Correo, gridBagConstraints);
 
         LimitadorDejTextField Autor_NombreL=new LimitadorDejTextField(30);
@@ -251,7 +254,7 @@ public class Autores extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 405;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 15);
         add(Autor_Nombre, gridBagConstraints);
 
         LimitadorDejTextField Autor_ApellidoL=new LimitadorDejTextField(30);
@@ -262,7 +265,7 @@ public class Autores extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 405;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 15);
         add(Autor_Apellido, gridBagConstraints);
 
         jLabel9.setText("Acronimo: ");
@@ -270,6 +273,7 @@ public class Autores extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 13;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         add(jLabel9, gridBagConstraints);
 
         LimitadorDejTextField Autor_AcronimoL=new LimitadorDejTextField(6);
@@ -280,7 +284,7 @@ public class Autores extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 405;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 15);
         add(Autor_Acronimo, gridBagConstraints);
 
         Estado.setFont(new java.awt.Font("Ubuntu", 0, 24));
@@ -341,7 +345,7 @@ public class Autores extends javax.swing.JPanel {
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 5);
         add(jLabel10, gridBagConstraints);
 
         Autores_Agregados.setColumns(20);
@@ -361,7 +365,7 @@ public class Autores extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 15);
         add(jScrollPane1, gridBagConstraints);
 
         jLabel18.setForeground(new java.awt.Color(255, 0, 0));
