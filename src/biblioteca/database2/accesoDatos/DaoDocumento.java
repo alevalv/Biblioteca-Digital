@@ -736,7 +736,7 @@ public class DaoDocumento {
        }
        else if(tituloopcion == 1)
            {
-           SQL_Avanzado+=" titulo_principal='"+titulo.get(0)+"' ";
+           SQL_Avanzado+=" titulo_principal ilike '"+titulo.get(0)+"' ";
        }
        else if(tituloopcion == 2)
            {
@@ -790,8 +790,8 @@ public class DaoDocumento {
           }
        }
        else if(autoropcion == 1){
-           SQL_Avanzado+=" nombre='"+autor.get(0)+"' )";
-           SQL_AvanzadoUnion+=" apellido='"+autor.get(0)+"' )";
+           SQL_Avanzado+=" nombre ilike '"+autor.get(0)+"' )";
+           SQL_AvanzadoUnion+=" apellido ilike '"+autor.get(0)+"' )";
        }
        else if(autoropcion == 2){
             for(int i=0;i<autor.size();i++){
@@ -860,7 +860,7 @@ public class DaoDocumento {
        }
        else if(pcopcion == 1)
            {
-           SQL_Avanzado+=" palabras_clave.nombre='"+pc.get(0)+"' ";
+           SQL_Avanzado+=" palabras_clave.nombre ilike '"+pc.get(0)+"' ";
        }
        else if(pcopcion == 2)
            {
