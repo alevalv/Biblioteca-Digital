@@ -62,6 +62,7 @@ public class GUIAgregarAutores extends javax.swing.JFrame {
         Autor_Nombre = new javax.swing.JTextField();
         Autor_Apellido = new javax.swing.JTextField();
         Autor_Acronimo = new javax.swing.JTextField();
+        jLabel48 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -76,8 +77,8 @@ public class GUIAgregarAutores extends javax.swing.JFrame {
         jLabel5.setText("Agregar un Autor");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 18;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 19;
         jPanel2.add(jLabel5, gridBagConstraints);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biblioteca/gui/resources/logo.png"))); // NOI18N
@@ -96,7 +97,7 @@ public class GUIAgregarAutores extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 14;
         gridBagConstraints.gridwidth = 18;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
@@ -107,6 +108,7 @@ public class GUIAgregarAutores extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(15, 20, 0, 0);
         jPanel2.add(jLabel9, gridBagConstraints);
 
         jLabel10.setText("Nombre(s): ");
@@ -114,6 +116,7 @@ public class GUIAgregarAutores extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 11;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(15, 5, 0, 0);
         jPanel2.add(jLabel10, gridBagConstraints);
 
         jLabel11.setText("Apellido(s): ");
@@ -121,6 +124,7 @@ public class GUIAgregarAutores extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(15, 5, 0, 0);
         jPanel2.add(jLabel11, gridBagConstraints);
 
         jLabel12.setText("Acronimo: ");
@@ -128,6 +132,7 @@ public class GUIAgregarAutores extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 13;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(15, 5, 0, 0);
         jPanel2.add(jLabel12, gridBagConstraints);
 
         jLabel18.setForeground(new java.awt.Color(255, 0, 0));
@@ -135,6 +140,7 @@ public class GUIAgregarAutores extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 13;
+        gridBagConstraints.insets = new java.awt.Insets(15, 0, 0, 0);
         jPanel2.add(jLabel18, gridBagConstraints);
 
         jLabel21.setForeground(new java.awt.Color(255, 0, 0));
@@ -142,6 +148,7 @@ public class GUIAgregarAutores extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 12;
+        gridBagConstraints.insets = new java.awt.Insets(15, 0, 0, 0);
         jPanel2.add(jLabel21, gridBagConstraints);
 
         jLabel22.setForeground(new java.awt.Color(255, 0, 0));
@@ -149,6 +156,7 @@ public class GUIAgregarAutores extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 11;
+        gridBagConstraints.insets = new java.awt.Insets(15, 0, 0, 0);
         jPanel2.add(jLabel22, gridBagConstraints);
 
         jLabel23.setForeground(new java.awt.Color(255, 0, 0));
@@ -156,6 +164,7 @@ public class GUIAgregarAutores extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 10;
+        gridBagConstraints.insets = new java.awt.Insets(15, 0, 0, 0);
         jPanel2.add(jLabel23, gridBagConstraints);
 
         LimitadorDejTextField Autor_CorreoL=new LimitadorDejTextField(40);
@@ -163,10 +172,10 @@ public class GUIAgregarAutores extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 10;
-        gridBagConstraints.gridwidth = 16;
+        gridBagConstraints.gridwidth = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 405;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(15, 5, 5, 10);
         jPanel2.add(Autor_Correo, gridBagConstraints);
 
         LimitadorDejTextField Autor_NombreL=new LimitadorDejTextField(30);
@@ -174,10 +183,10 @@ public class GUIAgregarAutores extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 11;
-        gridBagConstraints.gridwidth = 16;
+        gridBagConstraints.gridwidth = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 405;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(15, 5, 5, 10);
         jPanel2.add(Autor_Nombre, gridBagConstraints);
 
         LimitadorDejTextField Autor_ApellidoL=new LimitadorDejTextField(30);
@@ -185,10 +194,10 @@ public class GUIAgregarAutores extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 12;
-        gridBagConstraints.gridwidth = 16;
+        gridBagConstraints.gridwidth = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 405;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(15, 5, 5, 10);
         jPanel2.add(Autor_Apellido, gridBagConstraints);
 
         LimitadorDejTextField Autor_AcronimoL=new LimitadorDejTextField(6);
@@ -196,11 +205,18 @@ public class GUIAgregarAutores extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 13;
-        gridBagConstraints.gridwidth = 16;
+        gridBagConstraints.gridwidth = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 405;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(15, 5, 5, 10);
         jPanel2.add(Autor_Acronimo, gridBagConstraints);
+
+        jLabel48.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel48.setText("Biblioteca Digital");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 13;
+        gridBagConstraints.gridy = 1;
+        jPanel2.add(jLabel48, gridBagConstraints);
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
 
@@ -264,6 +280,7 @@ public class GUIAgregarAutores extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

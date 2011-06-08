@@ -67,6 +67,7 @@ public class GUIAgregarAreas extends javax.swing.JFrame {
         Agregar_Area = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -87,7 +88,7 @@ public class GUIAgregarAreas extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 15;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(15, 0, 0, 0);
         jPanel1.add(Area_Nombre, gridBagConstraints);
 
         jLabel6.setText("Nombre: ");
@@ -95,6 +96,7 @@ public class GUIAgregarAreas extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(15, 0, 0, 0);
         jPanel1.add(jLabel6, gridBagConstraints);
 
         jLabel19.setForeground(new java.awt.Color(255, 0, 0));
@@ -102,6 +104,7 @@ public class GUIAgregarAreas extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 10;
+        gridBagConstraints.insets = new java.awt.Insets(15, 0, 0, 0);
         jPanel1.add(jLabel19, gridBagConstraints);
 
         jLabel1.setText("Descripción: ");
@@ -109,6 +112,7 @@ public class GUIAgregarAreas extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 11;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(15, 0, 0, 0);
         jPanel1.add(jLabel1, gridBagConstraints);
 
         jLabel20.setForeground(new java.awt.Color(255, 0, 0));
@@ -116,6 +120,7 @@ public class GUIAgregarAreas extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 11;
+        gridBagConstraints.insets = new java.awt.Insets(15, 0, 0, 0);
         jPanel1.add(jLabel20, gridBagConstraints);
 
         LimitadorDejTextField Area_DescripcionL=new LimitadorDejTextField(200);
@@ -126,7 +131,7 @@ public class GUIAgregarAreas extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 15;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(15, 0, 0, 0);
         jPanel1.add(Area_Descripcion, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -136,7 +141,7 @@ public class GUIAgregarAreas extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipady = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(15, 0, 0, 0);
         jPanel1.add(Area_Padre, gridBagConstraints);
 
         jLabel7.setText("Área Padre: ");
@@ -144,6 +149,7 @@ public class GUIAgregarAreas extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(15, 0, 0, 0);
         jPanel1.add(jLabel7, gridBagConstraints);
 
         Agregar_Area.setText("Agregar Área de Interes");
@@ -156,7 +162,7 @@ public class GUIAgregarAreas extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 13;
         gridBagConstraints.gridwidth = 17;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(15, 0, 10, 0);
         jPanel1.add(Agregar_Area, gridBagConstraints);
 
         jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 24));
@@ -165,6 +171,7 @@ public class GUIAgregarAreas extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 17;
+        gridBagConstraints.insets = new java.awt.Insets(15, 0, 0, 0);
         jPanel1.add(jLabel4, gridBagConstraints);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biblioteca/gui/resources/logo.png"))); // NOI18N
@@ -174,7 +181,14 @@ public class GUIAgregarAreas extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 13;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         jPanel1.add(jLabel3, gridBagConstraints);
+
+        jLabel48.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel48.setText("Biblioteca Digital");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.insets = new java.awt.Insets(30, 0, 0, 0);
+        jPanel1.add(jLabel48, gridBagConstraints);
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -248,6 +262,7 @@ public class GUIAgregarAreas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;

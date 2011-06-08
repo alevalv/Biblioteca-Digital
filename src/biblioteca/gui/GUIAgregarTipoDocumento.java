@@ -56,6 +56,7 @@ public class GUIAgregarTipoDocumento extends javax.swing.JFrame {
         Agregar = new javax.swing.JButton();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -71,6 +72,7 @@ public class GUIAgregarTipoDocumento extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 20, 0, 0);
         jPanel4.add(jLabel16, gridBagConstraints);
 
         jLabel17.setText("Descripción: ");
@@ -79,6 +81,7 @@ public class GUIAgregarTipoDocumento extends javax.swing.JFrame {
         gridBagConstraints.gridy = 9;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 20, 0, 0);
         jPanel4.add(jLabel17, gridBagConstraints);
 
         jLabel26.setForeground(new java.awt.Color(255, 0, 0));
@@ -105,7 +108,7 @@ public class GUIAgregarTipoDocumento extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 300;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 20);
         jPanel4.add(Tipo_Nombre, gridBagConstraints);
 
         Tipo_Descripcion.setColumns(20);
@@ -126,7 +129,7 @@ public class GUIAgregarTipoDocumento extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 20);
         jPanel4.add(jScrollPane2, gridBagConstraints);
 
         Agregar.setText("Agregar");
@@ -139,7 +142,7 @@ public class GUIAgregarTipoDocumento extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 11;
         gridBagConstraints.gridwidth = 18;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 20, 5);
         jPanel4.add(Agregar, gridBagConstraints);
 
         jLabel28.setFont(new java.awt.Font("Ubuntu", 1, 24));
@@ -156,7 +159,14 @@ public class GUIAgregarTipoDocumento extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 11;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 10, 20, 0);
         jPanel4.add(jLabel29, gridBagConstraints);
+
+        jLabel48.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel48.setText("Biblioteca Digital");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 20);
+        jPanel4.add(jLabel48, gridBagConstraints);
 
         getContentPane().add(jPanel4, java.awt.BorderLayout.CENTER);
 
@@ -207,6 +217,7 @@ public class GUIAgregarTipoDocumento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel48;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
