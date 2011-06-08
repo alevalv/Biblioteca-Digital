@@ -95,7 +95,7 @@ public class Subir_Archivo extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.ipadx = 415;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 15);
         add(Path, gridBagConstraints);
 
         Seleccionar_Archivo.setText("Seleccionar Archivo");
@@ -108,10 +108,10 @@ public class Subir_Archivo extends javax.swing.JPanel {
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 15);
         add(Seleccionar_Archivo, gridBagConstraints);
 
-        jLabel5.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Ubuntu", 0, 18));
         jLabel5.setText("Por favor, seleccione el archivo o digite su path:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -119,10 +119,10 @@ public class Subir_Archivo extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.ipadx = 23;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 15);
         add(jLabel5, gridBagConstraints);
 
-        Finalizar.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        Finalizar.setFont(new java.awt.Font("Ubuntu", 1, 15));
         Finalizar.setText("Finalizar");
         Finalizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,7 +147,7 @@ public class Subir_Archivo extends javax.swing.JPanel {
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 38;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(170, 0, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(170, 0, 15, 0);
         add(Estado, gridBagConstraints);
 
         jLabel20.setForeground(new java.awt.Color(255, 0, 0));

@@ -130,7 +130,7 @@ public class Tipo_Documento extends javax.swing.JPanel {
         gridBagConstraints.ipadx = 350;
         gridBagConstraints.ipady = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 5);
         add(Tipos_Documento, gridBagConstraints);
 
         jLabel10.setFont(new java.awt.Font("Ubuntu", 0, 18));
@@ -140,7 +140,7 @@ public class Tipo_Documento extends javax.swing.JPanel {
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 5);
         add(jLabel10, gridBagConstraints);
 
         Obtener_Descripcion.setText("Obtener Descripción");
@@ -154,7 +154,7 @@ public class Tipo_Documento extends javax.swing.JPanel {
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 15);
         add(Obtener_Descripcion, gridBagConstraints);
 
         Descripcion.setColumns(20);
@@ -172,7 +172,7 @@ public class Tipo_Documento extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 15);
         add(jScrollPane1, gridBagConstraints);
 
         jSeparator1.setMinimumSize(new java.awt.Dimension(150, 6));
@@ -194,7 +194,7 @@ public class Tipo_Documento extends javax.swing.JPanel {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 5);
         add(jLabel11, gridBagConstraints);
 
         jLabel12.setFont(new java.awt.Font("Ubuntu", 0, 18));
@@ -204,7 +204,7 @@ public class Tipo_Documento extends javax.swing.JPanel {
         gridBagConstraints.gridy = 7;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 5);
         add(jLabel12, gridBagConstraints);
 
         jLabel1.setText("Nombre: ");
@@ -212,6 +212,7 @@ public class Tipo_Documento extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         add(jLabel1, gridBagConstraints);
 
         LimitadorDejTextField Tipo_NombreL=new LimitadorDejTextField(20);
@@ -223,7 +224,7 @@ public class Tipo_Documento extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 300;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 15);
         add(Tipo_Nombre, gridBagConstraints);
 
         jLabel2.setText("Descripción: ");
@@ -232,10 +233,11 @@ public class Tipo_Documento extends javax.swing.JPanel {
         gridBagConstraints.gridy = 9;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         add(jLabel2, gridBagConstraints);
 
         Tipo_Descripcion.setColumns(20);
-        Tipo_Descripcion.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        Tipo_Descripcion.setFont(new java.awt.Font("Tahoma", 0, 11));
         Tipo_Descripcion.setRows(5);
         LimitadorDejTextField Tipo_DescripcionL=new LimitadorDejTextField(200);
         Tipo_Descripcion.setDocument(Tipo_DescripcionL);
@@ -252,7 +254,7 @@ public class Tipo_Documento extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 15);
         add(jScrollPane2, gridBagConstraints);
 
         Agregar.setText("Agregar");
@@ -306,7 +308,7 @@ public class Tipo_Documento extends javax.swing.JPanel {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 15);
         add(Editar, gridBagConstraints);
 
         jSeparator2.setMinimumSize(new java.awt.Dimension(150, 6));

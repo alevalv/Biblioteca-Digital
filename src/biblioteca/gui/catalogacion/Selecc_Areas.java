@@ -115,6 +115,7 @@ public class Selecc_Areas extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 13;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
         add(jLabel3, gridBagConstraints);
 
         jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 24));
@@ -132,7 +133,7 @@ public class Selecc_Areas extends javax.swing.JPanel {
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 5);
         add(jLabel5, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -142,7 +143,7 @@ public class Selecc_Areas extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 350;
         gridBagConstraints.ipady = 2;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 15);
         add(Areas, gridBagConstraints);
 
         Cancelar.setText("Cancelar Operación");
@@ -156,7 +157,7 @@ public class Selecc_Areas extends javax.swing.JPanel {
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 15);
         add(Cancelar, gridBagConstraints);
 
         Agregar.setText("Agregar Área al Documento");
@@ -170,7 +171,7 @@ public class Selecc_Areas extends javax.swing.JPanel {
         gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 15);
         add(Agregar, gridBagConstraints);
 
         jSeparator1.setMinimumSize(new java.awt.Dimension(150, 6));
@@ -193,7 +194,7 @@ public class Selecc_Areas extends javax.swing.JPanel {
         gridBagConstraints.gridy = 9;
         gridBagConstraints.gridwidth = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 5);
         add(jLabel2, gridBagConstraints);
 
         jLabel6.setText("Nombre: ");
@@ -201,6 +202,7 @@ public class Selecc_Areas extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         add(jLabel6, gridBagConstraints);
 
         LimitadorDejTextField AreaL=new LimitadorDejTextField(70);
@@ -212,7 +214,7 @@ public class Selecc_Areas extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 300;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 15);
         add(Area_Nombre, gridBagConstraints);
 
         jLabel1.setText("Descripción: ");
@@ -220,6 +222,7 @@ public class Selecc_Areas extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 11;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         add(jLabel1, gridBagConstraints);
 
         LimitadorDejTextField Area_DescripcionL=new LimitadorDejTextField(200);
@@ -231,7 +234,7 @@ public class Selecc_Areas extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 300;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 15);
         add(Area_Descripcion, gridBagConstraints);
 
         jLabel7.setText("Área Padre: ");
@@ -239,6 +242,7 @@ public class Selecc_Areas extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         add(jLabel7, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -249,7 +253,7 @@ public class Selecc_Areas extends javax.swing.JPanel {
         gridBagConstraints.ipadx = 300;
         gridBagConstraints.ipady = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 15);
         add(Area_Padre, gridBagConstraints);
 
         Siguiente.setFont(new java.awt.Font("Ubuntu", 1, 15));
@@ -264,7 +268,7 @@ public class Selecc_Areas extends javax.swing.JPanel {
         gridBagConstraints.gridy = 15;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 15);
         add(Siguiente, gridBagConstraints);
 
         Estado.setFont(new java.awt.Font("Ubuntu", 0, 24));
@@ -310,7 +314,7 @@ public class Selecc_Areas extends javax.swing.JPanel {
         gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 5);
         add(jLabel8, gridBagConstraints);
 
         Areas_Agregadas.setColumns(20);
@@ -329,7 +333,7 @@ public class Selecc_Areas extends javax.swing.JPanel {
         gridBagConstraints.ipady = 40;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 15);
         add(jScrollPane1, gridBagConstraints);
 
         jLabel19.setForeground(new java.awt.Color(255, 0, 0));

@@ -113,7 +113,7 @@ public class Autor {
      */
     @Override
     public String toString(){
-        return correo+" - "+nombre+" "+apellido+" - "+acronimo;
+        return nombre+" "+apellido+" - "+acronimo;
     }
 
 }

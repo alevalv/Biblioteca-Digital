@@ -96,6 +96,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         add(jLabel1, gridBagConstraints);
 
         Titulo_Principal.setPreferredSize(new java.awt.Dimension(200, 28));
@@ -108,7 +109,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 350;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 15);
         add(Titulo_Principal, gridBagConstraints);
 
         jLabel2.setText("Titulo Secundario: ");
@@ -116,6 +117,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         add(jLabel2, gridBagConstraints);
 
         Titulo_Secundario.setPreferredSize(new java.awt.Dimension(200, 28));
@@ -128,7 +130,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 350;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 15);
         add(Titulo_Secundario, gridBagConstraints);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biblioteca/gui/resources/logo.png"))); // NOI18N
@@ -138,6 +140,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 20;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         add(jLabel3, gridBagConstraints);
 
         jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 24));
@@ -155,6 +158,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.gridy = 5;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         add(jLabel5, gridBagConstraints);
 
         LimitadorDejTextField DescripcionL=new LimitadorDejTextField(500);
@@ -176,7 +180,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.ipady = 80;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 15);
         add(jScrollPane1, gridBagConstraints);
 
         jLabel6.setText("Idioma:");
@@ -184,6 +188,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         add(jLabel6, gridBagConstraints);
 
         Idioma.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Español", "Inglés", "Francés", "Aleman", "Portugués", "Otro" }));
@@ -201,6 +206,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         add(jLabel7, gridBagConstraints);
 
         LimitadorDejTextField EditorialL=new LimitadorDejTextField(30);
@@ -212,7 +218,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 350;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 15);
         add(Editorial, gridBagConstraints);
 
         jLabel8.setText("Fecha Publicación:");
@@ -220,6 +226,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         add(jLabel8, gridBagConstraints);
 
         jLabel9.setText("Derechos de Autor: ");
@@ -227,6 +234,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         add(jLabel9, gridBagConstraints);
 
         LimitadorDejTextField Derechos_AutorL=new LimitadorDejTextField(40);
@@ -238,7 +246,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 350;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 15);
         add(Derechos_Autor, gridBagConstraints);
 
         Estado.setFont(new java.awt.Font("Ubuntu", 0, 24));
@@ -264,7 +272,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.gridy = 11;
         gridBagConstraints.gridwidth = 11;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 15);
         add(Siguiente, gridBagConstraints);
 
         Editar.setText("Editar");
@@ -279,7 +287,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 15);
         add(Editar, gridBagConstraints);
 
         DiaComboBox.setFont(new java.awt.Font("Arial", 0, 11));
@@ -303,7 +311,7 @@ public class Informacion_Basica extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(MesComboBox, gridBagConstraints);
 
-        AnoComboBox.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        AnoComboBox.setFont(new java.awt.Font("Arial", 0, 11));
         AnoComboBox.setMaximumRowCount(60);
         AnoComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2010", "2009", "2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970", "1969", "1968", "1967", "1966", "1965", "1964", "1963", "1962", "1961", "1960", "1959", "1958", "1957", "1956", "1955", "1954", "1953", "1952", "1951", "1950", "1949", "1948", "1947", "1946", "1945", "1944", "1943", "1942", "1941", "1940" }));
         gridBagConstraints = new java.awt.GridBagConstraints();

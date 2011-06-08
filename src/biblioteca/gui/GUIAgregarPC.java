@@ -55,6 +55,7 @@ public class GUIAgregarPC extends javax.swing.JFrame {
         PC_Nombre = new javax.swing.JTextField();
         PC_Descripcion = new javax.swing.JTextField();
         Agregar_Palabra_Clave = new javax.swing.JButton();
+        jLabel48 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -73,6 +74,7 @@ public class GUIAgregarPC extends javax.swing.JFrame {
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = -5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(15, 20, 10, 0);
         jPanel3.add(jLabel13, gridBagConstraints);
 
         jLabel14.setFont(new java.awt.Font("Ubuntu", 1, 24));
@@ -81,6 +83,7 @@ public class GUIAgregarPC extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 16;
+        gridBagConstraints.insets = new java.awt.Insets(15, 0, 15, 0);
         jPanel3.add(jLabel14, gridBagConstraints);
 
         jLabel15.setText("Nombre: ");
@@ -88,6 +91,7 @@ public class GUIAgregarPC extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 20, 10, 0);
         jPanel3.add(jLabel15, gridBagConstraints);
 
         jLabel2.setText("Descripción: ");
@@ -95,6 +99,7 @@ public class GUIAgregarPC extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 11;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 20, 10, 0);
         jPanel3.add(jLabel2, gridBagConstraints);
 
         jLabel24.setForeground(new java.awt.Color(255, 0, 0));
@@ -102,6 +107,7 @@ public class GUIAgregarPC extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 11;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
         jPanel3.add(jLabel24, gridBagConstraints);
 
         jLabel25.setForeground(new java.awt.Color(255, 0, 0));
@@ -109,6 +115,7 @@ public class GUIAgregarPC extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 10;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
         jPanel3.add(jLabel25, gridBagConstraints);
 
         LimitadorDejTextField PCL=new LimitadorDejTextField(70);
@@ -119,7 +126,7 @@ public class GUIAgregarPC extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 350;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 20);
         jPanel3.add(PC_Nombre, gridBagConstraints);
 
         LimitadorDejTextField PC_DescripcionL=new LimitadorDejTextField(200);
@@ -130,7 +137,7 @@ public class GUIAgregarPC extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 350;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 20);
         jPanel3.add(PC_Descripcion, gridBagConstraints);
 
         Agregar_Palabra_Clave.setText("Agregar Palabra Clave");
@@ -143,8 +150,16 @@ public class GUIAgregarPC extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 12;
         gridBagConstraints.gridwidth = 16;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 15, 5);
         jPanel3.add(Agregar_Palabra_Clave, gridBagConstraints);
+
+        jLabel48.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel48.setText("Biblioteca Digital");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(15, 0, 10, 20);
+        jPanel3.add(jLabel48, gridBagConstraints);
 
         getContentPane().add(jPanel3, java.awt.BorderLayout.CENTER);
 
@@ -196,6 +211,7 @@ public class GUIAgregarPC extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel48;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }
