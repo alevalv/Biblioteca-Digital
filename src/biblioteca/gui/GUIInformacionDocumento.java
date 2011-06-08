@@ -200,7 +200,7 @@ public class GUIInformacionDocumento extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
         getContentPane().add(Titulo_Secundario, gridBagConstraints);
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabel6.setText("Editorial: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -309,6 +309,8 @@ public class GUIInformacionDocumento extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         getContentPane().add(Descargar, gridBagConstraints);
+
+        Autores.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
@@ -317,7 +319,7 @@ public class GUIInformacionDocumento extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
         getContentPane().add(Autores, gridBagConstraints);
 
-        jLabel11.setFont(new java.awt.Font("Ubuntu", 1, 11)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Ubuntu", 1, 11));
         jLabel11.setText("Autores: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
